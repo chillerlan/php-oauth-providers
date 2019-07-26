@@ -9,7 +9,7 @@
 
 namespace chillerlan\OAuthExamples;
 
-use chillerlan\OAuth\Providers\{Discogs\Discogs, LastFM\LastFM, Spotify\Spotify};
+use chillerlan\OAuth\Providers;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
@@ -21,7 +21,8 @@ $options = null;
 require_once __DIR__.'/../vendor/chillerlan/php-oauth-core/examples/oauth-example-common.php';
 
 $providers = [
-	Discogs::class,
-	LastFM::class,
-	Spotify::class,
+	Providers\Discogs\Discogs::class,
+	Providers\LastFM\LastFM::class,
+	Providers\MusicBrainz\MusicBrainz::class,
+	Providers\Spotify\Spotify::class,
 ];
