@@ -25,4 +25,6 @@ $providers = [
 	Providers\LastFM\LastFM::class,
 	Providers\MusicBrainz\MusicBrainz::class,
 	Providers\Spotify\Spotify::class,
+	Providers\Twitter\Twitter::class,
+	Providers\Twitter\Twitter2::class,
 ];
