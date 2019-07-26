@@ -27,5 +27,6 @@ $providers = [
 	Providers\Spotify\Spotify::class,
 	Providers\Twitter\Twitter::class,
 	Providers\Twitter\Twitter2::class,
+	Providers\Vimeo\Vimeo::class,
 	Providers\Wordpress\Wordpress::class,
 ];
