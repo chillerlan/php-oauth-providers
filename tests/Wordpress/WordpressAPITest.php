@@ -29,7 +29,7 @@ class WordpressAPITest extends OAuth2APITestAbstract{
 	protected function setUp():void{
 		parent::setUp();
 
-		$this->testuser = $this->dotEnv->WORDPRESS_TESTUSER_NAME;
+		$this->testuser = $this->dotEnv->WORDPRESS_TESTUSER;
 	}
 
 	public function testMe(){
