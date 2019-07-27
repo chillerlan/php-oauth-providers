@@ -27,6 +27,7 @@ $providers = [
 	Providers\Flickr\Flickr::class,
 	Providers\Foursquare\Foursquare::class,
 	Providers\Gitter\Gitter::class,
+	Providers\Instagram\Instagram::class,
 	Providers\LastFM\LastFM::class,
 	Providers\Mixcloud\Mixcloud::class,
 	Providers\MusicBrainz\MusicBrainz::class,
