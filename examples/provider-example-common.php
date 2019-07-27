@@ -31,6 +31,8 @@ $providers = [
 	Providers\Foursquare\Foursquare::class,
 	Providers\GitHub\GitHub::class,
 	Providers\Gitter\Gitter::class,
+	Providers\Google\Google::class,
+	Providers\Google\Youtube::class,
 	Providers\Instagram\Instagram::class,
 	Providers\LastFM\LastFM::class,
 	Providers\MailChimp\MailChimp::class,
