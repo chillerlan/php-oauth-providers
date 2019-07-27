@@ -33,6 +33,7 @@ $providers = [
 	Providers\MusicBrainz\MusicBrainz::class,
 	Providers\SoundCloud\SoundCloud::class,
 	Providers\Spotify\Spotify::class,
+	Providers\Stripe\Stripe::class,
 	Providers\Tumblr\Tumblr::class,
 	Providers\Twitter\Twitter::class,
 	Providers\Twitter\Twitter2::class,
