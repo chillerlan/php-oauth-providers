@@ -31,6 +31,7 @@ $providers = [
 	Providers\LastFM\LastFM::class,
 	Providers\Mixcloud\Mixcloud::class,
 	Providers\MusicBrainz\MusicBrainz::class,
+	Providers\Slack\Slack::class,
 	Providers\SoundCloud\SoundCloud::class,
 	Providers\Spotify\Spotify::class,
 	Providers\Stripe\Stripe::class,
