@@ -48,6 +48,7 @@ $providers = [
 	Providers\Spotify\Spotify::class,
 	Providers\Stripe\Stripe::class,
 	Providers\Tumblr\Tumblr::class,
+	Providers\Twitch\Twitch::class,
 	Providers\Twitter\Twitter::class,
 	Providers\Twitter\Twitter2::class,
 	Providers\Vimeo\Vimeo::class,
