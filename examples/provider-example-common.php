@@ -29,6 +29,7 @@ $providers = [
 	Providers\Gitter\Gitter::class,
 	Providers\Instagram\Instagram::class,
 	Providers\LastFM\LastFM::class,
+	Providers\MailChimp\MailChimp::class,
 	Providers\Mastodon\Mastodon::class,
 	Providers\Mixcloud\Mixcloud::class,
 	Providers\MusicBrainz\MusicBrainz::class,
