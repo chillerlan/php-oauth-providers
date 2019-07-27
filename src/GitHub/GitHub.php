@@ -15,14 +15,13 @@
 
 namespace chillerlan\OAuth\Providers\GitHub;
 
-use chillerlan\OAuth\Core\{CSRFToken, OAuth2CSRFTokenTrait, OAuth2Provider};
+use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider};
 
 /**
  * @method \Psr\Http\Message\ResponseInterface getUser(string $username)
  * @method \Psr\Http\Message\ResponseInterface me()
  */
 class GitHub extends OAuth2Provider implements CSRFToken{
-	use OAuth2CSRFTokenTrait;
 
 	const SCOPE_USER             = 'user';
 	const SCOPE_USER_EMAIL       = 'user:email';

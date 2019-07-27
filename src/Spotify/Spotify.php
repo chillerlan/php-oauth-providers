@@ -15,10 +15,7 @@
 
 namespace chillerlan\OAuth\Providers\Spotify;
 
-use chillerlan\OAuth\Core\{
-	ClientCredentials, CSRFToken, OAuth2CSRFTokenTrait, OAuth2ClientCredentialsTrait,
-	OAuth2Provider, OAuth2TokenRefreshTrait, TokenExpires, TokenRefresh,
-};
+use chillerlan\OAuth\Core\{ClientCredentials, CSRFToken, OAuth2Provider, TokenExpires, TokenRefresh};
 
 /**
  * @method \Psr\Http\Message\ResponseInterface album(string $id, array $params = ['market'])

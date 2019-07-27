@@ -15,7 +15,7 @@
 
 namespace chillerlan\OAuth\Providers\BigCartel;
 
-use chillerlan\OAuth\Core\{CSRFToken, OAuth2CSRFTokenTrait, OAuth2Provider};
+use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider};
 
 /**
  * @method \Psr\Http\Message\ResponseInterface account()
@@ -46,7 +46,6 @@ use chillerlan\OAuth\Core\{CSRFToken, OAuth2CSRFTokenTrait, OAuth2Provider};
  * @method \Psr\Http\Message\ResponseInterface updateOrder(string $account_id, string $order_id, array $body = ['id', 'type', 'customer_first_name', 'customer_last_name', 'customer_email', 'shipping_address_1', 'shipping_address_2', 'shipping_city', 'shipping_state', 'shipping_zip', 'shipping_country_id', 'shipping_status'])
  */
 class BigCartel extends OAuth2Provider implements CSRFToken{
-	use OAuth2CSRFTokenTrait;
 
 	protected $apiURL         = 'https://api.bigcartel.com/v1';
 	protected $authURL        = 'https://my.bigcartel.com/oauth/authorize';

@@ -15,7 +15,7 @@
 
 namespace chillerlan\OAuth\Providers\Instagram;
 
-use chillerlan\OAuth\Core\{CSRFToken, OAuth2CSRFTokenTrait, OAuth2Provider};
+use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider};
 
 /**
  * @method \Psr\Http\Message\ResponseInterface locationRecentMedia(string $location_id, array $params = ['max_id', 'min_id', 'count'])
@@ -44,7 +44,6 @@ use chillerlan\OAuth\Core\{CSRFToken, OAuth2CSRFTokenTrait, OAuth2Provider};
  * @method \Psr\Http\Message\ResponseInterface tagsRecentMedia(string $tagname, array $params = ['max_tag_id', 'min_tag_id', 'count'])
  */
 class Instagram extends OAuth2Provider implements CSRFToken{
-	use OAuth2CSRFTokenTrait;
 
 	public const SCOPE_BASIC          = 'basic';
 	public const SCOPE_COMMENTS       = 'comments';

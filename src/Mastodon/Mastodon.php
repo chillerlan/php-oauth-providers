@@ -15,7 +15,7 @@
 
 namespace chillerlan\OAuth\Providers\Mastodon;
 
-use chillerlan\OAuth\Core\{CSRFToken, OAuth2CSRFTokenTrait, OAuth2Provider, OAuth2TokenRefreshTrait, TokenExpires, TokenRefresh};
+use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, TokenExpires, TokenRefresh};
 use chillerlan\OAuth\OAuthException;
 
 /**
@@ -96,7 +96,6 @@ use chillerlan\OAuth\OAuthException;
  * @method \Psr\Http\Message\ResponseInterface userSearch(array $params = ['q', 'limit', 'following'])
  */
 class Mastodon extends OAuth2Provider implements CSRFToken, TokenExpires, TokenRefresh{
-	use OAuth2CSRFTokenTrait, OAuth2TokenRefreshTrait;
 
 	public const SCOPE_READ   = 'read';
 	public const SCOPE_WRITE  = 'write';

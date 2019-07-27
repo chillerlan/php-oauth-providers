@@ -16,13 +16,12 @@
 
 namespace chillerlan\OAuth\Providers\Slack;
 
-use chillerlan\OAuth\Core\{CSRFToken, OAuth2CSRFTokenTrait, OAuth2Provider};
+use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider};
 
 /**
  * @method \Psr\Http\Message\ResponseInterface userIdentity()
  */
 class Slack extends OAuth2Provider implements CSRFToken{
-	use OAuth2CSRFTokenTrait;
 
 	// bot token
 	public const SCOPE_BOT                 = 'bot';

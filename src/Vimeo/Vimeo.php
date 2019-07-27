@@ -15,9 +15,7 @@
 
 namespace chillerlan\OAuth\Providers\Vimeo;
 
-use chillerlan\OAuth\Core\{
-	ClientCredentials, CSRFToken, OAuth2CSRFTokenTrait, OAuth2ClientCredentialsTrait, OAuth2Provider, TokenExpires,
-};
+use chillerlan\OAuth\Core\{ClientCredentials, CSRFToken, OAuth2Provider, TokenExpires};
 
 /**
  * @method \Psr\Http\Message\ResponseInterface me()
@@ -100,7 +98,6 @@ use chillerlan\OAuth\Core\{
  * @method \Psr\Http\Message\ResponseInterface videoLikes(string $video_id, array $params = ['query', 'page', 'per_page', 'sort', 'direction'])
  */
 class Vimeo extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenExpires{
-	use OAuth2CSRFTokenTrait, OAuth2ClientCredentialsTrait;
 
 	public const SCOPE_PRIVATE     = 'private';
 	public const SCOPE_PUBLIC      = 'public';

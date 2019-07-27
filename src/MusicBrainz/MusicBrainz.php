@@ -15,7 +15,7 @@
 
 namespace chillerlan\OAuth\Providers\MusicBrainz;
 
-use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2CSRFTokenTrait, OAuth2Provider, ProviderException, TokenExpires, TokenRefresh};
+use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2Provider, ProviderException, TokenExpires, TokenRefresh};
 use Psr\Http\Message\ResponseInterface;
 /**
  * @method \Psr\Http\Message\ResponseInterface area(array $params = ['inc', 'query', 'limit', 'offset', 'collection'])
@@ -58,7 +58,6 @@ use Psr\Http\Message\ResponseInterface;
  * @method \Psr\Http\Message\ResponseInterface workId(string $id, array $params = ['inc'])
  */
 class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenExpires, TokenRefresh{
-	use OAuth2CSRFTokenTrait;
 
 	const SCOPE_PROFILE        = 'profile';
 	const SCOPE_EMAIL          = 'email';

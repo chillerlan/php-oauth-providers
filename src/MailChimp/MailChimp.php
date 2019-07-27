@@ -16,7 +16,7 @@
 namespace chillerlan\OAuth\Providers\MailChimp;
 
 use chillerlan\HTTP\Psr7;
-use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2CSRFTokenTrait, OAuth2Provider};
+use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2Provider};
 use chillerlan\OAuth\OAuthException;
 use Psr\Http\Message\ResponseInterface;
 
@@ -28,7 +28,6 @@ use Psr\Http\Message\ResponseInterface;
  * @method \Psr\Http\Message\ResponseInterface root(array $params = ['fields', 'exclude_fields'])
  */
 class MailChimp extends OAuth2Provider implements CSRFToken{
-	use OAuth2CSRFTokenTrait;
 
 	protected $authURL        = 'https://login.mailchimp.com/oauth2/authorize';
 	protected $accessTokenURL = 'https://login.mailchimp.com/oauth2/token';

@@ -18,14 +18,13 @@
 namespace chillerlan\OAuth\Providers\Deezer;
 
 use chillerlan\HTTP\Psr7;
-use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2CSRFTokenTrait, OAuth2Provider, ProviderException, TokenExpires};
+use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2Provider, ProviderException, TokenExpires};
 use Psr\Http\Message\{ResponseInterface, UriInterface};
 
 /**
  * @method \Psr\Http\Message\ResponseInterface me()
  */
 class Deezer extends OAuth2Provider implements CSRFToken, TokenExpires{
-	use OAuth2CSRFTokenTrait;
 
 	public const SCOPE_BASIC             = 'basic_access';
 	public const SCOPE_EMAIL             = 'email';

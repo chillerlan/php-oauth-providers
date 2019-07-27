@@ -12,16 +12,12 @@
 
 namespace chillerlan\OAuth\Providers\DeviantArt;
 
-use chillerlan\OAuth\Core\{
-	ClientCredentials, CSRFToken, OAuth2CSRFTokenTrait, OAuth2ClientCredentialsTrait,
-	OAuth2Provider, OAuth2TokenRefreshTrait, TokenExpires, TokenRefresh,
-};
+use chillerlan\OAuth\Core\{ClientCredentials, CSRFToken, OAuth2Provider, TokenExpires, TokenRefresh};
 
 /**
  * @method \Psr\Http\Message\ResponseInterface whoami()
  */
 class DeviantArt extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenExpires, TokenRefresh{
-	use OAuth2CSRFTokenTrait, OAuth2ClientCredentialsTrait, OAuth2TokenRefreshTrait;
 
 	public const SCOPE_BASIC        = 'basic';
 	public const SCOPE_BROWSE       = 'browse';

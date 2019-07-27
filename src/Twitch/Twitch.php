@@ -15,17 +15,13 @@
 
 namespace chillerlan\OAuth\Providers\Twitch;
 
-use chillerlan\OAuth\Core\{
-	AccessToken, ClientCredentials, CSRFToken, OAuth2CSRFTokenTrait,
-	OAuth2Provider, OAuth2TokenRefreshTrait, TokenRefresh
-};
+use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, TokenRefresh};
 
 /**
  * @method \Psr\Http\Message\ResponseInterface me()
  * @method \Psr\Http\Message\ResponseInterface user(string $username)
  */
 class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh{
-	use OAuth2CSRFTokenTrait, OAuth2TokenRefreshTrait;
 
 	public const SCOPE_CHANNEL_CHECK_SUBSCRIPTION = 'channel_check_subscription';
 	public const SCOPE_CHANNEL_COMMERCIAL         = 'channel_commercial';

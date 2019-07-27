@@ -15,14 +15,13 @@
 
 namespace chillerlan\OAuth\Providers\Twitter;
 
-use chillerlan\OAuth\Core\{ClientCredentials, OAuth2ClientCredentialsTrait, OAuth2Provider, ProviderException, AccessToken};
+use chillerlan\OAuth\Core\{ClientCredentials, OAuth2Provider, ProviderException, AccessToken};
 use Psr\Http\Message\UriInterface;
 
 /**
  * @todo: https://developer.twitter.com/en/docs/basics/authentication/api-reference/invalidate_token
  */
 class Twitter2 extends OAuth2Provider implements ClientCredentials{
-	use OAuth2ClientCredentialsTrait;
 
 	protected const AUTH_ERRMSG = 'Twitter2 only supports Client Credentials Grant, use the Twitter OAuth1 class for authentication instead.';
 

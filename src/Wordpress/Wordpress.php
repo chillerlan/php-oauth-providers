@@ -14,13 +14,12 @@
 
 namespace chillerlan\OAuth\Providers\Wordpress;
 
-use chillerlan\OAuth\Core\{CSRFToken, OAuth2CSRFTokenTrait, OAuth2Provider};
+use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider};
 
 /**
  * @method \Psr\Http\Message\ResponseInterface me()
  */
 class Wordpress extends OAuth2Provider implements CSRFToken{
-	use OAuth2CSRFTokenTrait;
 
 	public const SCOPE_AUTH   = 'auth';
 	public const SCOPE_GLOBAL = 'global';
