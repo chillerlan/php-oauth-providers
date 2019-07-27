@@ -24,6 +24,7 @@ $providers = [
 	Providers\Amazon\Amazon::class,
 	Providers\BigCartel\BigCartel::class,
 	Providers\Deezer\Deezer::class,
+	Providers\DeviantArt\DeviantArt::class,
 	Providers\Discogs\Discogs::class,
 	Providers\Flickr\Flickr::class,
 	Providers\Foursquare\Foursquare::class,
