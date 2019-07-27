@@ -26,6 +26,7 @@ $providers = [
 	Providers\Deezer\Deezer::class,
 	Providers\DeviantArt\DeviantArt::class,
 	Providers\Discogs\Discogs::class,
+	Providers\Discord\Discord::class,
 	Providers\Flickr\Flickr::class,
 	Providers\Foursquare\Foursquare::class,
 	Providers\Gitter\Gitter::class,
