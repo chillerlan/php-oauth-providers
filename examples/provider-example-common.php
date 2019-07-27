@@ -22,6 +22,7 @@ require_once __DIR__.'/../vendor/chillerlan/php-oauth-core/examples/oauth-exampl
 
 $providers = [
 	Providers\Discogs\Discogs::class,
+	Providers\Flickr\Flickr::class,
 	Providers\LastFM\LastFM::class,
 	Providers\MusicBrainz\MusicBrainz::class,
 	Providers\Spotify\Spotify::class,
