@@ -28,5 +28,7 @@ class Mixcloud extends OAuth2Provider{
 	protected $userRevokeURL  = 'https://www.mixcloud.com/settings/applications/';
 	protected $authMethod     = self::QUERY_ACCESS_TOKEN;
 	protected $endpointMap    = MixcloudEndpoints::class;
+	protected $apiDocs        = 'https://www.mixcloud.com/developers/';
+	protected $applicationURL = 'https://www.mixcloud.com/developers/create/';
 
 }

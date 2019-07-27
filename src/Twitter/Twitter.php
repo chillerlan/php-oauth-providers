@@ -142,5 +142,7 @@ class Twitter extends OAuth1Provider{
 	protected $accessTokenURL  = 'https://api.twitter.com/oauth/access_token';
 	protected $userRevokeURL   = 'https://twitter.com/settings/applications';
 	protected $endpointMap     = TwitterEndpoints::class;
+	protected $apiDocs         = 'https://developer.twitter.com/docs';
+	protected $applicationURL  = 'https://developer.twitter.com/apps';
 
 }

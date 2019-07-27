@@ -80,6 +80,8 @@ class Discogs extends OAuth1Provider{
 	protected $userRevokeURL   = 'https://www.discogs.com/settings/applications';
 	protected $apiHeaders      = ['Accept' => 'application/vnd.discogs.v2.discogs+json'];
 	protected $endpointMap     = DiscogsEndpoints::class;
+	protected $apiDocs         = 'https://www.discogs.com/developers/';
+	protected $applicationURL  = 'https://www.discogs.com/settings/developers';
 
 	/**
 	 * @return \chillerlan\OAuth\Core\AccessToken

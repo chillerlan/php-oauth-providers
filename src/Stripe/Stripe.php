@@ -34,5 +34,7 @@ class Stripe extends OAuth2Provider implements CSRFToken, TokenExpires, TokenRef
 	protected $revokeURL      = 'https://connect.stripe.com/oauth/deauthorize';
 	protected $userRevokeURL  = 'https://dashboard.stripe.com/account/applications';
 	protected $endpointMap    = StripeEndpoints::class;
+	protected $apiDocs        = 'https://stripe.com/docs/api';
+	protected $applicationURL = 'https://dashboard.stripe.com/apikeys';
 
 }

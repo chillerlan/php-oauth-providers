@@ -55,5 +55,7 @@ class GitHub extends OAuth2Provider implements CSRFToken{
 	protected $authHeaders    = ['Accept' => 'application/json'];
 	protected $apiHeaders     = ['Accept' => 'application/vnd.github.beta+json'];
 	protected $endpointMap    = GitHubEndpoints::class;
+	protected $apiDocs        = 'https://developer.github.com/';
+	protected $applicationURL = 'https://github.com/settings/developers';
 
 }

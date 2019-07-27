@@ -108,5 +108,7 @@ class Spotify extends OAuth2Provider implements ClientCredentials, CSRFToken, To
 	protected $accessTokenURL = 'https://accounts.spotify.com/api/token';
 	protected $userRevokeURL  = 'https://www.spotify.com/account/apps/';
 	protected $endpointMap    = SpotifyEndpoints::class;
+	protected $apiDocs        = 'https://developer.spotify.com/documentation/web-api/';
+	protected $applicationURL = 'https://developer.spotify.com/dashboard/applications';
 
 }

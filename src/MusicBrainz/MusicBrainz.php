@@ -72,6 +72,8 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenExpires, Tok
 	protected $accessTokenURL = 'https://musicbrainz.org/oauth2/token';
 	protected $userRevokeURL  = 'https://musicbrainz.org/account/applications';
 	protected $endpointMap    = MusicBrainzEndpoints::class;
+	protected $apiDocs        = 'https://musicbrainz.org/doc/Development';
+	protected $applicationURL = 'https://musicbrainz.org/account/applications';
 
 	/**
 	 * @inheritdoc

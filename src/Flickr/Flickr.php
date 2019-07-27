@@ -254,7 +254,9 @@ class Flickr extends OAuth1Provider{
 	protected $authURL         = 'https://www.flickr.com/services/oauth/authorize';
 	protected $accessTokenURL  = 'https://www.flickr.com/services/oauth/access_token';
 	protected $userRevokeURL   = 'https://www.flickr.com/services/auth/list.gne';
-	protected $endpointMap      = FlickrEndpoints::class;
+	protected $endpointMap     = FlickrEndpoints::class;
+	protected $apiDocs         = 'https://www.flickr.com/services/api/';
+	protected $applicationURL  = 'https://www.flickr.com/services/apps/create/';
 
 	/**
 	 * @param string $path

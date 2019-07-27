@@ -90,10 +90,12 @@ class LastFM extends OAuthProvider{
 		self::PERIOD_12MONTH,
 	];
 
-	protected $apiURL        = 'https://ws.audioscrobbler.com/2.0';
-	protected $authURL       = 'https://www.last.fm/api/auth';
-	protected $userRevokeURL = 'https://www.last.fm/settings'; // ???
-	protected $endpointMap   = LastFMEndpoints::class;
+	protected $apiURL         = 'https://ws.audioscrobbler.com/2.0';
+	protected $authURL        = 'https://www.last.fm/api/auth';
+	protected $userRevokeURL  = 'https://www.last.fm/settings/applications';
+	protected $endpointMap    = LastFMEndpoints::class;
+	protected $apiDocs        = 'https://www.last.fm/api/';
+	protected $applicationURL = 'https://www.last.fm/api/account/create';
 
 	/**
 	 * @inheritdoc

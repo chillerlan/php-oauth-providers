@@ -21,5 +21,7 @@ abstract class PatreonAbstract extends OAuth2Provider implements CSRFToken, Toke
 	protected $authURL        = 'https://www.patreon.com/oauth2/authorize';
 	protected $accessTokenURL = 'https://www.patreon.com/api/oauth2/token';
 	protected $apiURL         = 'https://www.patreon.com/api/oauth2';
+	protected $apiDocs        = 'https://docs.patreon.com/';
+	protected $applicationURL = 'https://www.patreon.com/portal/registration/register-clients';
 
 }

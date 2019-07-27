@@ -39,5 +39,7 @@ class Discord extends OAuth2Provider implements ClientCredentials, CSRFToken, To
 	protected $accessTokenURL = 'https://discordapp.com/api/oauth2/token';
 	protected $revokeURL      = 'https://discordapp.com/api/oauth2/token/revoke';
 	protected $endpointMap    = DiscordEndpoints::class;
+	protected $apiDocs        = 'https://discordapp.com/developers/';
+	protected $applicationURL = 'https://discordapp.com/developers/applications/';
 
 }

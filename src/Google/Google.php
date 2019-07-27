@@ -33,5 +33,7 @@ class Google extends OAuth2Provider implements CSRFToken, TokenExpires{
 	protected $accessTokenURL = 'https://accounts.google.com/o/oauth2/token';
 	protected $userRevokeURL  = 'https://myaccount.google.com/permissions';
 	protected $endpointMap    = GoogleEndpoints::class;
+	protected $apiDocs        = 'https://developers.google.com/oauthplayground/';
+	protected $applicationURL = 'https://console.developers.google.com/apis/credentials';
 
 }

@@ -30,5 +30,7 @@ class Gitter extends OAuth2Provider implements CSRFToken, TokenExpires{
 	protected $accessTokenURL  = 'https://gitter.im/login/oauth/token';
 	protected $scopesDelimiter = ',';
 	protected $endpointMap     = GitterEndpoints::class;
+	protected $apiDocs         = 'https://developer.gitter.im';
+	protected $applicationURL  = 'https://developer.gitter.im/apps';
 
 }

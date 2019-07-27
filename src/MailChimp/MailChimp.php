@@ -29,13 +29,15 @@ use Psr\Http\Message\ResponseInterface;
  */
 class MailChimp extends OAuth2Provider implements CSRFToken{
 
+	protected const API_BASE          = 'https://%s.api.mailchimp.com/3.0';
+	protected const METADATA_ENDPOINT = 'https://login.mailchimp.com/oauth2/metadata';
+
 	protected $authURL        = 'https://login.mailchimp.com/oauth2/authorize';
 	protected $accessTokenURL = 'https://login.mailchimp.com/oauth2/token';
 	protected $endpointMap    = MailChimpEndpoints::class;
 	protected $authMethod     = self::HEADER_OAUTH;
-
-	protected const API_BASE          = 'https://%s.api.mailchimp.com/3.0';
-	protected const METADATA_ENDPOINT = 'https://login.mailchimp.com/oauth2/metadata';
+	protected $apiDocs        = 'https://developer.mailchimp.com/';
+	protected $applicationURL = 'https://admin.mailchimp.com/account/oauth2/';
 
 	/**
 	 * @param \chillerlan\OAuth\Core\AccessToken|null $token

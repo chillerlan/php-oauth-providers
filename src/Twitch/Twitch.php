@@ -54,6 +54,8 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	protected $authMethod         = self::HEADER_OAUTH;  // -> https://api.twitch.tv/kraken
 #	protected $authMethod         = self::HEADER_BEARER; // -> https://api.twitch.tv/helix
 	protected $endpointMap        = TwitchEndpoints::class;
+	protected $apiDocs            = 'https://dev.twitch.tv/docs/api/reference/';
+	protected $applicationURL     = 'https://dev.twitch.tv/console/apps/create';
 
 	/**
 	 * @link https://dev.twitch.tv/docs/authentication#oauth-client-credentials-flow-app-access-tokens

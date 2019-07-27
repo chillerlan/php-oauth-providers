@@ -102,7 +102,8 @@ class Mastodon extends OAuth2Provider implements CSRFToken, TokenExpires, TokenR
 	public const SCOPE_FOLLOW = 'follow';
 	public const SCOPE_PUSH   = 'push';
 
-	protected $endpointMap = MastodonEndpoints::class;
+	protected $endpointMap    = MastodonEndpoints::class;
+	protected $apiDocs        = 'https://docs.joinmastodon.org/api/guidelines/';
 
 	/**
 	 * set the internal URLs for the given Mastodon instance
@@ -127,6 +128,7 @@ class Mastodon extends OAuth2Provider implements CSRFToken, TokenExpires, TokenR
 		$this->authURL        = $instance.'/oauth/authorize';
 		$this->accessTokenURL = $instance.'/oauth/token';
 		$this->userRevokeURL  = $instance.'/oauth/authorized_applications';
+		$this->applicationURL = $instance.'/settings/applications';
 
 		return $this;
 	}

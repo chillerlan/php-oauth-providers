@@ -31,5 +31,6 @@ class Amazon extends OAuth2Provider implements CSRFToken, TokenExpires, TokenRef
 	protected $authURL        = 'https://www.amazon.com/ap/oa';
 	protected $accessTokenURL = 'https://www.amazon.com/ap/oatoken';
 	protected $endpointMap    = AmazonEndpoints::class;
-
+	protected $apiDocs        = 'https://login.amazon.com/';
+	protected $applicationURL = 'https://sellercentral.amazon.com/hz/home';
 }

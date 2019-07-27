@@ -32,4 +32,7 @@ class SoundCloud extends OAuth2Provider implements TokenExpires{
 	protected $userRevokeURL      = 'https://soundcloud.com/settings/connections';
 	protected $authMethod         = self::HEADER_OAUTH;
 	protected $endpointMap        = SoundCloudEndpoints::class;
+	protected $apiDocs            = 'https://developers.soundcloud.com/';
+	protected $applicationURL     = 'https://soundcloud.com/you/apps';
+
 }

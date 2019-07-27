@@ -54,4 +54,6 @@ class BigCartel extends OAuth2Provider implements CSRFToken{
 	protected $apiHeaders     = ['Accept' => 'application/vnd.api+json'];
 	protected $endpointMap    = BigCartelEndpoints::class;
 #	protected $revokeURL      = 'https://api.bigcartel.com/oauth/deauthorize/{ACCOUNT_ID}'; // @todo
+	protected $apiDocs        = 'https://developers.bigcartel.com/api/v1';
+	protected $applicationURL = 'https://bigcartel.wufoo.com/forms/big-cartel-api-application/';
 }

@@ -27,5 +27,7 @@ class OpenStreetmap extends OAuth1Provider{
 	protected $authURL         = 'https://www.openstreetmap.org/oauth/authorize';
 	protected $accessTokenURL  = 'https://www.openstreetmap.org/oauth/access_token';
 	protected $endpointMap     = OpenStreetmapEndpoints::class;
+	protected $apiDocs         = 'https://wiki.openstreetmap.org/wiki/API';
+	protected $applicationURL  = 'https://www.openstreetmap.org/user/{USERNAME}/oauth_clients';
 
 }

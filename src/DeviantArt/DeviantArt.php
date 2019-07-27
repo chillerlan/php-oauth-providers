@@ -36,5 +36,7 @@ class DeviantArt extends OAuth2Provider implements ClientCredentials, CSRFToken,
 	protected $accessTokenURL = 'https://www.deviantart.com/oauth2/token';
 	protected $userRevokeURL  = 'https://www.deviantart.com/settings/applications';
 	protected $endpointMap    = DeviantArtEndpoints::class;
+	protected $apiDocs        = 'https://www.deviantart.com/developers/';
+	protected $applicationURL = 'https://www.deviantart.com/developers/apps';
 
 }

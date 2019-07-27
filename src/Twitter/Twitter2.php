@@ -29,6 +29,8 @@ class Twitter2 extends OAuth2Provider implements ClientCredentials{
 	protected $clientCredentialsTokenURL = 'https://api.twitter.com/oauth2/token';
 	protected $userRevokeURL             = 'https://twitter.com/settings/applications';
 	protected $endpointMap               = TwitterEndpoints::class;
+	protected $apiDocs                   = 'https://developer.twitter.com/en/docs/basics/authentication/overview/application-only';
+	protected $applicationURL            = 'https://developer.twitter.com/apps';
 
 	/**
 	 * @inheritdoc

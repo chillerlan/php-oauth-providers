@@ -29,5 +29,7 @@ class Wordpress extends OAuth2Provider implements CSRFToken{
 	protected $accessTokenURL = 'https://public-api.wordpress.com/oauth2/token';
 	protected $userRevokeURL  = 'https://wordpress.com/me/security/connected-applications';
 	protected $endpointMap    = WordpressEndpoints::class;
+	protected $apiDocs        = 'https://developer.wordpress.com/docs/api/';
+	protected $applicationURL = 'https://developer.wordpress.com/apps/';
 
 }

@@ -27,5 +27,7 @@ class Tumblr extends OAuth1Provider{
 	protected $accessTokenURL  = 'https://www.tumblr.com/oauth/access_token';
 	protected $userRevokeURL   = 'https://www.tumblr.com/settings/apps';
 	protected $endpointMap     = TumblrEndpoints::class;
+	protected $apiDocs         = 'https://www.tumblr.com/docs/en/api/v2';
+	protected $applicationURL  = 'https://www.tumblr.com/oauth/apps';
 
 }

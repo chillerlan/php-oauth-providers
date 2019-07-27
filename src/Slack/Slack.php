@@ -84,5 +84,7 @@ class Slack extends OAuth2Provider implements CSRFToken{
 	protected $accessTokenURL = 'https://slack.com/api/oauth.access';
 	protected $userRevokeURL  = 'https://slack.com/apps/manage';
 	protected $endpointMap    = SlackEndpoints::class;
+	protected $apiDocs        = 'https://api.slack.com';
+	protected $applicationURL = 'https://api.slack.com/apps';
 
 }
