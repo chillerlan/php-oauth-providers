@@ -83,7 +83,6 @@ use chillerlan\OAuth\Core\{ClientCredentials, CSRFToken, OAuth2Provider, TokenEx
  * @method \Psr\Http\Message\ResponseInterface volume(array $params = ['volume_percent', 'device_id'])
  */
 class Spotify extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenExpires, TokenRefresh{
-	use OAuth2CSRFTokenTrait, OAuth2ClientCredentialsTrait, OAuth2TokenRefreshTrait;
 
 	public const SCOPE_PLAYLIST_READ_PRIVATE       = 'playlist-read-private';
 	public const SCOPE_PLAYLIST_READ_COLLABORATIVE = 'playlist-read-collaborative';
