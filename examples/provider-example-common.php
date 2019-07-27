@@ -24,6 +24,7 @@ $providers = [
 	Providers\Discogs\Discogs::class,
 	Providers\Flickr\Flickr::class,
 	Providers\LastFM\LastFM::class,
+	Providers\Mixcloud\Mixcloud::class,
 	Providers\MusicBrainz\MusicBrainz::class,
 	Providers\SoundCloud\SoundCloud::class,
 	Providers\Spotify\Spotify::class,
