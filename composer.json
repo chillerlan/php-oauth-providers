@@ -1,13 +1,16 @@
 {
 	"name": "chillerlan/php-oauth-providers",
-	"description": "A PHP 7.2+ client implementation for several providers.",
+	"description": "A PHP 7.2+ client implementation for OAuth 1/2 providers.",
 	"homepage": "https://github.com/chillerlan/php-oauth-providers",
 	"license": "MIT",
 	"type": "library",
 	"minimum-stability": "stable",
 	"keywords": [
 		"oauth", "oauth2", "api", "client", "psr-7", "psr-17", "psr-18", "rfc5849", "rfc6749",
-		"discogs", "lastfm", "musicbrainz", "spotify", "twitter"
+		"amazon", "bigcartel", "deezer", "deviantart", "discogs", "discord", "flickr", "foursquare",
+		"github", "gitter", "google", "guildwars2", "instagram", "lastfm", "mailchimp", "mastodon",
+		"mixcloud", "musicbrainz", "opencaching", "openstreetmap", "patreon", "slack", "soundcloud",
+		"spotify", "stripe", "tumblr", "twitch", "twitter", "vimeo", "wordpress"
 	],
 	"authors": [
 		{
