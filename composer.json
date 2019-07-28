@@ -1,6 +1,6 @@
 {
 	"name": "chillerlan/php-oauth-providers",
-	"description": "A PHP 7.2+ client implementation for OAuth 1/2 providers.",
+	"description": "OAuth 1/2 Provider implementations for chillerlan/php-oauth-core. PHP 7.2+",
 	"homepage": "https://github.com/chillerlan/php-oauth-providers",
 	"license": "MIT",
 	"type": "library",
