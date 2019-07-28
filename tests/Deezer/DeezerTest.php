@@ -75,12 +75,13 @@ class DeezerTest extends OAuth2ProviderTestAbstract{
 	}
 
 	public function testGetAuthURL(){
-		$this->setProperty($this->provider, 'scopes', [Deezer::SCOPE_BASIC, Deezer::SCOPE_EMAIL]);
-
 		$this->assertStringContainsString(
 			'https://connect.deezer.com/oauth/auth.php?app_id='.$this->options->key
 				.'&foo=bar&perms=basic_access%20email&redirect_uri=https%3A%2F%2Flocalhost%2Fcallback&state=',
-			(string)$this->provider->getAuthURL(['foo' => 'bar', 'client_secret' => 'not-so-secret'])
+			(string)$this->provider->getAuthURL(
+				['foo' => 'bar', 'client_secret' => 'not-so-secret'],
+				[Deezer::SCOPE_BASIC, Deezer::SCOPE_EMAIL]
+			)
 		);
 	}
 
