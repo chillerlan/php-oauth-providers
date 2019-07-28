@@ -40,6 +40,7 @@ $providers = [
 	Providers\Mastodon\Mastodon::class,
 	Providers\Mixcloud\Mixcloud::class,
 	Providers\MusicBrainz\MusicBrainz::class,
+	Providers\NPR\NPROne::class,
 	Providers\OpenCaching\OpenCaching::class,
 	Providers\OpenStreetmap\OpenStreetmap::class,
 	Providers\Patreon\Patreon1::class,
