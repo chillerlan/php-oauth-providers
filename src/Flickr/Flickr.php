@@ -278,10 +278,6 @@ class Flickr extends OAuth1Provider{
 
 		$request = $this->requestFactory->createRequest($method, Psr7\merge_query($this->apiURL, $params));
 
-		foreach(\array_merge($this->apiHeaders, $headers ?? []) as $header => $value){
-			$request = $request->withAddedHeader($header, $value);
-		}
-
 		$request = $this->getRequestAuthorization($request, $this->storage->getAccessToken($this->serviceName));
 
 		return $this->http->sendRequest($request);
