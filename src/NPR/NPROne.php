@@ -15,7 +15,7 @@
 
 namespace chillerlan\OAuth\Providers\NPR;
 
-use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, TokenRefresh};
+use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, TokenExpires, TokenRefresh};
 use Psr\Http\Message\{RequestInterface, ResponseInterface};
 
 /**
@@ -35,7 +35,7 @@ use Psr\Http\Message\{RequestInterface, ResponseInterface};
  * @method \Psr\Http\Message\ResponseInterface station(string $stationId)
  * @method \Psr\Http\Message\ResponseInterface stations()
  */
-class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh{
+class NPROne extends OAuth2Provider implements CSRFToken, TokenExpires, TokenRefresh{
 
 	public const IDENTITY_READONLY  = 'identity.readonly';
 	public const IDENTITY_WRITE     = 'identity.write';
