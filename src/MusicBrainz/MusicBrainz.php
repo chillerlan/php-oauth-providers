@@ -139,7 +139,7 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenExpires, Tok
 		}
 
 		if(\in_array($method, ['POST', 'PUT', 'DELETE']) && !isset($params['client'])){
-			$params['client'] = $this->options->user_agent;
+			$params['client'] = $this->options->user_agent; // @codeCoverageIgnore
 		}
 
 		$headers = \array_merge($this->apiHeaders, $headers ?? [], ['Authorization' => 'Bearer '.$token->accessToken]);
