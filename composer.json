@@ -1,0 +1,44 @@
+{
+	"name": "chillerlan/php-oauth-providers",
+	"description": "A PHP 7.2+ client implementation for several providers.",
+	"homepage": "https://github.com/chillerlan/php-oauth-providers",
+	"license": "MIT",
+	"type": "library",
+	"minimum-stability": "stable",
+	"keywords": [
+		"oauth", "oauth2", "api", "client", "psr-7", "psr-17", "psr-18", "rfc5849", "rfc6749",
+		"discogs", "lastfm", "musicbrainz", "spotify", "twitter"
+	],
+	"authors": [
+		{
+			"name": "smiley",
+			"email": "smiley@chillerlan.net",
+			"homepage": "https://github.com/codemasher"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/chillerlan/php-oauth-providers/issues",
+		"source": "https://github.com/chillerlan/php-oauth-providers"
+	},
+	"require": {
+		"php": "^7.2",
+		"chillerlan/php-oauth-core": "dev-master"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^8.2",
+		"chillerlan/php-dotenv": "^1.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"chillerlan\\OAuth\\Providers\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"chillerlan\\HTTPTest\\MagicAPI\\": "vendor/chillerlan/php-magic-apiclient/tests",
+			"chillerlan\\OAuthTest\\": "vendor/chillerlan/php-oauth-core/tests",
+			"chillerlan\\OAuthTest\\Providers\\": "tests/",
+			"chillerlan\\OAuthExamples\\": "examples/"
+		}
+	}
+}
