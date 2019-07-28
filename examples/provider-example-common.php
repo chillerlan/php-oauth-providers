@@ -33,6 +33,7 @@ $providers = [
 	Providers\Gitter\Gitter::class,
 	Providers\Google\Google::class,
 	Providers\Google\Youtube::class,
+	Providers\GuildWars2\GuildWars2::class,
 	Providers\Instagram\Instagram::class,
 	Providers\LastFM\LastFM::class,
 	Providers\MailChimp\MailChimp::class,
