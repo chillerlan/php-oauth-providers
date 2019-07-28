@@ -2,6 +2,9 @@
 /**
  * Class NPROne
  *
+ * @link https://dev.npr.org
+ * @link https://github.com/npr/npr-one-backend-proxy-php
+ *
  * @filesource   NPROne.php
  * @created      28.07.2019
  * @package      chillerlan\OAuth\Providers\NPR
@@ -60,7 +63,7 @@ class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh{
 
 			// attempt to refresh an expired token
 			if($this->options->tokenAutoRefresh && ($token->isExpired() || $token->expires === $token::EOL_UNKNOWN)){
-				$token = $this->refreshAccessToken($token);
+				$token = $this->refreshAccessToken($token); // @codeCoverageIgnore
 			}
 
 			$request = $this->getRequestAuthorization($request, $token);
