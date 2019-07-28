@@ -1,8 +1,8 @@
 <?php
 /**
- * Class Twitter2Test
+ * Class TwitterCCTest
  *
- * @filesource   Twitter2Test.php
+ * @filesource   TwitterCCTest.php
  * @created      26.10.2017
  * @package      chillerlan\OAuthTest\Providers\Twitter
  * @author       Smiley <smiley@chillerlan.net>
@@ -13,15 +13,15 @@
 namespace chillerlan\OAuthTest\Providers\Twitter;
 
 use chillerlan\OAuth\Core\ProviderException;
-use chillerlan\OAuth\Providers\Twitter\Twitter2;
+use chillerlan\OAuth\Providers\Twitter\TwitterCC;
 use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
 
 /**
- * @property \chillerlan\OAuth\Providers\Twitter\Twitter2 $provider
+ * @property \chillerlan\OAuth\Providers\Twitter\TwitterCC $provider
  */
-class Twitter2Test extends OAuth2ProviderTestAbstract{
+class TwitterCCTest extends OAuth2ProviderTestAbstract{
 
-	protected $FQN = Twitter2::class;
+	protected $FQN = TwitterCC::class;
 
 	public function testGetAuthURL(){
 		$this->markTestSkipped('N/A');
@@ -33,14 +33,14 @@ class Twitter2Test extends OAuth2ProviderTestAbstract{
 
 	public function testRequestGetAuthURLNotSupportedException(){
 		$this->expectException(ProviderException::class);
-		$this->expectExceptionMessage('Twitter2 only supports Client Credentials Grant');
+		$this->expectExceptionMessage('TwitterCC only supports Client Credentials Grant');
 
 		$this->provider->getAuthURL();
 	}
 
 	public function testRequestGetAccessTokenNotSupportedException(){
 		$this->expectException(ProviderException::class);
-		$this->expectExceptionMessage('Twitter2 only supports Client Credentials Grant');
+		$this->expectExceptionMessage('TwitterCC only supports Client Credentials Grant');
 
 		$this->provider->getAccessToken('foo');
 	}

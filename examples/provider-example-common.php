@@ -50,7 +50,7 @@ $providers = [
 	Providers\Tumblr\Tumblr::class,
 	Providers\Twitch\Twitch::class,
 	Providers\Twitter\Twitter::class,
-	Providers\Twitter\Twitter2::class,
+	Providers\Twitter\TwitterCC::class,
 	Providers\Vimeo\Vimeo::class,
 	Providers\Wordpress\Wordpress::class,
 ];

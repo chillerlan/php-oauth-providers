@@ -1,11 +1,11 @@
 <?php
 /**
- * Class Twitter2
+ * Class TwitterCC
  *
  * @link https://dev.twitter.com/overview/api
  * @link https://developer.twitter.com/en/docs/basics/authentication/overview/application-only
  *
- * @filesource   Twitter2.php
+ * @filesource   TwitterCC.php
  * @created      08.04.2018
  * @package      chillerlan\OAuth\Providers\Twitter
  * @author       Smiley <smiley@chillerlan.net>
@@ -21,9 +21,9 @@ use Psr\Http\Message\UriInterface;
 /**
  * @todo: https://developer.twitter.com/en/docs/basics/authentication/api-reference/invalidate_token
  */
-class Twitter2 extends OAuth2Provider implements ClientCredentials{
+class TwitterCC extends OAuth2Provider implements ClientCredentials{
 
-	protected const AUTH_ERRMSG = 'Twitter2 only supports Client Credentials Grant, use the Twitter OAuth1 class for authentication instead.';
+	protected const AUTH_ERRMSG = 'TwitterCC only supports Client Credentials Grant, use the Twitter OAuth1 class for authentication instead.';
 
 	protected $apiURL                    = 'https://api.twitter.com/1.1';
 	protected $clientCredentialsTokenURL = 'https://api.twitter.com/oauth2/token';

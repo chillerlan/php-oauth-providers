@@ -9,7 +9,7 @@
 
 namespace chillerlan\OAuthExamples\Twitter;
 
-use chillerlan\OAuth\Providers\Twitter\{Twitter, Twitter2};
+use chillerlan\OAuth\Providers\Twitter\{Twitter, TwitterCC};
 
 $ENVVAR = 'TWITTER';
 
@@ -28,4 +28,4 @@ $storage = null;
 require_once __DIR__.'/../provider-example-common.php';
 
 $twitter  = new Twitter($http, $storage, $options, $logger);
-$twitter2 = new Twitter2($http, $storage, $options, $logger); // application-only
+$twitter2 = new TwitterCC($http, $storage, $options, $logger); // application-only
