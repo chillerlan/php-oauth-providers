@@ -25,18 +25,26 @@ class MailChimpTest extends OAuth2ProviderTestAbstract{
 
 	protected $FQN = MailChimp::class;
 
+	protected $token;
+
 	public function setUp():void{
 
 		$this->responses['/3.0'] = [
 			'data' => 'such data! much wow! (/3.0)'
 		];
 
+		$this->responses['/oauth2/metadata'] = [
+			'metadata' => 'whatever'
+		];
+
+		// setup after adding responses -> ProviderTestAbstract::initHTTP()
 		parent::setUp();
+
+		$this->token = new AccessToken(['accessToken' => 'test_access_token_secret', 'expires' => 1, 'extraParams' => ['dc' => 'bar']]);
 	}
 
 	public function testRequest(){
-		$token = new AccessToken(['accessToken' => 'test_access_token_secret', 'expires' => 1, 'extraParams' => ['dc' => 'bar']]);
-		$this->storage->storeAccessToken($this->provider->serviceName, $token);
+		$this->storage->storeAccessToken($this->provider->serviceName, $this->token);
 
 		$this->assertSame('such data! much wow! (/3.0)', Psr7\get_json($this->provider->request(''))->data);
 	}
@@ -46,10 +54,15 @@ class MailChimpTest extends OAuth2ProviderTestAbstract{
 		$this->expectExceptionMessage('invalid auth type');
 
 		$this->setProperty($this->provider, 'authMethod', 'foo');
-		$token = new AccessToken(['accessToken' => 'test_access_token_secret', 'expires' => 1, 'extraParams' => ['dc' => 'bar']]);
-		$this->storage->storeAccessToken($this->provider->serviceName, $token);
+		$this->storage->storeAccessToken($this->provider->serviceName, $this->token);
 
 		$this->provider->request('');
+	}
+
+	public function testGetTokenMetadata(){
+		$token = $this->provider->getTokenMetadata($this->token);
+
+		$this->assertSame('whatever', $token->extraParams['metadata']);
 	}
 
 }

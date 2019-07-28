@@ -47,9 +47,7 @@ class MailChimp extends OAuth2Provider implements CSRFToken{
 	 */
 	public function getTokenMetadata(AccessToken $token = null):AccessToken{
 
-		$token = $token !== null
-			? $token
-			: $this->storage->getAccessToken($this->serviceName);
+		$token = $token ?? $this->storage->getAccessToken($this->serviceName);
 
 		if(!$token instanceof AccessToken){
 			throw new OAuthException('invalid token'); // @codeCoverageIgnore
