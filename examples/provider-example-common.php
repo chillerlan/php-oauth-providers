@@ -34,6 +34,7 @@ $providers = [
 	Providers\Google\Google::class,
 	Providers\Google\Youtube::class,
 	Providers\GuildWars2\GuildWars2::class,
+	Providers\Imgur\Imgur::class,
 	Providers\Instagram\Instagram::class,
 	Providers\LastFM\LastFM::class,
 	Providers\MailChimp\MailChimp::class,
