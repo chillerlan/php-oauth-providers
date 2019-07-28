@@ -12,6 +12,8 @@
 
 namespace chillerlan\OAuthTest\Providers\NPR;
 
+use chillerlan\OAuth\Core\AccessToken;
+use chillerlan\OAuth\OAuthException;
 use chillerlan\OAuth\Providers\NPR\NPROne;
 use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
 
@@ -21,5 +23,16 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
 class NPROneTest extends OAuth2ProviderTestAbstract{
 
 	protected $FQN = NPROne::class;
+
+	public function testRequestInvalidAuthTypeException(){
+		$this->expectException(OAuthException::class);
+		$this->expectExceptionMessage('invalid auth type');
+
+		$this->setProperty($this->provider, 'authMethod', 'foo');
+		$token = new AccessToken(['accessToken' => 'test_access_token_secret', 'expires' => 1]);
+		$this->storage->storeAccessToken($this->provider->serviceName, $token);
+
+		$this->provider->request('https://foo.api.npr.org/');
+	}
 
 }
