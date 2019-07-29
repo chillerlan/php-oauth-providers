@@ -37,11 +37,11 @@ use Psr\Http\Message\{RequestInterface, ResponseInterface};
  */
 class NPROne extends OAuth2Provider implements CSRFToken, TokenExpires, TokenRefresh{
 
-	public const IDENTITY_READONLY  = 'identity.readonly';
-	public const IDENTITY_WRITE     = 'identity.write';
-	public const LISTENING_READONLY = 'listening.readonly';
-	public const LISTENING_WRITE    = 'listening.write';
-	public const LOCALACTIVATION    = 'localactivation';
+	public const SCOPE_IDENTITY_READONLY  = 'identity.readonly';
+	public const SCOPE_IDENTITY_WRITE     = 'identity.write';
+	public const SCOPE_LISTENING_READONLY = 'listening.readonly';
+	public const SCOPE_LISTENING_WRITE    = 'listening.write';
+	public const SCOPE_LOCALACTIVATION    = 'localactivation';
 
 	protected $authURL        = 'https://authorization.api.npr.org/v2/authorize';
 	protected $accessTokenURL = 'https://authorization.api.npr.org/v2/token';
