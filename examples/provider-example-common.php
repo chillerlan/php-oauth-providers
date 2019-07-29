@@ -48,6 +48,7 @@ $providers = [
 	Providers\OpenStreetmap\OpenStreetmap::class,
 	Providers\Patreon\Patreon1::class,
 	Providers\Patreon\Patreon2::class,
+	Providers\PayPal\PayPal::class,
 	Providers\Slack\Slack::class,
 	Providers\SoundCloud\SoundCloud::class,
 	Providers\Spotify\Spotify::class,
