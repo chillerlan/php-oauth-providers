@@ -24,14 +24,6 @@ class OpenCachingAPITest extends OAuth1APITestAbstract{
 	protected $FQN = OpenCaching::class;
 	protected $ENV = 'OKAPI';
 
-	protected $testuser;
-
-	protected function setUp():void{
-		parent::setUp();
-
-		$this->testuser = $this->dotEnv->OKAPI_TESTUSER;
-	}
-
 	public function testUser(){
 		$r = $this->provider->usersUser(['fields' => 'username']);
 		$this->assertSame($this->testuser, $this->responseJson($r)->username);

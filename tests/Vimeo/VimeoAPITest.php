@@ -24,14 +24,6 @@ class VimeoAPITest extends OAuth2APITestAbstract{
 	protected $FQN = Vimeo::class;
 	protected $ENV = 'VIMEO';
 
-	protected $testuser;
-
-	protected function setUp():void{
-		parent::setUp();
-
-		$this->testuser = $this->dotEnv->VIMEO_TESTUSER;
-	}
-
 	public function testLogin(){
 		$r = $this->provider->user($this->testuser);
 		$this->assertSame('https://vimeo.com/'.$this->testuser, $this->responseJson($r)->link);

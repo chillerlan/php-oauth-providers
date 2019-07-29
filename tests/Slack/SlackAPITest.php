@@ -27,7 +27,7 @@ class SlackAPITest extends OAuth2APITestAbstract{
 	public function testUserIdentity(){
 		$r = $this->provider->userIdentity();
 
-		$this->assertSame(1, (int)$this->responseJson($r)->ok);
+		$this->assertSame($this->testuser, $this->responseJson($r)->user->email);
 	}
 
 }

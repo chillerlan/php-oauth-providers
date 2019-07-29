@@ -24,14 +24,6 @@ class MixcloudAPITest extends OAuth2APITestAbstract{
 	protected $FQN = Mixcloud::class;
 	protected $ENV = 'MIXCLOUD';
 
-	protected $testuser;
-
-	protected function setUp():void{
-		parent::setUp();
-
-		$this->testuser = $this->dotEnv->MIXCLOUD_TESTUSER;
-	}
-
 	public function testMe(){
 		$r = $this->provider->me();
 

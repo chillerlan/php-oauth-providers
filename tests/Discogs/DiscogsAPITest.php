@@ -39,14 +39,6 @@ class DiscogsAPITest extends OAuth1APITestAbstract{
 	protected $FQN = Discogs::class;
 	protected $ENV = 'DISCOGS';
 
-	protected $testuser;
-
-	protected function setUp():void{
-		parent::setUp();
-
-		$this->testuser = $this->dotEnv->DISCOGS_TESTUSER;
-	}
-
 	public function testIdentity(){
 		$r = $this->provider->identity();
 		$this->assertSame($this->testuser, $this->responseJson($r)->username);

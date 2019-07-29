@@ -28,14 +28,6 @@ class GitterAPITest extends OAuth2APITestAbstract{
 	protected $FQN = Gitter::class;
 	protected $ENV = 'GITTER';
 
-	protected $testuser;
-
-	protected function setUp():void{
-		parent::setUp();
-
-		$this->testuser = $this->dotEnv->GITTER_TESTUSER;
-	}
-
 	public function testMe(){
 		$r = $this->provider->me();
 

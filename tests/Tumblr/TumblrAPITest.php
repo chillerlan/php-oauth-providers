@@ -24,14 +24,6 @@ class TumblrAPITest extends OAuth1APITestAbstract{
 	protected $FQN = Tumblr::class;
 	protected $ENV = 'TUMBLR';
 
-	protected $testuser;
-
-	protected function setUp():void{
-		parent::setUp();
-
-		$this->testuser = $this->dotEnv->TUMBLR_TESTUSER;
-	}
-
 	public function testGetUserInfo(){
 		$r = $this->provider->me();
 

@@ -24,14 +24,6 @@ class GitLabAPITest extends OAuth2APITestAbstract{
 	protected $FQN = GitLab::class;
 	protected $ENV = 'GITLAB';
 
-	protected $testuser;
-
-	protected function setUp():void{
-		parent::setUp();
-
-		$this->testuser = $this->dotEnv->get($this->ENV.'_TESTUSER');
-	}
-
 	public function testMe(){
 		$r = $this->provider->me();
 		$this->assertSame($this->testuser, $this->responseJson($r)->username);

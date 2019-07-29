@@ -24,14 +24,6 @@ class DeviantArtAPITest extends OAuth2APITestAbstract{
 	protected $FQN = DeviantArt::class;
 	protected $ENV = 'DEVIANTART';
 
-	protected $testuser;
-
-	protected function setUp():void{
-		parent::setUp();
-
-		$this->testuser = $this->dotEnv->DEVIANTART_TESTUSER;
-	}
-
 	public function testWhoami(){
 		$r = $this->provider->whoami();
 		$this->assertSame($this->testuser, $this->responseJson($r)->username);

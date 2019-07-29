@@ -25,14 +25,6 @@ class DiscordAPITest extends OAuth2APITestAbstract{
 	protected $FQN = Discord::class;
 	protected $ENV = 'DISCORD';
 
-	protected $testuser;
-
-	protected function setUp():void{
-		parent::setUp();
-
-		$this->testuser = $this->dotEnv->DISCORD_TESTUSER;
-	}
-
 	public function testRequestCredentialsToken(){
 
 		$token = $this->provider->getClientCredentialsToken([Discord::SCOPE_CONNECTIONS, Discord::SCOPE_IDENTIFY]);

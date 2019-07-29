@@ -24,14 +24,6 @@ class GitHubAPITest extends OAuth2APITestAbstract{
 	protected $FQN = GitHub::class;
 	protected $ENV = 'GITHUB';
 
-	protected $testuser;
-
-	protected function setUp():void{
-		parent::setUp();
-
-		$this->testuser = $this->dotEnv->GITHUB_TESTUSER;
-	}
-
 	public function testLogin(){
 		$r = $this->provider->me();
 

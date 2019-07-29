@@ -31,7 +31,7 @@ class StripeAPITest extends OAuth2APITestAbstract{
 	public function testGetUserInfo(){
 		$r = $this->provider->me();
 
- 		$this->assertSame('/v1/accounts', $this->responseJson($r)->url);
+ 		$this->assertSame($this->testuser, $this->responseJson($r)->data[0]->email);
 	}
 
 }

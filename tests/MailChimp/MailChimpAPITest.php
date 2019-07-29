@@ -28,25 +28,17 @@ class MailChimpAPITest extends OAuth2APITestAbstract{
 	protected $FQN = MailChimp::class;
 	protected $ENV = 'MAILCHIMP';
 
-	protected $accountname;
-
-	protected function setUp():void{
-		parent::setUp();
-
-		$this->accountname = $this->dotEnv->MAILCHIMP_TESTUSER_ACC;
-	}
-
 	public function testGetTokenMetadata(){
 		$token = $this->storage->getAccessToken($this->provider->serviceName);
 		$token = $this->provider->getTokenMetadata($token);
 
-		$this->assertSame($this->accountname, $token->extraParams['accountname']);
+		$this->assertSame($this->testuser, $token->extraParams['accountname']);
 	}
 
 	public function testApiRoot(){
 		$r = $this->provider->root();
 
-		$this->assertSame($this->accountname, $this->responseJson($r)->account_name);
+		$this->assertSame($this->testuser, $this->responseJson($r)->account_name);
 	}
 
 }

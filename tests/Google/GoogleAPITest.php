@@ -28,18 +28,10 @@ class GoogleAPITest extends OAuth2APITestAbstract{
 	protected $FQN = Google::class;
 	protected $ENV = 'GOOGLE';
 
-	protected $testuser_mail;
-
-	protected function setUp():void{
-		parent::setUp();
-
-		$this->testuser_mail = $this->dotEnv->GOOGLE_TESTUSER_MAIL;
-	}
-
 	public function testGetUserInfo(){
 		$r = $this->provider->me();
 
-		$this->assertSame($this->testuser_mail, $this->responseJson($r)->email);
+		$this->assertSame($this->testuser, $this->responseJson($r)->email);
 	}
 
 }

@@ -24,8 +24,6 @@ class ImgurAPITest extends OAuth2APITestAbstract{
 	protected $FQN = Imgur::class;
 	protected $ENV = 'IMGUR';
 
-	protected $testuser;
-
 	protected function setUp():void{
 		parent::setUp();
 

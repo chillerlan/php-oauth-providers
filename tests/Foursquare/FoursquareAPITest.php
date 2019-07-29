@@ -28,18 +28,10 @@ class FoursquareAPITest extends OAuth2APITestAbstract{
 	protected $FQN = Foursquare::class;
 	protected $ENV = 'FOURSQUARE';
 
-	protected $testuser_id;
-
-	protected function setUp():void{
-		parent::setUp();
-
-		$this->testuser_id = $this->dotEnv->FOURSQUARE_TESTUSER_ID;
-	}
-
 	public function testMe(){
 		$r = $this->provider->me();
 
-		$this->assertSame($this->testuser_id, $this->responseJson($r)->response->user->id);
+		$this->assertSame($this->testuser, $this->responseJson($r)->response->user->id);
 	}
 
 }

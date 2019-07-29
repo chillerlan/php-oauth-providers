@@ -28,14 +28,6 @@ class DeezerAPITest extends OAuth2APITestAbstract{
 	protected $FQN = Deezer::class;
 	protected $ENV = 'DEEZER';
 
-	protected $testuser;
-
-	protected function setUp():void{
-		parent::setUp();
-
-		$this->testuser = $this->dotEnv->DEEZER_TESTUSER;
-	}
-
 	public function testMe(){
 		$r = $this->provider->me();
 

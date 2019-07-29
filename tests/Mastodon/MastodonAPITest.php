@@ -28,14 +28,12 @@ class MastodonAPITest extends OAuth2APITestAbstract{
 	protected $FQN = Mastodon::class;
 	protected $ENV = 'MASTODON';
 
-	protected $testuser;
 	protected $testInstance;
 
 	protected function setUp():void{
 		parent::setUp();
 
-		$this->testuser     = $this->dotEnv->MASTODON_TESTUSER;
-		$this->testInstance = $this->dotEnv->MASTODON_TESTINSTANCE;
+		$this->testInstance = $this->dotEnv->get($this->ENV.'_TESTINSTANCE');
 
 		$this->provider->setInstance($this->testInstance);
 	}

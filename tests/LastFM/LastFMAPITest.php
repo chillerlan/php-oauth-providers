@@ -28,8 +28,6 @@ class LastFMAPITest extends APITestAbstract{
 	protected $FQN = LastFM::class;
 	protected $ENV = 'LASTFM';
 
-	protected $testuser;
-
 	protected function setUp():void{
 		parent::setUp();
 

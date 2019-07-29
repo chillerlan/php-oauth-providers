@@ -24,14 +24,6 @@ class TwitchAPITest extends OAuth2APITestAbstract{
 	protected $FQN = Twitch::class;
 	protected $ENV = 'TWITCH';
 
-	protected $testuser;
-
-	protected function setUp():void {
-		parent::setUp();
-
-		$this->testuser = $this->dotEnv->TWITCH_TESTUSER;
-	}
-
 	public function testMe(){
 		$r = $this->provider->me();
 

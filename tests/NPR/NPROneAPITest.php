@@ -24,18 +24,10 @@ class NPROneAPITest extends OAuth2APITestAbstract{
 	protected $FQN = NPROne::class;
 	protected $ENV = 'NPRONE';
 
-	protected $testuser_mail;
-
-	protected function setUp():void{
-		parent::setUp();
-
-		$this->testuser_mail = $this->dotEnv->NPRONE_TESTUSER_MAIL;
-	}
-
 	public function testIdentityUser(){
 		$r = $this->provider->identityUser();
 
-		$this->assertSame($this->testuser_mail, $this->responseJson($r)->attributes->email);
+		$this->assertSame($this->testuser, $this->responseJson($r)->attributes->email);
 	}
 
 }

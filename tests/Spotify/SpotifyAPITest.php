@@ -28,14 +28,6 @@ class SpotifyAPITest extends OAuth2APITestAbstract{
 	protected $FQN = Spotify::class;
 	protected $ENV = 'SPOTIFY';
 
-	protected $testuser;
-
-	protected function setUp():void{
-		parent::setUp();
-
-		$this->testuser = $this->dotEnv->SPOTIFY_TESTUSER;
-	}
-
 	public function testAlbum(){
 		$r = $this->provider->album('4KJaUvkYQ93TH4MxnJfpPh', ['market' => 'de']);
 		$this->assertSame('The Dirt of Luck', $this->responseJson($r)->name);

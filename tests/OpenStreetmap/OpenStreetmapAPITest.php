@@ -24,14 +24,6 @@ class OpenStreetmapAPITest extends OAuth1APITestAbstract{
 	protected $FQN = OpenStreetmap::class;
 	protected $ENV = 'OPENSTREETMAP';
 
-	protected $testuser;
-
-	protected function setUp():void{
-		parent::setUp();
-
-		$this->testuser = $this->dotEnv->OPENSTREETMAP_TESTUSER;
-	}
-
 	public function testIdentity(){
 		$r = $this->provider->userDetails();
 		$this->assertSame($this->testuser, $this->responseXML($r)->user->attributes()->display_name->__toString());

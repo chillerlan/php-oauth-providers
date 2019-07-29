@@ -18,12 +18,4 @@ abstract class PatreonAPITestAbstract extends OAuth2APITestAbstract{
 
 	protected $CFG = __DIR__.'/../../config';
 
-	protected $testuser_email;
-
-	protected function setUp():void{
-		parent::setUp();
-
-		$this->testuser_email = $this->dotEnv->PATREON_TESTUSER_EMAIL;
-	}
-
 }

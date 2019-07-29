@@ -24,7 +24,7 @@ class Patreon1APITest extends PatreonAPITestAbstract{
 
 	public function testGetCurrentUser(){
 		$r = $this->provider->currentUser();
-		$this->assertSame($this->testuser_email, $this->responseJson($r)->data->attributes->email);
+		$this->assertSame($this->testuser, $this->responseJson($r)->data->attributes->email);
 	}
 
 }

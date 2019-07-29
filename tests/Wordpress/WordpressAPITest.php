@@ -24,14 +24,6 @@ class WordpressAPITest extends OAuth2APITestAbstract{
 	protected $FQN = Wordpress::class;
 	protected $ENV = 'WORDPRESS';
 
-	protected $testuser;
-
-	protected function setUp():void{
-		parent::setUp();
-
-		$this->testuser = $this->dotEnv->WORDPRESS_TESTUSER;
-	}
-
 	public function testMe(){
 		$r = $this->provider->me();
 		$this->assertSame($this->testuser, $this->responseJson($r)->username);

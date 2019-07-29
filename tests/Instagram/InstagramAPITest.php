@@ -24,22 +24,18 @@ class InstagramAPITest extends OAuth2APITestAbstract{
 	protected $FQN = Instagram::class;
 	protected $ENV = 'INSTAGRAM';
 
-	protected $test_name;
-	protected $test_id;
-
 	protected function setUp():void{
 		parent::setUp();
 
 		$tokenParams = $this->storage->getAccessToken($this->provider->serviceName)->extraParams;
 
-		$this->test_name = $tokenParams['user']['username'];
-		$this->test_id   = $tokenParams['user']['id'];
+		$this->testuser = $tokenParams['user']['username'];
 	}
 
 	public function testProfile(){
 		$r = $this->provider->profile('self');
 
-		$this->assertSame($this->test_name, $this->responseJson($r)->data->username);
+		$this->assertSame($this->testuser, $this->responseJson($r)->data->username);
 	}
 
 }
