@@ -30,6 +30,7 @@ $providers = [
 	Providers\Flickr\Flickr::class,
 	Providers\Foursquare\Foursquare::class,
 	Providers\GitHub\GitHub::class,
+	Providers\GitLab\GitLab::class,
 	Providers\Gitter\Gitter::class,
 	Providers\Google\Google::class,
 	Providers\Google\Youtube::class,
