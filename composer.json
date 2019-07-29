@@ -10,7 +10,8 @@
 		"amazon", "bigcartel", "deezer", "deviantart", "discogs", "discord", "flickr", "foursquare",
 		"github", "gitter", "google", "guildwars2", "instagram", "lastfm", "mailchimp", "mastodon",
 		"mixcloud", "musicbrainz", "opencaching", "openstreetmap", "patreon", "slack", "soundcloud",
-		"spotify", "stripe", "tumblr", "twitch", "twitter", "vimeo", "wordpress"
+		"spotify", "stripe", "tumblr", "twitch", "twitter", "vimeo", "wordpress",
+		"npr", "imgur", "gitlab", "bitbucket", "paypal"
 	],
 	"authors": [
 		{
@@ -25,6 +26,8 @@
 	},
 	"require": {
 		"php": "^7.2",
+		"ext-json":"*",
+		"ext-simplexml":"*",
 		"chillerlan/php-oauth-core": "dev-master"
 	},
 	"require-dev": {
