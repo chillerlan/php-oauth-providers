@@ -19,6 +19,7 @@ use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFToken, OAuth2Prov
 use Psr\Http\Message\ResponseInterface;
 
 /**
+ * @method \Psr\Http\Message\ResponseInterface me(array $params = ['schema'])
  */
 class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenExpires, TokenRefresh{
 
