@@ -41,6 +41,7 @@ $providers = [
 	Providers\LastFM\LastFM::class,
 	Providers\MailChimp\MailChimp::class,
 	Providers\Mastodon\Mastodon::class,
+	Providers\Microsoft\MicrosoftGraph::class,
 	Providers\Mixcloud\Mixcloud::class,
 	Providers\MusicBrainz\MusicBrainz::class,
 	Providers\NPR\NPROne::class,
