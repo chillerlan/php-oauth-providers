@@ -30,7 +30,7 @@ function getProviders():array{
 			continue;
 		}
 
-		$providers[hash('crc32b', $r->getShortName())] = $class;
+		$providers[hash('crc32b', $r->getShortName())] = [$r->getShortName(), $class];
 	}
 
 	return $providers;

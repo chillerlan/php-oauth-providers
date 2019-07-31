@@ -35,7 +35,8 @@ $table = [
 	'----------|----------|---------------',
 ];
 
-foreach(getProviders() as $fqcn){
+foreach(getProviders() as $p){
+	[$name, $fqcn] = $p;
 	/** @var \chillerlan\OAuth\Core\OAuthInterface $provider */
 	$provider = new $fqcn($http, $storage, $options, $logger);
 
