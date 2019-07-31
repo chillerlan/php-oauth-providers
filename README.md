@@ -64,6 +64,7 @@ For documentation see [`chillerlan/php-oauth-core`](https://github.com/chillerla
 [Patreon1](https://docs.patreon.com/) | [link](https://www.patreon.com/portal/registration/register-clients) | 
 [Patreon2](https://docs.patreon.com/) | [link](https://www.patreon.com/portal/registration/register-clients) | 
 [PayPal](https://developer.paypal.com/docs/connect-with-paypal/reference/) | [link](https://developer.paypal.com/developer/applications/) | 
+[PayPalSandbox](https://developer.paypal.com/docs/connect-with-paypal/reference/) | [link](https://developer.paypal.com/developer/applications/) | 
 [Slack](https://api.slack.com) | [link](https://api.slack.com/apps) | [link](https://slack.com/apps/manage)
 [SoundCloud](https://developers.soundcloud.com/) | [link](https://soundcloud.com/you/apps) | [link](https://soundcloud.com/settings/connections)
 [Spotify](https://developer.spotify.com/documentation/web-api/) | [link](https://developer.spotify.com/dashboard/applications) | [link](https://www.spotify.com/account/apps/)
