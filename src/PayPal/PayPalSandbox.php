@@ -12,6 +12,9 @@
 
 namespace chillerlan\OAuth\Providers\PayPal;
 
+/**
+ * @method \Psr\Http\Message\ResponseInterface me(array $params = ['schema'])
+ */
 class PayPalSandbox extends PayPal{
 
 	protected $apiURL         = 'https://api.sandbox.paypal.com';
