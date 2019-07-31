@@ -32,6 +32,11 @@ $providers = null;
 
 require_once __DIR__.'/provider-example-common.php';
 
+$table = [
+	' Provider | API keys | revoke access ',
+	'----------|----------|---------------',
+];
+
 foreach($providers as $fqcn){
 	/** @var \chillerlan\OAuth\Core\OAuthInterface $provider */
 	$provider = new $fqcn($http, $storage, $options, $logger);
@@ -40,4 +45,17 @@ foreach($providers as $fqcn){
 	$doc->create(ResponseInterface::class);
 #	$doc->createInterface($provider->serviceName, ResponseInterface::class);
 #	$doc->createJSON();
+
+	$table[] =
+		'['.$provider->serviceName.']('.$provider->apiDocs.') '.
+		'| [link]('.$provider->applicationURL.') '.
+		'| '.(!$provider->userRevokeURL ? '' : '[link]('.$provider->userRevokeURL.')');
+
 }
+
+$file   = __DIR__.'/../README.md';
+$readme = \file_get_contents($file);
+$start  = \strpos($readme, '<!--A-->')+8;
+$end    = \strpos($readme, '<!--O-->');
+
+\file_put_contents($file, \str_replace(\substr($readme, $start, $end-$start), \PHP_EOL.\implode(\PHP_EOL, $table).\PHP_EOL, $readme));
