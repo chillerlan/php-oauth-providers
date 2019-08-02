@@ -13,12 +13,12 @@
 namespace chillerlan\OAuthTest\Providers\MusicBrainz;
 
 use chillerlan\OAuth\Providers\MusicBrainz\MusicBrainz;
-use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
 
 /**
  * @property \chillerlan\OAuth\Providers\MusicBrainz\MusicBrainz $provider
  */
-class MusicBrainzTest extends OAuth2ProviderTestAbstract{
+class MusicBrainzTest extends OAuth2ProviderTest{
 
 	protected $FQN = MusicBrainz::class;
 

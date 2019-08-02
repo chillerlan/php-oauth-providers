@@ -13,14 +13,13 @@
 namespace chillerlan\OAuthTest\Providers\Flickr;
 
 use chillerlan\OAuth\Providers\Flickr\Flickr;
-use chillerlan\OAuthTest\API\OAuth1APITestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth1APITest;
 
 /**
  * @property  \chillerlan\OAuth\Providers\Flickr\Flickr $provider
  */
-class FlickrAPITest extends OAuth1APITestAbstract{
+class FlickrAPITest extends OAuth1APITest{
 
-	protected $CFG = __DIR__.'/../../config';
 	protected $FQN = Flickr::class;
 	protected $ENV = 'FLICKR';
 

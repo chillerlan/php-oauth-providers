@@ -14,14 +14,13 @@ namespace chillerlan\OAuthTest\Providers\Discord;
 
 use chillerlan\OAuth\Core\AccessToken;
 use chillerlan\OAuth\Providers\Discord\Discord;
-use chillerlan\OAuthTest\API\OAuth2APITestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth2APITest;
 
 /**
  * @property  \chillerlan\OAuth\Providers\Discord\Discord $provider
  */
-class DiscordAPITest extends OAuth2APITestAbstract{
+class DiscordAPITest extends OAuth2APITest{
 
-	protected $CFG = __DIR__.'/../../config';
 	protected $FQN = Discord::class;
 	protected $ENV = 'DISCORD';
 

@@ -13,14 +13,13 @@
 namespace chillerlan\OAuthTest\Providers\Twitch;
 
 use chillerlan\OAuth\Providers\Twitch\Twitch;
-use chillerlan\OAuthTest\API\OAuth2APITestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth2APITest;
 
 /**
  * @property  \chillerlan\OAuth\Providers\Twitch\Twitch $provider
  */
-class TwitchAPITest extends OAuth2APITestAbstract{
+class TwitchAPITest extends OAuth2APITest{
 
-	protected $CFG = __DIR__.'/../../config';
 	protected $FQN = Twitch::class;
 	protected $ENV = 'TWITCH';
 

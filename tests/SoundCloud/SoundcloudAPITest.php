@@ -13,14 +13,13 @@
 namespace chillerlan\OAuthTest\Providers\SoundCloud;
 
 use chillerlan\OAuth\Providers\SoundCloud\SoundCloud;
-use chillerlan\OAuthTest\API\OAuth2APITestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth2APITest;
 
 /**
  * @property  \chillerlan\OAuth\Providers\SoundCloud\SoundCloud $provider
  */
-class SoundcloudAPITest extends OAuth2APITestAbstract{
+class SoundcloudAPITest extends OAuth2APITest{
 
-	protected $CFG = __DIR__.'/../../config';
 	protected $FQN = SoundCloud::class;
 	protected $ENV = 'SOUNDCLOUD';
 

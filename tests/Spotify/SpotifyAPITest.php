@@ -13,7 +13,7 @@
 namespace chillerlan\OAuthTest\Providers\Spotify;
 
 use chillerlan\OAuth\Providers\Spotify\Spotify;
-use chillerlan\OAuthTest\API\OAuth2APITestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth2APITest;
 
 /**
  * Spotify API usage tests/examples
@@ -22,9 +22,8 @@ use chillerlan\OAuthTest\API\OAuth2APITestAbstract;
  *
  * @property \chillerlan\OAuth\Providers\Spotify\Spotify $provider
  */
-class SpotifyAPITest extends OAuth2APITestAbstract{
+class SpotifyAPITest extends OAuth2APITest{
 
-	protected $CFG = __DIR__.'/../../config';
 	protected $FQN = Spotify::class;
 	protected $ENV = 'SPOTIFY';
 

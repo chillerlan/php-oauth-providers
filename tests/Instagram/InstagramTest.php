@@ -13,12 +13,12 @@
 namespace chillerlan\OAuthTest\Providers\Instagram;
 
 use chillerlan\OAuth\Providers\Instagram\Instagram;
-use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
 
 /**
  * @property \chillerlan\OAuth\Providers\Instagram\Instagram $provider
  */
-class InstagramTest extends OAuth2ProviderTestAbstract{
+class InstagramTest extends OAuth2ProviderTest{
 
 	protected $FQN = Instagram::class;
 

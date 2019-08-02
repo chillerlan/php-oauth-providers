@@ -13,14 +13,13 @@
 namespace chillerlan\OAuthTest\Providers\MusicBrainz;
 
 use chillerlan\OAuth\Providers\MusicBrainz\MusicBrainz;
-use chillerlan\OAuthTest\API\OAuth2APITestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth2APITest;
 
 /**
  * @property \chillerlan\OAuth\Providers\MusicBrainz\MusicBrainz $provider
  */
-abstract class MusicBrainzAPITestAbstract extends OAuth2APITestAbstract{
+abstract class MusicBrainzAPITestAbstract extends OAuth2APITest{
 
-	protected $CFG          = __DIR__.'/../../config';
 	protected $FQN          = MusicBrainz::class;
 	protected $ENV          = 'MUSICBRAINZ';
 	protected $requestDelay = 1.25;

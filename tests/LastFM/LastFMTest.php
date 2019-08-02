@@ -12,6 +12,7 @@
 
 namespace chillerlan\OAuthTest\Providers\LastFM;
 
+use chillerlan\OAuthTest\Providers\ProviderTestHttpClient;
 use chillerlan\HTTP\{Psr17, Psr7};
 use chillerlan\HTTP\Psr7\Response;
 use chillerlan\OAuth\Core\ProviderException;
@@ -27,32 +28,30 @@ class LastFMTest extends ProviderTestAbstract{
 
 	protected $FQN = LastFM::class;
 
-	protected $responses = [
-		'/lastfm/auth' => [
-			'session' => ['key' => 'session_key'],
-		],
-		'/lastfm/api/request' => [
-			'data' => 'such data! much wow!',
-		],
-	];
-
 	public function setUp():void{
+
+		$this->responses['/lastfm/auth'] = [
+			'session' => ['key' => 'session_key'],
+		];
+
+		$this->responses['/lastfm/api/request'] = [
+			'data' => 'such data! much wow!',
+		];
+
 		parent::setUp();
 
 		$this->setProperty($this->provider, 'apiURL', '/lastfm/api/request');
 	}
 
 	protected function initHttp():ClientInterface{
-		return new class($this->responses) implements ClientInterface{
-			protected $responses;
-
-			public function __construct(array $responses){
-				$this->responses  = $responses;
-			}
+		return new class($this->responses, $this->logger) extends ProviderTestHttpClient{
 
 			public function sendRequest(RequestInterface $request):ResponseInterface{
-				return (new Response)->withBody(Psr17\create_stream_from_input(json_encode($this->responses[$request->getUri()->getPath()])));
+				$stream = Psr17\create_stream_from_input(json_encode($this->responses[$request->getUri()->getPath()]));
+
+				return $this->logRequest($request, (new Response)->withBody($stream));
 			}
+
 		};
 	}
 

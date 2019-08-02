@@ -13,12 +13,12 @@
 namespace chillerlan\OAuthTest\Providers\Wordpress;
 
 use chillerlan\OAuth\Providers\Wordpress\Wordpress;
-use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
 
 /**
  * @property \chillerlan\OAuth\Providers\Wordpress\Wordpress $provider
  */
-class WordpressTest extends OAuth2ProviderTestAbstract{
+class WordpressTest extends OAuth2ProviderTest{
 
 	protected $FQN = Wordpress::class;
 

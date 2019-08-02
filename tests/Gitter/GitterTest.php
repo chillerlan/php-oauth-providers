@@ -12,12 +12,12 @@
 namespace chillerlan\OAuthTest\Providers\Gitter;
 
 use chillerlan\OAuth\Providers\Gitter\Gitter;
-use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
 
 /**
  * @property \chillerlan\OAuth\Providers\Gitter\Gitter $provider
  */
-class GitterTest extends OAuth2ProviderTestAbstract{
+class GitterTest extends OAuth2ProviderTest{
 
 	protected $FQN = Gitter::class;
 

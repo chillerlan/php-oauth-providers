@@ -13,16 +13,15 @@
 namespace chillerlan\OAuthTest\Providers\Amazon;
 
 use chillerlan\OAuth\Providers\Amazon\Amazon;
-use chillerlan\OAuthTest\API\OAuth2APITestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth2APITest;
 
 /**
  * Amazon API usage tests/examples
   *
  * @property \chillerlan\OAuth\Providers\Amazon\Amazon $provider
  */
-class AmazonAPITest extends OAuth2APITestAbstract{
+class AmazonAPITest extends OAuth2APITest{
 
-	protected $CFG = __DIR__.'/../../config';
 	protected $FQN = Amazon::class;
 	protected $ENV = 'AMAZON';
 

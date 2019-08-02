@@ -13,14 +13,13 @@
 namespace chillerlan\OAuthTest\Providers\BigCartel;
 
 use chillerlan\OAuth\Providers\BigCartel\BigCartel;
-use chillerlan\OAuthTest\API\OAuth2APITestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth2APITest;
 
 /**
  * @property \chillerlan\OAuth\Providers\BigCartel\BigCartel $provider
  */
-class BigCartelAPITest extends OAuth2APITestAbstract{
+class BigCartelAPITest extends OAuth2APITest{
 
-	protected $CFG = __DIR__.'/../../config';
 	protected $FQN = BigCartel::class;
 	protected $ENV = 'BIGCARTEL';
 

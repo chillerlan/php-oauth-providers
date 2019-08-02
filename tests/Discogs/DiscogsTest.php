@@ -13,12 +13,12 @@
 namespace chillerlan\OAuthTest\Providers\Discogs;
 
 use chillerlan\OAuth\Providers\Discogs\Discogs;
-use chillerlan\OAuthTest\Providers\OAuth1ProviderTestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth1ProviderTest;
 
 /**
  * @property \chillerlan\OAuth\Providers\Discogs\Discogs $provider
  */
-class DiscogsTest extends OAuth1ProviderTestAbstract{
+class DiscogsTest extends OAuth1ProviderTest{
 
 	protected $FQN = Discogs::class;
 

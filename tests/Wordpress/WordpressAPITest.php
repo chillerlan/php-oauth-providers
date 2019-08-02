@@ -13,14 +13,13 @@
 namespace chillerlan\OAuthTest\Providers\Wordpress;
 
 use chillerlan\OAuth\Providers\Wordpress\Wordpress;
-use chillerlan\OAuthTest\API\OAuth2APITestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth2APITest;
 
 /**
  * @property \chillerlan\OAuth\Providers\Wordpress\Wordpress $provider
  */
-class WordpressAPITest extends OAuth2APITestAbstract{
+class WordpressAPITest extends OAuth2APITest{
 
-	protected $CFG = __DIR__.'/../../config';
 	protected $FQN = Wordpress::class;
 	protected $ENV = 'WORDPRESS';
 

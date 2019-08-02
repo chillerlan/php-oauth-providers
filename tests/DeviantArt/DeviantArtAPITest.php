@@ -13,14 +13,13 @@
 namespace chillerlan\OAuthTest\Providers\DeviantArt;
 
 use chillerlan\OAuth\Providers\DeviantArt\DeviantArt;
-use chillerlan\OAuthTest\API\OAuth2APITestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth2APITest;
 
 /**
  * @property \chillerlan\OAuth\Providers\DeviantArt\DeviantArt $provider
  */
-class DeviantArtAPITest extends OAuth2APITestAbstract{
+class DeviantArtAPITest extends OAuth2APITest{
 
-	protected $CFG = __DIR__.'/../../config';
 	protected $FQN = DeviantArt::class;
 	protected $ENV = 'DEVIANTART';
 

@@ -13,7 +13,6 @@
 namespace chillerlan\OAuthTest\Providers;
 
 use chillerlan\OAuth\Providers\Deezer\Deezer;
-use chillerlan\OAuthTest\API\OAuth2APITestAbstract;
 
 /**
  * Spotify API usage tests/examples
@@ -22,9 +21,8 @@ use chillerlan\OAuthTest\API\OAuth2APITestAbstract;
  *
  * @property \chillerlan\OAuth\Providers\Deezer\Deezer $provider
  */
-class DeezerAPITest extends OAuth2APITestAbstract{
+class DeezerAPITest extends OAuth2APITest{
 
-	protected $CFG = __DIR__.'/../../config';
 	protected $FQN = Deezer::class;
 	protected $ENV = 'DEEZER';
 

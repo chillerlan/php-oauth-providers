@@ -13,12 +13,12 @@
 namespace chillerlan\OAuthTest\Providers\Mixcloud;
 
 use chillerlan\OAuth\Providers\Mixcloud\Mixcloud;
-use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
 
 /**
  * @property \chillerlan\OAuth\Providers\Mixcloud\Mixcloud $provider
  */
-class MixcloudTest extends OAuth2ProviderTestAbstract{
+class MixcloudTest extends OAuth2ProviderTest{
 
 	protected $FQN = Mixcloud::class;
 

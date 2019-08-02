@@ -14,12 +14,12 @@ namespace chillerlan\OAuthTest\Providers\Twitter;
 
 use chillerlan\OAuth\Core\ProviderException;
 use chillerlan\OAuth\Providers\Twitter\TwitterCC;
-use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
 
 /**
  * @property \chillerlan\OAuth\Providers\Twitter\TwitterCC $provider
  */
-class TwitterCCTest extends OAuth2ProviderTestAbstract{
+class TwitterCCTest extends OAuth2ProviderTest{
 
 	protected $FQN = TwitterCC::class;
 

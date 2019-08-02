@@ -13,12 +13,12 @@
 namespace chillerlan\OAuthTest\Providers\Bitbucket;
 
 use chillerlan\OAuth\Providers\Bitbucket\Bitbucket;
-use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
 
 /**
  * @property \chillerlan\OAuth\Providers\Bitbucket\Bitbucket $provider
  */
-class BitbucketTest extends OAuth2ProviderTestAbstract{
+class BitbucketTest extends OAuth2ProviderTest{
 
 	protected $FQN = Bitbucket::class;
 

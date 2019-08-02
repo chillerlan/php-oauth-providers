@@ -13,16 +13,15 @@
 namespace chillerlan\OAuthTest\Providers\Twitter;
 
 use chillerlan\OAuth\Providers\Twitter\Twitter;
-use chillerlan\OAuthTest\API\OAuth1APITestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth1APITest;
 
 /**
  * twitter API tests & examples
  *
  * @link https://developer.twitter.com/en/docs/api-reference-index
  */
-class TwitterAPITest extends OAuth1APITestAbstract{
+class TwitterAPITest extends OAuth1APITest{
 
-	protected $CFG = __DIR__.'/../../config';
 	protected $FQN = Twitter::class;
 	protected $ENV = 'TWITTER';
 

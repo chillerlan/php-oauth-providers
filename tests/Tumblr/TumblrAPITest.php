@@ -13,14 +13,13 @@
 namespace chillerlan\OAuthTest\Providers\Tumblr;
 
 use chillerlan\OAuth\Providers\Tumblr\Tumblr;
-use chillerlan\OAuthTest\API\OAuth1APITestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth1APITest;
 
 /**
  * @property  \chillerlan\OAuth\Providers\Tumblr\Tumblr  $provider
  */
-class TumblrAPITest extends OAuth1APITestAbstract{
+class TumblrAPITest extends OAuth1APITest{
 
-	protected $CFG = __DIR__.'/../../config';
 	protected $FQN = Tumblr::class;
 	protected $ENV = 'TUMBLR';
 

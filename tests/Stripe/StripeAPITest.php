@@ -13,7 +13,7 @@
 namespace chillerlan\OAuthTest\API\Stripe;
 
 use chillerlan\OAuth\Providers\Stripe\Stripe;
-use chillerlan\OAuthTest\API\OAuth2APITestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth2APITest;
 
 /**
  * Stripe API usage tests/examples
@@ -22,9 +22,8 @@ use chillerlan\OAuthTest\API\OAuth2APITestAbstract;
  *
  * @property \chillerlan\OAuth\Providers\Stripe\Stripe $provider
  */
-class StripeAPITest extends OAuth2APITestAbstract{
+class StripeAPITest extends OAuth2APITest{
 
-	protected $CFG = __DIR__.'/../../config';
 	protected $FQN = Stripe::class;
 	protected $ENV = 'STRIPE';
 

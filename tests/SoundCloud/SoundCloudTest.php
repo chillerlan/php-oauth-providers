@@ -13,12 +13,12 @@
 namespace chillerlan\OAuthTest\Providers\SoundCloud;
 
 use chillerlan\OAuth\Providers\SoundCloud\SoundCloud;
-use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
 
 /**
  * @property \chillerlan\OAuth\Providers\SoundCloud\SoundCloud $provider
  */
-class SoundCloudTest extends OAuth2ProviderTestAbstract{
+class SoundCloudTest extends OAuth2ProviderTest{
 
 	protected $FQN = SoundCloud::class;
 

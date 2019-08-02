@@ -16,12 +16,12 @@ use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Core\AccessToken;
 use chillerlan\OAuth\OAuthException;
 use chillerlan\OAuth\Providers\MailChimp\MailChimp;
-use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
 
 /**
  * @property \chillerlan\OAuth\Providers\MailChimp\MailChimp $provider
  */
-class MailChimpTest extends OAuth2ProviderTestAbstract{
+class MailChimpTest extends OAuth2ProviderTest{
 
 	protected $FQN = MailChimp::class;
 

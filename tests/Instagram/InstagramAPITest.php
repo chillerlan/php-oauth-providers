@@ -13,14 +13,13 @@
 namespace chillerlan\OAuthTest\Providers\Instagram;
 
 use chillerlan\OAuth\Providers\Instagram\Instagram;
-use chillerlan\OAuthTest\API\OAuth2APITestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth2APITest;
 
 /**
  * @property  \chillerlan\OAuth\Providers\Instagram\Instagram $provider
  */
-class InstagramAPITest extends OAuth2APITestAbstract{
+class InstagramAPITest extends OAuth2APITest{
 
-	protected $CFG = __DIR__.'/../../config';
 	protected $FQN = Instagram::class;
 	protected $ENV = 'INSTAGRAM';
 

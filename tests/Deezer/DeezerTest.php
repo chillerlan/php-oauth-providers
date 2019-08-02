@@ -26,40 +26,8 @@ class DeezerTest extends OAuth2ProviderTestAbstract{
 
 	protected $FQN = Deezer::class;
 
-	protected $responses = [
-		'/oauth2/access_token' => [
-			'access_token' => 'test_access_token',
-			'expires'      => 3600,
-			'state'        => 'test_state',
-		],
-		'/oauth2/refresh_token' =>  [
-			'access_token' => 'test_refreshed_access_token',
-			'expires'      => 60,
-			'state'        => 'test_state',
-		],
-		'/oauth2/client_credentials' => [
-			'access_token' => 'test_client_credentials_token',
-			'expires'      => 30,
-			'state'        => 'test_state',
-		],
-		'/oauth2/api/request' => [
-			'data' => 'such data! much wow!'
-		],
-		'/oauth2/api/request/test/get' => ['foo'],
-	];
-
 	protected function initHttp():ClientInterface{
-		return new class($this->reflection, $this->responses) implements ClientInterface{
-
-			/** @var \ReflectionClass */
-			protected $reflection;
-			/** @var array */
-			protected $responses;
-
-			public function __construct(ReflectionClass $reflection, array $responses){
-				$this->reflection = $reflection;
-				$this->responses  = $responses;
-			}
+		return new class($this->responses, $this->logger) extends ProviderTestHttpClient{
 
 			public function sendRequest(RequestInterface $request):ResponseInterface{
 				$path = $request->getUri()->getPath();
@@ -69,8 +37,9 @@ class DeezerTest extends OAuth2ProviderTestAbstract{
 					? json_encode($body)
 					: http_build_query($body);
 
-				return (new Response)->withBody(Psr17\create_stream_from_input($body));
+				return $this->logRequest($request, (new Response)->withBody(Psr17\create_stream_from_input($body)));
 			}
+
 		};
 	}
 

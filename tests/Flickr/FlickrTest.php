@@ -13,12 +13,12 @@
 namespace chillerlan\OAuthTest\Providers\Flickr;
 
 use chillerlan\OAuth\Providers\Flickr\Flickr;
-use chillerlan\OAuthTest\Providers\OAuth1ProviderTestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth1ProviderTest;
 
 /**
  * @property \chillerlan\OAuth\Providers\Flickr\Flickr $provider
  */
-class FlickrTest extends OAuth1ProviderTestAbstract{
+class FlickrTest extends OAuth1ProviderTest{
 
 	protected $FQN = Flickr::class;
 

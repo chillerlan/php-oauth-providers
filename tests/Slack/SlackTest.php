@@ -13,12 +13,12 @@
 namespace chillerlan\OAuthTest\Providers\Slack;
 
 use chillerlan\OAuth\Providers\Slack\Slack;
-use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
 
 /**
  * @property \chillerlan\OAuth\Providers\Slack\Slack $provider
  */
-class SlackTest extends OAuth2ProviderTestAbstract{
+class SlackTest extends OAuth2ProviderTest{
 
 	protected $FQN = Slack::class;
 

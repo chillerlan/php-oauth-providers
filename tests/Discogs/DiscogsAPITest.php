@@ -14,6 +14,7 @@ namespace chillerlan\OAuthTest\Providers\Discogs;
 
 use chillerlan\OAuth\Providers\Discogs\Discogs;
 use chillerlan\OAuthTest\API\OAuth1APITestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth1APITest;
 
 /**
  * Discogs API test & usage examples
@@ -33,9 +34,8 @@ use chillerlan\OAuthTest\API\OAuth1APITestAbstract;
  *
  * @property \chillerlan\OAuth\Providers\Discogs\Discogs $provider
  */
-class DiscogsAPITest extends OAuth1APITestAbstract{
+class DiscogsAPITest extends OAuth1APITest{
 
-	protected $CFG = __DIR__.'/../../config';
 	protected $FQN = Discogs::class;
 	protected $ENV = 'DISCOGS';
 

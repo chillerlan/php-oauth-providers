@@ -13,12 +13,12 @@
 namespace chillerlan\OAuthTest\Providers\Spotify;
 
 use chillerlan\OAuth\Providers\Spotify\Spotify;
-use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
 
 /**
  * @property \chillerlan\OAuth\Providers\Spotify\Spotify $provider
  */
-class SpotifyTest extends OAuth2ProviderTestAbstract{
+class SpotifyTest extends OAuth2ProviderTest{
 
 	protected $FQN = Spotify::class;
 

@@ -15,13 +15,13 @@ namespace chillerlan\OAuthTest\Providers\GuildWars2;
 use chillerlan\OAuth\Core\AccessToken;
 use chillerlan\OAuth\Providers\GuildWars2\GuildWars2;
 use chillerlan\OAuthTest\API\OAuth2APITestAbstract;
+use chillerlan\OAuthTest\Providers\OAuth2APITest;
 
 /**
  * @property \chillerlan\OAuth\Providers\GuildWars2\GuildWars2 $provider
  */
-class GuildWars2APITest extends OAuth2APITestAbstract{
+class GuildWars2APITest extends OAuth2APITest{
 
-	protected $CFG = __DIR__.'/../../config';
 	protected $FQN = GuildWars2::class;
 	protected $ENV = '';
 
