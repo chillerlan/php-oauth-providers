@@ -112,11 +112,11 @@ class Deezer extends OAuth2Provider implements CSRFToken, TokenExpires{
 		$token = new AccessToken([
 			'provider'     => $this->serviceName,
 			'accessToken'  => $data['access_token'],
-			'expires'      => $data['expires'] ?? AccessToken::EOL_NEVER_EXPIRES,
+			'expires'      => $data['expires'] ?? $data['expires_in'] ?? AccessToken::EOL_NEVER_EXPIRES,
 			'refreshToken' => $data['refresh_token'] ?? null,
 		]);
 
-		unset($data['expires'], $data['refresh_token'], $data['access_token']);
+		unset($data['expires'], $data['expires_in'], $data['refresh_token'], $data['access_token']);
 
 		$token->extraParams = $data;
 
