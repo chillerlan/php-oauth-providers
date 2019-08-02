@@ -36,6 +36,7 @@ For documentation see [`chillerlan/php-oauth-core`](https://github.com/chillerla
  Provider | API keys | revoke access 
 ----------|----------|---------------
 [Amazon](https://login.amazon.com/) | [link](https://sellercentral.amazon.com/hz/home) | 
+[BattleNet](https://develop.battle.net/documentation) | [link](https://develop.battle.net/access/clients) | [link](https://account.blizzard.com/connections)
 [BigCartel](https://developers.bigcartel.com/api/v1) | [link](https://bigcartel.wufoo.com/forms/big-cartel-api-application/) | [link](https://my.bigcartel.com/account)
 [Bitbucket](https://developer.atlassian.com/bitbucket/api/2/reference/) | [link](https://developer.atlassian.com/apps/) | 
 [Deezer](https://developers.deezer.com/api) | [link](http://developers.deezer.com/myapps) | [link](https://www.deezer.com/account/apps)
