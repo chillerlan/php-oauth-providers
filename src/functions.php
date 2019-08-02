@@ -31,7 +31,7 @@ if(!\function_exists(__NAMESPACE__.'\\getProviders')){
 				continue;
 			}
 
-			$providers[\hash('crc32b', $r->getShortName())] = [$r->getShortName(), $class];
+			$providers[\hash('crc32b', $r->getShortName())] = ['name' => $r->getShortName(), 'fqcn' => $class];
 		}
 
 		return $providers;

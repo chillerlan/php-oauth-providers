@@ -35,17 +35,16 @@ $table = [
 ];
 
 foreach(\chillerlan\OAuth\Providers\getProviders() as $p){
-	[$name, $fqcn] = $p;
 	/** @var \chillerlan\OAuth\Core\OAuthInterface $provider */
-	$provider = new $fqcn($http, $storage, $options, $logger);
+	$provider = new $p['fqcn']($http, $storage, $options, $logger);
 
 	$doc = new EndpointDocblock($provider, $provider->endpoints);
 	$doc->create(ResponseInterface::class);
-#	$doc->createInterface($name, ResponseInterface::class);
+#	$doc->createInterface($p['name'], ResponseInterface::class);
 #	$doc->createJSON();
 
 	$table[] =
-		'['.$name.']('.$provider->apiDocs.') '.
+		'['.$p['name'].']('.$provider->apiDocs.') '.
 		'| [link]('.$provider->applicationURL.') '.
 		'| '.(!$provider->userRevokeURL ? '' : '[link]('.$provider->userRevokeURL.')');
 
