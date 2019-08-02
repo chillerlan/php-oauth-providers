@@ -13,8 +13,4 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 $CFGDIR = __DIR__.'/../config';
 
-/** @var \chillerlan\Settings\SettingsContainerInterface $options */
-$options = null;
-
 require_once __DIR__.'/../vendor/chillerlan/php-oauth-core/examples/oauth-example-common.php';
-

@@ -42,11 +42,11 @@ foreach(getProviders() as $p){
 
 	$doc = new EndpointDocblock($provider, $provider->endpoints);
 	$doc->create(ResponseInterface::class);
-#	$doc->createInterface($provider->serviceName, ResponseInterface::class);
+#	$doc->createInterface($name, ResponseInterface::class);
 #	$doc->createJSON();
 
 	$table[] =
-		'['.$provider->serviceName.']('.$provider->apiDocs.') '.
+		'['.$name.']('.$provider->apiDocs.') '.
 		'| [link]('.$provider->applicationURL.') '.
 		'| '.(!$provider->userRevokeURL ? '' : '[link]('.$provider->userRevokeURL.')');
 

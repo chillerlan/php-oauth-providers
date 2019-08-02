@@ -1,0 +1,57 @@
+<?php
+/**
+ * @link https://www.last.fm/api/authentication
+ *
+ * @filesource   LastFM.php
+ * @created      10.04.2018
+ * @author       Smiley <smiley@chillerlan.net>
+ * @copyright    2018 Smiley
+ * @license      MIT
+ */
+
+use chillerlan\HTTP\Psr7;
+use chillerlan\OAuth\Providers\LastFM\LastFM;
+
+$ENVVAR = 'LASTFM';
+
+/** @var \chillerlan\Settings\SettingsContainerInterface $options */
+$options = null;
+
+/** @var \Psr\Log\LoggerInterface $logger */
+$logger = null;
+
+/** @var \Psr\Http\Client\ClientInterface $http */
+$http = null;
+
+/** @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage */
+$storage = null;
+
+require_once __DIR__.'/../provider-example-common.php';
+
+$lastfm = new LastFM($http, $storage, $options, $logger);
+
+$servicename = $lastfm->serviceName;
+
+// step 2: redirect to the provider's login screen
+if(isset($_GET['login']) && $_GET['login'] === $servicename){
+	header('Location: '.$lastfm->getAuthURL());
+}
+// step 3: receive the access token
+elseif(isset($_GET['token'])){
+	$token = $lastfm->getAccessToken($_GET['token']);
+
+	// save the token [...]
+
+	// access granted, redirect
+	header('Location: ?granted='.$servicename);
+}
+// step 4: verify the token and use the API
+elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
+	echo '<pre>'.print_r(Psr7\get_json($lastfm->userGetInfo()), true).'</pre>';
+}
+// step 1 (optional): display a login link
+else{
+	echo '<a href="?login='.$servicename.'">connect with '.$servicename.'!</a>';
+}
+
+exit;
