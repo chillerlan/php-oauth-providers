@@ -4,7 +4,6 @@
 	"homepage": "https://github.com/chillerlan/php-oauth-providers",
 	"license": "MIT",
 	"type": "library",
-	"minimum-stability": "stable",
 	"keywords": [
 		"oauth", "oauth2", "api", "client", "psr-7", "psr-17", "psr-18", "rfc5849", "rfc6749",
 		"amazon", "bigcartel", "deezer", "deviantart", "discogs", "discord", "flickr", "foursquare",
@@ -37,7 +36,10 @@
 	"autoload": {
 		"psr-4": {
 			"chillerlan\\OAuth\\Providers\\": "src/"
-		}
+		},
+		"files": [
+			"src/functions.php"
+		]
 	},
 	"autoload-dev": {
 		"psr-4": {

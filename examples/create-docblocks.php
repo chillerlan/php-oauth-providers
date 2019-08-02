@@ -28,14 +28,13 @@ $http = null;
 $storage = null;
 
 require_once __DIR__.'/provider-example-common.php';
-require_once __DIR__.'/functions.php';
 
 $table = [
 	' Provider | API keys | revoke access ',
 	'----------|----------|---------------',
 ];
 
-foreach(getProviders() as $p){
+foreach(\chillerlan\OAuth\Providers\getProviders() as $p){
 	[$name, $fqcn] = $p;
 	/** @var \chillerlan\OAuth\Core\OAuthInterface $provider */
 	$provider = new $fqcn($http, $storage, $options, $logger);
