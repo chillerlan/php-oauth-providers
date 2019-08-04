@@ -10,7 +10,7 @@
 		"github", "gitter", "google", "guildwars2", "instagram", "lastfm", "mailchimp", "mastodon",
 		"mixcloud", "musicbrainz", "opencaching", "openstreetmap", "patreon", "slack", "soundcloud",
 		"spotify", "stripe", "tumblr", "twitch", "twitter", "vimeo", "wordpress",
-		"npr", "imgur", "gitlab", "bitbucket", "paypal", "microsoft"
+		"npr", "imgur", "gitlab", "bitbucket", "paypal", "microsoft", "battlenet"
 	],
 	"authors": [
 		{
