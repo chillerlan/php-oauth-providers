@@ -11,6 +11,7 @@
 namespace chillerlan\OAuthExamples;
 
 use chillerlan\HTTPTest\MagicAPI\EndpointDocblock;
+use chillerlan\OAuth\Core\{ClientCredentials, OAuth1Interface, OAuth2Interface};
 use Psr\Http\Message\ResponseInterface;
 
 $ENVVAR = '';
@@ -30,8 +31,8 @@ $storage = null;
 require_once __DIR__.'/provider-example-common.php';
 
 $table = [
-	' Provider | API keys | revoke access ',
-	'----------|----------|---------------',
+	' Provider | API keys | revoke access | OAuth | `ClientCredentials`',
+	'----------|----------|---------------|-------|--------------------',
 ];
 
 foreach(\chillerlan\OAuth\Providers\getProviders() as $p){
@@ -43,10 +44,24 @@ foreach(\chillerlan\OAuth\Providers\getProviders() as $p){
 #	$doc->createInterface($p['name'], ResponseInterface::class);
 #	$doc->createJSON();
 
+	switch(true){
+		case $provider instanceof OAuth2Interface:
+			$oauth = '2';
+			break;
+		case $provider instanceof OAuth1Interface:
+			$oauth = '1';
+			break;
+		default:
+			$oauth = '-';
+	}
+
 	$table[] =
 		'['.$p['name'].']('.$provider->apiDocs.') '.
 		'| [link]('.$provider->applicationURL.') '.
-		'| '.(!$provider->userRevokeURL ? '' : '[link]('.$provider->userRevokeURL.')');
+		'| '.(!$provider->userRevokeURL ? '' : '[link]('.$provider->userRevokeURL.')').
+		'| '.$oauth.
+		'| '.($provider instanceof ClientCredentials ? '✓' : '')
+	;
 
 }
 
