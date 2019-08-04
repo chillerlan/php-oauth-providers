@@ -18,6 +18,10 @@ namespace chillerlan\OAuth\Providers\Foursquare;
 use chillerlan\OAuth\Core\OAuth2Provider;
 use Psr\Http\Message\ResponseInterface;
 
+use function array_merge, explode, parse_str, parse_url;
+
+use const PHP_URL_QUERY;
+
 /**
  * @method \Psr\Http\Message\ResponseInterface me()
  */
@@ -45,12 +49,12 @@ class Foursquare extends OAuth2Provider{
 	 */
 	public function request(string $path, array $params = null, string $method = null, $body = null, array $headers = null):ResponseInterface{
 
-		\parse_str(\parse_url($this->apiURL.$path, \PHP_URL_QUERY), $query);
+		parse_str(parse_url($this->apiURL.$path, PHP_URL_QUERY), $query);
 
 		$query['v'] = $this::API_VERSIONDATE;
 		$query['m'] = 'foursquare';
 
-		return parent::request(\explode('?', $path)[0], \array_merge($params ?? [], $query), $method, $body, $headers);
+		return parent::request(explode('?', $path)[0], array_merge($params ?? [], $query), $method, $body, $headers);
 	}
 
 }

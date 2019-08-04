@@ -15,9 +15,10 @@
 
 namespace chillerlan\OAuth\Providers\Flickr;
 
-use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Core\OAuth1Provider;
 use Psr\Http\Message\ResponseInterface;
+
+use function chillerlan\HTTP\Psr7\merge_query;
 
 /**
  * @method \Psr\Http\Message\ResponseInterface activityUserComments(array $params = ['per_page', 'page'])
@@ -276,7 +277,7 @@ class Flickr extends OAuth1Provider{
 			'nojsoncallback' => true,
 		]);
 
-		$request = $this->requestFactory->createRequest($method, Psr7\merge_query($this->apiURL, $params));
+		$request = $this->requestFactory->createRequest($method, merge_query($this->apiURL, $params));
 
 		$request = $this->getRequestAuthorization($request, $this->storage->getAccessToken($this->serviceName));
 

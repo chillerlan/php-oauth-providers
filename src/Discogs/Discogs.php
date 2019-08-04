@@ -15,9 +15,10 @@
 
 namespace chillerlan\OAuth\Providers\Discogs;
 
-use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Core\{AccessToken, OAuth1Provider};
 use DateTime;
+
+use function chillerlan\HTTP\Psr7\build_http_query;
 
 /**
  * @method \Psr\Http\Message\ResponseInterface artist(string $artist_id)
@@ -101,7 +102,7 @@ class Discogs extends OAuth1Provider{
 
 		$request = $this->requestFactory
 			->createRequest('POST', $this->requestTokenURL)
-			->withHeader('Authorization', 'OAuth '.Psr7\build_http_query($params, true, ', ', '"'));
+			->withHeader('Authorization', 'OAuth '.build_http_query($params, true, ', ', '"'));
 		;
 
 		return $this->parseTokenResponse($this->http->sendRequest($request), true);

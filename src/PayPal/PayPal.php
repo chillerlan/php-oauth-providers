@@ -14,9 +14,13 @@
 
 namespace chillerlan\OAuth\Providers\PayPal;
 
-use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, ProviderException, TokenExpires, TokenRefresh};
 use Psr\Http\Message\ResponseInterface;
+
+use function array_column, base64_encode, http_build_query, implode, is_array, json_decode;
+use function chillerlan\HTTP\Psr7\decompress_content;
+
+use const PHP_QUERY_RFC1738;
 
 /**
  * @method \Psr\Http\Message\ResponseInterface me(array $params = ['schema'])
@@ -43,9 +47,9 @@ class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	 * @throws \chillerlan\OAuth\Core\ProviderException
 	 */
 	protected function parseTokenResponse(ResponseInterface $response):AccessToken{
-		$data = \json_decode(Psr7\decompress_content($response), true);
+		$data = json_decode(decompress_content($response), true);
 
-		if(!\is_array($data)){
+		if(!is_array($data)){
 			throw new ProviderException('unable to parse token response');
 		}
 
@@ -59,8 +63,8 @@ class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 		if(isset($data['name'], $data['message'])){
 			$msg = \sprintf('error retrieving access token: "%s" [%s]', $data['message'], $data['name']);
 
-			if(isset($data['links']) && \is_array($data['links'])){
-				$msg .= "\n".\implode("\n", \array_column($data['links'], 'href'));
+			if(isset($data['links']) && is_array($data['links'])){
+				$msg .= "\n".implode("\n", array_column($data['links'], 'href'));
 			}
 
 			throw new ProviderException($msg);
@@ -107,8 +111,8 @@ class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 			->createRequest('POST', $this->accessTokenURL)
 			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
 			->withHeader('Accept-Encoding', 'identity')
-			->withHeader('Authorization', 'Basic '.\base64_encode($this->options->key.':'.$this->options->secret))
-			->withBody($this->streamFactory->createStream(\http_build_query($body, '', '&', \PHP_QUERY_RFC1738)));
+			->withHeader('Authorization', 'Basic '.base64_encode($this->options->key.':'.$this->options->secret))
+			->withBody($this->streamFactory->createStream(http_build_query($body, '', '&', PHP_QUERY_RFC1738)));
 
 		$token = $this->parseTokenResponse($this->http->sendRequest($request));
 
@@ -116,6 +120,5 @@ class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 
 		return $token;
 	}
-
 
 }

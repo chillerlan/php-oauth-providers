@@ -14,9 +14,13 @@
 
 namespace chillerlan\OAuth\Providers\LastFM;
 
-use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Core\{AccessToken, OAuthProvider, ProviderException};
 use Psr\Http\Message\{RequestInterface, ResponseInterface, UriInterface};
+
+use function array_merge, http_build_query, in_array, is_array,ksort, md5;
+use function chillerlan\HTTP\Psr7\{get_json, merge_query};
+
+use const PHP_QUERY_RFC1738;
 
 /**
  * @method \Psr\Http\Message\ResponseInterface albumAddTags(array $body = ['mbid', 'album', 'artist', 'tags'])
@@ -102,11 +106,11 @@ class LastFM extends OAuthProvider{
 	 */
 	public function getAuthURL(array $params = null):UriInterface{
 
-		$params = \array_merge($params ?? [], [
+		$params = array_merge($params ?? [], [
 			'api_key' => $this->options->key,
 		]);
 
-		return $this->uriFactory->createUri(Psr7\merge_query($this->authURL, $params));
+		return $this->uriFactory->createUri(merge_query($this->authURL, $params));
 	}
 
 	/**
@@ -115,17 +119,17 @@ class LastFM extends OAuthProvider{
 	 * @return string
 	 */
 	protected function getSignature(array $params):string {
-		\ksort($params);
+		ksort($params);
 
 		$signature = '';
 
 		foreach($params as $k => $v){
-			if(!\in_array($k, ['format', 'callback'])){
+			if(!in_array($k, ['format', 'callback'])){
 				$signature .= $k.$v;
 			}
 		}
 
-		return \md5($signature.$this->options->secret);
+		return md5($signature.$this->options->secret);
 	}
 
 	/**
@@ -144,7 +148,7 @@ class LastFM extends OAuthProvider{
 
 		$params['api_sig'] = $this->getSignature($params);
 
-		$request = $this->requestFactory->createRequest('GET', Psr7\merge_query($this->apiURL, $params));
+		$request = $this->requestFactory->createRequest('GET', merge_query($this->apiURL, $params));
 
 		return $this->parseTokenResponse($this->http->sendRequest($request));
 	}
@@ -156,9 +160,9 @@ class LastFM extends OAuthProvider{
 	 * @throws \chillerlan\OAuth\Core\ProviderException
 	 */
 	protected function parseTokenResponse(ResponseInterface $response):AccessToken{
-		$data = Psr7\get_json($response, true);
+		$data = get_json($response, true);
 
-		if(!$data || !\is_array($data)){
+		if(!$data || !is_array($data)){
 			throw new ProviderException('unable to parse token response');
 		}
 		elseif(isset($data['error'])){
@@ -192,7 +196,7 @@ class LastFM extends OAuthProvider{
 	 */
 	protected function requestParams(string $apiMethod, array $params, array $body):array {
 
-		$params = \array_merge($params, $body, [
+		$params = array_merge($params, $body, [
 			'method'  => $apiMethod,
 			'format'  => 'json',
 			'api_key' => $this->options->key,
@@ -222,15 +226,15 @@ class LastFM extends OAuthProvider{
 			$params = [];
 		}
 
-		$request = $this->requestFactory->createRequest($method, Psr7\merge_query($this->apiURL, $params));
+		$request = $this->requestFactory->createRequest($method, merge_query($this->apiURL, $params));
 
-		foreach(\array_merge($this->apiHeaders, $headers ?? []) as $header => $value){
+		foreach(array_merge($this->apiHeaders, $headers ?? []) as $header => $value){
 			$request = $request->withAddedHeader($header, $value);
 		}
 
 		if($method === 'POST'){
 			$request = $request->withHeader('Content-Type', 'application/x-www-form-urlencoded');
-			$body    = $this->streamFactory->createStream(\http_build_query($body, '', '&', \PHP_QUERY_RFC1738));
+			$body    = $this->streamFactory->createStream(http_build_query($body, '', '&', PHP_QUERY_RFC1738));
 			$request = $request->withBody($body);
 		}
 

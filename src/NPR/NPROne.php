@@ -18,6 +18,8 @@ namespace chillerlan\OAuth\Providers\NPR;
 use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, TokenExpires, TokenRefresh};
 use Psr\Http\Message\{RequestInterface, ResponseInterface};
 
+use function strpos;
+
 /**
  * @method \Psr\Http\Message\ResponseInterface identityFollowing(array $body = ['Affiliation'])
  * @method \Psr\Http\Message\ResponseInterface identityInherit(array $body = ['UserDocument'])
@@ -58,7 +60,7 @@ class NPROne extends OAuth2Provider implements CSRFToken, TokenExpires, TokenRef
 	public function sendRequest(RequestInterface $request):ResponseInterface{
 
 		// get authorization only if we request the provider API
-		if(\strpos((string)$request->getUri(), '.api.npr.org/') !== false){ // silly resource subdomains >.<
+		if(strpos((string)$request->getUri(), '.api.npr.org/') !== false){ // silly resource subdomains >.<
 			$token = $this->storage->getAccessToken($this->serviceName);
 
 			// attempt to refresh an expired token

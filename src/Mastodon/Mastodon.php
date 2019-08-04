@@ -18,6 +18,8 @@ namespace chillerlan\OAuth\Providers\Mastodon;
 use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, TokenExpires, TokenRefresh};
 use chillerlan\OAuth\OAuthException;
 
+use function parse_url;
+
 /**
  * @method \Psr\Http\Message\ResponseInterface acceptFollowRequest(string $request_id)
  * @method \Psr\Http\Message\ResponseInterface addListMembers(string $list_id, array $body = ['account_ids'])

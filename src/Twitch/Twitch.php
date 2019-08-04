@@ -17,6 +17,10 @@ namespace chillerlan\OAuth\Providers\Twitch;
 
 use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, TokenRefresh};
 
+use function http_build_query, implode;
+
+use const PHP_QUERY_RFC1738;
+
 /**
  * @method \Psr\Http\Message\ResponseInterface me()
  * @method \Psr\Http\Message\ResponseInterface user(string $username)

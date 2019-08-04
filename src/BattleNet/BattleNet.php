@@ -20,6 +20,8 @@ use chillerlan\OAuth\Core\{ClientCredentials, CSRFToken, OAuth2Provider, Provide
 use Psr\Http\Client\ClientInterface;
 use Psr\Log\LoggerInterface;
 
+use function in_array, strtolower;
+
 /**
  * @method \Psr\Http\Message\ResponseInterface userinfo(array $params = ['access_token'])
  */
@@ -56,9 +58,9 @@ class BattleNet extends OAuth2Provider implements ClientCredentials, CSRFToken, 
 	 * @throws \chillerlan\OAuth\Core\ProviderException
 	 */
 	public function setRegion(string $region):BattleNet{
-		$region = \strtolower($region);
+		$region = strtolower($region);
 
-		if(!\in_array($region, ['apac', 'cn', 'eu', 'us'], true)){
+		if(!in_array($region, ['apac', 'cn', 'eu', 'us'], true)){
 			throw new ProviderException('invalid region: '.$region);
 		}
 

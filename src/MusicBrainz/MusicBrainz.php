@@ -17,6 +17,11 @@ namespace chillerlan\OAuth\Providers\MusicBrainz;
 
 use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2Provider, ProviderException, TokenExpires, TokenRefresh};
 use Psr\Http\Message\ResponseInterface;
+
+use function array_merge, date, explode, http_build_query, in_array, sprintf, strtoupper;
+
+use const PHP_QUERY_RFC1738;
+
 /**
  * @method \Psr\Http\Message\ResponseInterface area(array $params = ['inc', 'query', 'limit', 'offset', 'collection'])
  * @method \Psr\Http\Message\ResponseInterface areaId(string $id, array $params = ['inc'])
@@ -88,7 +93,7 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenExpires, Tok
 		$refreshToken = $token->refreshToken;
 
 		if(empty($refreshToken)){
-			throw new ProviderException(\sprintf('no refresh token available, token expired [%s]', \date('Y-m-d h:i:s A', $token->expires)));
+			throw new ProviderException(sprintf('no refresh token available, token expired [%s]', date('Y-m-d h:i:s A', $token->expires)));
 		}
 
 		$body = [
@@ -102,7 +107,7 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenExpires, Tok
 			->createRequest('POST', $this->refreshTokenURL ?? $this->accessTokenURL) // refreshTokenURL is used in tests
 			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
 			->withHeader('Accept-Encoding', 'identity')
-			->withBody($this->streamFactory->createStream(\http_build_query($body, '', '&', \PHP_QUERY_RFC1738)))
+			->withBody($this->streamFactory->createStream(http_build_query($body, '', '&', PHP_QUERY_RFC1738)))
 		;
 
 		$newToken = $this->parseTokenResponse($this->http->sendRequest($request));
@@ -127,7 +132,7 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenExpires, Tok
 	 */
 	public function request(string $path, array $params = null, string $method = null, $body = null, array $headers = null):ResponseInterface{
 		$params = $params ?? [];
-		$method = \strtoupper($method);
+		$method = strtoupper($method);
 		$token  = $this->storage->getAccessToken($this->serviceName);
 
 		if($token->isExpired()){
@@ -138,13 +143,13 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenExpires, Tok
 			$params['fmt'] = 'json';
 		}
 
-		if(\in_array($method, ['POST', 'PUT', 'DELETE']) && !isset($params['client'])){
+		if(in_array($method, ['POST', 'PUT', 'DELETE']) && !isset($params['client'])){
 			$params['client'] = $this->options->user_agent; // @codeCoverageIgnore
 		}
 
-		$headers = \array_merge($this->apiHeaders, $headers ?? [], ['Authorization' => 'Bearer '.$token->accessToken]);
+		$headers = array_merge($this->apiHeaders, $headers ?? [], ['Authorization' => 'Bearer '.$token->accessToken]);
 
-		return parent::request(\explode('?', $path)[0], $params, $method, $body, $headers);
+		return parent::request(explode('?', $path)[0], $params, $method, $body, $headers);
 	}
 
 }

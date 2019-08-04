@@ -15,10 +15,12 @@
 
 namespace chillerlan\OAuth\Providers\MailChimp;
 
-use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2Provider};
 use chillerlan\OAuth\OAuthException;
 use Psr\Http\Message\ResponseInterface;
+
+use function array_merge, sprintf;
+use function chillerlan\HTTP\Psr7\get_json;
 
 /**
  * @method \Psr\Http\Message\ResponseInterface createAuthorizedApp(array $body = ['client_id', 'client_secret'])
@@ -64,7 +66,7 @@ class MailChimp extends OAuth2Provider implements CSRFToken{
 			throw new OAuthException('metadata response error'); // @codeCoverageIgnore
 		}
 
-		$token->extraParams = \array_merge($token->extraParams, Psr7\get_json($response, true));
+		$token->extraParams = array_merge($token->extraParams, get_json($response, true));
 
 		$this->storage->storeAccessToken($this->serviceName, $token);
 
@@ -79,7 +81,7 @@ class MailChimp extends OAuth2Provider implements CSRFToken{
 	public function request(string $path, array $params = null, string $method = null, $body = null, array $headers = null):ResponseInterface{
 		$token = $this->storage->getAccessToken($this->serviceName);
 
-		$this->apiURL = \sprintf($this::API_BASE, $token->extraParams['dc']);
+		$this->apiURL = sprintf($this::API_BASE, $token->extraParams['dc']);
 
 		return parent::request($path, $params, $method, $body, $headers);
 	}

@@ -17,9 +17,13 @@
 
 namespace chillerlan\OAuth\Providers\Deezer;
 
-use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2Provider, ProviderException, TokenExpires};
 use Psr\Http\Message\{ResponseInterface, UriInterface};
+
+use function array_merge, http_build_query, implode, is_array, parse_str;
+use function chillerlan\HTTP\Psr7\{decompress_content, merge_query};
+
+use const PHP_QUERY_RFC1738;
 
 /**
  * @method \Psr\Http\Message\ResponseInterface me()
@@ -53,16 +57,16 @@ class Deezer extends OAuth2Provider implements CSRFToken, TokenExpires{
 			unset($params['client_secret']);
 		}
 
-		$params = \array_merge($params, [
+		$params = array_merge($params, [
 			'app_id'        => $this->options->key,
 			'redirect_uri'  => $this->options->callbackURL,
-			'perms'         => \implode($this->scopesDelimiter, $scopes),
+			'perms'         => implode($this->scopesDelimiter, $scopes),
 #			'response_type' => 'token', // -> token in hash fragment
 		]);
 
 		$params = $this->setState($params);
 
-		return $this->uriFactory->createUri(Psr7\merge_query($this->authURL, $params));
+		return $this->uriFactory->createUri(merge_query($this->authURL, $params));
 	}
 
 	/**
@@ -82,7 +86,7 @@ class Deezer extends OAuth2Provider implements CSRFToken, TokenExpires{
 			->createRequest('POST', $this->accessTokenURL)
 			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
 			->withHeader('Accept-Encoding', 'identity')
-			->withBody($this->streamFactory->createStream(\http_build_query($body, '', '&', \PHP_QUERY_RFC1738)));
+			->withBody($this->streamFactory->createStream(http_build_query($body, '', '&', PHP_QUERY_RFC1738)));
 
 		$token = $this->parseTokenResponse($this->http->sendRequest($request));
 
@@ -95,9 +99,9 @@ class Deezer extends OAuth2Provider implements CSRFToken, TokenExpires{
 	 * @inheritDoc
 	 */
 	protected function parseTokenResponse(ResponseInterface $response):AccessToken{
-		\parse_str(Psr7\decompress_content($response), $data);
+		parse_str(decompress_content($response), $data);
 
-		if(!\is_array($data) || empty($data)){
+		if(!is_array($data) || empty($data)){
 			throw new ProviderException('unable to parse token response');
 		}
 

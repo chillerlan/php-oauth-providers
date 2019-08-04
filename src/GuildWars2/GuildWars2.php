@@ -17,9 +17,11 @@
 
 namespace chillerlan\OAuth\Providers\GuildWars2;
 
-use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Core\{AccessToken, OAuth2Provider, ProviderException};
 use Psr\Http\Message\UriInterface;
+
+use function implode, preg_match, substr;
+use function chillerlan\HTTP\Psr7\{get_json, merge_query};
 
 /**
  * @method \Psr\Http\Message\ResponseInterface account(array $params = ['access_token'])
@@ -265,12 +267,12 @@ class GuildWars2 extends OAuth2Provider{
 		}
 
 		$request = $this->requestFactory
-			->createRequest('GET', Psr7\merge_query($this->apiURL.'/tokeninfo', ['access_token' => $access_token]))
+			->createRequest('GET', merge_query($this->apiURL.'/tokeninfo', ['access_token' => $access_token]))
 		;
 
-		$tokeninfo = Psr7\get_json($this->http->sendRequest($request));
+		$tokeninfo = get_json($this->http->sendRequest($request));
 
-		if(isset($tokeninfo->id) && strpos($access_token, $tokeninfo->id) === 0){
+		if(isset($tokeninfo->id) && \strpos($access_token, $tokeninfo->id) === 0){
 
 			$token = new AccessToken([
 				'provider'     => $this->serviceName,
@@ -308,6 +310,5 @@ class GuildWars2 extends OAuth2Provider{
 	public function getAccessToken(string $code, string $state = null):AccessToken{
 		throw new ProviderException($this::AUTH_ERRMSG);
 	}
-
 
 }
