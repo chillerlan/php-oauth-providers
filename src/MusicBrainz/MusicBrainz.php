@@ -15,7 +15,7 @@
 
 namespace chillerlan\OAuth\Providers\MusicBrainz;
 
-use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2Provider, ProviderException, TokenExpires, TokenRefresh};
+use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2Provider, ProviderException, TokenRefresh};
 use Psr\Http\Message\ResponseInterface;
 
 use function array_merge, date, explode, http_build_query, in_array, sprintf, strtoupper;
@@ -62,7 +62,7 @@ use const PHP_QUERY_RFC1738;
  * @method \Psr\Http\Message\ResponseInterface work(array $params = ['inc', 'query', 'limit', 'offset', 'artist', 'collection'])
  * @method \Psr\Http\Message\ResponseInterface workId(string $id, array $params = ['inc'])
  */
-class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenExpires, TokenRefresh{
+class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenRefresh{
 
 	const SCOPE_PROFILE        = 'profile';
 	const SCOPE_EMAIL          = 'email';
