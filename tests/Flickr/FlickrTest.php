@@ -22,4 +22,12 @@ class FlickrTest extends OAuth1ProviderTest{
 
 	protected $FQN = Flickr::class;
 
+	protected function setUp():void{
+
+		// the Flickr client does not add a path, so "/request" is missing
+		$this->responses['/oauth1/api'] = '{"data":"such data! much wow!"}';
+
+		parent::setUp();
+	}
+
 }
