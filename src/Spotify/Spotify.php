@@ -15,7 +15,7 @@
 
 namespace chillerlan\OAuth\Providers\Spotify;
 
-use chillerlan\OAuth\Core\{ClientCredentials, CSRFToken, OAuth2Provider, TokenExpires, TokenRefresh};
+use chillerlan\OAuth\Core\{ClientCredentials, CSRFToken, OAuth2Provider, TokenRefresh};
 
 /**
  * @method \Psr\Http\Message\ResponseInterface album(string $id, array $params = ['market'])
@@ -82,7 +82,7 @@ use chillerlan\OAuth\Core\{ClientCredentials, CSRFToken, OAuth2Provider, TokenEx
  * @method \Psr\Http\Message\ResponseInterface userPlaylists(string $user_id, array $params = ['limit', 'offset'])
  * @method \Psr\Http\Message\ResponseInterface volume(array $params = ['volume_percent', 'device_id'])
  */
-class Spotify extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenExpires, TokenRefresh{
+class Spotify extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh{
 
 	public const SCOPE_PLAYLIST_READ_PRIVATE       = 'playlist-read-private';
 	public const SCOPE_PLAYLIST_READ_COLLABORATIVE = 'playlist-read-collaborative';

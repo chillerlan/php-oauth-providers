@@ -14,7 +14,7 @@
 
 namespace chillerlan\OAuth\Providers\PayPal;
 
-use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, ProviderException, TokenExpires, TokenRefresh};
+use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, ProviderException, TokenRefresh};
 use Psr\Http\Message\ResponseInterface;
 
 use function array_column, base64_encode, http_build_query, implode, is_array, json_decode;
@@ -25,7 +25,7 @@ use const PHP_QUERY_RFC1738;
 /**
  * @method \Psr\Http\Message\ResponseInterface me(array $params = ['schema'])
  */
-class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenExpires, TokenRefresh{
+class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh{
 
 	public const SCOPE_BASIC_AUTH = 'openid';
 	public const SCOPE_FULL_NAME  = 'profile';

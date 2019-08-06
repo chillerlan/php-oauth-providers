@@ -197,13 +197,12 @@ There are several interfaces that can be implemented by OAuth2 providers:
 
 - `ClientCredentials` - allows to fetch client credentials access tokens 
 - `CSRFToken` - enforces the usage/verification of the `<state>` parameter during authentication
-- `TokenExpires` - indicates expiring tokens
 - `TokenRefresh` - allows refreshing expired tokens during requests
 
 ```php
 use chillerlan\OAuth\Core\OAuth2Provider;
 
-class MyOauth2Provider extends Oauth2Provider implements ClientCredentials, CSRFToken, TokenExpires, TokenRefresh{
+class MyOauth2Provider extends Oauth2Provider implements ClientCredentials, CSRFToken, TokenRefresh{
 
 	public const SCOPE_WHATEVER = 'whatever';
 

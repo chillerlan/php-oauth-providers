@@ -14,11 +14,11 @@
 
 namespace chillerlan\OAuth\Providers\Microsoft;
 
-use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, TokenExpires};
+use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider};
 
 /**
  */
-abstract class AzureActiveDirectory extends OAuth2Provider implements CSRFToken, TokenExpires{
+abstract class AzureActiveDirectory extends OAuth2Provider implements CSRFToken{
 
 	public const SCOPE_OPENID         = 'openid';
 	public const SCOPE_OPENID_EMAIL   = 'email';

@@ -52,7 +52,7 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	protected $accessTokenURL     = 'https://api.twitch.tv/kraken/oauth2/token';
 	protected $userRevokeURL      = 'https://www.twitch.tv/settings/connections';
 	protected $revokeURL          = 'https://api.twitch.tv/kraken/oauth2/revoke';
-#	protected $accessTokenExpires = true;
+
 	protected $authHeaders        = ['Accept' => 'application/vnd.twitchtv.v5+json'];
 	protected $apiHeaders         = ['Accept' => 'application/vnd.twitchtv.v5+json'];
 	protected $authMethod         = self::HEADER_OAUTH;  // -> https://api.twitch.tv/kraken

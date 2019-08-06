@@ -16,7 +16,7 @@ namespace chillerlan\OAuth\Providers\BattleNet;
 
 use chillerlan\OAuth\Storage\OAuthStorageInterface;
 use chillerlan\Settings\SettingsContainerInterface;
-use chillerlan\OAuth\Core\{ClientCredentials, CSRFToken, OAuth2Provider, ProviderException, TokenExpires};
+use chillerlan\OAuth\Core\{ClientCredentials, CSRFToken, OAuth2Provider, ProviderException};
 use Psr\Http\Client\ClientInterface;
 use Psr\Log\LoggerInterface;
 
@@ -25,7 +25,7 @@ use function in_array, strtolower;
 /**
  * @method \Psr\Http\Message\ResponseInterface userinfo(array $params = ['access_token'])
  */
-class BattleNet extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenExpires{
+class BattleNet extends OAuth2Provider implements ClientCredentials, CSRFToken{
 
 	public const SCOPE_OPENID      = 'openid';
 	public const SCOPE_PROFILE_D3  = 'd3.profile';

@@ -19,12 +19,12 @@
 
 namespace chillerlan\OAuth\Providers\Imgur;
 
-use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, TokenExpires, TokenRefresh};
+use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, TokenRefresh};
 
 /**
  * @method \Psr\Http\Message\ResponseInterface me()
  */
-class Imgur extends OAuth2Provider implements CSRFToken, TokenExpires, TokenRefresh{
+class Imgur extends OAuth2Provider implements CSRFToken, TokenRefresh{
 
 	protected $apiURL         = 'https://api.imgur.com';
 	protected $authURL        = 'https://api.imgur.com/oauth2/authorize';

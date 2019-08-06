@@ -15,12 +15,12 @@
 
 namespace chillerlan\OAuth\Providers\Gitter;
 
-use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, TokenExpires};
+use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider};
 
 /**
  * @method \Psr\Http\Message\ResponseInterface me()
  */
-class Gitter extends OAuth2Provider implements CSRFToken, TokenExpires{
+class Gitter extends OAuth2Provider implements CSRFToken{
 
 	public const SCOPE_FLOW    = 'flow';
 	public const SCOPE_PRIVATE = 'private';

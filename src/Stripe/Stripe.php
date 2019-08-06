@@ -18,12 +18,12 @@
 
 namespace chillerlan\OAuth\Providers\Stripe;
 
-use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, TokenExpires, TokenRefresh};
+use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, TokenRefresh};
 
 /**
  * @method \Psr\Http\Message\ResponseInterface me()
  */
-class Stripe extends OAuth2Provider implements CSRFToken, TokenExpires, TokenRefresh{
+class Stripe extends OAuth2Provider implements CSRFToken, TokenRefresh{
 
 	public const SCOPE_READ_WRITE = 'read_write';
 	public const SCOPE_READ_ONLY  = 'read_only';

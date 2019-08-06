@@ -15,12 +15,12 @@
 
 namespace chillerlan\OAuth\Providers\Bitbucket;
 
-use chillerlan\OAuth\Core\{ClientCredentials, CSRFToken, OAuth2Provider, TokenExpires, TokenRefresh};
+use chillerlan\OAuth\Core\{ClientCredentials, CSRFToken, OAuth2Provider, TokenRefresh};
 
 /**
  * @method \Psr\Http\Message\ResponseInterface me()
  */
-class Bitbucket extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenExpires, TokenRefresh{
+class Bitbucket extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh{
 
 	protected $apiURL         = 'https://api.bitbucket.org';
 	protected $authURL        = 'https://bitbucket.org/site/oauth2/authorize';

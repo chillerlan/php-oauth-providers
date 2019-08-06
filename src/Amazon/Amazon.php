@@ -16,12 +16,12 @@
 
 namespace chillerlan\OAuth\Providers\Amazon;
 
-use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, TokenExpires, TokenRefresh,};
+use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, TokenRefresh,};
 
 /**
  * @method \Psr\Http\Message\ResponseInterface userProfile()
  */
-class Amazon extends OAuth2Provider implements CSRFToken, TokenExpires, TokenRefresh{
+class Amazon extends OAuth2Provider implements CSRFToken, TokenRefresh{
 
 	public const SCOPE_PROFILE         = 'profile';
 	public const SCOPE_PROFILE_USER_ID = 'profile:user_id';

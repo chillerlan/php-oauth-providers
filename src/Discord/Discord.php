@@ -14,12 +14,12 @@
 
 namespace chillerlan\OAuth\Providers\Discord;
 
-use chillerlan\OAuth\Core\{ClientCredentials, CSRFToken, OAuth2Provider, TokenExpires, TokenRefresh};
+use chillerlan\OAuth\Core\{ClientCredentials, CSRFToken, OAuth2Provider, TokenRefresh};
 
 /**
  * @method \Psr\Http\Message\ResponseInterface me()
  */
-class Discord extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenExpires, TokenRefresh{
+class Discord extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh{
 
 	public const SCOPE_BOT                    = 'bot';
 	public const SCOPE_CONNECTIONS            = 'connections';

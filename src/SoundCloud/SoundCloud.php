@@ -15,13 +15,13 @@
 
 namespace chillerlan\OAuth\Providers\SoundCloud;
 
-use chillerlan\OAuth\Core\{OAuth2Provider, TokenExpires};
+use chillerlan\OAuth\Core\{OAuth2Provider};
 
 /**
  * @method \Psr\Http\Message\ResponseInterface me()
  * @method \Psr\Http\Message\ResponseInterface user(string $id)
  */
-class SoundCloud extends OAuth2Provider implements TokenExpires{
+class SoundCloud extends OAuth2Provider{
 
 	public const SCOPE_NONEXPIRING = 'non-expiring';
 #	public const SCOPE_EMAIL       = 'email'; // ???

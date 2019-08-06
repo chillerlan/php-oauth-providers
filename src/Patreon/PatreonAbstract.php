@@ -12,11 +12,11 @@
 
 namespace chillerlan\OAuth\Providers\Patreon;
 
-use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, TokenExpires, TokenRefresh};
+use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, TokenRefresh};
 
 /**
  */
-abstract class PatreonAbstract extends OAuth2Provider implements CSRFToken, TokenExpires, TokenRefresh{
+abstract class PatreonAbstract extends OAuth2Provider implements CSRFToken, TokenRefresh{
 
 	protected $authURL        = 'https://www.patreon.com/oauth2/authorize';
 	protected $accessTokenURL = 'https://www.patreon.com/api/oauth2/token';

@@ -17,7 +17,7 @@
 
 namespace chillerlan\OAuth\Providers\Deezer;
 
-use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2Provider, ProviderException, TokenExpires};
+use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2Provider, ProviderException};
 use Psr\Http\Message\{ResponseInterface, UriInterface};
 
 use function array_merge, http_build_query, implode, is_array, parse_str;
@@ -28,7 +28,7 @@ use const PHP_QUERY_RFC1738;
 /**
  * @method \Psr\Http\Message\ResponseInterface me()
  */
-class Deezer extends OAuth2Provider implements CSRFToken, TokenExpires{
+class Deezer extends OAuth2Provider implements CSRFToken{
 
 	public const SCOPE_BASIC             = 'basic_access';
 	public const SCOPE_EMAIL             = 'email';

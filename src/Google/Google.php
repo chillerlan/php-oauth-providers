@@ -16,12 +16,12 @@
 
 namespace chillerlan\OAuth\Providers\Google;
 
-use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, TokenExpires};
+use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider};
 
 /**
  * @method \Psr\Http\Message\ResponseInterface me()
  */
-class Google extends OAuth2Provider implements CSRFToken, TokenExpires{
+class Google extends OAuth2Provider implements CSRFToken{
 
 	public const SCOPE_EMAIL            = 'email';
 	public const SCOPE_PROFILE          = 'profile';
