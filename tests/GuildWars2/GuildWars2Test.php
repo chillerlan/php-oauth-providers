@@ -23,12 +23,11 @@ class GuildWars2Test extends OAuth2ProviderTest{
 
 	protected $FQN = GuildWars2::class;
 
-	public function setUp():void{
-
-		$this->responses['/gw2/auth/tokeninfo'] = '{"id":"00000000-1111-2222-3333-444444444444","name":"GW2Token","permissions":["foo","bar"]}';
-
-		// setup after adding responses -> ProviderTestAbstract::initHTTP()
-		parent::setUp();
+	protected function getTestResponses():array{
+		return [
+			'/gw2/auth/tokeninfo' => '{"id":"00000000-1111-2222-3333-444444444444","name":"GW2Token","permissions":["foo","bar"]}',
+			'/oauth2/api/request' => '{"data":"such data! much wow!"}',
+		];
 	}
 
 	public function testStoreGW2Token(){

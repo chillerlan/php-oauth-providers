@@ -25,12 +25,11 @@ class DeezerTest extends OAuth2ProviderTestAbstract{
 
 	protected $FQN = Deezer::class;
 
-	protected function setUp():void{
-
-		$this->responses['/oauth2/access_token'] = 'access_token=test_access_token&expires_in=3600&state=test_state';
-
-		// setup after adding responses -> ProviderTestAbstract::initHTTP()
-		parent::setUp();
+	protected function getTestResponses():array{
+		return [
+			'/oauth2/access_token' => 'access_token=test_access_token&expires_in=3600&state=test_state',
+			'/oauth2/api/request'  => '{"data":"such data! much wow!"}',
+		];
 	}
 
 	public function testGetAuthURL(){

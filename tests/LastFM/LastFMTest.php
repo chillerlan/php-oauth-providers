@@ -28,14 +28,16 @@ class LastFMTest extends ProviderTestAbstract{
 	protected $FQN = LastFM::class;
 
 	public function setUp():void{
-
-		$this->responses['/lastfm/auth']        = '{"session":{"key":"session_key"}}';
-		$this->responses['/lastfm/api/request'] = '{"data":"such data! much wow!"}';
-
-		// setup after adding responses -> ProviderTestAbstract::initHTTP()
 		parent::setUp();
 
 		$this->setProperty($this->provider, 'apiURL', '/lastfm/api/request');
+	}
+
+	protected function getTestResponses():array{
+		return [
+			'/lastfm/auth'        => '{"session":{"key":"session_key"}}',
+			'/lastfm/api/request' => '{"data":"such data! much wow!"}',
+		];
 	}
 
 	public function testGetAuthURL(){
