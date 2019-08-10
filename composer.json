@@ -23,6 +23,7 @@
 		"issues": "https://github.com/chillerlan/php-oauth-providers/issues",
 		"source": "https://github.com/chillerlan/php-oauth-providers"
 	},
+	"minimum-stability": "dev",
 	"require": {
 		"php": "^7.2",
 		"ext-json":"*",
