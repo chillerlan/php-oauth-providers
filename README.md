@@ -33,7 +33,7 @@ For documentation of the core components see [`chillerlan/php-oauth-core`](https
 ## Installation
 **requires [composer](https://getcomposer.org)**
 
-`composer.json` (note: replace `dev-master` with a version boundary)
+`composer.json` (note: replace `dev-master` with a [version boundary](https://getcomposer.org/doc/articles/versions.md))
 ```json
 {
 	"require": {
