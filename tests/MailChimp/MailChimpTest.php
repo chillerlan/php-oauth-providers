@@ -12,11 +12,12 @@
 
 namespace chillerlan\OAuthTest\Providers\MailChimp;
 
-use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Core\AccessToken;
 use chillerlan\OAuth\OAuthException;
 use chillerlan\OAuth\Providers\MailChimp\MailChimp;
 use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
+
+use function chillerlan\HTTP\Psr7\get_json;
 
 /**
  * @property \chillerlan\OAuth\Providers\MailChimp\MailChimp $provider
@@ -29,13 +30,8 @@ class MailChimpTest extends OAuth2ProviderTest{
 
 	public function setUp():void{
 
-		$this->responses['/3.0'] = [
-			'data' => 'such data! much wow! (/3.0)'
-		];
-
-		$this->responses['/oauth2/metadata'] = [
-			'metadata' => 'whatever'
-		];
+		$this->responses['/3.0']             = '{"data":"such data! much wow! (/3.0)"}';
+		$this->responses['/oauth2/metadata'] = '{"metadata":"whatever"}';
 
 		// setup after adding responses -> ProviderTestAbstract::initHTTP()
 		parent::setUp();
@@ -46,7 +42,7 @@ class MailChimpTest extends OAuth2ProviderTest{
 	public function testRequest(){
 		$this->storage->storeAccessToken($this->provider->serviceName, $this->token);
 
-		$this->assertSame('such data! much wow! (/3.0)', Psr7\get_json($this->provider->request(''))->data);
+		$this->assertSame('such data! much wow! (/3.0)', get_json($this->provider->request(''))->data);
 	}
 
 	public function testRequestInvalidAuthTypeException(){

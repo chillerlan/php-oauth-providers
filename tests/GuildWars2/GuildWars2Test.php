@@ -25,12 +25,9 @@ class GuildWars2Test extends OAuth2ProviderTest{
 
 	public function setUp():void{
 
-		$this->responses['/gw2/auth/tokeninfo'] = [
-			'id'          => '00000000-1111-2222-3333-444444444444',
-			'name'        => 'GW2Token',
-			'permissions' => ['foo', 'bar'],
-		];
+		$this->responses['/gw2/auth/tokeninfo'] = '{"id":"00000000-1111-2222-3333-444444444444","name":"GW2Token","permissions":["foo","bar"]}';
 
+		// setup after adding responses -> ProviderTestAbstract::initHTTP()
 		parent::setUp();
 	}
 

@@ -12,12 +12,11 @@
 
 namespace chillerlan\OAuthTest\Providers;
 
-use chillerlan\HTTP\{Psr17, Psr7\Response};
+use chillerlan\HTTP\Psr7\Response;
 use chillerlan\OAuth\Core\{AccessToken, ProviderException};
 use chillerlan\OAuth\Providers\Deezer\Deezer;
-use Psr\Http\Client\ClientInterface;
-use Psr\Http\Message\{RequestInterface, ResponseInterface};
-use ReflectionClass;
+
+use function chillerlan\HTTP\Psr17\create_stream_from_input;
 
 /**
  * @property \chillerlan\OAuth\Providers\Deezer\Deezer $provider
@@ -26,21 +25,12 @@ class DeezerTest extends OAuth2ProviderTestAbstract{
 
 	protected $FQN = Deezer::class;
 
-	protected function initHttp():ClientInterface{
-		return new class($this->responses, $this->logger) extends ProviderTestHttpClient{
+	protected function setUp():void{
 
-			public function sendRequest(RequestInterface $request):ResponseInterface{
-				$path = $request->getUri()->getPath();
-				$body = $this->responses[$path];
+		$this->responses['/oauth2/access_token'] = 'access_token=test_access_token&expires_in=3600&state=test_state';
 
-				$body = $path === '/oauth2/api/request'
-					? json_encode($body)
-					: http_build_query($body);
-
-				return $this->logRequest($request, (new Response)->withBody(Psr17\create_stream_from_input($body)));
-			}
-
-		};
+		// setup after adding responses -> ProviderTestAbstract::initHTTP()
+		parent::setUp();
 	}
 
 	public function testGetAuthURL(){
@@ -57,7 +47,7 @@ class DeezerTest extends OAuth2ProviderTestAbstract{
 	public function testParseTokenResponse(){
 		$token = $this
 			->getMethod('parseTokenResponse')
-			->invokeArgs($this->provider, [(new Response)->withBody(Psr17\create_stream_from_input(http_build_query(['access_token' => 'whatever'])))]);
+			->invokeArgs($this->provider, [(new Response)->withBody(create_stream_from_input('access_token=whatever'))]);
 
 		$this->assertInstanceOf(AccessToken::class, $token);
 		$this->assertSame('whatever', $token->accessToken);
@@ -69,7 +59,7 @@ class DeezerTest extends OAuth2ProviderTestAbstract{
 
 		$this
 			->getMethod('parseTokenResponse')
-			->invokeArgs($this->provider, [(new Response)->withBody(Psr17\create_stream_from_input(http_build_query(['error_reason' => 'whatever'])))]);
+			->invokeArgs($this->provider, [(new Response)->withBody(create_stream_from_input('error_reason=whatever'))]);
 	}
 
 }

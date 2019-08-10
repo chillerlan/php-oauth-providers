@@ -12,14 +12,13 @@
 
 namespace chillerlan\OAuthTest\Providers\LastFM;
 
-use chillerlan\OAuthTest\Providers\ProviderTestHttpClient;
-use chillerlan\HTTP\{Psr17, Psr7};
 use chillerlan\HTTP\Psr7\Response;
 use chillerlan\OAuth\Core\ProviderException;
 use chillerlan\OAuth\Providers\LastFM\LastFM;
 use chillerlan\OAuthTest\Providers\ProviderTestAbstract;
-use Psr\Http\Client\ClientInterface;
-use Psr\Http\Message\{RequestInterface, ResponseInterface};
+
+use function chillerlan\HTTP\Psr17\create_stream;
+use function chillerlan\HTTP\Psr7\get_json;
 
 /**
  * @property \chillerlan\OAuth\Providers\LastFM\LastFM $provider
@@ -30,29 +29,13 @@ class LastFMTest extends ProviderTestAbstract{
 
 	public function setUp():void{
 
-		$this->responses['/lastfm/auth'] = [
-			'session' => ['key' => 'session_key'],
-		];
+		$this->responses['/lastfm/auth']        = '{"session":{"key":"session_key"}}';
+		$this->responses['/lastfm/api/request'] = '{"data":"such data! much wow!"}';
 
-		$this->responses['/lastfm/api/request'] = [
-			'data' => 'such data! much wow!',
-		];
-
+		// setup after adding responses -> ProviderTestAbstract::initHTTP()
 		parent::setUp();
 
 		$this->setProperty($this->provider, 'apiURL', '/lastfm/api/request');
-	}
-
-	protected function initHttp():ClientInterface{
-		return new class($this->responses, $this->logger) extends ProviderTestHttpClient{
-
-			public function sendRequest(RequestInterface $request):ResponseInterface{
-				$stream = Psr17\create_stream_from_input(json_encode($this->responses[$request->getUri()->getPath()]));
-
-				return $this->logRequest($request, (new Response)->withBody($stream));
-			}
-
-		};
 	}
 
 	public function testGetAuthURL(){
@@ -70,7 +53,7 @@ class LastFMTest extends ProviderTestAbstract{
 	}
 
 	public function testParseTokenResponse(){
-		$r = (new Response)->withBody(Psr17\create_stream(json_encode(['session' => ['key' => 'whatever']])));
+		$r = (new Response)->withBody(create_stream('{"session":{"key":"whatever"}}'));
 
 		$token = $this
 			->getMethod('parseTokenResponse')
@@ -92,7 +75,8 @@ class LastFMTest extends ProviderTestAbstract{
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('error retrieving access token:');
 
-		$r = (new Response)->withBody(Psr17\create_stream(json_encode(['error' => 42, 'message' => 'whatever'])));
+		$r = (new Response)->withBody(create_stream('{"error":42,"message":"whatever"}'));
+
 		$this
 			->getMethod('parseTokenResponse')
 			->invokeArgs($this->provider, [$r]);
@@ -102,7 +86,8 @@ class LastFMTest extends ProviderTestAbstract{
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('token missing');
 
-		$r = (new Response)->withBody(Psr17\create_stream(json_encode(['session' => []])));
+		$r = (new Response)->withBody(create_stream('{"session":[]}'));
+
 		$this
 			->getMethod('parseTokenResponse')
 			->invokeArgs($this->provider, [$r]);
@@ -131,14 +116,14 @@ class LastFMTest extends ProviderTestAbstract{
 	public function testRequest(){
 		$r = $this->provider->request('');
 
-		$this->assertSame('such data! much wow!', Psr7\get_json($r)->data);
+		$this->assertSame('such data! much wow!', get_json($r)->data);
 	}
 
 	// coverage
 	public function testRequestPost(){
 		$r = $this->provider->request('', [], 'POST', ['foo' => 'bar'], ['Content-Type' => 'whatever']);
 
-		$this->assertSame('such data! much wow!', Psr7\get_json($r)->data);
+		$this->assertSame('such data! much wow!', get_json($r)->data);
 	}
 
 }
