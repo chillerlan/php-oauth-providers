@@ -30,7 +30,7 @@ class SoundCloud extends OAuth2Provider{
 	protected $authURL            = 'https://soundcloud.com/connect';
 	protected $accessTokenURL     = 'https://api.soundcloud.com/oauth2/token';
 	protected $userRevokeURL      = 'https://soundcloud.com/settings/connections';
-	protected $authMethod         = self::HEADER_OAUTH;
+	protected $authMethodHeader   = 'OAuth';
 	protected $endpointMap        = SoundCloudEndpoints::class;
 	protected $apiDocs            = 'https://developers.soundcloud.com/';
 	protected $applicationURL     = 'https://soundcloud.com/you/apps';

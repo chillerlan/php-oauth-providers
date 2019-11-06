@@ -42,7 +42,7 @@ class Deezer extends OAuth2Provider implements CSRFToken{
 	protected $authURL        = 'https://connect.deezer.com/oauth/auth.php';
 	protected $accessTokenURL = 'https://connect.deezer.com/oauth/access_token.php';
 	protected $userRevokeURL  = 'https://www.deezer.com/account/apps';
-	protected $authMethod     = self::QUERY_ACCESS_TOKEN;
+	protected $authMethod     = self::AUTH_METHOD_QUERY;
 	protected $endpointMap    = DeezerEndpoints::class;
 	protected $apiDocs        = 'https://developers.deezer.com/api';
 	protected $applicationURL = 'http://developers.deezer.com/myapps';
