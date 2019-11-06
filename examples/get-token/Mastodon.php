@@ -14,22 +14,14 @@ use chillerlan\OAuth\Providers\Mastodon\Mastodon;
 
 $ENVVAR = 'MASTODON';
 
-/** @var \chillerlan\Settings\SettingsContainerInterface $options */
-$options = null;
-
-/** @var \Psr\Log\LoggerInterface $logger */
-$logger = null;
-
-/** @var \Psr\Http\Client\ClientInterface $http */
-$http = null;
-
-/** @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage */
-$storage = null;
-
-/** @var \chillerlan\DotEnv\DotEnv $env */
-$env = null;
-
 require_once __DIR__.'/../provider-example-common.php';
+
+/**
+ * @var \Psr\Http\Client\ClientInterface $http
+ * @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage
+ * @var \chillerlan\Settings\SettingsContainerInterface $options
+ * @var \Psr\Log\LoggerInterface $logger
+ */
 
 $mastodon = new Mastodon($http, $storage, $options, $logger);
 

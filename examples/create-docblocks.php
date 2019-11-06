@@ -16,19 +16,14 @@ use Psr\Http\Message\ResponseInterface;
 
 $ENVVAR = '';
 
-/** @var \chillerlan\Settings\SettingsContainerInterface $options */
-$options = null;
-
-/** @var \Psr\Log\LoggerInterface $logger */
-$logger = null;
-
-/** @var \Psr\Http\Client\ClientInterface $http */
-$http = null;
-
-/** @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage */
-$storage = null;
-
 require_once __DIR__.'/provider-example-common.php';
+
+/**
+ * @var \Psr\Http\Client\ClientInterface                $http
+ * @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage
+ * @var \chillerlan\Settings\SettingsContainerInterface $options
+ * @var \Psr\Log\LoggerInterface                        $logger
+ */
 
 $table = [
 	' Provider | API keys | revoke access | OAuth | `ClientCredentials`',

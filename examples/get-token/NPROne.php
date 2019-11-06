@@ -14,22 +14,16 @@ use chillerlan\OAuth\Providers\NPR\NPROne;
 
 $ENVVAR = 'NPRONE';
 
-/** @var \chillerlan\Settings\SettingsContainerInterface $options */
-$options = null;
-
-/** @var \Psr\Log\LoggerInterface $logger */
-$logger = null;
-
-/** @var \Psr\Http\Client\ClientInterface $http */
-$http = null;
-
-/** @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage */
-$storage = null;
-
 require_once __DIR__.'/../provider-example-common.php';
 
-$npr = new NPROne($http, $storage, $options, $logger);
+/**
+ * @var \Psr\Http\Client\ClientInterface $http
+ * @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage
+ * @var \chillerlan\Settings\SettingsContainerInterface $options
+ * @var \Psr\Log\LoggerInterface $logger
+ */
 
+$npr = new NPROne($http, $storage, $options, $logger);
 
 $scopes = [
 	NPROne::SCOPE_IDENTITY_READONLY,

@@ -14,19 +14,14 @@ use chillerlan\OAuth\Providers\Spotify\Spotify;
 
 $ENVVAR = 'SPOTIFY';
 
-/** @var \chillerlan\Settings\SettingsContainerInterface $options */
-$options = null;
-
-/** @var \Psr\Log\LoggerInterface $logger */
-$logger = null;
-
-/** @var \Psr\Http\Client\ClientInterface $http */
-$http = null;
-
-/** @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage */
-$storage = null;
-
 require_once __DIR__.'/../provider-example-common.php';
+
+/**
+ * @var \Psr\Http\Client\ClientInterface $http
+ * @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage
+ * @var \chillerlan\Settings\SettingsContainerInterface $options
+ * @var \Psr\Log\LoggerInterface $logger
+ */
 
 $spotify = new Spotify($http, $storage, $options, $logger);
 

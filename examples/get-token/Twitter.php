@@ -15,19 +15,14 @@ use chillerlan\OAuth\Providers\Twitter\{Twitter, TwitterCC};
 
 $ENVVAR = 'TWITTER';
 
-/** @var \chillerlan\Settings\SettingsContainerInterface $options */
-$options = null;
-
-/** @var \Psr\Log\LoggerInterface $logger */
-$logger = null;
-
-/** @var \Psr\Http\Client\ClientInterface $http */
-$http = null;
-
-/** @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage */
-$storage = null;
-
 require_once __DIR__.'/../provider-example-common.php';
+
+/**
+ * @var \Psr\Http\Client\ClientInterface $http
+ * @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage
+ * @var \chillerlan\Settings\SettingsContainerInterface $options
+ * @var \Psr\Log\LoggerInterface $logger
+ */
 
 $twitter  = new Twitter($http, $storage, $options, $logger);
 #$twitter2 = new TwitterCC($http, $storage, $options, $logger); // application-only
