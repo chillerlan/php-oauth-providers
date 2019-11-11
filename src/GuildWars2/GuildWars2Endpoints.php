@@ -2,10 +2,11 @@
 /**
  * Class GuildWars2Endpoints (auto created)
  *
+ * @link https://wiki.guildwars2.com/wiki/API:Main
  * @link https://api.guildwars2.com/v2.json
  *
  * @filesource   GuildWars2Endpoints.php
- * @created      28.07.2019
+ * @created      11.11.2019
  * @package      chillerlan\OAuth\Providers\GuildWars2
  * @license      MIT
  */
@@ -48,6 +49,12 @@ class GuildWars2Endpoints extends EndpointMap{
 
 	protected $accountDyes = [
 		'path'          => '/account/dyes',
+		'query'         => ['access_token'],
+		'path_elements' => [],
+	];
+
+	protected $accountEmotes = [
+		'path'          => '/account/emotes',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
@@ -584,6 +591,12 @@ class GuildWars2Endpoints extends EndpointMap{
 		'path'          => '/emblem/foregrounds/%1$s',
 		'query'         => [],
 		'path_elements' => ['id'],
+	];
+
+	protected $emotes = [
+		'path'          => '/emotes',
+		'query'         => [],
+		'path_elements' => [],
 	];
 
 	protected $files = [
