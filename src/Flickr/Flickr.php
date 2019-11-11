@@ -268,7 +268,13 @@ class Flickr extends OAuth1Provider{
 	 *
 	 * @return \Psr\Http\Message\ResponseInterface
 	 */
-	public function request(string $path, array $params = null, string $method = null, $body = null, array $headers = null):ResponseInterface{
+	public function request(
+		string $path,
+		array $params = null,
+		string $method = null,
+		$body = null,
+		array $headers = null
+	):ResponseInterface{
 		$method = $method ?? 'POST';
 
 		$params = \array_merge($params ?? [], [

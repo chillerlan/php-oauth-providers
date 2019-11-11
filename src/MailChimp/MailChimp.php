@@ -78,7 +78,13 @@ class MailChimp extends OAuth2Provider implements CSRFToken{
 	 *
 	 * @inheritdoc
 	 */
-	public function request(string $path, array $params = null, string $method = null, $body = null, array $headers = null):ResponseInterface{
+	public function request(
+		string $path,
+		array $params = null,
+		string $method = null,
+		$body = null,
+		array $headers = null
+	):ResponseInterface{
 		$token = $this->storage->getAccessToken($this->serviceName);
 
 		$this->apiURL = sprintf($this::API_BASE, $token->extraParams['dc']);

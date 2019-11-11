@@ -7,10 +7,15 @@
  * @license      MIT
  */
 
-namespace chillerlan\OAuthExamples\OpenCaching;
+namespace chillerlan\OAuthExamples\misc;
 
-use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Providers\OpenCaching\OpenCaching;
+use ReflectionClass;
+
+use function chillerlan\HTTP\Psr7\get_json;
+use function array_column, date, explode, file_put_contents, implode, lcfirst, str_replace, strpos, ucfirst;
+
+use const PHP_EOL;
 
 $ENVVAR = 'OKAPI';
 
@@ -24,12 +29,12 @@ require_once __DIR__.'/../provider-example-common.php';
  */
 
 $okapi     = new OpenCaching($http, $storage, $options, $logger);
-$epr       = new \ReflectionClass($okapi->endpoints);
+$epr       = new ReflectionClass($okapi->endpoints);
 $classfile = $epr->getFileName();
 
 // fetch a list of available methods
 $r       = $okapi->request('/apiref/method_index', [], 'GET');
-$methods = array_column(Psr7\get_json($r), 'name');
+$methods = array_column(get_json($r), 'name');
 
 // now walk through the array and get the method info
 $str = [];
@@ -42,7 +47,7 @@ foreach($methods as $methodname){
 	}
 
 	$methodInfo = $okapi->request('/apiref/method', ['name' => $methodname], 'GET');
-	$m          = Psr7\get_json($methodInfo);
+	$m          = get_json($methodInfo);
 	$p          = str_replace('services/', '/', $m->name);
 
 	$args = [];

@@ -7,9 +7,14 @@
  * @license      MIT
  */
 
+namespace chillerlan\OAuthExamples\misc;
+
 use chillerlan\OAuth\Providers\GuildWars2\GuildWars2;
 
-$ENVVAR = '';
+use function array_merge, count, date, explode, file_get_contents, file_put_contents,
+	implode, json_decode, lcfirst, strpos, substr, trim, ucfirst, uksort;
+
+use const PHP_EOL;
 
 require_once __DIR__.'/../provider-example-common.php';
 
@@ -105,13 +110,11 @@ $api[] = ['path' => '/v2/wvw/objectives/:id', 'lang' => true, 'auth' => false, '
 $api[] = ['path' => '/v2/wvw/ranks/:id', 'lang' => true, 'auth' => false, 'active' => true];
 $api[] = ['path' => '/v2/wvw/upgrades/:id', 'lang' => true, 'auth' => false, 'active' => true];
 
-
 foreach($api as $endpoint){
-	$query = [];
+	$query         = [];
 	$path_elements = [];
-	$path = explode('/', trim($endpoint['path'], '/v2 '));
-	$name = $path;
-
+	$path          = explode('/', trim($endpoint['path'], '/v2 '));
+	$name          = $path;
 
 	$i = 1;
 	foreach($path as $k => $el){
@@ -124,10 +127,10 @@ foreach($api as $endpoint){
 		}
 
 		if(strpos($el, ':') === 0){
-			$pe = substr($el, 1);
+			$pe              = substr($el, 1);
 			$path_elements[] = substr($el, 1);
-			$path[$k] = '%'.$i.'$s';
-			$name[$k] = ($pe !== 'id' ? ucfirst(explode('_', $pe)[0]) : '').'Id';
+			$path[$k]        = '%'.$i.'$s';
+			$name[$k]        = ($pe !== 'id' ? ucfirst(explode('_', $pe)[0]) : '').'Id';
 			$i++;
 		}
 	}
@@ -161,8 +164,8 @@ foreach($apiMethods as $method => $args){
 	$str[] = '
 	protected $'.explode('?', $method)[0].' = [
 		\'path\'          => \''.$args['path'].'\',
-		\'query\'         => ['.(!empty($args['query']) ? '\''.\implode('\', \'', $args['query']).'\'' : '').'],
-		\'path_elements\' => ['.(!empty($args['path_elements']) ? '\''.\implode('\', \'', $args['path_elements']).'\'' : '').'],
+		\'query\'         => ['.(!empty($args['query']) ? '\''.implode('\', \'', $args['query']).'\'' : '').'],
+		\'path_elements\' => ['.(!empty($args['path_elements']) ? '\''.implode('\', \'', $args['path_elements']).'\'' : '').'],
 	];';
 
 	$logger->info($method);
@@ -177,7 +180,7 @@ $content = '<?php
  * @link https://api.guildwars2.com/v2.json
  *
  * @filesource   '.$epr->getShortName().'.php
- * @created      '.\date('d.m.Y').'
+ * @created      '.date('d.m.Y').'
  * @package      '.$epr->getNamespaceName().'
  * @license      MIT
  */
@@ -187,9 +190,9 @@ namespace '.$epr->getNamespaceName().';
 use chillerlan\\HTTP\\MagicAPI\\EndpointMap;
 
 class '.$epr->getShortName().' extends EndpointMap{
-'.\implode(PHP_EOL, $str).'
+'.implode(PHP_EOL, $str).'
 
 }
 ';
 
-\file_put_contents($classfile, $content);
+file_put_contents($classfile, $content);

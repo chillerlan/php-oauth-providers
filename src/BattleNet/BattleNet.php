@@ -45,7 +45,12 @@ class BattleNet extends OAuth2Provider implements ClientCredentials, CSRFToken{
 	 * @param \chillerlan\Settings\SettingsContainerInterface $options
 	 * @param \Psr\Log\LoggerInterface|null                   $logger
 	 */
-	public function __construct(ClientInterface $http, OAuthStorageInterface $storage, SettingsContainerInterface $options, LoggerInterface $logger = null){
+	public function __construct(
+		ClientInterface $http,
+		OAuthStorageInterface $storage,
+		SettingsContainerInterface $options,
+		LoggerInterface $logger = null
+	){
 		parent::__construct($http, $storage, $options, $logger);
 
 		$this->setRegion('eu');

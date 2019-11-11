@@ -7,8 +7,13 @@
  * @license      MIT
  */
 
-use chillerlan\HTTP\Psr7;
+namespace chillerlan\OAuthExamples\misc;
+
 use chillerlan\OAuth\Providers\Flickr\Flickr;
+use ReflectionClass;
+
+use function chillerlan\HTTP\Psr7\get_json;
+use function array_column, array_shift, date, explode, file_put_contents, implode, lcfirst, ucfirst;
 
 $ENVVAR = 'FLICKR';
 
@@ -22,21 +27,21 @@ require_once __DIR__.'/../provider-example-common.php';
  */
 
 $flickr    = new Flickr($http, $storage, $options, $logger);
-$epr       = new \ReflectionClass($flickr->endpoints);
+$epr       = new ReflectionClass($flickr->endpoints);
 $classfile = $epr->getFileName();
 
 // fetch a list of available methods
 $r       = $flickr->request('flickr.reflection.getMethods', [], 'GET');
-$methods = \array_column(Psr7\get_json($r)->methods->method, '_content');
+$methods = array_column(get_json($r)->methods->method, '_content');
 
 // now walk through the array and get the method info
 $str = [];
 foreach($methods as $methodname){
 	$methodInfo = $flickr->request('flickr.reflection.getMethodInfo', ['method_name' => $methodname], 'GET');
-	$m          = Psr7\get_json($methodInfo);
+	$m          = get_json($methodInfo);
 
 	if(!$m || !isset($m->method)){
-		$logger->debug($methodname, (array)$methodInfo->headers);
+		$logger->debug($methodname);
 
 		continue;
 	}
@@ -52,12 +57,12 @@ foreach($methods as $methodname){
 	}
 
 	// convert from dot.notation to camelCase
-	$name = \explode('.', $m->method->name);
+	$name = explode('.', $m->method->name);
 
-	\array_shift($name); // remove the "flickr"
+	array_shift($name); // remove the "flickr"
 
 	foreach($name as $k => $parts){
-		$name[$k] = \ucfirst($parts);
+		$name[$k] = ucfirst($parts);
 	}
 
 	// create a docblock
@@ -66,9 +71,9 @@ foreach($methods as $methodname){
 	/**
 	 * @link https://www.flickr.com/services/api/'.$m->method->name.'.html
 	 */
-	protected $'.\lcfirst(\implode('', $name)).' = [
+	protected $'.lcfirst(implode('', $name)).' = [
 		\'path\'  => \''.$m->method->name.'\',
-		\'query\' => ['.(!empty($args) ? '\''.\implode('\', \'', $args).'\'' : '').'],
+		\'query\' => ['.(!empty($args) ? '\''.implode('\', \'', $args).'\'' : '').'],
 	];';
 
 	$logger->info($m->method->name);
@@ -82,7 +87,7 @@ $content = '<?php
  * @link https://www.flickr.com/services/api/
  *
  * @filesource   '.$epr->getShortName().'.php
- * @created      '.\date('d.m.Y').'
+ * @created      '.date('d.m.Y').'
  * @package      '.$epr->getNamespaceName().'
  * @license      MIT
  */
@@ -92,11 +97,11 @@ namespace '.$epr->getNamespaceName().';
 use chillerlan\\HTTP\\MagicAPI\\EndpointMap;
 
 class '.$epr->getShortName().' extends EndpointMap{
-'.\implode(PHP_EOL, $str).'
+'.implode(PHP_EOL, $str).'
 
 }
 ';
 
-\file_put_contents($classfile, $content);
+file_put_contents($classfile, $content);
 
 exit;
