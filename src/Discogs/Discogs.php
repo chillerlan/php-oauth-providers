@@ -73,16 +73,16 @@ use function chillerlan\HTTP\Psr7\build_http_query;
  */
 class Discogs extends OAuth1Provider{
 
-	protected $apiURL          = 'https://api.discogs.com';
-	protected $requestTokenURL = 'https://api.discogs.com/oauth/request_token';
-	protected $authURL         = 'https://www.discogs.com/oauth/authorize';
-	protected $accessTokenURL  = 'https://api.discogs.com/oauth/access_token';
-	protected $revokeURL       = 'https://www.discogs.com/oauth/revoke'; // ?access_key=<TOKEN>
-	protected $userRevokeURL   = 'https://www.discogs.com/settings/applications';
-	protected $apiHeaders      = ['Accept' => 'application/vnd.discogs.v2.discogs+json'];
-	protected $endpointMap     = DiscogsEndpoints::class;
-	protected $apiDocs         = 'https://www.discogs.com/developers/';
-	protected $applicationURL  = 'https://www.discogs.com/settings/developers';
+	protected string $requestTokenURL = 'https://api.discogs.com/oauth/request_token';
+	protected string $authURL         = 'https://www.discogs.com/oauth/authorize';
+	protected string $accessTokenURL  = 'https://api.discogs.com/oauth/access_token';
+	protected ?string $apiURL         = 'https://api.discogs.com';
+	protected ?string $revokeURL      = 'https://www.discogs.com/oauth/revoke'; // ?access_key=<TOKEN>
+	protected ?string $userRevokeURL  = 'https://www.discogs.com/settings/applications';
+	protected ?string $endpointMap    = DiscogsEndpoints::class;
+	protected ?string $apiDocs        = 'https://www.discogs.com/developers/';
+	protected ?string $applicationURL = 'https://www.discogs.com/settings/developers';
+	protected array $apiHeaders       = ['Accept' => 'application/vnd.discogs.v2.discogs+json'];
 
 	/**
 	 * @return \chillerlan\OAuth\Core\AccessToken

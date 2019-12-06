@@ -20,10 +20,10 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class BattleNetAPITest extends OAuth2APITest{
 
-	protected $FQN = BattleNet::class;
-	protected $ENV = 'BATTLENET';
+	protected string $FQN = BattleNet::class;
+	protected string $ENV = 'BATTLENET';
 
-	public function testGetUserinfo(){
+	public function testGetUserinfo():void{
 		$r = $this->provider->userinfo();
 
 		$this->assertSame($this->testuser, explode('#', $this->responseJson($r)->battletag)[0]);

@@ -17,6 +17,6 @@ namespace chillerlan\OAuthTest\Providers;
  */
 abstract class OAuth2ProviderTest extends OAuth2ProviderTestAbstract{
 
-	protected $CFG = __DIR__.'/../config';
+	protected string $CFG = __DIR__.'/../config';
 
 }

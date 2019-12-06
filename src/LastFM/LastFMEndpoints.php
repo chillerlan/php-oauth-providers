@@ -24,7 +24,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/album.addTags
 	 */
-	protected $albumAddTags = [
+	protected array $albumAddTags = [
 		'path'   => 'album.addTags',
 		'method' => 'POST',
 		'query'  => [],
@@ -34,7 +34,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/album.getInfo
 	 */
-	protected $albumGetInfo = [
+	protected array $albumGetInfo = [
 		'path'   => 'album.getInfo',
 		'method' => 'GET',
 		'query'  => ['mbid', 'album', 'artist', 'username', 'lang', 'autocorrect'],
@@ -44,7 +44,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/album.getTags
 	 */
-	protected $albumGetTags = [
+	protected array $albumGetTags = [
 		'path'   => 'album.getTags',
 		'method' => 'GET',
 		'query'  => ['mbid', 'album', 'artist', 'user', 'autocorrect'],
@@ -54,7 +54,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/album.getTopTags
 	 */
-	protected $albumGetTopTags = [
+	protected array $albumGetTopTags = [
 		'path'   => 'album.getTopTags',
 		'method' => 'GET',
 		'query'  => ['mbid', 'album', 'artist', 'autocorrect'],
@@ -64,7 +64,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/album.removeTag
 	 */
-	protected $albumRemoveTag = [
+	protected array $albumRemoveTag = [
 		'path'   => 'album.removeTag',
 		'method' => 'POST',
 		'query'  => [],
@@ -74,7 +74,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/album.search
 	 */
-	protected $albumSearch = [
+	protected array $albumSearch = [
 		'path'   => 'album.search',
 		'method' => 'GET',
 		'query'  => ['album', 'limit', 'page'],
@@ -84,7 +84,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/artist.addTags
 	 */
-	protected $artistAddTags = [
+	protected array $artistAddTags = [
 		'path'   => 'artist.addTags',
 		'method' => 'POST',
 		'query'  => [],
@@ -94,7 +94,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/artist.getCorrection
 	 */
-	protected $artistGetCorrection = [
+	protected array $artistGetCorrection = [
 		'path'   => 'artist.getCorrection',
 		'method' => 'GET',
 		'query'  => ['artist'],
@@ -104,7 +104,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/artist.getInfo
 	 */
-	protected $artistGetInfo = [
+	protected array $artistGetInfo = [
 		'path'   => 'artist.getInfo',
 		'method' => 'GET',
 		'query'  => ['mbid', 'artist', 'username', 'lang', 'autocorrect'],
@@ -114,7 +114,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/artist.getSimilar
 	 */
-	protected $artistGetSimilar = [
+	protected array $artistGetSimilar = [
 		'path'   => 'artist.getSimilar',
 		'method' => 'GET',
 		'query'  => ['mbid', 'artist', 'limit', 'autocorrect'],
@@ -124,7 +124,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/artist.getTags
 	 */
-	protected $artistGetTags = [
+	protected array $artistGetTags = [
 		'path'   => 'artist.getTags',
 		'method' => 'GET',
 		'query'  => ['mbid', 'artist', 'user', 'autocorrect'],
@@ -134,7 +134,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/artist.getTopAlbums
 	 */
-	protected $artistGetTopAlbums = [
+	protected array $artistGetTopAlbums = [
 		'path'   => 'artist.getTopAlbums',
 		'method' => 'GET',
 		'query'  => ['mbid', 'artist', 'autocorrect', 'page', 'limit'],
@@ -144,7 +144,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/artist.getTopTags
 	 */
-	protected $artistGetTopTags = [
+	protected array $artistGetTopTags = [
 		'path'   => 'artist.getTopTags',
 		'method' => 'GET',
 		'query'  => ['mbid', 'artist', 'autocorrect'],
@@ -154,7 +154,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/artist.getTopTracks
 	 */
-	protected $artistGetTopTracks = [
+	protected array $artistGetTopTracks = [
 		'path'   => 'artist.getTopTracks',
 		'method' => 'GET',
 		'query'  => ['mbid', 'artist', 'autocorrect', 'page', 'limit'],
@@ -164,7 +164,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/artist.removeTag
 	 */
-	protected $artistRemoveTag = [
+	protected array $artistRemoveTag = [
 		'path'   => 'artist.removeTag',
 		'method' => 'POST',
 		'query'  => [],
@@ -174,7 +174,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/artist.search
 	 */
-	protected $artistSearch = [
+	protected array $artistSearch = [
 		'path'   => 'artist.search',
 		'method' => 'GET',
 		'query'  => ['artist', 'limit', 'page'],
@@ -184,7 +184,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/chart.getTopArtists
 	 */
-	protected $chartGetTopArtists = [
+	protected array $chartGetTopArtists = [
 		'path'   => 'chart.getTopArtists',
 		'method' => 'GET',
 		'query'  => ['limit', 'page'],
@@ -194,7 +194,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/chart.getTopTags
 	 */
-	protected $chartGetTopTags = [
+	protected array $chartGetTopTags = [
 		'path'   => 'chart.getTopTags',
 		'method' => 'GET',
 		'query'  => ['limit', 'page'],
@@ -204,7 +204,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/chart.getTopTracks
 	 */
-	protected $chartGetTopTracks = [
+	protected array $chartGetTopTracks = [
 		'path'   => 'chart.getTopTracks',
 		'method' => 'GET',
 		'query'  => ['limit', 'page'],
@@ -214,7 +214,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/geo.getTopArtists
 	 */
-	protected $geoGetTopArtists = [
+	protected array $geoGetTopArtists = [
 		'path'   => 'geo.getTopArtists',
 		'method' => 'GET',
 		'query'  => ['country', 'location', 'limit', 'page'],
@@ -224,7 +224,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/geo.getTopTracks
 	 */
-	protected $geoGetTopTracks = [
+	protected array $geoGetTopTracks = [
 		'path'   => 'geo.getTopTracks',
 		'method' => 'GET',
 		'query'  => ['country', 'location', 'limit', 'page'],
@@ -234,7 +234,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/library.getArtists
 	 */
-	protected $libraryGetArtists = [
+	protected array $libraryGetArtists = [
 		'path'   => 'library.getArtists',
 		'method' => 'GET',
 		'query'  => ['user', 'limit', 'page'],
@@ -244,7 +244,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/tag.getInfo
 	 */
-	protected $tagGetInfo = [
+	protected array $tagGetInfo = [
 		'path'   => 'tag.getInfo',
 		'method' => 'GET',
 		'query'  => ['tag', 'lang'],
@@ -254,7 +254,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/tag.getSimilar
 	 */
-	protected $tagGetSimilar = [
+	protected array $tagGetSimilar = [
 		'path'   => 'tag.getSimilar',
 		'method' => 'GET',
 		'query'  => ['tag'],
@@ -264,7 +264,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/tag.getTopAlbums
 	 */
-	protected $tagGetTopAlbums = [
+	protected array $tagGetTopAlbums = [
 		'path'   => 'tag.getTopAlbums',
 		'method' => 'GET',
 		'query'  => ['tag', 'limit', 'page'],
@@ -274,7 +274,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/tag.getTopArtists
 	 */
-	protected $tagGetTopArtists = [
+	protected array $tagGetTopArtists = [
 		'path'   => 'tag.getTopArtists',
 		'method' => 'GET',
 		'query'  => ['tag', 'limit', 'page'],
@@ -284,7 +284,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/tag.getTopTags
 	 */
-	protected $tagGetTopTags = [
+	protected array $tagGetTopTags = [
 		'path'   => 'tag.getTopTags',
 		'method' => 'GET',
 		'query'  => [],
@@ -294,7 +294,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/tag.getTopTracks
 	 */
-	protected $tagGetTopTracks = [
+	protected array $tagGetTopTracks = [
 		'path'   => 'tag.getTopTracks',
 		'method' => 'GET',
 		'query'  => ['tag', 'limit', 'page'],
@@ -304,7 +304,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/tag.getWeeklyChartList
 	 */
-	protected $tagGetWeeklyChartList = [
+	protected array $tagGetWeeklyChartList = [
 		'path'   => 'tag.getWeeklyChartList',
 		'method' => 'GET',
 		'query'  => ['tag'],
@@ -314,7 +314,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/track.addTags
 	 */
-	protected $trackAddTags = [
+	protected array $trackAddTags = [
 		'path'   => 'track.addTags',
 		'method' => 'POST',
 		'query'  => [],
@@ -324,7 +324,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/track.getCorrection
 	 */
-	protected $trackGetCorrection = [
+	protected array $trackGetCorrection = [
 		'path'   => 'track.getCorrection',
 		'method' => 'GET',
 		'query'  => ['artist', 'track'],
@@ -334,7 +334,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/track.getInfo
 	 */
-	protected $trackGetInfo = [
+	protected array $trackGetInfo = [
 		'path'   => 'track.getInfo',
 		'method' => 'GET',
 		'query'  => ['mbid', 'artist', 'track', 'username', 'autocorrect'],
@@ -344,7 +344,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/track.getSimilar
 	 */
-	protected $trackGetSimilar = [
+	protected array $trackGetSimilar = [
 		'path'   => 'track.getSimilar',
 		'method' => 'GET',
 		'query'  => ['mbid', 'artist', 'track', 'autocorrect', 'limit'],
@@ -354,7 +354,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/track.getTags
 	 */
-	protected $trackGetTags = [
+	protected array $trackGetTags = [
 		'path'   => 'track.getTags',
 		'method' => 'GET',
 		'query'  => ['mbid', 'artist', 'track', 'autocorrect', 'user'],
@@ -364,7 +364,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/track.getTopTags
 	 */
-	protected $trackGetTopTags = [
+	protected array $trackGetTopTags = [
 		'path'   => 'track.getTopTags',
 		'method' => 'GET',
 		'query'  => ['mbid', 'artist', 'track', 'autocorrect'],
@@ -374,7 +374,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/track.love
 	 */
-	protected $trackLove = [
+	protected array $trackLove = [
 		'path'   => 'track.love',
 		'method' => 'POST',
 		'query'  => [],
@@ -384,7 +384,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/track.removeTag
 	 */
-	protected $trackRemoveTag = [
+	protected array $trackRemoveTag = [
 		'path'   => 'track.removeTag',
 		'method' => 'POST',
 		'query'  => [],
@@ -394,7 +394,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/track.search
 	 */
-	protected $trackSearch = [
+	protected array $trackSearch = [
 		'path'   => 'track.search',
 		'method' => 'GET',
 		'query'  => ['artist', 'track', 'limit', 'page'],
@@ -404,7 +404,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/track.unlove
 	 */
-	protected $trackUnlove = [
+	protected array $trackUnlove = [
 		'path'   => 'track.unlove',
 		'method' => 'POST',
 		'query'  => [],
@@ -414,7 +414,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/track.updateNowPlaying
 	 */
-	protected $trackUpdateNowPlaying = [
+	protected array $trackUpdateNowPlaying = [
 		'path'   => 'track.updateNowPlaying',
 		'method' => 'POST',
 		'query'  => [],
@@ -424,7 +424,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/user.getArtistTracks
 	 */
-	protected $userGetArtistTracks = [
+	protected array $userGetArtistTracks = [
 		'path'   => 'user.getArtistTracks',
 		'method' => 'GET',
 		'query'  => ['user', 'artist', 'limit', 'page', 'startTimestamp', 'endTimestamp'],
@@ -434,7 +434,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/user.getFriends
 	 */
-	protected $userGetFriends = [
+	protected array $userGetFriends = [
 		'path'   => 'user.getFriends',
 		'method' => 'GET',
 		'query'  => ['user', 'limit', 'page', 'recenttracks'],
@@ -444,7 +444,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/user.getInfo
 	 */
-	protected $userGetInfo = [
+	protected array $userGetInfo = [
 		'path'   => 'user.getInfo',
 		'method' => 'GET',
 		'query'  => ['user'],
@@ -454,7 +454,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/user.getLovedTracks
 	 */
-	protected $userGetLovedTracks = [
+	protected array $userGetLovedTracks = [
 		'path'   => 'user.getLovedTracks',
 		'method' => 'GET',
 		'query'  => ['user', 'limit', 'page'],
@@ -464,7 +464,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/user.getPersonalTags
 	 */
-	protected $userGetPersonalTags = [
+	protected array $userGetPersonalTags = [
 		'path'   => 'user.getPersonalTags',
 		'method' => 'GET',
 		'query'  => ['user', 'limit', 'page', 'tag', 'taggingtype'],
@@ -474,7 +474,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/user.getRecentTracks
 	 */
-	protected $userGetRecentTracks = [
+	protected array $userGetRecentTracks = [
 		'path'   => 'user.getRecentTracks',
 		'method' => 'GET',
 		'query'  => ['user', 'limit', 'page', 'from', 'to', 'extended'],
@@ -484,7 +484,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/user.getTopAlbums
 	 */
-	protected $userGetTopAlbums = [
+	protected array $userGetTopAlbums = [
 		'path'   => 'user.getTopAlbums',
 		'method' => 'GET',
 		'query'  => ['user', 'limit', 'page', 'period'],
@@ -494,7 +494,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/user.getTopArtists
 	 */
-	protected $userGetTopArtists = [
+	protected array $userGetTopArtists = [
 		'path'   => 'user.getTopArtists',
 		'method' => 'GET',
 		'query'  => ['user', 'limit', 'page', 'period'],
@@ -504,7 +504,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/user.getTopTags
 	 */
-	protected $userGetTopTags = [
+	protected array $userGetTopTags = [
 		'path'   => 'user.getTopTags',
 		'method' => 'GET',
 		'query'  => ['user', 'limit', 'page'],
@@ -514,7 +514,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/user.getWeeklyAlbumChart
 	 */
-	protected $userGetWeeklyAlbumChart = [
+	protected array $userGetWeeklyAlbumChart = [
 		'path'   => 'user.getWeeklyAlbumChart',
 		'method' => 'GET',
 		'query'  => ['user', 'from', 'to'],
@@ -524,7 +524,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/user.getWeeklyArtistChart
 	 */
-	protected $userGetWeeklyArtistChart = [
+	protected array $userGetWeeklyArtistChart = [
 		'path'   => 'user.getWeeklyArtistChart',
 		'method' => 'GET',
 		'query'  => ['user', 'from', 'to'],
@@ -534,7 +534,7 @@ class LastFMEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.last.fm/api/show/user.getWeeklyTrackChart
 	 */
-	protected $userGetWeeklyTrackChart = [
+	protected array $userGetWeeklyTrackChart = [
 		'path'    => '',
 		'method'  => 'GET',
 		'query'   => ['user', 'from', 'to'],

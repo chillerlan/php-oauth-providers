@@ -20,12 +20,12 @@ use chillerlan\OAuthTest\Providers\OAuth1APITest;
  */
 class OpenCachingAPITest extends OAuth1APITest{
 
-	protected $FQN = OpenCaching::class;
-	protected $ENV = 'OKAPI';
+	protected string $FQN = OpenCaching::class;
+	protected string $ENV = 'OKAPI';
 
-	public function testUser(){
+	public function testUser():void{
 		$r = $this->provider->usersUser(['fields' => 'username']);
-		$this->assertSame($this->testuser, $this->responseJson($r)->username);
+		static::assertSame($this->testuser, $this->responseJson($r)->username);
 	}
 
 }

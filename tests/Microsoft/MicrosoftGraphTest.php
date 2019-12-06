@@ -20,6 +20,6 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
  */
 class MicrosoftGraphTest extends OAuth2ProviderTest{
 
-	protected $FQN = MicrosoftGraph::class;
+	protected string $FQN = MicrosoftGraph::class;
 
 }

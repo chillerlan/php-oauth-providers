@@ -20,8 +20,8 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 abstract class MusicBrainzAPITestAbstract extends OAuth2APITest{
 
-	protected $FQN          = MusicBrainz::class;
-	protected $ENV          = 'MUSICBRAINZ';
-	protected $requestDelay = 1.25;
+	protected string $FQN         = MusicBrainz::class;
+	protected string $ENV         = 'MUSICBRAINZ';
+	protected float $requestDelay = 1.25;
 
 }

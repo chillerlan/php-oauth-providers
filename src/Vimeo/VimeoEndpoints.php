@@ -31,7 +31,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/albums#PUT/users/{user_id}/albums/{album_id}/videos/{video_id}
 	 */
-	protected $userAlbumAddVideo = [
+	protected array $userAlbumAddVideo = [
 		'path'          => '/users/%1$s/albums/%2$s/videos/%3$s',
 		'method'        => 'PUT',
 		'query'         => [],
@@ -40,7 +40,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $meAlbumAddVideo = [
+	protected array $meAlbumAddVideo = [
 		'path'          => '/me/albums/%1$s/videos/%2$s',
 		'method'        => 'PUT',
 		'query'         => [],
@@ -52,7 +52,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/albums#PUT/users/{user_id}/albums/{album_id}/videos
 	 */
-	protected $userAlbumAddVideos = [
+	protected array $userAlbumAddVideos = [
 		'path'          => '/users/%1$s/albums/%2$s/videos',
 		'method'        => 'PUT',
 		'query'         => [],
@@ -61,7 +61,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $meAlbumAddVideos = [
+	protected array $meAlbumAddVideos = [
 		'path'          => '/me/albums/%1$s/videos',
 		'method'        => 'PUT',
 		'query'         => [],
@@ -73,7 +73,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/albums#POST/users/{user_id}/albums
 	 */
-	protected $userCreateAlbum = [
+	protected array $userCreateAlbum = [
 		'path'          => '/users/%1$s/albums',
 		'method'        => 'POST',
 		'query'         => [],
@@ -85,7 +85,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $meCreateAlbum = [
+	protected array $meCreateAlbum = [
 		'path'          => '/me/albums',
 		'method'        => 'POST',
 		'query'         => [],
@@ -100,7 +100,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/albums#DELETE/users/{user_id}/albums/{album_id}
 	 */
-	protected $userDeleteAlbum = [
+	protected array $userDeleteAlbum = [
 		'path'          => '/users/%1$s/albums/%2$s',
 		'method'        => 'DELETE',
 		'query'         => [],
@@ -109,7 +109,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $meDeleteAlbum = [
+	protected array $meDeleteAlbum = [
 		'path'          => '/me/albums/%1$s',
 		'method'        => 'DELETE',
 		'query'         => [],
@@ -121,7 +121,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/albums#PATCH/users/{user_id}/albums/{album_id}
 	 */
-	protected $userEditAlbum = [
+	protected array $userEditAlbum = [
 		'path'          => '/users/%1$s/albums/%2$s',
 		'method'        => 'PATCH',
 		'query'         => [],
@@ -133,7 +133,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $meEditAlbum = [
+	protected array $meEditAlbum = [
 		'path'          => '/me/albums/%1$s',
 		'method'        => 'PATCH',
 		'query'         => [],
@@ -148,7 +148,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/albums#GET/users/{user_id}/albums/{album_id}/videos/{video_id}
 	 */
-	protected $userAlbumGetVideo = [
+	protected array $userAlbumGetVideo = [
 		'path'          => '/users/%1$s/albums/%2$s/videos/%3$s',
 		'method'        => 'GET',
 		'query'         => ['password'],
@@ -157,7 +157,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $meAlbumGetVideo = [
+	protected array $meAlbumGetVideo = [
 		'path'          => '/me/albums/%1$s/videos/%2$s',
 		'method'        => 'GET',
 		'query'         => ['password'],
@@ -169,7 +169,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/albums#GET/users/{user_id}/albums
 	 */
-	protected $userGetAlbums = [
+	protected array $userGetAlbums = [
 		'path'          => '/users/%1$s/albums',
 		'method'        => 'GET',
 		'query'         => ['direction', 'page', 'per_page', 'query', 'sort'],
@@ -178,7 +178,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $meGetAlbums = [
+	protected array $meGetAlbums = [
 		'path'          => '/me/albums',
 		'method'        => 'GET',
 		'query'         => ['direction', 'page', 'per_page', 'query', 'sort'],
@@ -190,7 +190,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/albums#GET/users/{user_id}/albums/{album_id}/videos
 	 */
-	protected $userAlbumGetVideos = [
+	protected array $userAlbumGetVideos = [
 		'path'          => '/users/%1$s/albums/%2$s/videos',
 		'method'        => 'GET',
 		'query'         => [
@@ -202,7 +202,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $meAlbumGetVideos = [
+	protected array $meAlbumGetVideos = [
 		'path'          => '/me/albums/%1$s/videos',
 		'method'        => 'GET',
 		'query'         => [
@@ -217,7 +217,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/albums#GET/users/{user_id}/albums/{album_id}
 	 */
-	protected $userGetAlbum = [
+	protected array $userGetAlbum = [
 		'path'          => '/users/%1$s/albums/%2$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -226,7 +226,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $meGetAlbum = [
+	protected array $meGetAlbum = [
 		'path'          => '/me/albums/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -238,7 +238,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $userAlbumDeleteVideo = [
+	protected array $userAlbumDeleteVideo = [
 		'path'          => '/users/%1$s/albums/%2$s/videos/%3$s',
 		'method'        => 'DELETE',
 		'query'         => [],
@@ -247,7 +247,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $meAlbumDeleteVideo = [
+	protected array $meAlbumDeleteVideo = [
 		'path'          => '/me/albums/%1$s/videos/%2$s',
 		'method'        => 'DELETE',
 		'query'         => [],
@@ -265,7 +265,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/authenticationextras#DELETE/tokens
 	 */
-	protected $revokeToken = [
+	protected array $revokeToken = [
 		'path'          => '/tokens',
 		'method'        => 'DELETE',
 		'query'         => [],
@@ -277,7 +277,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/authenticationextras#GET/oauth/verify
 	 */
-	protected $verifyToken = [
+	protected array $verifyToken = [
 		'path'          => '/oauth/verify',
 		'method'        => 'GET',
 		'query'         => [],
@@ -302,7 +302,7 @@ class VimeoEndpoints extends EndpointMap{
 	 * @todo
 	 * @link https://developer.vimeo.com/api/reference/categories#GET/users/{user_id}/categories
 	 */
-	protected $userCategories = [
+	protected array $userCategories = [
 		'path'          => '/users/%1$s/categories',
 		'method'        => 'GET',
 		'query'         => [],
@@ -342,7 +342,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/embedpresets#PUT/videos/{video_id}/presets/{preset_id}
 	 */
-	protected $videoAssignPreset = [
+	protected array $videoAssignPreset = [
 		'path'          => '/videos/%1$s/presets/%2$s',
 		'method'        => 'PUT',
 		'query'         => [],
@@ -355,7 +355,7 @@ class VimeoEndpoints extends EndpointMap{
 	 * @todo ???
 	 * @link https://developer.vimeo.com/api/reference/embedpresets#POST/users/{user_id}/customlogos
 	 */
-	protected $userCreateCustomlogo = [
+	protected array $userCreateCustomlogo = [
 		'path'          => '/users/%1$s/customlogos',
 		'method'        => 'POST',
 		'query'         => [],
@@ -363,7 +363,7 @@ class VimeoEndpoints extends EndpointMap{
 		'body'          => null,
 		'headers'       => [],
 	];
-	protected $meCreateCustomlogo = [
+	protected array $meCreateCustomlogo = [
 		'path'          => '/me/customlogos',
 		'method'        => 'POST',
 		'query'         => [],
@@ -381,7 +381,7 @@ class VimeoEndpoints extends EndpointMap{
 	 * @todo
 	 * @link https://developer.vimeo.com/api/reference/embedpresets#GET/users/{user_id}/presets/{preset_id}
 	 */
-	protected $userGetEmbedPreset = [
+	protected array $userGetEmbedPreset = [
 		'path'          => '/users/%1$s/presets/%2$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -390,7 +390,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $meGetEmbedPreset = [
+	protected array $meGetEmbedPreset = [
 		'path'          => '/me/presets/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -403,7 +403,7 @@ class VimeoEndpoints extends EndpointMap{
 	 * @todo
 	 * @link https://developer.vimeo.com/api/reference/embedpresets#GET/users/{user_id}/presets/{preset_id}/videos
 	 */
-	protected $userPresetVideos = [
+	protected array $userPresetVideos = [
 		'path'          => '/users/%1$s/presets/%2$s/videos',
 		'method'        => 'GET',
 		'query'         => [],
@@ -437,7 +437,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/likes#GET/users/{user_id}/likes/{video_id}
 	 */
-	protected $userLikesContains = [
+	protected array $userLikesContains = [
 		'path'          => '/users/%1$s/likes/%2$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -446,7 +446,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $meLikesContains = [
+	protected array $meLikesContains = [
 		'path'          => '/me/likes/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -458,7 +458,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/likes#GET/videos/{video_id}/likes
 	 */
-	protected $videoLikes = [
+	protected array $videoLikes = [
 		'path'          => '/videos/%1$s/likes',
 		'method'        => 'GET',
 		'query'         => ['query', 'page', 'per_page', 'sort', 'direction'],
@@ -470,7 +470,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/likes#GET/ondemand/pages/{ondemand_id}/likes
 	 */
-	protected $ondemandLikes = [
+	protected array $ondemandLikes = [
 		'path'          => '/ondemand/pages/%1$s/likes',
 		'method'        => 'GET',
 		'query'         => ['filter', 'query', 'page', 'per_page', 'sort', 'direction'],
@@ -482,7 +482,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/likes#GET/users/{user_id}/likes
 	 */
-	protected $userLikes = [
+	protected array $userLikes = [
 		'path'          => '/users/%1$s/likes',
 		'method'        => 'GET',
 		'query'         => ['filter', 'filter_embeddable', 'query', 'page', 'per_page', 'sort', 'direction'],
@@ -491,7 +491,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $meLikes = [
+	protected array $meLikes = [
 		'path'          => '/me/likes',
 		'method'        => 'GET',
 		'query'         => ['filter', 'filter_embeddable', 'query', 'page', 'per_page', 'sort', 'direction'],
@@ -503,7 +503,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/likes#PUT/users/{user_id}/likes/{video_id}
 	 */
-	protected $userLikeVideo = [
+	protected array $userLikeVideo = [
 		'path'          => '/users/%1$s/likes/%2$s',
 		'method'        => 'PUT',
 		'query'         => [],
@@ -512,7 +512,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $meLikeVideo = [
+	protected array $meLikeVideo = [
 		'path'          => '/me/likes/%1$s',
 		'method'        => 'PUT',
 		'query'         => [],
@@ -524,7 +524,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/likes#DELETE/users/{user_id}/likes/{video_id}
 	 */
-	protected $userUnlikeVideo = [
+	protected array $userUnlikeVideo = [
 		'path'          => '/users/%1$s/likes/%2$s',
 		'method'        => 'DELETE',
 		'query'         => [],
@@ -533,7 +533,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $meUnlikeVideo = [
+	protected array $meUnlikeVideo = [
 		'path'          => '/me/likes/%1$s',
 		'method'        => 'DELETE',
 		'query'         => [],
@@ -574,7 +574,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/portfolios#GET/users/{user_id}/portfolios/{portfolio_id}
 	 */
-	protected $userPortfolio = [
+	protected array $userPortfolio = [
 		'path'          => '/users/%1$s/portfolios/%2$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -583,7 +583,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $mePortfolio = [
+	protected array $mePortfolio = [
 		'path'          => '/me/portfolios/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -595,7 +595,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/portfolios#GET/users/{user_id}/portfolios/{portfolio_id}/videos/{video_id}
 	 */
-	protected $userPortfolioGetVideo = [
+	protected array $userPortfolioGetVideo = [
 		'path'          => '/users/%1$s/portfolios/%2$s/videos/%3$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -604,7 +604,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $mePortfolioGetVideo = [
+	protected array $mePortfolioGetVideo = [
 		'path'          => '/me/portfolios/%1$s/videos/%2$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -616,7 +616,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/portfolios#GET/users/{user_id}/portfolios
 	 */
-	protected $userPortfolios = [
+	protected array $userPortfolios = [
 		'path'          => '/users/%1$s/portfolios',
 		'method'        => 'GET',
 		'query'         => ['direction', 'page', 'per_page', 'query', 'sort'],
@@ -625,7 +625,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $mePortfolios = [
+	protected array $mePortfolios = [
 		'path'          => '/me/portfolios',
 		'method'        => 'GET',
 		'query'         => ['direction', 'page', 'per_page', 'query', 'sort'],
@@ -637,7 +637,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/portfolios#GET/users/{user_id}/portfolios/{portfolio_id}/videos
 	 */
-	protected $userPortfolioVideos = [
+	protected array $userPortfolioVideos = [
 		'path'          => '/users/%1$s/portfolios/%2$s/videos',
 		'method'        => 'GET',
 		'query'         => ['containing_uri', 'filter', 'filter_embeddable', 'query', 'page', 'per_page', 'sort', 'direction'],
@@ -646,7 +646,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $mePortfolioVideos = [
+	protected array $mePortfolioVideos = [
 		'path'          => '/me/portfolios/%1$s/videos',
 		'method'        => 'GET',
 		'query'         => ['containing_uri', 'filter', 'filter_embeddable', 'query', 'page', 'per_page', 'sort', 'direction'],
@@ -664,7 +664,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/tags#GET/tags/{word}
 	 */
-	protected $tags = [
+	protected array $tags = [
 		'path'          => '/tags/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -682,7 +682,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/users#GET/users/{user_id}/following/{follow_user_id}
 	 */
-	protected $userFollowingContains = [
+	protected array $userFollowingContains = [
 		'path'          => '/users/%1$s/following/%2$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -691,7 +691,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $meFollowingContains = [
+	protected array $meFollowingContains = [
 		'path'          => '/me/following/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -749,7 +749,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/users#GET/users/{user_id}
 	 */
-	protected $user = [
+	protected array $user = [
 		'path'          => '/users/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -758,7 +758,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $me = [
+	protected array $me = [
 		'path'          => '/me',
 		'method'        => 'GET',
 		'query'         => [],
@@ -770,7 +770,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/users#GET/users/{user_id}/pictures/{portraitset_id}
 	 */
-	protected $userGetPicture = [
+	protected array $userGetPicture = [
 		'path'          => '/users/%1$s/pictures/%2$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -779,7 +779,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $meGetPicture = [
+	protected array $meGetPicture = [
 		'path'          => '/me/pictures/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -791,7 +791,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/users#GET/users/{user_id}/pictures
 	 */
-	protected $userPictures = [
+	protected array $userPictures = [
 		'path'          => '/users/%1$s/pictures',
 		'method'        => 'GET',
 		'query'         => ['page', 'per_page'],
@@ -800,7 +800,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $mePictures = [
+	protected array $mePictures = [
 		'path'          => '/me/pictures',
 		'method'        => 'GET',
 		'query'         => ['page', 'per_page'],
@@ -812,7 +812,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/users#GET/users/{user_id}/followers
 	 */
-	protected $userFollowers = [
+	protected array $userFollowers = [
 		'path'          => '/users/%1$s/followers',
 		'method'        => 'GET',
 		'query'         => ['direction', 'page', 'per_page', 'query', 'sort'],
@@ -821,7 +821,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $meFollowers = [
+	protected array $meFollowers = [
 		'path'          => '/me/followers',
 		'method'        => 'GET',
 		'query'         => ['direction', 'page', 'per_page', 'query', 'sort'],
@@ -833,7 +833,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/users#GET/me/watched/videos
 	 */
-	protected $meWatchedVideos = [
+	protected array $meWatchedVideos = [
 		'path'          => '/me/watched/videos',
 		'method'        => 'GET',
 		'query'         => ['page', 'per_page'],
@@ -845,7 +845,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/users#GET/users/{user_id}/following
 	 */
-	protected $userFollowing = [
+	protected array $userFollowing = [
 		'path'          => '/users/%1$s/following',
 		'method'        => 'GET',
 		'query'         => ['direction', 'filter', 'page', 'per_page', 'query', 'sort'],
@@ -854,7 +854,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $meFollowing = [
+	protected array $meFollowing = [
 		'path'          => '/me/following',
 		'method'        => 'GET',
 		'query'         => ['direction', 'filter', 'page', 'per_page', 'query', 'sort'],
@@ -866,7 +866,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/users#GET/users/{user_id}/watchlater
 	 */
-	protected $userWatchlater = [
+	protected array $userWatchlater = [
 		'path'          => '/users/%1$s/watchlater',
 		'method'        => 'GET',
 		'query'         => ['direction', 'filter', 'filter_embeddable', 'page', 'per_page', 'query', 'sort'],
@@ -875,7 +875,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $meWatchlater = [
+	protected array $meWatchlater = [
 		'path'          => '/me/watchlater',
 		'method'        => 'GET',
 		'query'         => ['direction', 'filter', 'filter_embeddable', 'page', 'per_page', 'query', 'sort'],
@@ -887,7 +887,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/users#GET/users/{user_id}/feed
 	 */
-	protected $userFeed = [
+	protected array $userFeed = [
 		'path'          => '/users/%1$s/feed',
 		'method'        => 'GET',
 		'query'         => ['offset', 'page', 'per_page', 'type'],
@@ -896,7 +896,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $meFeed = [
+	protected array $meFeed = [
 		'path'          => '/me/feed',
 		'method'        => 'GET',
 		'query'         => ['offset', 'page', 'per_page', 'type'],
@@ -908,7 +908,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $userSearch = [
+	protected array $userSearch = [
 		'path'          => '/users',
 		'method'        => 'GET',
 		'query'         => ['direction', 'page', 'per_page', 'query', 'sort'],
@@ -949,7 +949,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.vimeo.com/api/reference/watchlaterqueue#GET/users/{user_id}/watchlater/{video_id}
 	 */
-	protected $userWatchlaterContains = [
+	protected array $userWatchlaterContains = [
 		'path'          => '/users/%1$s/watchlater/%2$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -958,7 +958,7 @@ class VimeoEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $meWatchlaterContains = [
+	protected array $meWatchlaterContains = [
 		'path'          => '/me/watchlater/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -989,7 +989,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $userActivities = [
+	protected array $userActivities = [
 		'path'          => '/users/%1$s/activities',
 		'method'        => 'GET',
 		'query'         => [],
@@ -1001,7 +1001,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $userAppearances = [
+	protected array $userAppearances = [
 		'path'          => '/users/%1$s/appearances',
 		'method'        => 'GET',
 		'query'         => [],
@@ -1013,7 +1013,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $userChannels = [
+	protected array $userChannels = [
 		'path'          => '/users/%1$s/channels',
 		'method'        => 'GET',
 		'query'         => ['moderated'],
@@ -1025,7 +1025,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $userGroups = [
+	protected array $userGroups = [
 		'path'          => '/users/%1$s/groups',
 		'method'        => 'GET',
 		'query'         => [],
@@ -1037,7 +1037,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $userPresets = [
+	protected array $userPresets = [
 		'path'          => '/users/%1$s/presets',
 		'method'        => 'GET',
 		'query'         => [],
@@ -1049,7 +1049,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $userVideos = [
+	protected array $userVideos = [
 		'path'          => '/users/%1$s/videos',
 		'method'        => 'GET',
 		'query'         => [],
@@ -1061,7 +1061,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $userSharedVideos = [
+	protected array $userSharedVideos = [
 		'path'          => '/users/%1$s/shared/videos',
 		'method'        => 'GET',
 		'query'         => [],
@@ -1073,7 +1073,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $userServices = [
+	protected array $userServices = [
 		'path'          => '/users/%1$s/services',
 		'method'        => 'GET',
 		'query'         => [],
@@ -1085,7 +1085,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $userServiceConnection = [
+	protected array $userServiceConnection = [
 		'path'          => '/users/%1$s/services/%2$s/%3$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -1097,7 +1097,7 @@ class VimeoEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $userTriggers = [
+	protected array $userTriggers = [
 		'path'          => '/users/%1$s/triggers',
 		'method'        => 'GET',
 		'query'         => [],

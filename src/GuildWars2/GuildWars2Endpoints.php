@@ -6,7 +6,7 @@
  * @link https://api.guildwars2.com/v2.json
  *
  * @filesource   GuildWars2Endpoints.php
- * @created      11.11.2019
+ * @created      06.12.2019
  * @package      chillerlan\OAuth\Providers\GuildWars2
  * @license      MIT
  */
@@ -17,1255 +17,1255 @@ use chillerlan\HTTP\MagicAPI\EndpointMap;
 
 class GuildWars2Endpoints extends EndpointMap{
 
-	protected $account = [
+	protected array $account = [
 		'path'          => '/account',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountAchievements = [
+	protected array $accountAchievements = [
 		'path'          => '/account/achievements',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountBank = [
+	protected array $accountBank = [
 		'path'          => '/account/bank',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountDailycrafting = [
+	protected array $accountDailycrafting = [
 		'path'          => '/account/dailycrafting',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountDungeons = [
+	protected array $accountDungeons = [
 		'path'          => '/account/dungeons',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountDyes = [
+	protected array $accountDyes = [
 		'path'          => '/account/dyes',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountEmotes = [
+	protected array $accountEmotes = [
 		'path'          => '/account/emotes',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountFinishers = [
+	protected array $accountFinishers = [
 		'path'          => '/account/finishers',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountGliders = [
+	protected array $accountGliders = [
 		'path'          => '/account/gliders',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountHome = [
+	protected array $accountHome = [
 		'path'          => '/account/home',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $accountHomeCats = [
+	protected array $accountHomeCats = [
 		'path'          => '/account/home/cats',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountHomeNodes = [
+	protected array $accountHomeNodes = [
 		'path'          => '/account/home/nodes',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountInventory = [
+	protected array $accountInventory = [
 		'path'          => '/account/inventory',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountLuck = [
+	protected array $accountLuck = [
 		'path'          => '/account/luck',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountMailcarriers = [
+	protected array $accountMailcarriers = [
 		'path'          => '/account/mailcarriers',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountMapchests = [
+	protected array $accountMapchests = [
 		'path'          => '/account/mapchests',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountMasteries = [
+	protected array $accountMasteries = [
 		'path'          => '/account/masteries',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountMasteryPoints = [
+	protected array $accountMasteryPoints = [
 		'path'          => '/account/mastery/points',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountMaterials = [
+	protected array $accountMaterials = [
 		'path'          => '/account/materials',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountMinis = [
+	protected array $accountMinis = [
 		'path'          => '/account/minis',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountMounts = [
+	protected array $accountMounts = [
 		'path'          => '/account/mounts',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $accountMountsSkins = [
+	protected array $accountMountsSkins = [
 		'path'          => '/account/mounts/skins',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountMountsTypes = [
+	protected array $accountMountsTypes = [
 		'path'          => '/account/mounts/types',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountNovelties = [
+	protected array $accountNovelties = [
 		'path'          => '/account/novelties',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountOutfits = [
+	protected array $accountOutfits = [
 		'path'          => '/account/outfits',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountPvpHeroes = [
+	protected array $accountPvpHeroes = [
 		'path'          => '/account/pvp/heroes',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountRaids = [
+	protected array $accountRaids = [
 		'path'          => '/account/raids',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountRecipes = [
+	protected array $accountRecipes = [
 		'path'          => '/account/recipes',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountSkins = [
+	protected array $accountSkins = [
 		'path'          => '/account/skins',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountTitles = [
+	protected array $accountTitles = [
 		'path'          => '/account/titles',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountWallet = [
+	protected array $accountWallet = [
 		'path'          => '/account/wallet',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $accountWorldbosses = [
+	protected array $accountWorldbosses = [
 		'path'          => '/account/worldbosses',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $achievements = [
+	protected array $achievements = [
 		'path'          => '/achievements',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $achievementsCategories = [
+	protected array $achievementsCategories = [
 		'path'          => '/achievements/categories',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $achievementsCategoriesId = [
+	protected array $achievementsCategoriesId = [
 		'path'          => '/achievements/categories/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $achievementsDaily = [
+	protected array $achievementsDaily = [
 		'path'          => '/achievements/daily',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $achievementsDailyTomorrow = [
+	protected array $achievementsDailyTomorrow = [
 		'path'          => '/achievements/daily/tomorrow',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $achievementsGroups = [
+	protected array $achievementsGroups = [
 		'path'          => '/achievements/groups',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $achievementsGroupsId = [
+	protected array $achievementsGroupsId = [
 		'path'          => '/achievements/groups/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $achievementsId = [
+	protected array $achievementsId = [
 		'path'          => '/achievements/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $backstoryAnswers = [
+	protected array $backstoryAnswers = [
 		'path'          => '/backstory/answers',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $backstoryAnswersId = [
+	protected array $backstoryAnswersId = [
 		'path'          => '/backstory/answers/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $backstoryQuestions = [
+	protected array $backstoryQuestions = [
 		'path'          => '/backstory/questions',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $backstoryQuestionsId = [
+	protected array $backstoryQuestionsId = [
 		'path'          => '/backstory/questions/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $build = [
+	protected array $build = [
 		'path'          => '/build',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $catsId = [
+	protected array $catsId = [
 		'path'          => '/cats/%1$s',
 		'query'         => [],
 		'path_elements' => ['id'],
 	];
 
-	protected $characters = [
+	protected array $characters = [
 		'path'          => '/characters',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $charactersId = [
+	protected array $charactersId = [
 		'path'          => '/characters/%1$s',
 		'query'         => ['access_token'],
 		'path_elements' => ['id'],
 	];
 
-	protected $charactersIdBackstory = [
+	protected array $charactersIdBackstory = [
 		'path'          => '/characters/%1$s/backstory',
 		'query'         => ['access_token'],
 		'path_elements' => ['id'],
 	];
 
-	protected $charactersIdCore = [
+	protected array $charactersIdCore = [
 		'path'          => '/characters/%1$s/core',
 		'query'         => ['access_token'],
 		'path_elements' => ['id'],
 	];
 
-	protected $charactersIdCrafting = [
+	protected array $charactersIdCrafting = [
 		'path'          => '/characters/%1$s/crafting',
 		'query'         => ['access_token'],
 		'path_elements' => ['id'],
 	];
 
-	protected $charactersIdEquipment = [
+	protected array $charactersIdEquipment = [
 		'path'          => '/characters/%1$s/equipment',
 		'query'         => ['access_token'],
 		'path_elements' => ['id'],
 	];
 
-	protected $charactersIdHeropoints = [
+	protected array $charactersIdHeropoints = [
 		'path'          => '/characters/%1$s/heropoints',
 		'query'         => ['access_token'],
 		'path_elements' => ['id'],
 	];
 
-	protected $charactersIdInventory = [
+	protected array $charactersIdInventory = [
 		'path'          => '/characters/%1$s/inventory',
 		'query'         => ['access_token'],
 		'path_elements' => ['id'],
 	];
 
-	protected $charactersIdQuests = [
+	protected array $charactersIdQuests = [
 		'path'          => '/characters/%1$s/quests',
 		'query'         => ['access_token'],
 		'path_elements' => ['id'],
 	];
 
-	protected $charactersIdRecipes = [
+	protected array $charactersIdRecipes = [
 		'path'          => '/characters/%1$s/recipes',
 		'query'         => ['access_token'],
 		'path_elements' => ['id'],
 	];
 
-	protected $charactersIdSab = [
+	protected array $charactersIdSab = [
 		'path'          => '/characters/%1$s/sab',
 		'query'         => ['access_token'],
 		'path_elements' => ['id'],
 	];
 
-	protected $charactersIdSkills = [
+	protected array $charactersIdSkills = [
 		'path'          => '/characters/%1$s/skills',
 		'query'         => ['access_token'],
 		'path_elements' => ['id'],
 	];
 
-	protected $charactersIdSpecializations = [
+	protected array $charactersIdSpecializations = [
 		'path'          => '/characters/%1$s/specializations',
 		'query'         => ['access_token'],
 		'path_elements' => ['id'],
 	];
 
-	protected $charactersIdTraining = [
+	protected array $charactersIdTraining = [
 		'path'          => '/characters/%1$s/training',
 		'query'         => ['access_token'],
 		'path_elements' => ['id'],
 	];
 
-	protected $colors = [
+	protected array $colors = [
 		'path'          => '/colors',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $colorsId = [
+	protected array $colorsId = [
 		'path'          => '/colors/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $commerceDelivery = [
+	protected array $commerceDelivery = [
 		'path'          => '/commerce/delivery',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $commerceExchange = [
+	protected array $commerceExchange = [
 		'path'          => '/commerce/exchange',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $commerceExchangeCoins = [
+	protected array $commerceExchangeCoins = [
 		'path'          => '/commerce/exchange/coins?quantity',
 		'query'         => ['quantity'],
 		'path_elements' => [],
 	];
 
-	protected $commerceExchangeGems = [
+	protected array $commerceExchangeGems = [
 		'path'          => '/commerce/exchange/gems?quantity',
 		'query'         => ['quantity'],
 		'path_elements' => [],
 	];
 
-	protected $commerceListings = [
+	protected array $commerceListings = [
 		'path'          => '/commerce/listings',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $commerceListingsId = [
+	protected array $commerceListingsId = [
 		'path'          => '/commerce/listings/%1$s',
 		'query'         => [],
 		'path_elements' => ['id'],
 	];
 
-	protected $commercePrices = [
+	protected array $commercePrices = [
 		'path'          => '/commerce/prices',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $commercePricesId = [
+	protected array $commercePricesId = [
 		'path'          => '/commerce/prices/%1$s',
 		'query'         => [],
 		'path_elements' => ['id'],
 	];
 
-	protected $commerceTransactions = [
+	protected array $commerceTransactions = [
 		'path'          => '/commerce/transactions',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $commerceTransactionsCurrent = [
+	protected array $commerceTransactionsCurrent = [
 		'path'          => '/commerce/transactions/current',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $commerceTransactionsCurrentBuys = [
+	protected array $commerceTransactionsCurrentBuys = [
 		'path'          => '/commerce/transactions/current/buys',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $commerceTransactionsCurrentSells = [
+	protected array $commerceTransactionsCurrentSells = [
 		'path'          => '/commerce/transactions/current/sells',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $commerceTransactionsHistory = [
+	protected array $commerceTransactionsHistory = [
 		'path'          => '/commerce/transactions/history',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $commerceTransactionsHistoryBuys = [
+	protected array $commerceTransactionsHistoryBuys = [
 		'path'          => '/commerce/transactions/history/buys',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $commerceTransactionsHistorySells = [
+	protected array $commerceTransactionsHistorySells = [
 		'path'          => '/commerce/transactions/history/sells',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $continents = [
+	protected array $continents = [
 		'path'          => '/continents',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $continentsContinentId = [
+	protected array $continentsContinentId = [
 		'path'          => '/continents/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['continent_id'],
 	];
 
-	protected $continentsContinentIdFloors = [
+	protected array $continentsContinentIdFloors = [
 		'path'          => '/continents/%1$s/floors',
 		'query'         => [],
 		'path_elements' => ['continent_id'],
 	];
 
-	protected $continentsContinentIdFloorsFloorId = [
+	protected array $continentsContinentIdFloorsFloorId = [
 		'path'          => '/continents/%1$s/floors/%2$s',
 		'query'         => ['lang'],
 		'path_elements' => ['continent_id', 'floor_id'],
 	];
 
-	protected $continentsContinentIdFloorsFloorIdRegions = [
+	protected array $continentsContinentIdFloorsFloorIdRegions = [
 		'path'          => '/continents/%1$s/floors/%2$s/regions',
 		'query'         => [],
 		'path_elements' => ['continent_id', 'floor_id'],
 	];
 
-	protected $continentsContinentIdFloorsFloorIdRegionsRegionId = [
+	protected array $continentsContinentIdFloorsFloorIdRegionsRegionId = [
 		'path'          => '/continents/%1$s/floors/%2$s/regions/%3$s',
 		'query'         => ['lang'],
 		'path_elements' => ['continent_id', 'floor_id', 'region_id'],
 	];
 
-	protected $continentsContinentIdFloorsFloorIdRegionsRegionIdMaps = [
+	protected array $continentsContinentIdFloorsFloorIdRegionsRegionIdMaps = [
 		'path'          => '/continents/%1$s/floors/%2$s/regions/%3$s/maps',
 		'query'         => [],
 		'path_elements' => ['continent_id', 'floor_id', 'region_id'],
 	];
 
-	protected $continentsContinentIdFloorsFloorIdRegionsRegionIdMapsMapId = [
+	protected array $continentsContinentIdFloorsFloorIdRegionsRegionIdMapsMapId = [
 		'path'          => '/continents/%1$s/floors/%2$s/regions/%3$s/maps/%4$s',
 		'query'         => ['lang'],
 		'path_elements' => ['continent_id', 'floor_id', 'region_id', 'map_id'],
 	];
 
-	protected $createsubtoken = [
+	protected array $createsubtoken = [
 		'path'          => '/createsubtoken',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $currencies = [
+	protected array $currencies = [
 		'path'          => '/currencies',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $currenciesId = [
+	protected array $currenciesId = [
 		'path'          => '/currencies/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $dailycrafting = [
+	protected array $dailycrafting = [
 		'path'          => '/dailycrafting',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $dungeons = [
+	protected array $dungeons = [
 		'path'          => '/dungeons',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $dungeonsId = [
+	protected array $dungeonsId = [
 		'path'          => '/dungeons/%1$s',
 		'query'         => [],
 		'path_elements' => ['id'],
 	];
 
-	protected $emblem = [
+	protected array $emblem = [
 		'path'          => '/emblem',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $emblemBackgrounds = [
+	protected array $emblemBackgrounds = [
 		'path'          => '/emblem/backgrounds',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $emblemBackgroundsId = [
+	protected array $emblemBackgroundsId = [
 		'path'          => '/emblem/backgrounds/%1$s',
 		'query'         => [],
 		'path_elements' => ['id'],
 	];
 
-	protected $emblemForegrounds = [
+	protected array $emblemForegrounds = [
 		'path'          => '/emblem/foregrounds',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $emblemForegroundsId = [
+	protected array $emblemForegroundsId = [
 		'path'          => '/emblem/foregrounds/%1$s',
 		'query'         => [],
 		'path_elements' => ['id'],
 	];
 
-	protected $emotes = [
+	protected array $emotes = [
 		'path'          => '/emotes',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $files = [
+	protected array $files = [
 		'path'          => '/files',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $filesId = [
+	protected array $filesId = [
 		'path'          => '/files/%1$s',
 		'query'         => [],
 		'path_elements' => ['id'],
 	];
 
-	protected $finishers = [
+	protected array $finishers = [
 		'path'          => '/finishers',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $finishersId = [
+	protected array $finishersId = [
 		'path'          => '/finishers/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $gliders = [
+	protected array $gliders = [
 		'path'          => '/gliders',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $glidersId = [
+	protected array $glidersId = [
 		'path'          => '/gliders/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $guildId = [
+	protected array $guildId = [
 		'path'          => '/guild/%1$s',
 		'query'         => ['access_token'],
 		'path_elements' => ['id'],
 	];
 
-	protected $guildIdLog = [
+	protected array $guildIdLog = [
 		'path'          => '/guild/%1$s/log',
 		'query'         => ['access_token'],
 		'path_elements' => ['id'],
 	];
 
-	protected $guildIdMembers = [
+	protected array $guildIdMembers = [
 		'path'          => '/guild/%1$s/members',
 		'query'         => ['access_token'],
 		'path_elements' => ['id'],
 	];
 
-	protected $guildIdRanks = [
+	protected array $guildIdRanks = [
 		'path'          => '/guild/%1$s/ranks',
 		'query'         => ['access_token'],
 		'path_elements' => ['id'],
 	];
 
-	protected $guildIdStash = [
+	protected array $guildIdStash = [
 		'path'          => '/guild/%1$s/stash',
 		'query'         => ['access_token'],
 		'path_elements' => ['id'],
 	];
 
-	protected $guildIdStorage = [
+	protected array $guildIdStorage = [
 		'path'          => '/guild/%1$s/storage',
 		'query'         => ['access_token'],
 		'path_elements' => ['id'],
 	];
 
-	protected $guildIdTeams = [
+	protected array $guildIdTeams = [
 		'path'          => '/guild/%1$s/teams',
 		'query'         => ['access_token'],
 		'path_elements' => ['id'],
 	];
 
-	protected $guildIdTreasury = [
+	protected array $guildIdTreasury = [
 		'path'          => '/guild/%1$s/treasury',
 		'query'         => ['access_token'],
 		'path_elements' => ['id'],
 	];
 
-	protected $guildIdUpgrades = [
+	protected array $guildIdUpgrades = [
 		'path'          => '/guild/%1$s/upgrades',
 		'query'         => ['access_token'],
 		'path_elements' => ['id'],
 	];
 
-	protected $guildPermissions = [
+	protected array $guildPermissions = [
 		'path'          => '/guild/permissions',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $guildPermissionsId = [
+	protected array $guildPermissionsId = [
 		'path'          => '/guild/permissions/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $guildSearch = [
+	protected array $guildSearch = [
 		'path'          => '/guild/search',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $guildUpgrades = [
+	protected array $guildUpgrades = [
 		'path'          => '/guild/upgrades',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $guildUpgradesId = [
+	protected array $guildUpgradesId = [
 		'path'          => '/guild/upgrades/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $home = [
+	protected array $home = [
 		'path'          => '/home',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $homeCats = [
+	protected array $homeCats = [
 		'path'          => '/home/cats',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $homeNodes = [
+	protected array $homeNodes = [
 		'path'          => '/home/nodes',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $items = [
+	protected array $items = [
 		'path'          => '/items',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $itemsId = [
+	protected array $itemsId = [
 		'path'          => '/items/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $itemstats = [
+	protected array $itemstats = [
 		'path'          => '/itemstats',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $itemstatsId = [
+	protected array $itemstatsId = [
 		'path'          => '/itemstats/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $legends = [
+	protected array $legends = [
 		'path'          => '/legends',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $legendsId = [
+	protected array $legendsId = [
 		'path'          => '/legends/%1$s',
 		'query'         => [],
 		'path_elements' => ['id'],
 	];
 
-	protected $mailcarriers = [
+	protected array $mailcarriers = [
 		'path'          => '/mailcarriers',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $mailcarriersId = [
+	protected array $mailcarriersId = [
 		'path'          => '/mailcarriers/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $mapchests = [
+	protected array $mapchests = [
 		'path'          => '/mapchests',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $maps = [
+	protected array $maps = [
 		'path'          => '/maps',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $mapsId = [
+	protected array $mapsId = [
 		'path'          => '/maps/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $masteries = [
+	protected array $masteries = [
 		'path'          => '/masteries',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $masteriesId = [
+	protected array $masteriesId = [
 		'path'          => '/masteries/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $materials = [
+	protected array $materials = [
 		'path'          => '/materials',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $materialsId = [
+	protected array $materialsId = [
 		'path'          => '/materials/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $minis = [
+	protected array $minis = [
 		'path'          => '/minis',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $minisId = [
+	protected array $minisId = [
 		'path'          => '/minis/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $mounts = [
+	protected array $mounts = [
 		'path'          => '/mounts',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $mountsSkins = [
+	protected array $mountsSkins = [
 		'path'          => '/mounts/skins',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $mountsTypes = [
+	protected array $mountsTypes = [
 		'path'          => '/mounts/types',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $nodesId = [
+	protected array $nodesId = [
 		'path'          => '/nodes/%1$s',
 		'query'         => [],
 		'path_elements' => ['id'],
 	];
 
-	protected $novelties = [
+	protected array $novelties = [
 		'path'          => '/novelties',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $outfits = [
+	protected array $outfits = [
 		'path'          => '/outfits',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $outfitsId = [
+	protected array $outfitsId = [
 		'path'          => '/outfits/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $pets = [
+	protected array $pets = [
 		'path'          => '/pets',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $petsId = [
+	protected array $petsId = [
 		'path'          => '/pets/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $professions = [
+	protected array $professions = [
 		'path'          => '/professions',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $professionsId = [
+	protected array $professionsId = [
 		'path'          => '/professions/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $pvp = [
+	protected array $pvp = [
 		'path'          => '/pvp',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $pvpAmulets = [
+	protected array $pvpAmulets = [
 		'path'          => '/pvp/amulets',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $pvpAmuletsId = [
+	protected array $pvpAmuletsId = [
 		'path'          => '/pvp/amulets/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $pvpGames = [
+	protected array $pvpGames = [
 		'path'          => '/pvp/games',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $pvpHeroes = [
+	protected array $pvpHeroes = [
 		'path'          => '/pvp/heroes',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $pvpHeroesId = [
+	protected array $pvpHeroesId = [
 		'path'          => '/pvp/heroes/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $pvpRacesId = [
+	protected array $pvpRacesId = [
 		'path'          => '/pvp/races/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $pvpRanks = [
+	protected array $pvpRanks = [
 		'path'          => '/pvp/ranks',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $pvpRanksId = [
+	protected array $pvpRanksId = [
 		'path'          => '/pvp/ranks/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $pvpSeasons = [
+	protected array $pvpSeasons = [
 		'path'          => '/pvp/seasons',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $pvpSeasonsId = [
+	protected array $pvpSeasonsId = [
 		'path'          => '/pvp/seasons/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $pvpSeasonsIdLeaderboards = [
+	protected array $pvpSeasonsIdLeaderboards = [
 		'path'          => '/pvp/seasons/%1$s/leaderboards',
 		'query'         => [],
 		'path_elements' => ['id'],
 	];
 
-	protected $pvpSeasonsIdLeaderboardsBoardIdRegionId = [
+	protected array $pvpSeasonsIdLeaderboardsBoardIdRegionId = [
 		'path'          => '/pvp/seasons/%1$s/leaderboards/%2$s/%3$s',
 		'query'         => [],
 		'path_elements' => ['id', 'board', 'region'],
 	];
 
-	protected $pvpStandings = [
+	protected array $pvpStandings = [
 		'path'          => '/pvp/standings',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $pvpStats = [
+	protected array $pvpStats = [
 		'path'          => '/pvp/stats',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $quaggans = [
+	protected array $quaggans = [
 		'path'          => '/quaggans',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $quaggansId = [
+	protected array $quaggansId = [
 		'path'          => '/quaggans/%1$s',
 		'query'         => [],
 		'path_elements' => ['id'],
 	];
 
-	protected $quests = [
+	protected array $quests = [
 		'path'          => '/quests',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $races = [
+	protected array $races = [
 		'path'          => '/races',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $raids = [
+	protected array $raids = [
 		'path'          => '/raids',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $raidsId = [
+	protected array $raidsId = [
 		'path'          => '/raids/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $recipes = [
+	protected array $recipes = [
 		'path'          => '/recipes',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $recipesId = [
+	protected array $recipesId = [
 		'path'          => '/recipes/%1$s',
 		'query'         => [],
 		'path_elements' => ['id'],
 	];
 
-	protected $recipesSearch = [
+	protected array $recipesSearch = [
 		'path'          => '/recipes/search',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $skills = [
+	protected array $skills = [
 		'path'          => '/skills',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $skillsId = [
+	protected array $skillsId = [
 		'path'          => '/skills/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $skins = [
+	protected array $skins = [
 		'path'          => '/skins',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $skinsId = [
+	protected array $skinsId = [
 		'path'          => '/skins/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $specializations = [
+	protected array $specializations = [
 		'path'          => '/specializations',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $specializationsId = [
+	protected array $specializationsId = [
 		'path'          => '/specializations/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $stories = [
+	protected array $stories = [
 		'path'          => '/stories',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $storiesId = [
+	protected array $storiesId = [
 		'path'          => '/stories/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $storiesSeasons = [
+	protected array $storiesSeasons = [
 		'path'          => '/stories/seasons',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $storiesSeasonsId = [
+	protected array $storiesSeasonsId = [
 		'path'          => '/stories/seasons/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $titles = [
+	protected array $titles = [
 		'path'          => '/titles',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $titlesId = [
+	protected array $titlesId = [
 		'path'          => '/titles/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $tokeninfo = [
+	protected array $tokeninfo = [
 		'path'          => '/tokeninfo',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
 
-	protected $traits = [
+	protected array $traits = [
 		'path'          => '/traits',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $traitsId = [
+	protected array $traitsId = [
 		'path'          => '/traits/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $worldbosses = [
+	protected array $worldbosses = [
 		'path'          => '/worldbosses',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $worlds = [
+	protected array $worlds = [
 		'path'          => '/worlds',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $worldsId = [
+	protected array $worldsId = [
 		'path'          => '/worlds/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $wvwAbilities = [
+	protected array $wvwAbilities = [
 		'path'          => '/wvw/abilities',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $wvwAbilitiesId = [
+	protected array $wvwAbilitiesId = [
 		'path'          => '/wvw/abilities/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $wvwMatches = [
+	protected array $wvwMatches = [
 		'path'          => '/wvw/matches',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $wvwMatchesId = [
+	protected array $wvwMatchesId = [
 		'path'          => '/wvw/matches/%1$s',
 		'query'         => [],
 		'path_elements' => ['id'],
 	];
 
-	protected $wvwMatchesOverview = [
+	protected array $wvwMatchesOverview = [
 		'path'          => '/wvw/matches/overview',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $wvwMatchesOverviewId = [
+	protected array $wvwMatchesOverviewId = [
 		'path'          => '/wvw/matches/overview/%1$s',
 		'query'         => [],
 		'path_elements' => ['id'],
 	];
 
-	protected $wvwMatchesScores = [
+	protected array $wvwMatchesScores = [
 		'path'          => '/wvw/matches/scores',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $wvwMatchesScoresId = [
+	protected array $wvwMatchesScoresId = [
 		'path'          => '/wvw/matches/scores/%1$s',
 		'query'         => [],
 		'path_elements' => ['id'],
 	];
 
-	protected $wvwMatchesStats = [
+	protected array $wvwMatchesStats = [
 		'path'          => '/wvw/matches/stats',
 		'query'         => [],
 		'path_elements' => [],
 	];
 
-	protected $wvwMatchesStatsId = [
+	protected array $wvwMatchesStatsId = [
 		'path'          => '/wvw/matches/stats/%1$s',
 		'query'         => [],
 		'path_elements' => ['id'],
 	];
 
-	protected $wvwMatchesStatsIdGuildsGuildId = [
+	protected array $wvwMatchesStatsIdGuildsGuildId = [
 		'path'          => '/wvw/matches/stats/%1$s/guilds/%2$s',
 		'query'         => [],
 		'path_elements' => ['id', 'guild_id'],
 	];
 
-	protected $wvwMatchesStatsIdTeamsTeamIdTopKdr = [
+	protected array $wvwMatchesStatsIdTeamsTeamIdTopKdr = [
 		'path'          => '/wvw/matches/stats/%1$s/teams/%2$s/top/kdr',
 		'query'         => [],
 		'path_elements' => ['id', 'team'],
 	];
 
-	protected $wvwMatchesStatsIdTeamsTeamIdTopKills = [
+	protected array $wvwMatchesStatsIdTeamsTeamIdTopKills = [
 		'path'          => '/wvw/matches/stats/%1$s/teams/%2$s/top/kills',
 		'query'         => [],
 		'path_elements' => ['id', 'team'],
 	];
 
-	protected $wvwObjectives = [
+	protected array $wvwObjectives = [
 		'path'          => '/wvw/objectives',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $wvwObjectivesId = [
+	protected array $wvwObjectivesId = [
 		'path'          => '/wvw/objectives/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $wvwRanks = [
+	protected array $wvwRanks = [
 		'path'          => '/wvw/ranks',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $wvwRanksId = [
+	protected array $wvwRanksId = [
 		'path'          => '/wvw/ranks/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],
 	];
 
-	protected $wvwUpgrades = [
+	protected array $wvwUpgrades = [
 		'path'          => '/wvw/upgrades',
 		'query'         => ['lang'],
 		'path_elements' => [],
 	];
 
-	protected $wvwUpgradesId = [
+	protected array $wvwUpgradesId = [
 		'path'          => '/wvw/upgrades/%1$s',
 		'query'         => ['lang'],
 		'path_elements' => ['id'],

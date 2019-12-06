@@ -19,6 +19,6 @@ class Youtube extends Google{
 	public const SCOPE_YOUTUBE       = 'https://www.googleapis.com/auth/youtube';
 	public const SCOPE_YOUTUBE_GDATA = 'https://gdata.youtube.com';
 
-	protected $endpointMap        = YoutubeEndpoints::class;
+	protected ?string $endpointMap = YoutubeEndpoints::class;
 
 }

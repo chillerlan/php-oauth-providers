@@ -24,8 +24,8 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class MastodonAPITest extends OAuth2APITest{
 
-	protected $FQN = Mastodon::class;
-	protected $ENV = 'MASTODON';
+	protected string $FQN = Mastodon::class;
+	protected string $ENV = 'MASTODON';
 
 	protected $testInstance;
 
@@ -37,7 +37,7 @@ class MastodonAPITest extends OAuth2APITest{
 		$this->provider->setInstance($this->testInstance);
 	}
 
-	public function testVerify(){
+	public function testVerify():void{
 		$r = $this->provider->getCurrentUser();
 
 		$this->assertSame($this->testuser, $this->responseJson($r)->acct);

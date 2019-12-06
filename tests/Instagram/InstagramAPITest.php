@@ -20,8 +20,8 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class InstagramAPITest extends OAuth2APITest{
 
-	protected $FQN = Instagram::class;
-	protected $ENV = 'INSTAGRAM';
+	protected string $FQN = Instagram::class;
+	protected string $ENV = 'INSTAGRAM';
 
 	protected function setUp():void{
 		parent::setUp();
@@ -31,7 +31,7 @@ class InstagramAPITest extends OAuth2APITest{
 		$this->testuser = $tokenParams['user']['username'];
 	}
 
-	public function testProfile(){
+	public function testProfile():void{
 		$r = $this->provider->profile('self');
 
 		$this->assertSame($this->testuser, $this->responseJson($r)->data->username);

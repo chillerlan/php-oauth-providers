@@ -34,12 +34,12 @@ class MailChimp extends OAuth2Provider implements CSRFToken{
 	protected const API_BASE          = 'https://%s.api.mailchimp.com/3.0';
 	protected const METADATA_ENDPOINT = 'https://login.mailchimp.com/oauth2/metadata';
 
-	protected $authURL          = 'https://login.mailchimp.com/oauth2/authorize';
-	protected $accessTokenURL   = 'https://login.mailchimp.com/oauth2/token';
-	protected $endpointMap      = MailChimpEndpoints::class;
-	protected $authMethodHeader = 'OAuth';
-	protected $apiDocs          = 'https://developer.mailchimp.com/';
-	protected $applicationURL   = 'https://admin.mailchimp.com/account/oauth2/';
+	protected string $authURL          = 'https://login.mailchimp.com/oauth2/authorize';
+	protected string $accessTokenURL   = 'https://login.mailchimp.com/oauth2/token';
+	protected ?string $endpointMap     = MailChimpEndpoints::class;
+	protected ?string $apiDocs         = 'https://developer.mailchimp.com/';
+	protected ?string $applicationURL  = 'https://admin.mailchimp.com/account/oauth2/';
+	protected string $authMethodHeader = 'OAuth';
 
 	/**
 	 * @param \chillerlan\OAuth\Core\AccessToken|null $token
@@ -49,7 +49,7 @@ class MailChimp extends OAuth2Provider implements CSRFToken{
 	 */
 	public function getTokenMetadata(AccessToken $token = null):AccessToken{
 
-		$token = $token ?? $this->storage->getAccessToken($this->serviceName);
+		$token ??= $this->storage->getAccessToken($this->serviceName);
 
 		if(!$token instanceof AccessToken){
 			throw new OAuthException('invalid token'); // @codeCoverageIgnore

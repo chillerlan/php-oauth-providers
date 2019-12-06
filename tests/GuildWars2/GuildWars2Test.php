@@ -21,7 +21,7 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
  */
 class GuildWars2Test extends OAuth2ProviderTest{
 
-	protected $FQN = GuildWars2::class;
+	protected string $FQN = GuildWars2::class;
 
 	protected function getTestResponses():array{
 		return [
@@ -30,7 +30,7 @@ class GuildWars2Test extends OAuth2ProviderTest{
 		];
 	}
 
-	public function testStoreGW2Token(){
+	public function testStoreGW2Token():void{
 		$this->setProperty($this->provider, 'apiURL', 'https://localhost/gw2/auth');
 
 		$id     = '00000000-1111-2222-3333-444444444444';
@@ -42,29 +42,29 @@ class GuildWars2Test extends OAuth2ProviderTest{
 		$this->assertSame($secret, $token->accessTokenSecret);
 	}
 
-	public function testStoreGW2InvalidToken(){
+	public function testStoreGW2InvalidToken():void{
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('invalid token');
 
 		$this->provider->storeGW2Token('foo');
 	}
 
-	public function testGetAuthURL(){
+	public function testGetAuthURL():void{
 		$this->markTestSkipped('N/A');
 	}
 
-	public function testGetAccessToken(){
+	public function testGetAccessToken():void{
 		$this->markTestSkipped('N/A');
 	}
 
-	public function testRequestGetAuthURLNotSupportedException(){
+	public function testRequestGetAuthURLNotSupportedException():void{
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('GuildWars2 does not support authentication anymore.');
 
 		$this->provider->getAuthURL();
 	}
 
-	public function testRequestGetAccessTokenNotSupportedException(){
+	public function testRequestGetAccessTokenNotSupportedException():void{
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('GuildWars2 does not support authentication anymore.');
 

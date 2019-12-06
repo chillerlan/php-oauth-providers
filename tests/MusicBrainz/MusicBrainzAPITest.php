@@ -14,36 +14,36 @@ namespace chillerlan\OAuthTest\Providers\MusicBrainz;
 
 class MusicBrainzAPITest extends MusicBrainzAPITestAbstract{
 
-	public function testArea(){
+	public function testArea():void{
 		$r = $this->provider->area(['query' => 'Olympia']);
 		$j = $this->responseJson($r);
 
-		$this->assertSame('Olympia', $j->areas[0]->name);
-		$this->assertSame('dc14405c-7534-457a-8672-54593b8805b9', $j->areas[0]->id);
+		static::assertSame('Olympia', $j->areas[0]->name);
+		static::assertSame('dc14405c-7534-457a-8672-54593b8805b9', $j->areas[0]->id);
 	}
 
-	public function testAreaId(){
+	public function testAreaId():void{
 		$r = $this->provider->areaId('dc14405c-7534-457a-8672-54593b8805b9');
 		$j = $this->responseJson($r);
 
-		$this->assertSame('Olympia', $j->name);
-		$this->assertSame('dc14405c-7534-457a-8672-54593b8805b9', $j->id);
+		static::assertSame('Olympia', $j->name);
+		static::assertSame('dc14405c-7534-457a-8672-54593b8805b9', $j->id);
 	}
 
-	public function testArtist(){
+	public function testArtist():void{
 		$r = $this->provider->artist(['query' => 'sleater-kinney']);
 		$j = $this->responseJson($r);
 
-		$this->assertSame('Sleater‐Kinney', $j->artists[0]->name);
-		$this->assertSame('e36e78eb-3ace-4acd-882c-16789e700ab7', $j->artists[0]->id);
+		static::assertSame('Sleater‐Kinney', $j->artists[0]->name);
+		static::assertSame('e36e78eb-3ace-4acd-882c-16789e700ab7', $j->artists[0]->id);
 	}
 
-	public function testArtistId(){
+	public function testArtistId():void{
 		$r = $this->provider->artistId('573510d6-bb5d-4d07-b0aa-ea6afe39e28d', ['inc' => 'url-rels work-rels']);
 		$j = $this->responseJson($r);
 
-		$this->assertSame('Helium', $j->name);
-		$this->assertSame('573510d6-bb5d-4d07-b0aa-ea6afe39e28d', $j->id);
+		static::assertSame('Helium', $j->name);
+		static::assertSame('573510d6-bb5d-4d07-b0aa-ea6afe39e28d', $j->id);
 	}
 
 }

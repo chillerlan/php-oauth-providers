@@ -18,9 +18,9 @@ use chillerlan\HTTP\MagicAPI\EndpointMap;
  */
 class BitbucketEndpoints extends EndpointMap{
 
-	protected $API_BASE = '/2.0';
+	protected string $API_BASE = '/2.0';
 
-	protected $me = [
+	protected array $me = [
 		'path'          => '/user',
 		'method'        => 'GET',
 		'query'         => null,

@@ -133,16 +133,16 @@ class Twitter extends OAuth1Provider{
 
 	// choose your fighter
 	/** @link https://developer.twitter.com/en/docs/basics/authentication/api-reference/authorize */
-	protected $authURL         = 'https://api.twitter.com/oauth/authorize';
+	protected string $authURL         = 'https://api.twitter.com/oauth/authorize';
 	/** @link https://developer.twitter.com/en/docs/basics/authentication/api-reference/authenticate */
-#	protected $authURL         = 'https://api.twitter.com/oauth/authenticate';
+#	protected string $authURL         = 'https://api.twitter.com/oauth/authenticate';
 
-	protected $apiURL          = 'https://api.twitter.com/1.1';
-	protected $requestTokenURL = 'https://api.twitter.com/oauth/request_token';
-	protected $accessTokenURL  = 'https://api.twitter.com/oauth/access_token';
-	protected $userRevokeURL   = 'https://twitter.com/settings/applications';
-	protected $endpointMap     = TwitterEndpoints::class;
-	protected $apiDocs         = 'https://developer.twitter.com/docs';
-	protected $applicationURL  = 'https://developer.twitter.com/apps';
+	protected string $requestTokenURL = 'https://api.twitter.com/oauth/request_token';
+	protected string $accessTokenURL  = 'https://api.twitter.com/oauth/access_token';
+	protected ?string $apiURL         = 'https://api.twitter.com/1.1';
+	protected ?string $userRevokeURL  = 'https://twitter.com/settings/applications';
+	protected ?string $endpointMap    = TwitterEndpoints::class;
+	protected ?string $apiDocs        = 'https://developer.twitter.com/docs';
+	protected ?string $applicationURL = 'https://developer.twitter.com/apps';
 
 }

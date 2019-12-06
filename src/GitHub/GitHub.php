@@ -48,14 +48,14 @@ class GitHub extends OAuth2Provider implements CSRFToken{
 	const SCOPE_GPG_KEY_WRITE    = 'write:gpg_key';
 	const SCOPE_GPG_KEY_ADMIN    = 'admin:gpg_key';
 
-	protected $apiURL         = 'https://api.github.com';
-	protected $authURL        = 'https://github.com/login/oauth/authorize';
-	protected $accessTokenURL = 'https://github.com/login/oauth/access_token';
-	protected $userRevokeURL  = 'https://github.com/settings/applications';
-	protected $authHeaders    = ['Accept' => 'application/json'];
-	protected $apiHeaders     = ['Accept' => 'application/vnd.github.beta+json'];
-	protected $endpointMap    = GitHubEndpoints::class;
-	protected $apiDocs        = 'https://developer.github.com/';
-	protected $applicationURL = 'https://github.com/settings/developers';
+	protected string $authURL         = 'https://github.com/login/oauth/authorize';
+	protected string $accessTokenURL  = 'https://github.com/login/oauth/access_token';
+	protected ?string $apiURL         = 'https://api.github.com';
+	protected ?string $userRevokeURL  = 'https://github.com/settings/applications';
+	protected ?string $endpointMap    = GitHubEndpoints::class;
+	protected ?string $apiDocs        = 'https://developer.github.com/';
+	protected ?string $applicationURL = 'https://github.com/settings/developers';
+	protected array $authHeaders      = ['Accept' => 'application/json'];
+	protected array $apiHeaders       = ['Accept' => 'application/vnd.github.beta+json'];
 
 }

@@ -20,10 +20,10 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class WordpressAPITest extends OAuth2APITest{
 
-	protected $FQN = Wordpress::class;
-	protected $ENV = 'WORDPRESS';
+	protected string $FQN = Wordpress::class;
+	protected string $ENV = 'WORDPRESS';
 
-	public function testMe(){
+	public function testMe():void{
 		$r = $this->provider->me();
 		$this->assertSame($this->testuser, $this->responseJson($r)->username);
 	}

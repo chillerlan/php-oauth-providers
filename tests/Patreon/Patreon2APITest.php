@@ -20,12 +20,12 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class Patreon2APITest extends OAuth2APITest{
 
-	protected $FQN = Patreon2::class;
-	protected $ENV = 'PATREON2';
+	protected string $FQN = Patreon2::class;
+	protected string $ENV = 'PATREON2';
 
-	public function testGetCurrentUser(){
+	public function testGetCurrentUser():void{
 		$r = $this->provider->identity(['fields[user]' => 'email']);
-		$this->assertSame($this->testuser, $this->responseJson($r)->data->attributes->email);
+		static::assertSame($this->testuser, $this->responseJson($r)->data->attributes->email);
 	}
 
 }

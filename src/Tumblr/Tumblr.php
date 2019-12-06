@@ -21,13 +21,13 @@ use chillerlan\OAuth\Core\OAuth1Provider;
  */
 class Tumblr extends OAuth1Provider{
 
-	protected $apiURL          = 'https://api.tumblr.com/v2';
-	protected $requestTokenURL = 'https://www.tumblr.com/oauth/request_token';
-	protected $authURL         = 'https://www.tumblr.com/oauth/authorize';
-	protected $accessTokenURL  = 'https://www.tumblr.com/oauth/access_token';
-	protected $userRevokeURL   = 'https://www.tumblr.com/settings/apps';
-	protected $endpointMap     = TumblrEndpoints::class;
-	protected $apiDocs         = 'https://www.tumblr.com/docs/en/api/v2';
-	protected $applicationURL  = 'https://www.tumblr.com/oauth/apps';
+	protected string $requestTokenURL = 'https://www.tumblr.com/oauth/request_token';
+	protected string $authURL         = 'https://www.tumblr.com/oauth/authorize';
+	protected string $accessTokenURL  = 'https://www.tumblr.com/oauth/access_token';
+	protected ?string $apiURL         = 'https://api.tumblr.com/v2';
+	protected ?string $userRevokeURL  = 'https://www.tumblr.com/settings/apps';
+	protected ?string $endpointMap    = TumblrEndpoints::class;
+	protected ?string $apiDocs        = 'https://www.tumblr.com/docs/en/api/v2';
+	protected ?string $applicationURL = 'https://www.tumblr.com/oauth/apps';
 
 }

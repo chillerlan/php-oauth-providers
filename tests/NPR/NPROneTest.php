@@ -22,13 +22,13 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
  */
 class NPROneTest extends OAuth2ProviderTest{
 
-	protected $FQN = NPROne::class;
+	protected string $FQN = NPROne::class;
 
-	public function testRequestInvalidAuthTypeException(){
+	public function testRequestInvalidAuthTypeException():void{
 		$this->expectException(OAuthException::class);
 		$this->expectExceptionMessage('invalid auth type');
 
-		$this->setProperty($this->provider, 'authMethod', 'foo');
+		$this->setProperty($this->provider, 'authMethod', -1);
 		$token = new AccessToken(['accessToken' => 'test_access_token_secret', 'expires' => 1]);
 		$this->storage->storeAccessToken($this->provider->serviceName, $token);
 

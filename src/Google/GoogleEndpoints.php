@@ -18,7 +18,7 @@ use chillerlan\HTTP\MagicAPI\EndpointMap;
  */
 class GoogleEndpoints extends EndpointMap{
 
-	protected $me = [
+	protected array $me = [
 		'path'          => '/userinfo/v2/me',
 		'method'        => 'GET',
 		'query'         => [],

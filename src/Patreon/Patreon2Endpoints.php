@@ -18,9 +18,9 @@ use chillerlan\HTTP\MagicAPI\EndpointMap;
  */
 class Patreon2Endpoints extends EndpointMap{
 
-	protected $API_BASE = '/v2';
+	protected string $API_BASE = '/v2';
 
-	protected $identity = [
+	protected array $identity = [
 		'path'          => '/identity',
 		'method'        => 'GET',
 		'query'         => ['include', 'fields[user]'],
@@ -29,7 +29,7 @@ class Patreon2Endpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $campaigns = [
+	protected array $campaigns = [
 		'path'          => '/campaigns',
 		'method'        => 'GET',
 		'query'         => ['fields[campaign]'],
@@ -38,7 +38,7 @@ class Patreon2Endpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $campaignId = [
+	protected array $campaignId = [
 		'path'          => '/campaigns/%1$s',
 		'method'        => 'GET',
 		'query'         => ['fields[campaign]'],
@@ -47,7 +47,7 @@ class Patreon2Endpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $campaignIdMembers = [
+	protected array $campaignIdMembers = [
 		'path'          => '/campaigns/%1$s/members',
 		'method'        => 'GET',
 		'query'         => ['fields[member]', 'fields[tier]'],
@@ -56,7 +56,7 @@ class Patreon2Endpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $memberId = [
+	protected array $memberId = [
 		'path'          => '/members/%1$s',
 		'method'        => 'GET',
 		'query'         => ['fields[member]', 'fields[tier]', 'fields[user]'],
@@ -65,7 +65,7 @@ class Patreon2Endpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $webhooks = [
+	protected array $webhooks = [
 		'path'          => '/webhooks',
 		'method'        => 'GET',
 		'query'         => ['fields[webhook]'],
@@ -74,7 +74,7 @@ class Patreon2Endpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $createWebhook = [
+	protected array $createWebhook = [
 		'path'          => '/webhooks',
 		'method'        => 'POST',
 		'query'         => [],

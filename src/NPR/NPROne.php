@@ -45,12 +45,12 @@ class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	public const SCOPE_LISTENING_WRITE    = 'listening.write';
 	public const SCOPE_LOCALACTIVATION    = 'localactivation';
 
-	protected $authURL        = 'https://authorization.api.npr.org/v2/authorize';
-	protected $accessTokenURL = 'https://authorization.api.npr.org/v2/token';
-	protected $revokeURL      = 'https://authorization.api.npr.org/v2/token/revoke';
-	protected $endpointMap    = NPROneEndpoints::class;
-	protected $apiDocs        = 'https://dev.npr.org/api/';
-	protected $applicationURL = 'https://dev.npr.org/console';
+	protected string $authURL         = 'https://authorization.api.npr.org/v2/authorize';
+	protected string $accessTokenURL  = 'https://authorization.api.npr.org/v2/token';
+	protected ?string $revokeURL      = 'https://authorization.api.npr.org/v2/token/revoke';
+	protected ?string $endpointMap    = NPROneEndpoints::class;
+	protected ?string $apiDocs        = 'https://dev.npr.org/api/';
+	protected ?string $applicationURL = 'https://dev.npr.org/console';
 
 	/**
 	 * @param \Psr\Http\Message\RequestInterface $request

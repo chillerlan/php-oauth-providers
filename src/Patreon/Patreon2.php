@@ -35,6 +35,6 @@ class Patreon2 extends PatreonAbstract{
 	public const  SCOPE_CAMPAIGNS_MEMBERS_EMAIL   = 'campaigns.members[email]';
 	public const  SCOPE_CAMPAIGNS_MEMBERS_ADDRESS = 'campaigns.members.address';
 
-	protected $endpointMap    = Patreon2Endpoints::class;
+	protected ?string $endpointMap = Patreon2Endpoints::class;
 
 }

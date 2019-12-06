@@ -20,10 +20,10 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class SlackAPITest extends OAuth2APITest{
 
-	protected $FQN = Slack::class;
-	protected $ENV = 'SLACK';
+	protected string $FQN = Slack::class;
+	protected string $ENV = 'SLACK';
 
-	public function testUserIdentity(){
+	public function testUserIdentity():void{
 		$r = $this->provider->userIdentity();
 
 		$this->assertSame($this->testuser, $this->responseJson($r)->user->email);

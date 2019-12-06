@@ -32,10 +32,10 @@ class BattleNet extends OAuth2Provider implements ClientCredentials, CSRFToken{
 	public const SCOPE_PROFILE_SC2 = 'sc2.profile';
 	public const SCOPE_PROFILE_WOW = 'wow.profile';
 
-	protected $apiDocs        = 'https://develop.battle.net/documentation';
-	protected $applicationURL = 'https://develop.battle.net/access/clients';
-	protected $userRevokeURL  = 'https://account.blizzard.com/connections';
-	protected $endpointMap    = BattleNetEndpoints::class;
+	protected ?string $apiDocs        = 'https://develop.battle.net/documentation';
+	protected ?string $applicationURL = 'https://develop.battle.net/access/clients';
+	protected ?string $userRevokeURL  = 'https://account.blizzard.com/connections';
+	protected ?string $endpointMap    = BattleNetEndpoints::class;
 
 	/**
 	 * BattleNet constructor.

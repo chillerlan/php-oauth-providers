@@ -19,7 +19,7 @@ use chillerlan\HTTP\MagicAPI\EndpointMap;
  */
 class BattleNetEndpoints extends EndpointMap{
 
-	protected $userinfo = [
+	protected array $userinfo = [
 		'path'          => '/oauth/userinfo',
 		'method'        => 'GET',
 		'query'         => ['access_token'],

@@ -136,12 +136,12 @@ class TwitterCC extends OAuth2Provider implements ClientCredentials{
 
 	protected const AUTH_ERRMSG = 'TwitterCC only supports Client Credentials Grant, use the Twitter OAuth1 class for authentication instead.';
 
-	protected $apiURL                    = 'https://api.twitter.com/1.1';
-	protected $clientCredentialsTokenURL = 'https://api.twitter.com/oauth2/token';
-	protected $userRevokeURL             = 'https://twitter.com/settings/applications';
-	protected $endpointMap               = TwitterEndpoints::class;
-	protected $apiDocs                   = 'https://developer.twitter.com/en/docs/basics/authentication/overview/application-only';
-	protected $applicationURL            = 'https://developer.twitter.com/apps';
+	protected ?string $apiURL                    = 'https://api.twitter.com/1.1';
+	protected ?string $clientCredentialsTokenURL = 'https://api.twitter.com/oauth2/token';
+	protected ?string $userRevokeURL             = 'https://twitter.com/settings/applications';
+	protected ?string $endpointMap               = TwitterEndpoints::class;
+	protected ?string $apiDocs                   = 'https://developer.twitter.com/en/docs/basics/authentication/overview/application-only';
+	protected ?string $applicationURL            = 'https://developer.twitter.com/apps';
 
 	/**
 	 * @inheritdoc

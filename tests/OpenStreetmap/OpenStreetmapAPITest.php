@@ -20,12 +20,12 @@ use chillerlan\OAuthTest\Providers\OAuth1APITest;
  */
 class OpenStreetmapAPITest extends OAuth1APITest{
 
-	protected $FQN = OpenStreetmap::class;
-	protected $ENV = 'OPENSTREETMAP';
+	protected string $FQN = OpenStreetmap::class;
+	protected string $ENV = 'OPENSTREETMAP';
 
-	public function testIdentity(){
+	public function testIdentity():void{
 		$r = $this->provider->userDetails();
-		$this->assertSame($this->testuser, $this->responseXML($r)->user->attributes()->display_name->__toString());
+		static::assertSame($this->testuser, $this->responseXML($r)->user->attributes()->display_name->__toString());
 	}
 
 }

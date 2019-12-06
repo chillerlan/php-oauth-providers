@@ -21,7 +21,7 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class TwitterCCAPITest extends OAuth2APITest{
 
-	protected $FQN = TwitterCC::class;
-	protected $ENV = 'TWITTER';
+	protected string $FQN = TwitterCC::class;
+	protected string $ENV = 'TWITTER';
 
 }

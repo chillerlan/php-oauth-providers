@@ -34,12 +34,12 @@ class Discord extends OAuth2Provider implements ClientCredentials, CSRFToken, To
 	public const SCOPE_RPC_NOTIFICATIONS_READ = 'rpc.notifications.read';
 	public const SCOPE_WEBHOOK_INCOMING       = 'webhook.incoming';
 
-	protected $apiURL         = 'https://discordapp.com/api/v6';
-	protected $authURL        = 'https://discordapp.com/api/oauth2/authorize';
-	protected $accessTokenURL = 'https://discordapp.com/api/oauth2/token';
-	protected $revokeURL      = 'https://discordapp.com/api/oauth2/token/revoke';
-	protected $endpointMap    = DiscordEndpoints::class;
-	protected $apiDocs        = 'https://discordapp.com/developers/';
-	protected $applicationURL = 'https://discordapp.com/developers/applications/';
+	protected string $authURL        = 'https://discordapp.com/api/oauth2/authorize';
+	protected string $accessTokenURL = 'https://discordapp.com/api/oauth2/token';
+	protected ?string $apiURL         = 'https://discordapp.com/api/v6';
+	protected ?string $revokeURL      = 'https://discordapp.com/api/oauth2/token/revoke';
+	protected ?string $endpointMap    = DiscordEndpoints::class;
+	protected ?string $apiDocs        = 'https://discordapp.com/developers/';
+	protected ?string $applicationURL = 'https://discordapp.com/developers/applications/';
 
 }

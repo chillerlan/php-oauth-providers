@@ -19,7 +19,7 @@ use chillerlan\HTTP\MagicAPI\EndpointMap;
  */
 class DeezerEndpoints extends EndpointMap{
 
-	protected $me = [
+	protected array $me = [
 		'path'          => '/user/me',
 		'method'        => 'GET',
 		'query'         => [],

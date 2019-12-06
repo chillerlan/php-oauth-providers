@@ -19,7 +19,7 @@ use chillerlan\HTTP\MagicAPI\EndpointMap;
  */
 class WordpressEndpoints extends EndpointMap{
 
-	protected $me = [
+	protected array $me = [
 		'path'          => '/me',
 		'method'        => 'GET',
 		'query'         => [],

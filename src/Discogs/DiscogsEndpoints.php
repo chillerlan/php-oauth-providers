@@ -33,7 +33,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:database,header:database-release
 	 */
-	protected $release = [
+	protected array $release = [
 		'path'          => '/releases/%1$s',
 		'method'        => 'GET',
 		'query'         => ['curr_abbr'],
@@ -45,7 +45,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:database,header:database-release-rating-by-user
 	 */
-	protected $releaseUserRating = [
+	protected array $releaseUserRating = [
 		'path'          => '/releases/%1$s/rating/%2$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -57,7 +57,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:database,header:database-release-rating-by-user-put
 	 */
-	protected $releaseUpdateUserRating = [
+	protected array $releaseUpdateUserRating = [
 		'path'          => '/releases/%1$s/rating/%2$s',
 		'method'        => 'PUT',
 		'query'         => ['rating'],
@@ -69,7 +69,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:database,header:database-release-rating-by-user-delete
 	 */
-	protected $releaseRemoveUserRating = [
+	protected array $releaseRemoveUserRating = [
 		'path'          => '/releases/%1$s/rating/%2$s',
 		'method'        => 'DELETE',
 		'query'         => [],
@@ -81,7 +81,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:database,header:database-community-release-rating
 	 */
-	protected $releaseRating = [
+	protected array $releaseRating = [
 		'path'          => '/releases/%1$s/rating',
 		'method'        => 'GET',
 		'query'         => [],
@@ -93,7 +93,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:database,header:database-master-release
 	 */
-	protected $master = [
+	protected array $master = [
 		'path'          => '/masters/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -105,7 +105,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:database,header:database-master-release-versions
 	 */
-	protected $masterVersions = [
+	protected array $masterVersions = [
 		'path'          => '/masters/%1$s/versions',
 		'method'        => 'GET',
 		'query'         => ['page', 'per_page', 'sort', 'sort_order'],
@@ -117,7 +117,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:database,header:database-artist
 	 */
-	protected $artist = [
+	protected array $artist = [
 		'path'          => '/artists/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -129,7 +129,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:database,header:database-artist-releases
 	 */
-	protected $artistReleases = [
+	protected array $artistReleases = [
 		'path'          => '/artists/%1$s/releases',
 		'method'        => 'GET',
 		'query'         => ['page', 'per_page', 'sort', 'sort_order'],
@@ -141,7 +141,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:database,header:database-label
 	 */
-	protected $label = [
+	protected array $label = [
 		'path'          => '/labels/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -153,7 +153,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:database,header:database-all-label-releases
 	 */
-	protected $labelReleases = [
+	protected array $labelReleases = [
 		'path'          => '/labels/%1$s/releases',
 		'method'        => 'GET',
 		'query'         => ['page', 'per_page', 'sort', 'sort_order'],
@@ -165,7 +165,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:database,header:database-search
 	 */
-	protected $search = [
+	protected array $search = [
 		'path'          => '/database/search',
 		'method'        => 'GET',
 		'query'         => [
@@ -188,7 +188,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:marketplace,header:marketplace-inventory
 	 */
-	protected $inventory = [
+	protected array $inventory = [
 		'path'          => '/users/%1$s/inventory',
 		'method'        => 'GET',
 		'query'         => ['page', 'per_page', 'status', 'sort', 'sort_order'],
@@ -200,7 +200,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:marketplace,header:marketplace-listing
 	 */
-	protected $marketplaceListing = [
+	protected array $marketplaceListing = [
 		'path'          => '/marketplace/listings/%1$s',
 		'method'        => 'GET',
 		'query'         => ['curr_abbr'],
@@ -212,7 +212,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:marketplace,header:marketplace-listing-post
 	 */
-	protected $marketplaceUpdateListing = [
+	protected array $marketplaceUpdateListing = [
 		'path'          => '/marketplace/listings/%1$s',
 		'method'        => 'POST',
 		'query'         => [], // curr_abbr???
@@ -228,7 +228,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:marketplace,header:marketplace-listing-delete
 	 */
-	protected $marketplaceRemoveListing = [
+	protected array $marketplaceRemoveListing = [
 		'path'          => '/marketplace/listings/%1$s',
 		'method'        => 'DELETE',
 		'query'         => [], // curr_abbr???
@@ -240,7 +240,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:marketplace,header:marketplace-new-listing
 	 */
-	protected $marketplaceCreateListing = [
+	protected array $marketplaceCreateListing = [
 		'path'          => '/marketplace/listings',
 		'method'        => 'POST',
 		'query'         => [],
@@ -256,7 +256,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:marketplace,header:marketplace-order-get
 	 */
-	protected $marketplaceOrder = [
+	protected array $marketplaceOrder = [
 		'path'          => '/marketplace/orders/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -268,7 +268,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:marketplace,header:marketplace-order-post
 	 */
-	protected $marketplaceUpdateOrder = [
+	protected array $marketplaceUpdateOrder = [
 		'path'          => '/marketplace/orders/%1$s',
 		'method'        => 'POST',
 		'query'         => [],
@@ -280,7 +280,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:marketplace,header:marketplace-list-orders-get
 	 */
-	protected $marketplaceOrders = [
+	protected array $marketplaceOrders = [
 		'path'          => '/marketplace/orders',
 		'method'        => 'GET',
 		'query'         => ['status', 'page', 'per_page', 'sort', 'sort_order'],
@@ -292,7 +292,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:marketplace,header:marketplace-list-order-messages-get
 	 */
-	protected $marketplaceOrderMessages = [
+	protected array $marketplaceOrderMessages = [
 		'path'          => '/marketplace/orders/%1$s/messages',
 		'method'        => 'GET',
 		'query'         => ['page', 'per_page', 'sort', 'sort_order'],
@@ -304,7 +304,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:marketplace,header:marketplace-list-order-messages-post
 	 */
-	protected $marketplaceOrderAddMessage = [
+	protected array $marketplaceOrderAddMessage = [
 		'path'          => '/marketplace/orders/%1$s/messages',
 		'method'        => 'POST',
 		'query'         => [],
@@ -316,7 +316,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:marketplace,header:marketplace-fee-get
 	 */
-	protected $marketplaceFee = [
+	protected array $marketplaceFee = [
 		'path'          => '/marketplace/fee/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -328,7 +328,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:marketplace,header:marketplace-fee-with-currency-get
 	 */
-	protected $marketplaceFeeCurrency = [
+	protected array $marketplaceFeeCurrency = [
 		'path'          => '/marketplace/fee/%1$s/%2$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -340,7 +340,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:marketplace,header:marketplace-price-suggestions
 	 */
-	protected $releasePriceSuggestion = [
+	protected array $releasePriceSuggestion = [
 		'path'          => '/marketplace/price_suggestions/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -356,7 +356,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:user-identity,header:user-identity-identity-get
 	 */
-	protected $identity = [
+	protected array $identity = [
 		'path'          => '/oauth/identity',
 		'method'        => 'GET',
 		'query'         => [],
@@ -368,7 +368,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:user-identity,header:user-identity-profile-get
 	 */
-	protected $profile = [
+	protected array $profile = [
 		'path'          => '/users/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -380,7 +380,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:user-identity,header:user-identity-profile-post
 	 */
-	protected $profileUpdate = [
+	protected array $profileUpdate = [
 		'path'          => '/users/%1$s',
 		'method'        => 'POST',
 		'query'         => [],
@@ -392,7 +392,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:user-identity,header:user-identity-user-submissions-get
 	 */
-	protected $submissions = [
+	protected array $submissions = [
 		'path'          => '/users/%1$s/submissions',
 		'method'        => 'GET',
 		'query'         => ['page', 'per_page', 'sort', 'sort_order'],
@@ -404,7 +404,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:user-identity,header:user-identity-user-contributions-get
 	 */
-	protected $contributions = [
+	protected array $contributions = [
 		'path'          => '/users/%1$s/contributions',
 		'method'        => 'GET',
 		'query'         => ['page', 'per_page', 'sort', 'sort_order'],
@@ -420,7 +420,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:user-collection,header:user-collection-collection-get
 	 */
-	protected $collectionFolders = [
+	protected array $collectionFolders = [
 		'path'          => '/users/%1$s/collection/folders',
 		'method'        => 'GET',
 		'query'         => [],
@@ -432,7 +432,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:user-collection,header:user-collection-collection-post
 	 */
-	protected $collectionCreateFolder = [
+	protected array $collectionCreateFolder = [
 		'path'          => '/users/%1$s/collection/folders',
 		'method'        => 'POST',
 		'query'         => [],
@@ -444,7 +444,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:user-collection,header:user-collection-collection-folder-get
 	 */
-	protected $collectionFolder = [
+	protected array $collectionFolder = [
 		'path'          => '/users/%1$s/collection/folders/%2$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -456,7 +456,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:user-collection,header:user-collection-collection-folder-post
 	 */
-	protected $collectionUpdateFolder = [
+	protected array $collectionUpdateFolder = [
 		'path'          => '/users/%1$s/collection/folders/%2$s',
 		'method'        => 'POST',
 		'query'         => [],
@@ -468,7 +468,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:user-collection,header:user-collection-collection-folder-delete
 	 */
-	protected $collectionDeleteFolder = [
+	protected array $collectionDeleteFolder = [
 		'path'          => '/users/%1$s/collection/folders/%2$s',
 		'method'        => 'DELETE',
 		'query'         => [],
@@ -480,7 +480,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:user-collection,header:user-collection-collection-items-by-release-get
 	 */
-	protected $collectionRelease = [
+	protected array $collectionRelease = [
 		'path'          => '/users/%1$s/collection/releases/%2$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -492,7 +492,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:user-collection,header:user-collection-collection-items-by-folder-get
 	 */
-	protected $collectionFolderReleases = [
+	protected array $collectionFolderReleases = [
 		'path'          => '/users/%1$s/collection/folders/%2$s/releases',
 		'method'        => 'GET',
 		'query'         => ['page', 'per_page', 'sort', 'sort_order'],
@@ -504,7 +504,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:user-collection,header:user-collection-add-to-collection-folder-post
 	 */
-	protected $collectionFolderAddRelease = [
+	protected array $collectionFolderAddRelease = [
 		'path'          => '/users/%1$s/collection/folders/%2$s/releases/%3$s',
 		'method'        => 'POST',
 		'query'         => [],
@@ -516,7 +516,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:user-collection,header:user-collection-change-rating-of-release-post
 	 */
-	protected $collectionFolderRateRelease = [
+	protected array $collectionFolderRateRelease = [
 		'path'          => '/users/%1$s/collection/folders/%2$s/releases/%3$s/instances/%4$s',
 		'method'        => 'POST',
 		'query'         => [],
@@ -528,7 +528,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:user-collection,header:user-collection-delete-instance-from-folder-delete
 	 */
-	protected $collectionFolderRemoveRelease = [
+	protected array $collectionFolderRemoveRelease = [
 		'path'          => '/users/%1$s/collection/folders/%2$s/releases/%3$s/instances/%4$s',
 		'method'        => 'DELETE',
 		'query'         => [],
@@ -540,7 +540,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:user-collection,header:user-collection-list-custom-fields-get
 	 */
-	protected $collectionFields = [
+	protected array $collectionFields = [
 		'path'          => '/users/%1$s/collection/fields',
 		'method'        => 'GET',
 		'query'         => [],
@@ -552,7 +552,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:user-collection,header:user-collection-edit-fields-instance-post
 	 */
-	protected $collectionFolderUpdateReleaseField = [
+	protected array $collectionFolderUpdateReleaseField = [
 		'path'          => '/users/%1$s/collection/folders/%2$s/releases/%3$s/instances/%4$s/fields/%5$s',
 		'method'        => 'POST',
 		'query'         => [],
@@ -564,7 +564,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:user-collection,header:user-collection-collection-value-get
 	 */
-	protected $collectionValue = [
+	protected array $collectionValue = [
 		'path'          => '/users/%1$s/collection/value',
 		'method'        => 'GET',
 		'query'         => [],
@@ -580,7 +580,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:user-wantlist,header:user-wantlist-wantlist-get
 	 */
-	protected $wantlist = [
+	protected array $wantlist = [
 		'path'          => '/users/%1$s/wants',
 		'method'        => 'GET',
 		'query'         => ['page', 'per_page', 'sort', 'sort_order'],
@@ -592,7 +592,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:user-wantlist,header:user-wantlist-add-to-wantlist-put
 	 */
-	protected $wantlistAdd = [
+	protected array $wantlistAdd = [
 		'path'          => '/users/%1$s/wants/%2$s',
 		'method'        => 'PUT',
 		'query'         => [],
@@ -604,7 +604,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:user-wantlist,header:user-wantlist-add-to-wantlist-post
 	 */
-	protected $wantlistUpdate = [
+	protected array $wantlistUpdate = [
 		'path'          => '/users/%1$s/wants/%2$s',
 		'method'        => 'POST',
 		'query'         => [],
@@ -616,7 +616,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:user-wantlist,header:user-wantlist-add-to-wantlist-delete
 	 */
-	protected $wantlistRemove = [
+	protected array $wantlistRemove = [
 		'path'          => '/users/%1$s/wants/%2$s',
 		'method'        => 'DELETE',
 		'query'         => [],
@@ -632,7 +632,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:user-lists,header:user-lists-user-lists-get
 	 */
-	protected $lists = [
+	protected array $lists = [
 		'path'          => '/users/%1$s/lists',
 		'method'        => 'GET',
 		'query'         => [],
@@ -645,7 +645,7 @@ class DiscogsEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.discogs.com/developers/#page:user-lists,header:user-lists-list-get
 	 */
-	protected $list = [
+	protected array $list = [
 		'path'          => '/lists/%1$s',
 		'method'        => 'GET',
 		'query'         => [],

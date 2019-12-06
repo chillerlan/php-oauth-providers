@@ -22,8 +22,8 @@ class MicrosoftGraph extends AzureActiveDirectory{
 	public const SCOPE_USER_READ = 'User.Read';
 	public const SCOPE_USER_READBASIC_ALL = 'User.ReadBasic.All';
 
-	protected $apiURL         = 'https://graph.microsoft.com';
-	protected $apiDocs        = 'https://docs.microsoft.com/graph/overview';
-	protected $endpointMap    = MicrosoftGraphEndpoints::class;
+	protected ?string $apiURL      = 'https://graph.microsoft.com';
+	protected ?string $apiDocs     = 'https://docs.microsoft.com/graph/overview';
+	protected ?string $endpointMap = MicrosoftGraphEndpoints::class;
 
 }

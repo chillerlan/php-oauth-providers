@@ -24,10 +24,10 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class StripeAPITest extends OAuth2APITest{
 
-	protected $FQN = Stripe::class;
-	protected $ENV = 'STRIPE';
+	protected string $FQN = Stripe::class;
+	protected string $ENV = 'STRIPE';
 
-	public function testGetUserInfo(){
+	public function testGetUserInfo():void{
 		$r = $this->provider->me();
 
  		$this->assertSame($this->testuser, $this->responseJson($r)->data[0]->email);

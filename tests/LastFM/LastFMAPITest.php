@@ -24,9 +24,9 @@ use chillerlan\OAuthTest\API\APITestAbstract;
  */
 class LastFMAPITest extends APITestAbstract{
 
-	protected $CFG = __DIR__.'/../../config';
-	protected $FQN = LastFM::class;
-	protected $ENV = 'LASTFM';
+	protected string $CFG = __DIR__.'/../../config';
+	protected string $FQN = LastFM::class;
+	protected string $ENV = 'LASTFM';
 
 	protected function setUp():void{
 		parent::setUp();
@@ -42,13 +42,13 @@ class LastFMAPITest extends APITestAbstract{
 	 * @param string $method
 	 * @param array  $params
 	 */
-	public function testTagging(string $method, array $params){
+	public function testTagging(string $method, array $params):void{
 		/** @var \Psr\Http\Message\ResponseInterface $r */
 		$r = $this->provider->{$method}($params);
 		$this->assertSame(200, $r->getStatusCode());
 	}
 
-	public function tagDataProvider(){
+	public function tagDataProvider():array{
 		return [
 			'trackAddTags'    => ['trackAddTags', ['artist' => 'St. Vincent', 'track' => 'Pills', 'tags' => 'test']],
 			'trackRemoveTag'  => ['trackRemoveTag', ['artist' => 'St. Vincent', 'track' => 'Pills', 'tag' => 'test']],
@@ -63,12 +63,8 @@ class LastFMAPITest extends APITestAbstract{
 
 	/**
 	 * @dataProvider getMethodDataProvider
-	 *
-	 * @param string $method
-	 * @param string $return
-	 * @param array  $params
 	*/
-	public function testGetMethods(string $method, string $return, array $params){
+	public function testGetMethods(string $method, string $return, array $params):void{
 
 		if(isset($params['user']) && $params['user'] === '{TESTUSER}'){
 			$params['user'] = $this->testuser;
@@ -80,7 +76,7 @@ class LastFMAPITest extends APITestAbstract{
 	}
 
 
-	public function getMethodDataProvider(){
+	public function getMethodDataProvider():array{
 		return [
 			'albumGetInfo' => ['albumGetInfo', 'album', [
 				'mbid'        => null, // ???

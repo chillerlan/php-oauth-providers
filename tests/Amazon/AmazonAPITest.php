@@ -22,10 +22,10 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class AmazonAPITest extends OAuth2APITest{
 
-	protected $FQN = Amazon::class;
-	protected $ENV = 'AMAZON';
+	protected string $FQN = Amazon::class;
+	protected string $ENV = 'AMAZON';
 
-	public function testGetUserProfile(){
+	public function testGetUserProfile():void{
 		$r = $this->provider->userProfile();
 
 		$this->assertRegExp('/[a-z\d\.]/i', $this->responseJson($r)->user_id);

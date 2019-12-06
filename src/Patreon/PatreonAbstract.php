@@ -18,10 +18,10 @@ use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, TokenRefresh};
  */
 abstract class PatreonAbstract extends OAuth2Provider implements CSRFToken, TokenRefresh{
 
-	protected $authURL        = 'https://www.patreon.com/oauth2/authorize';
-	protected $accessTokenURL = 'https://www.patreon.com/api/oauth2/token';
-	protected $apiURL         = 'https://www.patreon.com/api/oauth2';
-	protected $apiDocs        = 'https://docs.patreon.com/';
-	protected $applicationURL = 'https://www.patreon.com/portal/registration/register-clients';
+	protected string $authURL         = 'https://www.patreon.com/oauth2/authorize';
+	protected string $accessTokenURL  = 'https://www.patreon.com/api/oauth2/token';
+	protected ?string $apiURL         = 'https://www.patreon.com/api/oauth2';
+	protected ?string $apiDocs        = 'https://docs.patreon.com/';
+	protected ?string $applicationURL = 'https://www.patreon.com/portal/registration/register-clients';
 
 }

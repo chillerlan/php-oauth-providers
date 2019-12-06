@@ -20,10 +20,10 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class PayPalAPITest extends OAuth2APITest{
 
-	protected $FQN = PayPal::class;
-	protected $ENV = 'PAYPAL'; // PAYPAL_SANDBOX
+	protected string $FQN = PayPal::class;
+	protected string $ENV = 'PAYPAL'; // PAYPAL_SANDBOX
 
-	public function testMe(){
+	public function testMe():void{
 		$r = $this->provider->me(['schema' => 'paypalv1.1']);
 
 		$json = $this->responseJson($r);

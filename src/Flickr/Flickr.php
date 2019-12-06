@@ -250,14 +250,14 @@ class Flickr extends OAuth1Provider{
 	public const PERM_WRITE  = 'write';
 	public const PERM_DELETE = 'delete';
 
-	protected $apiURL          = 'https://api.flickr.com/services/rest';
-	protected $requestTokenURL = 'https://www.flickr.com/services/oauth/request_token';
-	protected $authURL         = 'https://www.flickr.com/services/oauth/authorize';
-	protected $accessTokenURL  = 'https://www.flickr.com/services/oauth/access_token';
-	protected $userRevokeURL   = 'https://www.flickr.com/services/auth/list.gne';
-	protected $endpointMap     = FlickrEndpoints::class;
-	protected $apiDocs         = 'https://www.flickr.com/services/api/';
-	protected $applicationURL  = 'https://www.flickr.com/services/apps/create/';
+	protected string $requestTokenURL = 'https://www.flickr.com/services/oauth/request_token';
+	protected string $authURL         = 'https://www.flickr.com/services/oauth/authorize';
+	protected string $accessTokenURL  = 'https://www.flickr.com/services/oauth/access_token';
+	protected ?string $apiURL          = 'https://api.flickr.com/services/rest';
+	protected ?string $userRevokeURL   = 'https://www.flickr.com/services/auth/list.gne';
+	protected ?string $endpointMap     = FlickrEndpoints::class;
+	protected ?string $apiDocs         = 'https://www.flickr.com/services/api/';
+	protected ?string $applicationURL  = 'https://www.flickr.com/services/apps/create/';
 
 	/**
 	 * @param string $path
@@ -275,7 +275,6 @@ class Flickr extends OAuth1Provider{
 		$body = null,
 		array $headers = null
 	):ResponseInterface{
-		$method = $method ?? 'POST';
 
 		$params = \array_merge($params ?? [], [
 			'method'         => $path,
@@ -283,9 +282,10 @@ class Flickr extends OAuth1Provider{
 			'nojsoncallback' => true,
 		]);
 
-		$request = $this->requestFactory->createRequest($method, merge_query($this->apiURL, $params));
-
-		$request = $this->getRequestAuthorization($request, $this->storage->getAccessToken($this->serviceName));
+		$request = $this->getRequestAuthorization(
+			$this->requestFactory->createRequest($method ?? 'POST', merge_query($this->apiURL, $params)),
+			$this->storage->getAccessToken($this->serviceName)
+		);
 
 		return $this->http->sendRequest($request);
 	}

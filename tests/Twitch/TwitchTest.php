@@ -20,6 +20,6 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
  */
 class TwitchTest extends OAuth2ProviderTest{
 
-	protected $FQN = Twitch::class;
+	protected string $FQN = Twitch::class;
 
 }

@@ -20,12 +20,12 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class SoundcloudAPITest extends OAuth2APITest{
 
-	protected $FQN = SoundCloud::class;
-	protected $ENV = 'SOUNDCLOUD';
+	protected string $FQN = SoundCloud::class;
+	protected string $ENV = 'SOUNDCLOUD';
 
-	public function testGetUserInfo(){
+	public function testGetUserInfo():void{
 		$r = $this->provider->me();
-		$this->assertSame($this->testuser, $this->responseJson($r)->username);
+		static::assertSame($this->testuser, $this->responseJson($r)->username);
 	}
 
 }

@@ -20,6 +20,6 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
  */
 class InstagramTest extends OAuth2ProviderTest{
 
-	protected $FQN = Instagram::class;
+	protected string $FQN = Instagram::class;
 
 }

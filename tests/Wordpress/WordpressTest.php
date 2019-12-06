@@ -20,6 +20,6 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
  */
 class WordpressTest extends OAuth2ProviderTest{
 
-	protected $FQN = Wordpress::class;
+	protected string $FQN = Wordpress::class;
 
 }

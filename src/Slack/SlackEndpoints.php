@@ -24,7 +24,7 @@ use chillerlan\HTTP\MagicAPI\EndpointMap;
  */
 class SlackEndpoints extends EndpointMap{
 
-	protected $userIdentity = [
+	protected array $userIdentity = [
 		'path'          => '/users.identity',
 		'method'        => 'GET',
 		'query'         => [],

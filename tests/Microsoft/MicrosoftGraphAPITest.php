@@ -20,10 +20,10 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class MicrosoftGraphAPITest extends OAuth2APITest{
 
-	protected $FQN = MicrosoftGraph::class;
-	protected $ENV = 'MICROSOFT_AAD';
+	protected string $FQN = MicrosoftGraph::class;
+	protected string $ENV = 'MICROSOFT_AAD';
 
-	public function testMe(){
+	public function testMe():void{
 		$r = $this->provider->me();
 		$this->assertSame($this->testuser, $this->responseJson($r)->userPrincipalName);
 	}

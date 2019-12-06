@@ -20,6 +20,6 @@ use chillerlan\OAuthTest\Providers\OAuth1ProviderTest;
  */
 class TwitterTest extends OAuth1ProviderTest{
 
-	protected $FQN = Twitter::class;
+	protected string $FQN = Twitter::class;
 
 }

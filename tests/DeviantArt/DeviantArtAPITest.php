@@ -20,10 +20,10 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class DeviantArtAPITest extends OAuth2APITest{
 
-	protected $FQN = DeviantArt::class;
-	protected $ENV = 'DEVIANTART';
+	protected string $FQN = DeviantArt::class;
+	protected string $ENV = 'DEVIANTART';
 
-	public function testWhoami(){
+	public function testWhoami():void{
 		$r = $this->provider->whoami();
 		$this->assertSame($this->testuser, $this->responseJson($r)->username);
 	}

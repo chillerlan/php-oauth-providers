@@ -20,6 +20,6 @@ use chillerlan\OAuthTest\Providers\OAuth1ProviderTest;
  */
 class DiscogsTest extends OAuth1ProviderTest{
 
-	protected $FQN = Discogs::class;
+	protected string $FQN = Discogs::class;
 
 }

@@ -20,6 +20,6 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
  */
 class MusicBrainzTest extends OAuth2ProviderTest{
 
-	protected $FQN = MusicBrainz::class;
+	protected string $FQN = MusicBrainz::class;
 
 }

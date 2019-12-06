@@ -20,6 +20,6 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
  */
 class ImgurTest extends OAuth2ProviderTest{
 
-	protected $FQN = Imgur::class;
+	protected string $FQN = Imgur::class;
 
 }

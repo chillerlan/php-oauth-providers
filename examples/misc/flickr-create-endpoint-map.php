@@ -71,7 +71,7 @@ foreach($methods as $methodname){
 	/**
 	 * @link https://www.flickr.com/services/api/'.$m->method->name.'.html
 	 */
-	protected $'.lcfirst(implode('', $name)).' = [
+	protected array $'.lcfirst(implode('', $name)).' = [
 		\'path\'  => \''.$m->method->name.'\',
 		\'query\' => ['.(!empty($args) ? '\''.implode('\', \'', $args).'\'' : '').'],
 	];';

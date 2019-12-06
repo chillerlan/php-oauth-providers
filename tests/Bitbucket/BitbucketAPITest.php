@@ -20,10 +20,10 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class BitbucketAPITest extends OAuth2APITest{
 
-	protected $FQN = Bitbucket::class;
-	protected $ENV = 'BITBUCKET';
+	protected string $FQN = Bitbucket::class;
+	protected string $ENV = 'BITBUCKET';
 
-	public function testMe(){
+	public function testMe():void{
 		$r = $this->provider->me();
 		$this->assertSame($this->testuser, $this->responseJson($r)->username);
 	}

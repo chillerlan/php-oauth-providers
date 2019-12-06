@@ -19,9 +19,9 @@ use chillerlan\HTTP\MagicAPI\EndpointMap;
  */
 class GitLabV4Endpoints extends EndpointMap{
 
-	protected $API_BASE = '/v4';
+	protected string $API_BASE = '/v4';
 
-	protected $me = [
+	protected array $me = [
 		'path'          => '/user',
 		'method'        => 'GET',
 		'query'         => null,

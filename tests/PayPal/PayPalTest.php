@@ -20,6 +20,6 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
  */
 class PayPalTest extends OAuth2ProviderTest{
 
-	protected $FQN = PayPal::class;
+	protected string $FQN = PayPal::class;
 
 }

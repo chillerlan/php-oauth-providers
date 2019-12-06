@@ -20,7 +20,7 @@ use chillerlan\HTTP\MagicAPI\EndpointMap;
  */
 class DiscordEndpoints extends EndpointMap{
 
-	protected $me = [
+	protected array $me = [
 		'path'          => '/users/@me',
 		'method'        => 'GET',
 		'query'         => [],

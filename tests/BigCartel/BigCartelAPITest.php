@@ -20,36 +20,33 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class BigCartelAPITest extends OAuth2APITest{
 
-	protected $FQN = BigCartel::class;
-	protected $ENV = 'BIGCARTEL';
+	protected string $FQN = BigCartel::class;
+	protected string $ENV = 'BIGCARTEL';
 
-	/**
-	 * @var int
-	 */
-	protected $account_id;
+	protected int $account_id;
 
 	protected function setUp():void{
 		parent::setUp();
 
-		$this->account_id = $this->storage->getAccessToken($this->provider->serviceName)->extraParams['account_id'];
+		$this->account_id = (int)$this->storage->getAccessToken($this->provider->serviceName)->extraParams['account_id'];
 	}
 
-	public function testAccount(){
+	public function testAccount():void{
 		$r = $this->provider->account();
-		$this->assertSame($this->account_id, (int)$this->responseJson($r)->data[0]->id);
+		static::assertSame($this->account_id, (int)$this->responseJson($r)->data[0]->id);
 	}
 
-	public function testGetAccount(){
+	public function testGetAccount():void{
 		$r = $this->provider->getAccount($this->account_id);
 		$this->assertSame($this->account_id, (int)$this->responseJson($r)->data->id);
 	}
 
-	public function testArtists(){
+	public function testArtists():void{
 		$r = $this->provider->getArtists($this->account_id);
 		$this->assertSame('account.artists-disabled', $this->responseJson($r)->errors[0]->code);
 	}
 
-	public function testCategories(){
+	public function testCategories():void{
 		// undocumented -> https://developers.bigcartel.com/api/v1#status-codes
 		// HTTP/409 Conflict - the supplied body doesn't match the expected format
 
@@ -84,22 +81,22 @@ class BigCartelAPITest extends OAuth2APITest{
 		$this->assertSame(204, $r->getStatusCode());
 	}
 
-	public function testCountries(){
+	public function testCountries():void{
 		$r = $this->provider->countries();
 
 		// yup, it exists!
 		$this->assertGreaterThan(200, $this->responseJson($r)->meta->count);
 	}
 
-	public function testDiscounts(){
+	public function testDiscounts():void{
 		$this->markTestSkipped();
 	}
 
-	public function testOrders(){
+	public function testOrders():void{
 		$this->markTestSkipped();
 	}
 
-	public function testProducts(){
+	public function testProducts():void{
 		// requires a product named "test"
 
 		//products list

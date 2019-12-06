@@ -20,6 +20,6 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
  */
 class GoogleTest extends OAuth2ProviderTest{
 
-	protected $FQN = Google::class;
+	protected string $FQN = Google::class;
 
 }

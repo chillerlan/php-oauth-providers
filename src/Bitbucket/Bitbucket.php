@@ -22,11 +22,11 @@ use chillerlan\OAuth\Core\{ClientCredentials, CSRFToken, OAuth2Provider, TokenRe
  */
 class Bitbucket extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh{
 
-	protected $apiURL         = 'https://api.bitbucket.org';
-	protected $authURL        = 'https://bitbucket.org/site/oauth2/authorize';
-	protected $accessTokenURL = 'https://bitbucket.org/site/oauth2/access_token';
-	protected $endpointMap    = BitbucketEndpoints::class;
-	protected $apiDocs        = 'https://developer.atlassian.com/bitbucket/api/2/reference/';
-	protected $applicationURL = 'https://developer.atlassian.com/apps/';
+	protected string $authURL         = 'https://bitbucket.org/site/oauth2/authorize';
+	protected string $accessTokenURL  = 'https://bitbucket.org/site/oauth2/access_token';
+	protected ?string $apiURL         = 'https://api.bitbucket.org';
+	protected ?string $endpointMap    = BitbucketEndpoints::class;
+	protected ?string $apiDocs        = 'https://developer.atlassian.com/bitbucket/api/2/reference/';
+	protected ?string $applicationURL = 'https://developer.atlassian.com/apps/';
 
 }

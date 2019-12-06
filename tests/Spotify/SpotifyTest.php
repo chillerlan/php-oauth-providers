@@ -20,6 +20,6 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
  */
 class SpotifyTest extends OAuth2ProviderTest{
 
-	protected $FQN = Spotify::class;
+	protected string $FQN = Spotify::class;
 
 }

@@ -25,12 +25,12 @@ class Gitter extends OAuth2Provider implements CSRFToken{
 	public const SCOPE_FLOW    = 'flow';
 	public const SCOPE_PRIVATE = 'private';
 
-	protected $apiURL          = 'https://api.gitter.im/v1';
-	protected $authURL         = 'https://gitter.im/login/oauth/authorize';
-	protected $accessTokenURL  = 'https://gitter.im/login/oauth/token';
-	protected $scopesDelimiter = ',';
-	protected $endpointMap     = GitterEndpoints::class;
-	protected $apiDocs         = 'https://developer.gitter.im';
-	protected $applicationURL  = 'https://developer.gitter.im/apps';
+	protected string $authURL         = 'https://gitter.im/login/oauth/authorize';
+	protected string $accessTokenURL  = 'https://gitter.im/login/oauth/token';
+	protected string $scopesDelimiter = ',';
+	protected ?string $apiURL         = 'https://api.gitter.im/v1';
+	protected ?string $endpointMap    = GitterEndpoints::class;
+	protected ?string $apiDocs        = 'https://developer.gitter.im';
+	protected ?string $applicationURL = 'https://developer.gitter.im/apps';
 
 }

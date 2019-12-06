@@ -26,13 +26,13 @@ class SoundCloud extends OAuth2Provider{
 	public const SCOPE_NONEXPIRING = 'non-expiring';
 #	public const SCOPE_EMAIL       = 'email'; // ???
 
-	protected $apiURL             = 'https://api.soundcloud.com';
-	protected $authURL            = 'https://soundcloud.com/connect';
-	protected $accessTokenURL     = 'https://api.soundcloud.com/oauth2/token';
-	protected $userRevokeURL      = 'https://soundcloud.com/settings/connections';
-	protected $authMethodHeader   = 'OAuth';
-	protected $endpointMap        = SoundCloudEndpoints::class;
-	protected $apiDocs            = 'https://developers.soundcloud.com/';
-	protected $applicationURL     = 'https://soundcloud.com/you/apps';
+	protected string $authURL          = 'https://soundcloud.com/connect';
+	protected string $accessTokenURL   = 'https://api.soundcloud.com/oauth2/token';
+	protected ?string $apiURL          = 'https://api.soundcloud.com';
+	protected ?string $userRevokeURL   = 'https://soundcloud.com/settings/connections';
+	protected ?string $endpointMap     = SoundCloudEndpoints::class;
+	protected ?string $apiDocs         = 'https://developers.soundcloud.com/';
+	protected ?string $applicationURL  = 'https://soundcloud.com/you/apps';
+	protected string $authMethodHeader = 'OAuth';
 
 }

@@ -24,10 +24,10 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class FoursquareAPITest extends OAuth2APITest{
 
-	protected $FQN = Foursquare::class;
-	protected $ENV = 'FOURSQUARE';
+	protected string $FQN = Foursquare::class;
+	protected string $ENV = 'FOURSQUARE';
 
-	public function testMe(){
+	public function testMe():void{
 		$r = $this->provider->me();
 
 		$this->assertSame($this->testuser, $this->responseJson($r)->response->user->id);

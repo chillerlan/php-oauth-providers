@@ -13,7 +13,6 @@
 namespace chillerlan\OAuthTest\Providers\Discogs;
 
 use chillerlan\OAuth\Providers\Discogs\Discogs;
-use chillerlan\OAuthTest\API\OAuth1APITestAbstract;
 use chillerlan\OAuthTest\Providers\OAuth1APITest;
 
 /**
@@ -36,23 +35,20 @@ use chillerlan\OAuthTest\Providers\OAuth1APITest;
  */
 class DiscogsAPITest extends OAuth1APITest{
 
-	protected $FQN = Discogs::class;
-	protected $ENV = 'DISCOGS';
+	protected string $FQN = Discogs::class;
+	protected string $ENV = 'DISCOGS';
 
-	public function testIdentity(){
+	public function testIdentity():void{
 		$r = $this->provider->identity();
 		$this->assertSame($this->testuser, $this->responseJson($r)->username);
 	}
 
-	public function testProfile(){
+	public function testProfile():void{
 		$r = $this->provider->profile($this->testuser);
 		$this->assertSame($this->testuser, $this->responseJson($r)->username);
 	}
 
-	/**
-	 * @return array
-	 */
-	public function paginatedEndpointDataProvider(){
+	public function paginatedEndpointDataProvider():array{
 		return [
 			'artistReleases'    => ['artistReleases', ['198669'], 'releases'],
 			'collectionRelease' => ['collectionRelease', ['{TESTUSER}', '10149101'], 'releases'],
@@ -67,12 +63,8 @@ class DiscogsAPITest extends OAuth1APITest{
 
 	/**
 	 * @dataProvider paginatedEndpointDataProvider
-	 *
-	 * @param $method
-	 * @param $params
-	 * @param $field
 	 */
-	public function testPaginatedEndpoint($method, $params, $field){
+	public function testPaginatedEndpoint(string $method, array $params, string $field):void{
 		$params = array_map(function($p){
 			return str_replace('{TESTUSER}', $this->testuser, $p);
 		}, $params);
@@ -81,7 +73,7 @@ class DiscogsAPITest extends OAuth1APITest{
 		$this->assertTrue(isset($this->responseJson($r)->{$field}));
 	}
 
-	public function endpointDataProvider(){
+	public function endpointDataProvider():array{
 		return [
 			'artist'                 => ['artist', ['198669'], 'id'],
 			'collectionFields'       => ['collectionFields', ['{TESTUSER}'], 'fields'],
@@ -100,12 +92,8 @@ class DiscogsAPITest extends OAuth1APITest{
 
 	/**
 	 * @dataProvider endpointDataProvider
-	 *
-	 * @param $method
-	 * @param $params
-	 * @param $field
 	 */
-	public function testEndpoints($method, $params, $field){
+	public function testEndpoints(string $method, array $params, string $field):void{
 		$params = array_map(function($p){
 			return str_replace('{TESTUSER}', $this->testuser, $p);
 		}, $params);
@@ -114,7 +102,7 @@ class DiscogsAPITest extends OAuth1APITest{
 		$this->assertTrue(isset($this->responseJson($r)->{$field}));
 	}
 
-	public function testCollection(){
+	public function testCollection():void{
 		$name       = 'test_'.md5(microtime(true));
 		$release_id = 10149101; // Helium - The Dirt Of Luck RM
 
@@ -156,7 +144,7 @@ class DiscogsAPITest extends OAuth1APITest{
 	}
 
 
-	public function testWantlist(){
+	public function testWantlist():void{
 		$params = ['page' => 1, 'per_page' => 1, 'sort' => 'added', 'sort_order' => 'desc'];
 
 		// fetch the most recently added wantlist item
@@ -182,7 +170,7 @@ class DiscogsAPITest extends OAuth1APITest{
 		$this->assertSame(5, $j->rating);
 	}
 
-	public function testRelease(){
+	public function testRelease():void{
 		$release_id = 10298211; // Helium - The Magic City RM
 
 		$r = $this->provider->release($release_id);

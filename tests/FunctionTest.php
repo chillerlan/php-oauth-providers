@@ -22,7 +22,7 @@ class FunctionTest extends TestCase{
 	public function testGetProviders(){
 
 		foreach(getProviders() as $p){
-			$this->assertTrue((new \ReflectionClass($p['fqcn']))->implementsInterface(OAuthInterface::class));
+			static::assertTrue((new \ReflectionClass($p['fqcn']))->implementsInterface(OAuthInterface::class));
 		}
 
 	}

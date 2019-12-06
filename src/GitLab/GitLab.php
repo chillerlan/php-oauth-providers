@@ -21,11 +21,11 @@ use chillerlan\OAuth\Core\{ClientCredentials, CSRFToken, OAuth2Provider, TokenRe
  */
 class GitLab extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh{
 
-	protected $apiURL         = 'https://gitlab.com/api';
-	protected $authURL        = 'https://gitlab.com/oauth/authorize';
-	protected $accessTokenURL = 'https://gitlab.com/oauth/token';
-	protected $endpointMap    = GitLabV4Endpoints::class;
-	protected $apiDocs        = 'https://docs.gitlab.com/ee/api/README.html';
-	protected $applicationURL = 'https://gitlab.com/profile/applications';
+	protected string $authURL         = 'https://gitlab.com/oauth/authorize';
+	protected string $accessTokenURL  = 'https://gitlab.com/oauth/token';
+	protected ?string $apiURL         = 'https://gitlab.com/api';
+	protected ?string $endpointMap    = GitLabV4Endpoints::class;
+	protected ?string $apiDocs        = 'https://docs.gitlab.com/ee/api/README.html';
+	protected ?string $applicationURL = 'https://gitlab.com/profile/applications';
 
 }

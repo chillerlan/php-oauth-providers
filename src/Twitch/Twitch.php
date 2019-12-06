@@ -47,19 +47,18 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	public const SCOPE_USER_SUBSCRIPTIONS         = 'user_subscriptions';
 	public const SCOPE_VIEWING_ACTIVITY_READ      = 'viewing_activity_read';
 
-	protected $apiURL             = 'https://api.twitch.tv/kraken';
-	protected $authURL            = 'https://api.twitch.tv/kraken/oauth2/authorize';
-	protected $accessTokenURL     = 'https://api.twitch.tv/kraken/oauth2/token';
-	protected $userRevokeURL      = 'https://www.twitch.tv/settings/connections';
-	protected $revokeURL          = 'https://api.twitch.tv/kraken/oauth2/revoke';
-
-	protected $authHeaders        = ['Accept' => 'application/vnd.twitchtv.v5+json'];
-	protected $apiHeaders         = ['Accept' => 'application/vnd.twitchtv.v5+json'];
-	protected $authMethodHeader   = 'OAuth';  // -> https://api.twitch.tv/kraken
-#	protected $authMethodHeader   = 'Bearer'; // -> https://api.twitch.tv/helix
-	protected $endpointMap        = TwitchEndpoints::class;
-	protected $apiDocs            = 'https://dev.twitch.tv/docs/api/reference/';
-	protected $applicationURL     = 'https://dev.twitch.tv/console/apps/create';
+	protected string $authURL          = 'https://api.twitch.tv/kraken/oauth2/authorize';
+	protected string $accessTokenURL   = 'https://api.twitch.tv/kraken/oauth2/token';
+	protected ?string $apiURL          = 'https://api.twitch.tv/kraken';
+	protected ?string $userRevokeURL   = 'https://www.twitch.tv/settings/connections';
+	protected ?string $revokeURL       = 'https://api.twitch.tv/kraken/oauth2/revoke';
+	protected ?string $endpointMap     = TwitchEndpoints::class;
+	protected ?string $apiDocs         = 'https://dev.twitch.tv/docs/api/reference/';
+	protected ?string $applicationURL  = 'https://dev.twitch.tv/console/apps/create';
+	protected string $authMethodHeader = 'OAuth';  // -> https://api.twitch.tv/kraken
+#	protected string $authMethodHeader = 'Bearer'; // -> https://api.twitch.tv/helix
+	protected array $authHeaders       = ['Accept' => 'application/vnd.twitchtv.v5+json'];
+	protected array $apiHeaders        = ['Accept' => 'application/vnd.twitchtv.v5+json'];
 
 	/**
 	 * @link https://dev.twitch.tv/docs/authentication#oauth-client-credentials-flow-app-access-tokens

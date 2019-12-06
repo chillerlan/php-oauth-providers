@@ -20,10 +20,10 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class GitHubAPITest extends OAuth2APITest{
 
-	protected $FQN = GitHub::class;
-	protected $ENV = 'GITHUB';
+	protected string $FQN = GitHub::class;
+	protected string $ENV = 'GITHUB';
 
-	public function testLogin(){
+	public function testLogin():void{
 		$r = $this->provider->me();
 
 		$this->assertSame($this->testuser, $this->responseJson($r)->login);

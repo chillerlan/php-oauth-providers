@@ -21,15 +21,15 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
  */
 class MastodonTest extends OAuth2ProviderTest{
 
-	protected $FQN = Mastodon::class;
+	protected string $FQN = Mastodon::class;
 
-	public function testGetAuthURL(){
+	public function testGetAuthURL():void{
 		$this->provider->setInstance('https://localhost');
 
 		parent::testGetAuthURL();
 	}
 
-	public function testSetInvalidInstance(){
+	public function testSetInvalidInstance():void{
 		$this->expectException(OAuthException::class);
 		$this->expectExceptionMessage('invalid instance URL');
 

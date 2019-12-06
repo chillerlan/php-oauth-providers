@@ -26,6 +26,6 @@ class Patreon1 extends PatreonAbstract{
 	public const SCOPE_PLEDGES_TO_ME = 'pledges-to-me';
 	public const SCOPE_MY_CAMPAIGN   = 'my-campaign';
 
-	protected $endpointMap    = Patreon1Endpoints::class;
+	protected ?string $endpointMap = Patreon1Endpoints::class;
 
 }

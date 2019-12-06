@@ -20,6 +20,6 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
  */
 class GitLabTest extends OAuth2ProviderTest{
 
-	protected $FQN = GitLab::class;
+	protected string $FQN = GitLab::class;
 
 }

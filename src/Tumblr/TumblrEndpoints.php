@@ -19,7 +19,7 @@ use chillerlan\HTTP\MagicAPI\EndpointMap;
  */
 class TumblrEndpoints extends EndpointMap{
 
-	protected $me = [
+	protected array $me = [
 		'path'          => '/user/info',
 		'method'        => 'GET',
 		'query'         => [],

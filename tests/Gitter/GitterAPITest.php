@@ -24,10 +24,10 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class GitterAPITest extends OAuth2APITest{
 
-	protected $FQN = Gitter::class;
-	protected $ENV = 'GITTER';
+	protected string $FQN = Gitter::class;
+	protected string $ENV = 'GITTER';
 
-	public function testMe(){
+	public function testMe():void{
 		$r = $this->provider->me();
 
 		$this->assertSame($this->testuser, $this->responseJson($r)->username);

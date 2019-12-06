@@ -22,13 +22,13 @@ use chillerlan\OAuth\Core\OAuth2Provider;
  */
 class Mixcloud extends OAuth2Provider{
 
-	protected $apiURL         = 'https://api.mixcloud.com';
-	protected $authURL        = 'https://www.mixcloud.com/oauth/authorize';
-	protected $accessTokenURL = 'https://www.mixcloud.com/oauth/access_token';
-	protected $userRevokeURL  = 'https://www.mixcloud.com/settings/applications/';
-	protected $authMethod     = self::AUTH_METHOD_QUERY;
-	protected $endpointMap    = MixcloudEndpoints::class;
-	protected $apiDocs        = 'https://www.mixcloud.com/developers/';
-	protected $applicationURL = 'https://www.mixcloud.com/developers/create/';
+	protected string $authURL         = 'https://www.mixcloud.com/oauth/authorize';
+	protected string $accessTokenURL  = 'https://www.mixcloud.com/oauth/access_token';
+	protected ?string $apiURL         = 'https://api.mixcloud.com';
+	protected ?string $userRevokeURL  = 'https://www.mixcloud.com/settings/applications/';
+	protected ?string $endpointMap    = MixcloudEndpoints::class;
+	protected ?string $apiDocs        = 'https://www.mixcloud.com/developers/';
+	protected ?string $applicationURL = 'https://www.mixcloud.com/developers/create/';
+	protected int $authMethod         = self::AUTH_METHOD_QUERY;
 
 }

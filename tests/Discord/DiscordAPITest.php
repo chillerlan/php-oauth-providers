@@ -21,10 +21,10 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class DiscordAPITest extends OAuth2APITest{
 
-	protected $FQN = Discord::class;
-	protected $ENV = 'DISCORD';
+	protected string $FQN = Discord::class;
+	protected string $ENV = 'DISCORD';
 
-	public function testRequestCredentialsToken(){
+	public function testRequestCredentialsToken():void{
 
 		$token = $this->provider->getClientCredentialsToken([Discord::SCOPE_CONNECTIONS, Discord::SCOPE_IDENTIFY]);
 
@@ -38,7 +38,7 @@ class DiscordAPITest extends OAuth2APITest{
 		$this->logger->debug('APITestSupportsOAuth2ClientCredentials', $token->toArray());
 	}
 
-	public function testMe(){
+	public function testMe():void{
 		$r = $this->provider->me();
 
 		$this->assertSame($this->testuser, $this->responseJson($r)->username);

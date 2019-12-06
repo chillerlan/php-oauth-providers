@@ -20,7 +20,7 @@ use chillerlan\OAuthTest\Providers\OAuth1ProviderTest;
  */
 class FlickrTest extends OAuth1ProviderTest{
 
-	protected $FQN = Flickr::class;
+	protected string $FQN = Flickr::class;
 
 	protected function getTestResponses():array{
 		return [

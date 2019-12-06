@@ -162,7 +162,7 @@ foreach($apiMethods as $method => $args){
 	// create a docblock
 	// @todo
 	$str[] = '
-	protected $'.explode('?', $method)[0].' = [
+	protected array $'.explode('?', $method)[0].' = [
 		\'path\'          => \''.$args['path'].'\',
 		\'query\'         => ['.(!empty($args['query']) ? '\''.implode('\', \'', $args['query']).'\'' : '').'],
 		\'path_elements\' => ['.(!empty($args['path_elements']) ? '\''.implode('\', \'', $args['path_elements']).'\'' : '').'],

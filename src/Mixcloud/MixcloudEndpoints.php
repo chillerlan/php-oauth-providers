@@ -22,7 +22,7 @@ use chillerlan\HTTP\MagicAPI\EndpointMap;
  */
 class MixcloudEndpoints extends EndpointMap{
 
-	protected $me = [
+	protected array $me = [
 		'path'          => '/me/',
 		'method'        => 'GET',
 		'query'         => [],
@@ -31,7 +31,7 @@ class MixcloudEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $user = [
+	protected array $user = [
 		'path'          => '/%1$s/',
 		'method'        => 'GET',
 		'query'         => [],

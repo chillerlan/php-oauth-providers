@@ -31,12 +31,12 @@ class DeviantArt extends OAuth2Provider implements ClientCredentials, CSRFToken,
 	public const SCOPE_USER         = 'user';
 	public const SCOPE_USER_MANAGE  = 'user.manage';
 
-	protected $apiURL         = 'https://www.deviantart.com/api/v1/oauth2';
-	protected $authURL        = 'https://www.deviantart.com/oauth2/authorize';
-	protected $accessTokenURL = 'https://www.deviantart.com/oauth2/token';
-	protected $userRevokeURL  = 'https://www.deviantart.com/settings/applications';
-	protected $endpointMap    = DeviantArtEndpoints::class;
-	protected $apiDocs        = 'https://www.deviantart.com/developers/';
-	protected $applicationURL = 'https://www.deviantart.com/developers/apps';
+	protected string $authURL         = 'https://www.deviantart.com/oauth2/authorize';
+	protected string $accessTokenURL  = 'https://www.deviantart.com/oauth2/token';
+	protected ?string $apiURL         = 'https://www.deviantart.com/api/v1/oauth2';
+	protected ?string $userRevokeURL  = 'https://www.deviantart.com/settings/applications';
+	protected ?string $endpointMap    = DeviantArtEndpoints::class;
+	protected ?string $apiDocs        = 'https://www.deviantart.com/developers/';
+	protected ?string $applicationURL = 'https://www.deviantart.com/developers/apps';
 
 }

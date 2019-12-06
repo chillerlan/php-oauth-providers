@@ -28,7 +28,7 @@ class MailChimpEndpoints extends EndpointMap{
 	/**
 	 * @link http://developer.mailchimp.com/documentation/mailchimp/reference/root/#read-get_root
 	 */
-	protected $root = [
+	protected array $root = [
 		'path'          => '/',
 		'method'        => 'GET',
 		'query'         => ['fields', 'exclude_fields'],
@@ -44,7 +44,7 @@ class MailChimpEndpoints extends EndpointMap{
 	/**
 	 * @link http://developer.mailchimp.com/documentation/mailchimp/reference/authorized-apps/#create-post_authorized_apps
 	 */
-	protected $createAuthorizedApp = [
+	protected array $createAuthorizedApp = [
 		'path'          => '/authorized-apps',
 		'method'        => 'POST',
 		'query'         => [],
@@ -56,7 +56,7 @@ class MailChimpEndpoints extends EndpointMap{
 	/**
 	 * @link http://developer.mailchimp.com/documentation/mailchimp/reference/authorized-apps/#read-get_authorized_apps
 	 */
-	protected $getAuthorizedAppList = [
+	protected array $getAuthorizedAppList = [
 		'path'          => '/authorized-apps',
 		'method'        => 'GET',
 		'query'         => ['fields', 'exclude_fields', 'count', 'offset'],
@@ -68,7 +68,7 @@ class MailChimpEndpoints extends EndpointMap{
 	/**
 	 * @link http://developer.mailchimp.com/documentation/mailchimp/reference/authorized-apps/#read-get_authorized_apps_app_id
 	 */
-	protected $getAuthorizedApp = [
+	protected array $getAuthorizedApp = [
 		'path'          => '/authorized-apps/%1$s',
 		'method'        => 'GET',
 		'query'         => ['fields', 'exclude_fields'],
@@ -85,7 +85,7 @@ class MailChimpEndpoints extends EndpointMap{
 	/**
 	 * @link http://developer.mailchimp.com/documentation/mailchimp/reference/ping/#read-get_ping
 	 */
-	protected $ping = [
+	protected array $ping = [
 		'path'          => '/ping',
 		'method'        => 'GET',
 		'query'         => [],

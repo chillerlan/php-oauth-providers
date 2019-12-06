@@ -62,13 +62,13 @@ use chillerlan\OAuth\Core\OAuth1Provider;
  */
 class OpenCaching extends OAuth1Provider{
 
-	protected $requestTokenURL = 'https://www.opencaching.de/okapi/services/oauth/request_token';
-	protected $authURL         = 'https://www.opencaching.de/okapi/services/oauth/authorize';
-	protected $accessTokenURL  = 'https://www.opencaching.de/okapi/services/oauth/access_token';
-	protected $apiURL          = 'https://www.opencaching.de/okapi/services';
-	protected $userRevokeURL   = 'https://www.opencaching.de/okapi/apps/';
-	protected $endpointMap     = OpenCachingEndpoints::class;
-	protected $apiDocs         = 'https://www.opencaching.de/okapi/';
-	protected $applicationURL  = 'https://www.opencaching.de/okapi/signup.html';
+	protected string $requestTokenURL = 'https://www.opencaching.de/okapi/services/oauth/request_token';
+	protected string $authURL         = 'https://www.opencaching.de/okapi/services/oauth/authorize';
+	protected string $accessTokenURL  = 'https://www.opencaching.de/okapi/services/oauth/access_token';
+	protected ?string $apiURL         = 'https://www.opencaching.de/okapi/services';
+	protected ?string $userRevokeURL  = 'https://www.opencaching.de/okapi/apps/';
+	protected ?string $endpointMap    = OpenCachingEndpoints::class;
+	protected ?string $apiDocs        = 'https://www.opencaching.de/okapi/';
+	protected ?string $applicationURL = 'https://www.opencaching.de/okapi/signup.html';
 
 }

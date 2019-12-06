@@ -33,12 +33,12 @@ class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	public const SCOPE_ADDRESS    = 'address';
 	public const SCOPE_ACCOUNT    = 'https://uri.paypal.com/services/paypalattributes';
 
-	protected $apiURL         = 'https://api.paypal.com';
-	protected $accessTokenURL = 'https://api.paypal.com/v1/oauth2/token';
-	protected $authURL        = 'https://www.paypal.com/connect';
-	protected $applicationURL = 'https://developer.paypal.com/developer/applications/';
-	protected $apiDocs        = 'https://developer.paypal.com/docs/connect-with-paypal/reference/';
-	protected $endpointMap    = PayPalEndpoints::class;
+	protected string $accessTokenURL  = 'https://api.paypal.com/v1/oauth2/token';
+	protected string $authURL         = 'https://www.paypal.com/connect';
+	protected ?string $apiURL         = 'https://api.paypal.com';
+	protected ?string $applicationURL = 'https://developer.paypal.com/developer/applications/';
+	protected ?string $apiDocs        = 'https://developer.paypal.com/docs/connect-with-paypal/reference/';
+	protected ?string $endpointMap    = PayPalEndpoints::class;
 
 	/**
 	 * @param \Psr\Http\Message\ResponseInterface $response

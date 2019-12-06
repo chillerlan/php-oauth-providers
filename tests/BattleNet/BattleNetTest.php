@@ -21,17 +21,17 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
  */
 class BattleNetTest extends OAuth2ProviderTest{
 
-	protected $FQN = BattleNet::class;
+	protected string $FQN = BattleNet::class;
 
-	public function testSetRegion(){
+	public function testSetRegion():void{
 		$this->provider->setRegion('cn');
-		$this->assertSame('https://www.battlenet.com.cn', $this->provider->apiURL);
+		static::assertSame('https://www.battlenet.com.cn', $this->provider->apiURL);
 
 		$this->provider->setRegion('us');
-		$this->assertSame('https://us.battle.net', $this->provider->apiURL);
+		static::assertSame('https://us.battle.net', $this->provider->apiURL);
 	}
 
-	public function testSetRegionException(){
+	public function testSetRegionException():void{
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('invalid region: foo');
 

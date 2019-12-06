@@ -18,7 +18,7 @@ use chillerlan\HTTP\MagicAPI\EndpointMap;
  */
 class AmazonEndpoints extends EndpointMap{
 
-	protected $userProfile = [
+	protected array $userProfile = [
 		'path'          => '/user/profile',
 		'method'        => 'GET',
 		'query'         => [],

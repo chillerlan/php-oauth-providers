@@ -24,12 +24,12 @@ class Wordpress extends OAuth2Provider implements CSRFToken{
 	public const SCOPE_AUTH   = 'auth';
 	public const SCOPE_GLOBAL = 'global';
 
-	protected $apiURL         = 'https://public-api.wordpress.com/rest/v1';
-	protected $authURL        = 'https://public-api.wordpress.com/oauth2/authorize';
-	protected $accessTokenURL = 'https://public-api.wordpress.com/oauth2/token';
-	protected $userRevokeURL  = 'https://wordpress.com/me/security/connected-applications';
-	protected $endpointMap    = WordpressEndpoints::class;
-	protected $apiDocs        = 'https://developer.wordpress.com/docs/api/';
-	protected $applicationURL = 'https://developer.wordpress.com/apps/';
+	protected string $authURL         = 'https://public-api.wordpress.com/oauth2/authorize';
+	protected string $accessTokenURL  = 'https://public-api.wordpress.com/oauth2/token';
+	protected ?string $apiURL         = 'https://public-api.wordpress.com/rest/v1';
+	protected ?string $userRevokeURL  = 'https://wordpress.com/me/security/connected-applications';
+	protected ?string $endpointMap    = WordpressEndpoints::class;
+	protected ?string $apiDocs        = 'https://developer.wordpress.com/docs/api/';
+	protected ?string $applicationURL = 'https://developer.wordpress.com/apps/';
 
 }

@@ -26,12 +26,12 @@ use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, TokenRefresh};
  */
 class Imgur extends OAuth2Provider implements CSRFToken, TokenRefresh{
 
-	protected $apiURL         = 'https://api.imgur.com';
-	protected $authURL        = 'https://api.imgur.com/oauth2/authorize';
-	protected $accessTokenURL = 'https://api.imgur.com/oauth2/token';
-	protected $userRevokeURL  = 'https://imgur.com/account/settings/apps';
-	protected $endpointMap    = ImgurEndpoints::class;
-	protected $apiDocs        = 'https://apidocs.imgur.com';
-	protected $applicationURL = 'https://api.imgur.com/oauth2/addclient';
+	protected string $authURL         = 'https://api.imgur.com/oauth2/authorize';
+	protected string $accessTokenURL  = 'https://api.imgur.com/oauth2/token';
+	protected ?string $apiURL         = 'https://api.imgur.com';
+	protected ?string $userRevokeURL  = 'https://imgur.com/account/settings/apps';
+	protected ?string $endpointMap    = ImgurEndpoints::class;
+	protected ?string $apiDocs        = 'https://apidocs.imgur.com';
+	protected ?string $applicationURL = 'https://api.imgur.com/oauth2/addclient';
 
 }

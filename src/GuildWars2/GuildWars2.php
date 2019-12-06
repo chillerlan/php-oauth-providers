@@ -247,12 +247,12 @@ class GuildWars2 extends OAuth2Provider{
 
 	protected const AUTH_ERRMSG = 'GuildWars2 does not support authentication anymore.';
 
-	protected $apiURL         = 'https://api.guildwars2.com/v2';
-	protected $authURL        = 'https://account.arena.net/applications/create';
-	protected $userRevokeURL  = 'https://account.arena.net/applications';
-	protected $apiDocs        = 'https://wiki.guildwars2.com/wiki/API:Main';
-	protected $applicationURL = 'https://account.arena.net/applications';
-	protected $endpointMap    = GuildWars2Endpoints::class;
+	protected string $authURL         = 'https://account.arena.net/applications/create';
+	protected ?string $apiURL         = 'https://api.guildwars2.com/v2';
+	protected ?string $userRevokeURL  = 'https://account.arena.net/applications';
+	protected ?string $apiDocs        = 'https://wiki.guildwars2.com/wiki/API:Main';
+	protected ?string $applicationURL = 'https://account.arena.net/applications';
+	protected ?string $endpointMap    = GuildWars2Endpoints::class;
 
 	/**
 	 * @param string $access_token

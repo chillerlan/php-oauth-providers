@@ -22,12 +22,12 @@ use chillerlan\OAuth\Core\OAuth1Provider;
  */
 class OpenStreetmap extends OAuth1Provider{
 
-	protected $apiURL          = 'https://api.openstreetmap.org';
-	protected $requestTokenURL = 'https://www.openstreetmap.org/oauth/request_token';
-	protected $authURL         = 'https://www.openstreetmap.org/oauth/authorize';
-	protected $accessTokenURL  = 'https://www.openstreetmap.org/oauth/access_token';
-	protected $endpointMap     = OpenStreetmapEndpoints::class;
-	protected $apiDocs         = 'https://wiki.openstreetmap.org/wiki/API';
-	protected $applicationURL  = 'https://www.openstreetmap.org/user/{USERNAME}/oauth_clients';
+	protected string $requestTokenURL = 'https://www.openstreetmap.org/oauth/request_token';
+	protected string $authURL         = 'https://www.openstreetmap.org/oauth/authorize';
+	protected string $accessTokenURL  = 'https://www.openstreetmap.org/oauth/access_token';
+	protected ?string $apiURL         = 'https://api.openstreetmap.org';
+	protected ?string $endpointMap    = OpenStreetmapEndpoints::class;
+	protected ?string $apiDocs        = 'https://wiki.openstreetmap.org/wiki/API';
+	protected ?string $applicationURL = 'https://www.openstreetmap.org/user/{USERNAME}/oauth_clients';
 
 }

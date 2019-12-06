@@ -19,7 +19,7 @@ use chillerlan\HTTP\MagicAPI\EndpointMap;
  */
 class PayPalEndpoints extends EndpointMap{
 
-	protected $me = [
+	protected array $me = [
 		'path'          => '/v1/identity/oauth2/userinfo',
 		'method'        => 'GET',
 		'query'         => ['schema'],

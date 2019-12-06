@@ -19,7 +19,7 @@ use chillerlan\HTTP\MagicAPI\EndpointMap;
  */
 class MastodonEndpoints extends EndpointMap{
 
-	protected $getCurrentUser = [
+	protected array $getCurrentUser = [
 		'path'          => '/v1/accounts/verify_credentials',
 		'method'        => 'GET',
 		'query'         => [],
@@ -28,7 +28,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $updateCurrentUser = [
+	protected array $updateCurrentUser = [
 		'path'          => '/v1/accounts/update_credentials',
 		'method'        => 'PATCH',
 		'query'         => [],
@@ -37,7 +37,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getAccount = [
+	protected array $getAccount = [
 		'path'          => '/v1/accounts/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -46,7 +46,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getFollowers = [
+	protected array $getFollowers = [
 		'path'          => '/v1/accounts/%1$s/followers',
 		'method'        => 'GET',
 		'query'         => ['max_id', 'since_id', 'limit'],
@@ -55,7 +55,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getFollowing = [
+	protected array $getFollowing = [
 		'path'          => '/v1/accounts/%1$s/following',
 		'method'        => 'GET',
 		'query'         => ['max_id', 'since_id', 'limit'],
@@ -64,7 +64,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getStatuses = [
+	protected array $getStatuses = [
 		'path'          => '/v1/accounts/%1$s/statuses',
 		'method'        => 'GET',
 		'query'         => ['only_media', 'pinned', 'exclude_replies', 'max_id', 'since_id', 'limit'],
@@ -73,7 +73,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $follow = [
+	protected array $follow = [
 		'path'          => '/v1/accounts/%1$s/follow',
 		'method'        => 'POST',
 		'query'         => ['reblogs'],
@@ -82,7 +82,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $unfollow = [
+	protected array $unfollow = [
 		'path'          => '/v1/accounts/%1$s/unfollow',
 		'method'        => 'POST',
 		'query'         => [],
@@ -91,7 +91,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $block = [
+	protected array $block = [
 		'path'          => '/v1/accounts/%1$s/block',
 		'method'        => 'POST',
 		'query'         => [],
@@ -100,7 +100,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $unblock = [
+	protected array $unblock = [
 		'path'          => '/v1/accounts/%1$s/unblock',
 		'method'        => 'POST',
 		'query'         => [],
@@ -109,7 +109,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $mute = [
+	protected array $mute = [
 		'path'          => '/v1/accounts/%1$s/mute',
 		'method'        => 'POST',
 		'query'         => [],
@@ -118,7 +118,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $unmute = [
+	protected array $unmute = [
 		'path'          => '/v1/accounts/%1$s/unmute',
 		'method'        => 'POST',
 		'query'         => [],
@@ -127,7 +127,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getCurrentUserRelationships = [
+	protected array $getCurrentUserRelationships = [
 		'path'          => '/v1/accounts/relationships',
 		'method'        => 'GET',
 		'query'         => ['account_id'],
@@ -136,7 +136,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $userSearch = [
+	protected array $userSearch = [
 		'path'          => '/v1/accounts/search',
 		'method'        => 'GET',
 		'query'         => ['q', 'limit', 'following'],
@@ -145,7 +145,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $createApp = [
+	protected array $createApp = [
 		'path'          => '/v1/apps',
 		'method'        => 'POST',
 		'query'         => [],
@@ -154,7 +154,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getCurrentUserBlocks = [
+	protected array $getCurrentUserBlocks = [
 		'path'          => '/v1/blocks',
 		'method'        => 'GET',
 		'query'         => ['max_id', 'since_id', 'limit'],
@@ -163,7 +163,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getCurrentUserDomainBlocks = [
+	protected array $getCurrentUserDomainBlocks = [
 		'path'          => '/v1/domain_blocks',
 		'method'        => 'GET',
 		'query'         => ['max_id', 'since_id', 'limit'],
@@ -172,7 +172,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $blockDomain = [
+	protected array $blockDomain = [
 		'path'          => '/v1/domain_blocks',
 		'method'        => 'POST',
 		'query'         => [],
@@ -181,7 +181,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $unblockDomain = [
+	protected array $unblockDomain = [
 		'path'          => '/v1/domain_blocks',
 		'method'        => 'DELETE',
 		'query'         => [],
@@ -190,7 +190,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getFilters = [
+	protected array $getFilters = [
 		'path'          => '/v1/filters',
 		'method'        => 'GET',
 		'query'         => [],
@@ -199,7 +199,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $createFilter = [
+	protected array $createFilter = [
 		'path'          => '/v1/filters',
 		'method'        => 'POST',
 		'query'         => [],
@@ -208,7 +208,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getFilter = [
+	protected array $getFilter = [
 		'path'          => '/v1/filters/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -217,7 +217,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $updateFilter = [
+	protected array $updateFilter = [
 		'path'          => '/v1/filters/%1$s',
 		'method'        => 'PUT',
 		'query'         => [],
@@ -226,7 +226,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $deleteFilter = [
+	protected array $deleteFilter = [
 		'path'          => '/v1/filters/%1$s',
 		'method'        => 'DELETE',
 		'query'         => [],
@@ -235,7 +235,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getFollowRequests = [
+	protected array $getFollowRequests = [
 		'path'          => '/v1/follow_requests',
 		'method'        => 'GET',
 		'query'         => ['max_id', 'since_id', 'limit'],
@@ -244,7 +244,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $acceptFollowRequest = [
+	protected array $acceptFollowRequest = [
 		'path'          => '/v1/follow_requests/%1$s/authorize',
 		'method'        => 'POST',
 		'query'         => [],
@@ -253,7 +253,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $rejectFollowRequest = [
+	protected array $rejectFollowRequest = [
 		'path'          => '/v1/follow_requests/%1$s/reject',
 		'method'        => 'POST',
 		'query'         => [],
@@ -262,7 +262,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getFollowSuggestions = [
+	protected array $getFollowSuggestions = [
 		'path'          => '/v1/suggestions',
 		'method'        => 'GET',
 		'query'         => [],
@@ -271,7 +271,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $deleteFollowSuggestion = [
+	protected array $deleteFollowSuggestion = [
 		'path'          => '/v1/suggestions/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -280,7 +280,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $follows = [
+	protected array $follows = [
 		'path'          => '/v1/follows',
 		'method'        => 'POST',
 		'query'         => [],
@@ -289,7 +289,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getInstance = [
+	protected array $getInstance = [
 		'path'          => '/v1/instance',
 		'method'        => 'GET',
 		'query'         => [],
@@ -298,7 +298,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getInstanceCustomEmojis = [
+	protected array $getInstanceCustomEmojis = [
 		'path'          => '/v1/custom_emojis',
 		'method'        => 'GET',
 		'query'         => [],
@@ -307,7 +307,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getLists = [
+	protected array $getLists = [
 		'path'          => '/v1/lists',
 		'method'        => 'GET',
 		'query'         => [],
@@ -316,7 +316,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getListsByMembership = [
+	protected array $getListsByMembership = [
 		'path'          => '/v1/accounts/%1$s/lists',
 		'method'        => 'GET',
 		'query'         => [],
@@ -325,7 +325,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getList = [
+	protected array $getList = [
 		'path'          => '/v1/lists/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -334,7 +334,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getListMembers = [
+	protected array $getListMembers = [
 		'path'          => '/v1/lists/%1$s/accounts',
 		'method'        => 'GET',
 		'query'         => ['max_id', 'since_id', 'limit'],
@@ -343,7 +343,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $createList = [
+	protected array $createList = [
 		'path'          => '/v1/lists',
 		'method'        => 'POST',
 		'query'         => [],
@@ -352,7 +352,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $updateList = [
+	protected array $updateList = [
 		'path'          => '/v1/lists/%1$s',
 		'method'        => 'PUT',
 		'query'         => [],
@@ -361,7 +361,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $deleteList = [
+	protected array $deleteList = [
 		'path'          => '/v1/lists/%1$s',
 		'method'        => 'DELETE',
 		'query'         => [],
@@ -370,7 +370,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $addListMembers = [
+	protected array $addListMembers = [
 		'path'          => '/v1/lists/%1$s/accounts',
 		'method'        => 'POST',
 		'query'         => [],
@@ -379,7 +379,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $removeListMembers = [
+	protected array $removeListMembers = [
 		'path'          => '/v1/lists/%1$s/accounts',
 		'method'        => 'DELETE',
 		'query'         => [],
@@ -388,7 +388,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $createAttachment = [
+	protected array $createAttachment = [
 		'path'          => '/v1/media',
 		'method'        => 'POST',
 		'query'         => [],
@@ -397,7 +397,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $updateAttachment = [
+	protected array $updateAttachment = [
 		'path'          => '/v1/media/%1$s',
 		'method'        => 'PUT',
 		'query'         => [],
@@ -406,7 +406,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getMutes = [
+	protected array $getMutes = [
 		'path'          => '/v1/mutes',
 		'method'        => 'GET',
 		'query'         => ['max_id', 'since_id', 'limit'],
@@ -415,7 +415,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getNotifications = [
+	protected array $getNotifications = [
 		'path'          => '/v1/notifications',
 		'method'        => 'GET',
 		'query'         => ['exclude_types', 'max_id', 'since_id', 'limit'],
@@ -424,7 +424,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getNotification = [
+	protected array $getNotification = [
 		'path'          => '/v1/notifications/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -433,7 +433,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $clearNotifications = [
+	protected array $clearNotifications = [
 		'path'          => '/v1/notifications/clear',
 		'method'        => 'POST',
 		'query'         => [],
@@ -442,7 +442,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $dismissNotification = [
+	protected array $dismissNotification = [
 		'path'          => '/v1/notifications/dismiss',
 		'method'        => 'POST',
 		'query'         => [],
@@ -451,7 +451,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getPushSubscriptionStatus = [
+	protected array $getPushSubscriptionStatus = [
 		'path'          => '/v1/push/subscription',
 		'method'        => 'GET',
 		'query'         => [],
@@ -460,7 +460,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $addPushSubscription = [
+	protected array $addPushSubscription = [
 		'path'          => '/v1/push/subscription',
 		'method'        => 'POST',
 		'query'         => [],
@@ -469,7 +469,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $updatePushSubscription = [
+	protected array $updatePushSubscription = [
 		'path'          => '/v1/push/subscription',
 		'method'        => 'POST',
 		'query'         => [],
@@ -478,7 +478,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $deletePushSubscription = [
+	protected array $deletePushSubscription = [
 		'path'          => '/v1/push/subscription',
 		'method'        => 'DELETE',
 		'query'         => [],
@@ -487,7 +487,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getReports = [
+	protected array $getReports = [
 		'path'          => '/v1/reports',
 		'method'        => 'GET',
 		'query'         => [],
@@ -496,7 +496,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $report = [
+	protected array $report = [
 		'path'          => '/v1/reports',
 		'method'        => 'POST',
 		'query'         => [],
@@ -505,7 +505,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $search = [
+	protected array $search = [
 		'path'          => '/v1/search',
 		'method'        => 'GET',
 		'query'         => ['q', 'resolve'],
@@ -514,7 +514,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $searchV2 = [
+	protected array $searchV2 = [
 		'path'          => '/v2/search', // @todo: separate v2 client?
 		'method'        => 'GET',
 		'query'         => ['q', 'resolve'],
@@ -523,7 +523,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getToot = [
+	protected array $getToot = [
 		'path'          => '/v1/statuses/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -532,7 +532,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getTootContext = [
+	protected array $getTootContext = [
 		'path'          => '/v1/statuses/%1$s/context',
 		'method'        => 'GET',
 		'query'         => [],
@@ -541,7 +541,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getTootCard = [
+	protected array $getTootCard = [
 		'path'          => '/v1/statuses/%1$s/card',
 		'method'        => 'GET',
 		'query'         => [],
@@ -550,7 +550,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getTootBoostedBy = [
+	protected array $getTootBoostedBy = [
 		'path'          => '/v1/statuses/%1$s/reblogged_by',
 		'method'        => 'GET',
 		'query'         => ['max_id', 'since_id', 'limit'],
@@ -559,7 +559,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getTootFavouritedBy = [
+	protected array $getTootFavouritedBy = [
 		'path'          => '/v1/statuses/%1$s/favourited_by',
 		'method'        => 'GET',
 		'query'         => ['max_id', 'since_id', 'limit'],
@@ -568,7 +568,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $toot = [
+	protected array $toot = [
 		'path'          => '/v1/statuses',
 		'method'        => 'POST',
 		'query'         => [],
@@ -577,7 +577,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [], // Idempotency-Key @see https://stripe.com/docs/api#idempotent_requests
 	];
 
-	protected $deleteToot = [
+	protected array $deleteToot = [
 		'path'          => '/v1/statuses/%1$s',
 		'method'        => 'DELETE',
 		'query'         => [],
@@ -586,7 +586,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $boost = [
+	protected array $boost = [
 		'path'          => '/v1/statuses/%1$s/reblog',
 		'method'        => 'POST',
 		'query'         => [],
@@ -595,7 +595,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $unboost = [
+	protected array $unboost = [
 		'path'          => '/v1/statuses/%1$s/unreblog',
 		'method'        => 'POST',
 		'query'         => [],
@@ -604,7 +604,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $favourite = [
+	protected array $favourite = [
 		'path'          => '/v1/statuses/%1$s/favourite',
 		'method'        => 'POST',
 		'query'         => [],
@@ -613,7 +613,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $unfavourite = [
+	protected array $unfavourite = [
 		'path'          => '/v1/statuses/%1$s/unfavourite',
 		'method'        => 'POST',
 		'query'         => [],
@@ -622,7 +622,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $pinToot = [
+	protected array $pinToot = [
 		'path'          => '/v1/statuses/%1$s/pin',
 		'method'        => 'POST',
 		'query'         => [],
@@ -631,7 +631,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $unpinToot = [
+	protected array $unpinToot = [
 		'path'          => '/v1/statuses/%1$s/unpin',
 		'method'        => 'POST',
 		'query'         => [],
@@ -640,7 +640,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $muteToot = [
+	protected array $muteToot = [
 		'path'          => '/v1/statuses/%1$s/mute',
 		'method'        => 'POST',
 		'query'         => [],
@@ -649,7 +649,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $unmuteToot = [
+	protected array $unmuteToot = [
 		'path'          => '/v1/statuses/%1$s/unmute',
 		'method'        => 'POST',
 		'query'         => [],
@@ -658,7 +658,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getHomeTimeline = [
+	protected array $getHomeTimeline = [
 		'path'          => '/v1/timelines/home',
 		'method'        => 'GET',
 		'query'         => ['local', 'only_media', 'max_id', 'since_id', 'limit'],
@@ -667,7 +667,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getPublicTimeline = [
+	protected array $getPublicTimeline = [
 		'path'          => '/v1/timelines/public',
 		'method'        => 'GET',
 		'query'         => ['local', 'only_media', 'max_id', 'since_id', 'limit'],
@@ -676,7 +676,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getTagTimeline = [
+	protected array $getTagTimeline = [
 		'path'          => '/v1/timelines/tag/%1$s',
 		'method'        => 'GET',
 		'query'         => ['local', 'only_media', 'max_id', 'since_id', 'limit'],
@@ -685,7 +685,7 @@ class MastodonEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $getListTimeline = [
+	protected array $getListTimeline = [
 		'path'          => '/v1/timelines/list/%1$s',
 		'method'        => 'GET',
 		'query'         => ['local', 'only_media', 'max_id', 'since_id', 'limit'],

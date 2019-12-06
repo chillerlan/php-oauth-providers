@@ -72,13 +72,13 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	const SCOPE_SUBMIT_ISRC    = 'submit_isrc';
 	const SCOPE_SUBMIT_BARCODE = 'submit_barcode';
 
-	protected $apiURL         = 'https://musicbrainz.org/ws/2';
-	protected $authURL        = 'https://musicbrainz.org/oauth2/authorize';
-	protected $accessTokenURL = 'https://musicbrainz.org/oauth2/token';
-	protected $userRevokeURL  = 'https://musicbrainz.org/account/applications';
-	protected $endpointMap    = MusicBrainzEndpoints::class;
-	protected $apiDocs        = 'https://musicbrainz.org/doc/Development';
-	protected $applicationURL = 'https://musicbrainz.org/account/applications';
+	protected string $authURL         = 'https://musicbrainz.org/oauth2/authorize';
+	protected string $accessTokenURL  = 'https://musicbrainz.org/oauth2/token';
+	protected ?string $apiURL         = 'https://musicbrainz.org/ws/2';
+	protected ?string $userRevokeURL  = 'https://musicbrainz.org/account/applications';
+	protected ?string $endpointMap    = MusicBrainzEndpoints::class;
+	protected ?string $apiDocs        = 'https://musicbrainz.org/doc/Development';
+	protected ?string $applicationURL = 'https://musicbrainz.org/account/applications';
 
 	/**
 	 * @inheritdoc

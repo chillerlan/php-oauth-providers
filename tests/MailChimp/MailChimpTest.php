@@ -24,7 +24,7 @@ use function chillerlan\HTTP\Psr7\get_json;
  */
 class MailChimpTest extends OAuth2ProviderTest{
 
-	protected $FQN = MailChimp::class;
+	protected string $FQN = MailChimp::class;
 
 	protected $token;
 
@@ -42,26 +42,26 @@ class MailChimpTest extends OAuth2ProviderTest{
 		];
 	}
 
-	public function testRequest(){
+	public function testRequest():void{
 		$this->storage->storeAccessToken($this->provider->serviceName, $this->token);
 
-		$this->assertSame('such data! much wow! (/3.0)', get_json($this->provider->request(''))->data);
+		static::assertSame('such data! much wow! (/3.0)', get_json($this->provider->request(''))->data);
 	}
 
-	public function testRequestInvalidAuthTypeException(){
+	public function testRequestInvalidAuthTypeException():void{
 		$this->expectException(OAuthException::class);
 		$this->expectExceptionMessage('invalid auth type');
 
-		$this->setProperty($this->provider, 'authMethod', 'foo');
+		$this->setProperty($this->provider, 'authMethod', -1);
 		$this->storage->storeAccessToken($this->provider->serviceName, $this->token);
 
 		$this->provider->request('');
 	}
 
-	public function testGetTokenMetadata(){
+	public function testGetTokenMetadata():void{
 		$token = $this->provider->getTokenMetadata($this->token);
 
-		$this->assertSame('whatever', $token->extraParams['metadata']);
+		static::assertSame('whatever', $token->extraParams['metadata']);
 	}
 
 }

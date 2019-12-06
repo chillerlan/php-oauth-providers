@@ -18,7 +18,7 @@ use chillerlan\HTTP\MagicAPI\EndpointMap;
  */
 class ImgurEndpoints extends EndpointMap{
 
-	protected $me = [
+	protected array $me = [
 		'path'          => '/3/account/me',
 		'method'        => 'GET',
 		'query'         => [],
@@ -26,14 +26,5 @@ class ImgurEndpoints extends EndpointMap{
 		'body'          => null,
 		'headers'       => null,
 	];
-/*
-	protected $x = [
-		'path'          => '',
-		'method'        => 'GET',
-		'query'         => [],
-		'path_elements' => null,
-		'body'          => null,
-		'headers'       => null,
-	];
-*/
+
 }

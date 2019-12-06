@@ -38,14 +38,14 @@ class Deezer extends OAuth2Provider implements CSRFToken{
 	public const SCOPE_DELETE_LIBRARY    = 'delete_library';
 	public const SCOPE_LISTENING_HISTORY = 'listening_history';
 
-	protected $apiURL         = 'https://api.deezer.com';
-	protected $authURL        = 'https://connect.deezer.com/oauth/auth.php';
-	protected $accessTokenURL = 'https://connect.deezer.com/oauth/access_token.php';
-	protected $userRevokeURL  = 'https://www.deezer.com/account/apps';
-	protected $authMethod     = self::AUTH_METHOD_QUERY;
-	protected $endpointMap    = DeezerEndpoints::class;
-	protected $apiDocs        = 'https://developers.deezer.com/api';
-	protected $applicationURL = 'http://developers.deezer.com/myapps';
+	protected string $authURL         = 'https://connect.deezer.com/oauth/auth.php';
+	protected string $accessTokenURL  = 'https://connect.deezer.com/oauth/access_token.php';
+	protected ?string $apiURL         = 'https://api.deezer.com';
+	protected ?string $userRevokeURL  = 'https://www.deezer.com/account/apps';
+	protected ?string $endpointMap    = DeezerEndpoints::class;
+	protected ?string $apiDocs        = 'https://developers.deezer.com/api';
+	protected ?string $applicationURL = 'http://developers.deezer.com/myapps';
+	protected int $authMethod         = self::AUTH_METHOD_QUERY;
 
 	/**
 	 * @inheritDoc

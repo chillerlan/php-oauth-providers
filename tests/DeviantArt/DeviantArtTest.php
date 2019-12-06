@@ -20,6 +20,6 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
  */
 class DeviantArtTest extends OAuth2ProviderTest{
 
-	protected $FQN = DeviantArt::class;
+	protected string $FQN = DeviantArt::class;
 
 }

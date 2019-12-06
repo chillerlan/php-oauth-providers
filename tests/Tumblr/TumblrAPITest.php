@@ -20,10 +20,10 @@ use chillerlan\OAuthTest\Providers\OAuth1APITest;
  */
 class TumblrAPITest extends OAuth1APITest{
 
-	protected $FQN = Tumblr::class;
-	protected $ENV = 'TUMBLR';
+	protected string $FQN = Tumblr::class;
+	protected string $ENV = 'TUMBLR';
 
-	public function testGetUserInfo(){
+	public function testGetUserInfo():void{
 		$r = $this->provider->me();
 
 		$this->assertSame($this->testuser, $this->responseJson($r)->response->user->name);

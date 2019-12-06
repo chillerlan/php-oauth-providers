@@ -78,7 +78,7 @@ foreach($methods as $methodname){
 	/**
 	 * @link https://www.opencaching.de/okapi/'.$m->name.'.html
 	 */
-	protected $'.lcfirst(implode('', $name)).' = [
+	protected array $'.lcfirst(implode('', $name)).' = [
 		\'path\'  => \''.$p.'\',
 		\'query\' => ['.(!empty($args) ? '\''.implode('\', \'', $args).'\'' : '').'],
 	];';

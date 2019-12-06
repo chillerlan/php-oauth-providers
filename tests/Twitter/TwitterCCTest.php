@@ -21,24 +21,24 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
  */
 class TwitterCCTest extends OAuth2ProviderTest{
 
-	protected $FQN = TwitterCC::class;
+	protected string $FQN = TwitterCC::class;
 
-	public function testGetAuthURL(){
+	public function testGetAuthURL():void{
 		$this->markTestSkipped('N/A');
 	}
 
-	public function testGetAccessToken(){
+	public function testGetAccessToken():void{
 		$this->markTestSkipped('N/A');
 	}
 
-	public function testRequestGetAuthURLNotSupportedException(){
+	public function testRequestGetAuthURLNotSupportedException():void{
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('TwitterCC only supports Client Credentials Grant');
 
 		$this->provider->getAuthURL();
 	}
 
-	public function testRequestGetAccessTokenNotSupportedException(){
+	public function testRequestGetAccessTokenNotSupportedException():void{
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('TwitterCC only supports Client Credentials Grant');
 

@@ -19,7 +19,7 @@ use chillerlan\HTTP\MagicAPI\EndpointMap;
  */
 class DeviantArtEndpoints extends EndpointMap{
 
-	protected $whoami = [
+	protected array $whoami = [
 		'path'          => '/user/whoami',
 		'method'        => 'GET',
 		'query'         => [],

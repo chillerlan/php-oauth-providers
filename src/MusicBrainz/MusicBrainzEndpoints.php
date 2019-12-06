@@ -24,7 +24,7 @@ class MusicBrainzEndpoints extends EndpointMap{
 	 */
 
 	/** does this endpoint do anything? i don't even get a response from it */
-	protected $user = [
+	protected array $user = [
 		'path'          => '/user',
 		'method'        => 'GET',
 		'query'         => ['name'],
@@ -35,168 +35,168 @@ class MusicBrainzEndpoints extends EndpointMap{
 	 * core entities
 	 */
 
-	protected $area = [
+	protected array $area = [
 		'path'          => '/area',
 		'method'        => 'GET',
 		'query'         => ['inc', 'query', 'limit', 'offset', 'collection'],
 		'path_elements' => [],
 	];
 
-	protected $areaId = [
+	protected array $areaId = [
 		'path'          => '/area/%1$s',
 		'method'        => 'GET',
 		'query'         => ['inc'],
 		'path_elements' => ['id'],
 	];
 
-	protected $artist = [
+	protected array $artist = [
 		'path'          => '/artist',
 		'method'        => 'GET',
 		'query'         => ['inc', 'query', 'limit', 'offset', 'area', 'collection', 'recording', 'release', 'release-group', 'work'],
 		'path_elements' => [],
 	];
 
-	protected $artistId = [
+	protected array $artistId = [
 		'path'          => '/artist/%1$s',
 		'method'        => 'GET',
 		'query'         => ['inc'],
 		'path_elements' => ['id'],
 	];
 
-	protected $event = [
+	protected array $event = [
 		'path'          => '/event',
 		'method'        => 'GET',
 		'query'         => ['inc', 'query', 'limit', 'offset', 'area', 'artist', 'collection', 'place'],
 		'path_elements' => [],
 	];
 
-	protected $eventId = [
+	protected array $eventId = [
 		'path'          => '/event/%1$s',
 		'method'        => 'GET',
 		'query'         => ['inc'],
 		'path_elements' => ['id'],
 	];
 
-	protected $instrument = [
+	protected array $instrument = [
 		'path'          => '/instrument',
 		'method'        => 'GET',
 		'query'         => ['inc', 'query', 'limit', 'offset'],
 		'path_elements' => [],
 	];
 
-	protected $instrumentId = [
+	protected array $instrumentId = [
 		'path'          => '/instrument/%1$s',
 		'method'        => 'GET',
 		'query'         => ['inc'],
 		'path_elements' => ['id'],
 	];
 
-	protected $label = [
+	protected array $label = [
 		'path'          => '/label',
 		'method'        => 'GET',
 		'query'         => ['inc', 'query', 'limit', 'offset', 'area', 'collection', 'release'],
 		'path_elements' => [],
 	];
 
-	protected $labelId = [
+	protected array $labelId = [
 		'path'          => '/label/%1$s',
 		'method'        => 'GET',
 		'query'         => ['inc'],
 		'path_elements' => ['id'],
 	];
 
-	protected $place = [
+	protected array $place = [
 		'path'          => '/place',
 		'method'        => 'GET',
 		'query'         => ['inc', 'query', 'limit', 'offset', 'area', 'collection'],
 		'path_elements' => [],
 	];
 
-	protected $placeId = [
+	protected array $placeId = [
 		'path'          => '/place/%1$s',
 		'method'        => 'GET',
 		'query'         => ['inc'],
 		'path_elements' => ['id'],
 	];
 
-	protected $recording = [
+	protected array $recording = [
 		'path'          => '/recording',
 		'method'        => 'GET',
 		'query'         => ['inc', 'query', 'limit', 'offset', 'artist', 'collection', 'release'],
 		'path_elements' => [],
 	];
 
-	protected $recordingId = [
+	protected array $recordingId = [
 		'path'          => '/recording/%1$s',
 		'method'        => 'GET',
 		'query'         => ['inc'],
 		'path_elements' => ['id'],
 	];
 
-	protected $release = [
+	protected array $release = [
 		'path'          => '/release',
 		'method'        => 'GET',
 		'query'         => ['inc', 'query', 'limit', 'offset', 'type', 'status', 'area', 'artist', 'collection', 'label', 'track', 'track_artist', 'recording', 'release-group'],
 		'path_elements' => [],
 	];
 
-	protected $releaseId = [
+	protected array $releaseId = [
 		'path'          => '/release/%1$s',
 		'method'        => 'GET',
 		'query'         => ['inc'],
 		'path_elements' => ['id'],
 	];
 
-	protected $releaseGroup = [
+	protected array $releaseGroup = [
 		'path'          => '/release-group',
 		'method'        => 'GET',
 		'query'         => ['inc', 'query', 'limit', 'offset', 'type', 'artist', 'collection', 'release'],
 		'path_elements' => [],
 	];
 
-	protected $releaseGroupId = [
+	protected array $releaseGroupId = [
 		'path'          => '/release-group/%1$s',
 		'method'        => 'GET',
 		'query'         => ['inc'],
 		'path_elements' => ['id'],
 	];
 
-	protected $series = [
+	protected array $series = [
 		'path'          => '/series',
 		'method'        => 'GET',
 		'query'         => ['inc', 'query', 'limit', 'offset', 'collection'],
 		'path_elements' => [],
 	];
 
-	protected $seriesId = [
+	protected array $seriesId = [
 		'path'          => '/series/%1$s',
 		'method'        => 'GET',
 		'query'         => ['inc'],
 		'path_elements' => ['id'],
 	];
 
-	protected $work = [
+	protected array $work = [
 		'path'          => '/work',
 		'method'        => 'GET',
 		'query'         => ['inc', 'query', 'limit', 'offset', 'artist', 'collection'],
 		'path_elements' => [],
 	];
 
-	protected $workId = [
+	protected array $workId = [
 		'path'          => '/work/%1$s',
 		'method'        => 'GET',
 		'query'         => ['inc'],
 		'path_elements' => ['id'],
 	];
 
-	protected $url = [
+	protected array $url = [
 		'path'          => '/url',
 		'method'        => 'GET',
 		'query'         => ['inc', 'query', 'limit', 'offset', 'resource'],
 		'path_elements' => [],
 	];
 
-	protected $urlId = [
+	protected array $urlId = [
 		'path'          => '/url/%1$s',
 		'method'        => 'GET',
 		'query'         => ['inc'],
@@ -208,14 +208,14 @@ class MusicBrainzEndpoints extends EndpointMap{
 	 * non-core resources
 	 */
 
-	protected $rating = [
+	protected array $rating = [
 		'path'          => '/rating',
 		'method'        => 'GET',
 		'query'         => ['query', 'limit', 'offset'],
 		'path_elements' => [],
 	];
 
-	protected $ratingSubmit = [
+	protected array $ratingSubmit = [
 		'path'          => '/rating',
 		'method'        => 'POST',
 		'query'         => ['client'],
@@ -224,28 +224,28 @@ class MusicBrainzEndpoints extends EndpointMap{
 		'headers'       => ['Content-Type' => 'application/xml'],
 	];
 
-	protected $ratingId = [
+	protected array $ratingId = [
 		'path'          => '/rating/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
 		'path_elements' => ['id'],
 	];
 
-	protected $tag = [
+	protected array $tag = [
 		'path'          => '/tag',
 		'method'        => 'GET',
 		'query'         => ['query', 'limit', 'offset'],
 		'path_elements' => [],
 	];
 
-	protected $tagId = [
+	protected array $tagId = [
 		'path'          => '/tag/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
 		'path_elements' => ['id'],
 	];
 
-	protected $tagVote = [
+	protected array $tagVote = [
 		'path'          => '/tag',
 		'method'        => 'POST',
 		'query'         => ['client'],
@@ -254,14 +254,14 @@ class MusicBrainzEndpoints extends EndpointMap{
 		'headers'       => ['Content-Type' => 'application/xml'],
 	];
 
-	protected $collection = [
+	protected array $collection = [
 		'path'          => '/collection',
 		'method'        => 'GET',
 		'query'         => ['query', 'limit', 'offset', 'area', 'artist', 'editor', 'event', 'label', 'place', 'recording', 'release', 'release-group', 'work'],
 		'path_elements' => [],
 	];
 
-	protected $collectionAdd = [
+	protected array $collectionAdd = [
 		'path'          => '/collection/%1$s/releases/%2$s',
 		'method'        => 'PUT',
 		'query'         => ['client'],
@@ -270,7 +270,7 @@ class MusicBrainzEndpoints extends EndpointMap{
 		'headers'       => ['Content-Type' => 'application/xml'],
 	];
 
-	protected $collectionRemove = [
+	protected array $collectionRemove = [
 		'path'          => '/collection/%1$s/releases/%2$s',
 		'method'        => 'DELETE',
 		'query'         => ['client'],
@@ -279,7 +279,7 @@ class MusicBrainzEndpoints extends EndpointMap{
 		'headers'       => ['Content-Type' => 'application/xml'],
 	];
 
-	protected $collectionId = [
+	protected array $collectionId = [
 		'path'          => '/collection/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -290,21 +290,21 @@ class MusicBrainzEndpoints extends EndpointMap{
 	 * lookup resources
 	 */
 
-	protected $discid = [
+	protected array $discid = [
 		'path'          => '/discid',
 		'method'        => 'GET',
 		'query'         => ['inc'],
 		'path_elements' => [],
 	];
 
-	protected $isrc = [
+	protected array $isrc = [
 		'path'          => '/isrc',
 		'method'        => 'GET',
 		'query'         => ['inc'],
 		'path_elements' => [],
 	];
 
-	protected $iswc = [
+	protected array $iswc = [
 		'path'          => '/iswc',
 		'method'        => 'GET',
 		'query'         => ['inc'],

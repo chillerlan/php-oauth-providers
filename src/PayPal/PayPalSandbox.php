@@ -17,8 +17,8 @@ namespace chillerlan\OAuth\Providers\PayPal;
  */
 class PayPalSandbox extends PayPal{
 
-	protected $apiURL         = 'https://api.sandbox.paypal.com';
-	protected $accessTokenURL = 'https://api.sandbox.paypal.com/v1/oauth2/token';
-	protected $authURL        = 'https://www.sandbox.paypal.com/connect';
+	protected string $authURL        = 'https://www.sandbox.paypal.com/connect';
+	protected string $accessTokenURL = 'https://api.sandbox.paypal.com/v1/oauth2/token';
+	protected ?string $apiURL        = 'https://api.sandbox.paypal.com';
 
 }

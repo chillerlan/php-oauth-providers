@@ -25,7 +25,7 @@ use function chillerlan\HTTP\Psr7\get_json;
  */
 class LastFMTest extends ProviderTestAbstract{
 
-	protected $FQN = LastFM::class;
+	protected string $FQN = LastFM::class;
 
 	public function setUp():void{
 		parent::setUp();
@@ -40,31 +40,31 @@ class LastFMTest extends ProviderTestAbstract{
 		];
 	}
 
-	public function testGetAuthURL(){
+	public function testGetAuthURL():void{
 		$url = $this->provider->getAuthURL(['foo' => 'bar']);
 
-		$this->assertSame('https://www.last.fm/api/auth?api_key='.$this->options->key.'&foo=bar', (string)$url);
+		static::assertSame('https://www.last.fm/api/auth?api_key='.$this->options->key.'&foo=bar', (string)$url);
 	}
 
-	public function testGetSignature(){
+	public function testGetSignature():void{
 		$signature = $this
 			->getMethod('getSignature')
 			->invokeArgs($this->provider, [['foo' => 'bar', 'format' => 'whatever', 'callback' => 'nope']]);
 
-		$this->assertSame('cb143650fa678449f5492a2aa6fab216', $signature);
+		static::assertSame('cb143650fa678449f5492a2aa6fab216', $signature);
 	}
 
-	public function testParseTokenResponse(){
+	public function testParseTokenResponse():void{
 		$r = (new Response)->withBody(create_stream('{"session":{"key":"whatever"}}'));
 
 		$token = $this
 			->getMethod('parseTokenResponse')
 			->invokeArgs($this->provider, [$r]);
 
-		$this->assertSame('whatever', $token->accessToken);
+		static::assertSame('whatever', $token->accessToken);
 	}
 
-	public function testParseTokenResponseNoData(){
+	public function testParseTokenResponseNoData():void{
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('unable to parse token response');
 
@@ -73,7 +73,7 @@ class LastFMTest extends ProviderTestAbstract{
 			->invokeArgs($this->provider, [new Response]);
 	}
 
-	public function testParseTokenResponseError(){
+	public function testParseTokenResponseError():void{
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('error retrieving access token:');
 
@@ -84,7 +84,7 @@ class LastFMTest extends ProviderTestAbstract{
 			->invokeArgs($this->provider, [$r]);
 	}
 
-	public function testParseTokenResponseNoToken(){
+	public function testParseTokenResponseNoToken():void{
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('token missing');
 
@@ -95,37 +95,37 @@ class LastFMTest extends ProviderTestAbstract{
 			->invokeArgs($this->provider, [$r]);
 	}
 
-	public function testRequestParams(){
+	public function testRequestParams():void{
 		$params = $this
 			->getMethod('requestParams')
 			->invokeArgs($this->provider, ['whatever', ['foo' => 'bar'], []]);
 
-		$this->assertSame('310be19b3ff6967ca8425666753019fb', $params['api_sig']);
-		$this->assertSame($this->options->key, $params['api_key']);
-		$this->assertSame('whatever', $params['method']);
-		$this->assertSame('bar', $params['foo']);
+		static::assertSame('310be19b3ff6967ca8425666753019fb', $params['api_sig']);
+		static::assertSame($this->options->key, $params['api_key']);
+		static::assertSame('whatever', $params['method']);
+		static::assertSame('bar', $params['foo']);
 	}
 
-	public function testGetAccessToken(){
+	public function testGetAccessToken():void{
 		$this->setProperty($this->provider, 'apiURL', '/lastfm/auth');
 
 		$token = $this->provider->getAccessToken('session_token');
 
-		$this->assertSame('session_key', $token->accessToken);
+		static::assertSame('session_key', $token->accessToken);
 	}
 
 	// coverage
-	public function testRequest(){
+	public function testRequest():void{
 		$r = $this->provider->request('');
 
-		$this->assertSame('such data! much wow!', get_json($r)->data);
+		static::assertSame('such data! much wow!', get_json($r)->data);
 	}
 
 	// coverage
-	public function testRequestPost(){
+	public function testRequestPost():void{
 		$r = $this->provider->request('', [], 'POST', ['foo' => 'bar'], ['Content-Type' => 'whatever']);
 
-		$this->assertSame('such data! much wow!', get_json($r)->data);
+		static::assertSame('such data! much wow!', get_json($r)->data);
 	}
 
 }

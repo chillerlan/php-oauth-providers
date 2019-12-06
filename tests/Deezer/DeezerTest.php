@@ -23,7 +23,7 @@ use function chillerlan\HTTP\Psr17\create_stream_from_input;
  */
 class DeezerTest extends OAuth2ProviderTestAbstract{
 
-	protected $FQN = Deezer::class;
+	protected string $FQN = Deezer::class;
 
 	protected function getTestResponses():array{
 		return [
@@ -32,7 +32,7 @@ class DeezerTest extends OAuth2ProviderTestAbstract{
 		];
 	}
 
-	public function testGetAuthURL(){
+	public function testGetAuthURL():void{
 		$this->assertStringContainsString(
 			'https://connect.deezer.com/oauth/auth.php?app_id='.$this->options->key
 				.'&foo=bar&perms=basic_access%20email&redirect_uri=https%3A%2F%2Flocalhost%2Fcallback&state=',
@@ -43,7 +43,7 @@ class DeezerTest extends OAuth2ProviderTestAbstract{
 		);
 	}
 
-	public function testParseTokenResponse(){
+	public function testParseTokenResponse():void{
 		$token = $this
 			->getMethod('parseTokenResponse')
 			->invokeArgs($this->provider, [(new Response)->withBody(create_stream_from_input('access_token=whatever'))]);
@@ -52,7 +52,7 @@ class DeezerTest extends OAuth2ProviderTestAbstract{
 		$this->assertSame('whatever', $token->accessToken);
 	}
 
-	public function testParseTokenResponseErrorException(){
+	public function testParseTokenResponseErrorException():void{
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('error retrieving access token:');
 

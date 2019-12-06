@@ -20,10 +20,10 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class NPROneAPITest extends OAuth2APITest{
 
-	protected $FQN = NPROne::class;
-	protected $ENV = 'NPRONE';
+	protected string $FQN = NPROne::class;
+	protected string $ENV = 'NPRONE';
 
-	public function testIdentityUser(){
+	public function testIdentityUser():void{
 		$r = $this->provider->identityUser();
 
 		$this->assertSame($this->testuser, $this->responseJson($r)->attributes->email);

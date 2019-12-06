@@ -19,6 +19,6 @@ use chillerlan\OAuthTest\API\OAuth2APITestAbstract;
  */
 abstract class OAuth2APITest extends OAuth2APITestAbstract{
 
-	protected $CFG = __DIR__.'/../config';
+	protected string $CFG = __DIR__.'/../config';
 
 }

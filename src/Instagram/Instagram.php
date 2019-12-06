@@ -52,13 +52,13 @@ class Instagram extends OAuth2Provider implements CSRFToken{
 	public const SCOPE_PUBLIC_CONTENT = 'public_content';
 	public const SCOPE_FOLLOWER_LIST  = 'follower_list';
 
-	protected $apiURL         = 'https://api.instagram.com/v1';
-	protected $authURL        = 'https://api.instagram.com/oauth/authorize';
-	protected $accessTokenURL = 'https://api.instagram.com/oauth/access_token';
-	protected $userRevokeURL  = 'https://www.instagram.com/accounts/manage_access/';
-	protected $authMethod     = self::AUTH_METHOD_QUERY;
-	protected $endpointMap    = InstagramEndpoints::class;
-	protected $apiDocs        = 'https://www.instagram.com/developer/';
-	protected $applicationURL = 'https://www.instagram.com/developer/clients/manage/';
+	protected string $authURL         = 'https://api.instagram.com/oauth/authorize';
+	protected string $accessTokenURL  = 'https://api.instagram.com/oauth/access_token';
+	protected ?string $apiURL         = 'https://api.instagram.com/v1';
+	protected ?string $userRevokeURL  = 'https://www.instagram.com/accounts/manage_access/';
+	protected ?string $endpointMap    = InstagramEndpoints::class;
+	protected ?string $apiDocs        = 'https://www.instagram.com/developer/';
+	protected ?string $applicationURL = 'https://www.instagram.com/developer/clients/manage/';
+	protected int $authMethod         = self::AUTH_METHOD_QUERY;
 
 }

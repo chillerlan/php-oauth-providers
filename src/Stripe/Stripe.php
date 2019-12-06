@@ -28,13 +28,13 @@ class Stripe extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	public const SCOPE_READ_WRITE = 'read_write';
 	public const SCOPE_READ_ONLY  = 'read_only';
 
-	protected $apiURL         = 'https://api.stripe.com/v1';
-	protected $authURL        = 'https://connect.stripe.com/oauth/authorize';
-	protected $accessTokenURL = 'https://connect.stripe.com/oauth/token';
-	protected $revokeURL      = 'https://connect.stripe.com/oauth/deauthorize';
-	protected $userRevokeURL  = 'https://dashboard.stripe.com/account/applications';
-	protected $endpointMap    = StripeEndpoints::class;
-	protected $apiDocs        = 'https://stripe.com/docs/api';
-	protected $applicationURL = 'https://dashboard.stripe.com/apikeys';
+	protected string $authURL         = 'https://connect.stripe.com/oauth/authorize';
+	protected string $accessTokenURL  = 'https://connect.stripe.com/oauth/token';
+	protected ?string $apiURL         = 'https://api.stripe.com/v1';
+	protected ?string $revokeURL      = 'https://connect.stripe.com/oauth/deauthorize';
+	protected ?string $userRevokeURL  = 'https://dashboard.stripe.com/account/applications';
+	protected ?string $endpointMap    = StripeEndpoints::class;
+	protected ?string $apiDocs        = 'https://stripe.com/docs/api';
+	protected ?string $applicationURL = 'https://dashboard.stripe.com/apikeys';
 
 }

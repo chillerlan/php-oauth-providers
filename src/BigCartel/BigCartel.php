@@ -47,13 +47,14 @@ use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider};
  */
 class BigCartel extends OAuth2Provider implements CSRFToken{
 
-	protected $apiURL         = 'https://api.bigcartel.com/v1';
-	protected $authURL        = 'https://my.bigcartel.com/oauth/authorize';
-	protected $accessTokenURL = 'https://api.bigcartel.com/oauth/token';
-	protected $userRevokeURL  = 'https://my.bigcartel.com/account';
-	protected $apiHeaders     = ['Accept' => 'application/vnd.api+json'];
-	protected $endpointMap    = BigCartelEndpoints::class;
-#	protected $revokeURL      = 'https://api.bigcartel.com/oauth/deauthorize/{ACCOUNT_ID}'; // @todo
-	protected $apiDocs        = 'https://developers.bigcartel.com/api/v1';
-	protected $applicationURL = 'https://bigcartel.wufoo.com/forms/big-cartel-api-application/';
+	protected string $authURL         = 'https://my.bigcartel.com/oauth/authorize';
+	protected string $accessTokenURL  = 'https://api.bigcartel.com/oauth/token';
+	protected ?string $apiURL         = 'https://api.bigcartel.com/v1';
+	protected ?string $userRevokeURL  = 'https://my.bigcartel.com/account';
+	protected ?string $endpointMap    = BigCartelEndpoints::class;
+#	protected ?string $revokeURL      = 'https://api.bigcartel.com/oauth/deauthorize/{ACCOUNT_ID}'; // @todo
+	protected ?string $apiDocs        = 'https://developers.bigcartel.com/api/v1';
+	protected ?string $applicationURL = 'https://bigcartel.wufoo.com/forms/big-cartel-api-application/';
+	protected array $apiHeaders       = ['Accept' => 'application/vnd.api+json'];
+
 }

@@ -19,6 +19,6 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
  */
 class GitterTest extends OAuth2ProviderTest{
 
-	protected $FQN = Gitter::class;
+	protected string $FQN = Gitter::class;
 
 }

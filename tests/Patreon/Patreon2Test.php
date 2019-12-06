@@ -20,6 +20,6 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
  */
 class Patreon2Test extends OAuth2ProviderTest{
 
-	protected $FQN = Patreon2::class;
+	protected string $FQN = Patreon2::class;
 
 }

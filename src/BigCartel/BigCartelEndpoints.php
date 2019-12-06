@@ -29,7 +29,7 @@ class BigCartelEndpoints extends EndpointMap{
 	 * @todo: undocumented: returns the current user's account info (/me)
 	 * @link
 	 */
-	protected $account = [
+	protected array $account = [
 		'path'          => '/accounts',
 		'method'        => 'GET',
 		'query'         => [],
@@ -41,7 +41,7 @@ class BigCartelEndpoints extends EndpointMap{
 	/**
 	 * @link https://developers.bigcartel.com/api/v1#get-an-account
 	 */
-	protected $getAccount = [
+	protected array $getAccount = [
 		'path'          => '/accounts/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -59,7 +59,7 @@ class BigCartelEndpoints extends EndpointMap{
 	/**
 	 * @link https://developers.bigcartel.com/api/v1#get-all-artists
 	 */
-	protected $getArtists = [
+	protected array $getArtists = [
 		'path'          => '/accounts/%1$s/artists',
 		'method'        => 'GET',
 		'query'         => ['page'],
@@ -71,7 +71,7 @@ class BigCartelEndpoints extends EndpointMap{
 	/**
 	 * @link https://developers.bigcartel.com/api/v1#get-an-artist
 	 */
-	protected $getArtist = [
+	protected array $getArtist = [
 		'path'          => '/accounts/%1$s/artists/%2$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -83,7 +83,7 @@ class BigCartelEndpoints extends EndpointMap{
 	/**
 	 * @link https://developers.bigcartel.com/api/v1#create-an-artist
 	 */
-	protected $createArtist = [
+	protected array $createArtist = [
 		'path'          => '/accounts/%1$s/artists',
 		'method'        => 'POST',
 		'query'         => [],
@@ -95,7 +95,7 @@ class BigCartelEndpoints extends EndpointMap{
 	/**
 	 * @link https://developers.bigcartel.com/api/v1#update-an-artist
 	 */
-	protected $updateArtist = [
+	protected array $updateArtist = [
 		'path'          => '/accounts/%1$s/artists/%2$s',
 		'method'        => 'PATCH',
 		'query'         => [],
@@ -107,7 +107,7 @@ class BigCartelEndpoints extends EndpointMap{
 	/**
 	 * @link https://developers.bigcartel.com/api/v1#reposition-artists
 	 */
-	protected $repositionArtists = [
+	protected array $repositionArtists = [
 		'path'          => '/accounts/%1$s/relationships/artists',
 		'method'        => 'PATCH',
 		'query'         => [],
@@ -119,7 +119,7 @@ class BigCartelEndpoints extends EndpointMap{
 	/**
 	 * @link https://developers.bigcartel.com/api/v1#delete-an-artist
 	 */
-	protected $deleteArtist = [
+	protected array $deleteArtist = [
 		'path'          => '/accounts/%1$s/artists/%2$s',
 		'method'        => 'DELETE',
 		'query'         => [],
@@ -137,7 +137,7 @@ class BigCartelEndpoints extends EndpointMap{
 	/**
 	 * @link https://developers.bigcartel.com/api/v1#get-all-categories
 	 */
-	protected $getCategories = [
+	protected array $getCategories = [
 		'path'          => '/accounts/%1$s/categories',
 		'method'        => 'GET',
 		'query'         => ['page'],
@@ -149,7 +149,7 @@ class BigCartelEndpoints extends EndpointMap{
 	/**
 	 * @link https://developers.bigcartel.com/api/v1#get-a-category
 	 */
-	protected $getCategory = [
+	protected array $getCategory = [
 		'path'          => '/accounts/%1$s/categories/%2$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -161,7 +161,7 @@ class BigCartelEndpoints extends EndpointMap{
 	/**
 	 * @link https://developers.bigcartel.com/api/v1#create-a-category
 	 */
-	protected $createCategory = [
+	protected array $createCategory = [
 		'path'          => '/accounts/%1$s/categories',
 		'method'        => 'POST',
 		'query'         => [],
@@ -173,7 +173,7 @@ class BigCartelEndpoints extends EndpointMap{
 	/**
 	 * @link https://developers.bigcartel.com/api/v1#update-a-category
 	 */
-	protected $updateCategory = [
+	protected array $updateCategory = [
 		'path'          => '/accounts/%1$s/categories/%2$s',
 		'method'        => 'PATCH',
 		'query'         => [],
@@ -185,7 +185,7 @@ class BigCartelEndpoints extends EndpointMap{
 	/**
 	 * @link https://developers.bigcartel.com/api/v1#reposition-categories
 	 */
-	protected $repositionCategories = [
+	protected array $repositionCategories = [
 		'path'          => '/accounts/%1$s/relationships/categories',
 		'method'        => 'PATCH',
 		'query'         => [],
@@ -197,7 +197,7 @@ class BigCartelEndpoints extends EndpointMap{
 	/**
 	 * @link https://developers.bigcartel.com/api/v1#delete-a-category
 	 */
-	protected $deleteCategory = [
+	protected array $deleteCategory = [
 		'path'          => '/accounts/%1$s/categories/%2$s',
 		'method'        => 'DELETE',
 		'query'         => [],
@@ -215,7 +215,7 @@ class BigCartelEndpoints extends EndpointMap{
 	/**
 	 * @link https://developers.bigcartel.com/api/v1#get-all-countries
 	 */
-	protected $countries = [
+	protected array $countries = [
 		'path'          => '/countries',
 		'method'        => 'GET',
 		'query'         => [],
@@ -233,7 +233,7 @@ class BigCartelEndpoints extends EndpointMap{
 	/**
 	 * @link https://developers.bigcartel.com/api/v1#get-all-discounts
 	 */
-	protected $getDiscounts = [
+	protected array $getDiscounts = [
 		'path'          => '/accounts/%1$s/discounts',
 		'method'        => 'GET',
 		'query'         => ['filter', 'page'],
@@ -245,7 +245,7 @@ class BigCartelEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $getDiscount = [
+	protected array $getDiscount = [
 		'path'          => '/accounts/%1$s/discounts/%2$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -257,7 +257,7 @@ class BigCartelEndpoints extends EndpointMap{
 	/**
 	 * @link https://developers.bigcartel.com/api/v1#create-a-discount
 	 */
-	protected $createDiscount = [
+	protected array $createDiscount = [
 		'path'          => '/accounts/%1$s/discounts',
 		'method'        => 'POST',
 		'query'         => [],
@@ -273,7 +273,7 @@ class BigCartelEndpoints extends EndpointMap{
 	/**
 	 * @link https://developers.bigcartel.com/api/v1#update-a-discount
 	 */
-	protected $updateDiscount = [
+	protected array $updateDiscount = [
 		'path'          => '/accounts/%1$s/discounts/%2$s',
 		'method'        => 'PATCH',
 		'query'         => [],
@@ -289,7 +289,7 @@ class BigCartelEndpoints extends EndpointMap{
 	/**
 	 * @link https://developers.bigcartel.com/api/v1#delete-a-discount
 	 */
-	protected $deleteDiscount = [
+	protected array $deleteDiscount = [
 		'path'          => '/accounts/%1$s/discounts/%2$s',
 		'method'        => 'DELETE',
 		'query'         => [],
@@ -307,7 +307,7 @@ class BigCartelEndpoints extends EndpointMap{
 	/**
 	 * @link https://developers.bigcartel.com/api/v1#get-all-orders
 	 */
-	protected $getOrders = [
+	protected array $getOrders = [
 		'path'          => '/accounts/%1$s/orders',
 		'method'        => 'GET',
 		'query'         => ['filter', 'page', 'search', 'sort'],
@@ -319,7 +319,7 @@ class BigCartelEndpoints extends EndpointMap{
 	/**
 	 * @link https://developers.bigcartel.com/api/v1#get-an-order
 	 */
-	protected $getOrder = [
+	protected array $getOrder = [
 		'path'          => '/accounts/%1$s/orders/%2$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -331,7 +331,7 @@ class BigCartelEndpoints extends EndpointMap{
 	/**
 	 * @link https://developers.bigcartel.com/api/v1#update-an-order
 	 */
-	protected $updateOrder = [
+	protected array $updateOrder = [
 		'path'          => '/accounts/%1$s/orders/%2$s',
 		'method'        => 'PATCH',
 		'query'         => [],
@@ -354,7 +354,7 @@ class BigCartelEndpoints extends EndpointMap{
 	/**
 	 * @link https://developers.bigcartel.com/api/v1#get-all-products
 	 */
-	protected $getProducts = [
+	protected array $getProducts = [
 		'path'          => '/accounts/%1$s/products',
 		'method'        => 'GET',
 		'query'         => ['filter', 'page', 'sort'],
@@ -366,7 +366,7 @@ class BigCartelEndpoints extends EndpointMap{
 	/**
 	 * @link https://developers.bigcartel.com/api/v1#get-a-product
 	 */
-	protected $getProduct = [
+	protected array $getProduct = [
 		'path'          => '/accounts/%1$s/products/%2$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -378,7 +378,7 @@ class BigCartelEndpoints extends EndpointMap{
 	/**
 	 * @link https://developers.bigcartel.com/api/v1#reposition-products
 	 */
-	protected $repositionProducts = [
+	protected array $repositionProducts = [
 		'path'          => '/accounts/%1$s/relationships/products',
 		'method'        => 'PATCH',
 		'query'         => [],

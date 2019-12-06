@@ -19,9 +19,9 @@ use chillerlan\HTTP\MagicAPI\EndpointMap;
  */
 class MicrosoftGraphEndpoints extends EndpointMap{
 
-	protected $API_BASE = '/v1.0';
+	protected string $API_BASE = '/v1.0';
 
-	protected $me = [
+	protected array $me = [
 		'path'          => '/me',
 		'method'        => 'GET',
 		'query'         => null,

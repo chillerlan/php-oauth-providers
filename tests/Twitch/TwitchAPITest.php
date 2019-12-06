@@ -20,10 +20,10 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class TwitchAPITest extends OAuth2APITest{
 
-	protected $FQN = Twitch::class;
-	protected $ENV = 'TWITCH';
+	protected string $FQN = Twitch::class;
+	protected string $ENV = 'TWITCH';
 
-	public function testMe(){
+	public function testMe():void{
 		$r = $this->provider->me();
 
 		$this->assertSame($this->testuser, $this->responseJson($r)->name);

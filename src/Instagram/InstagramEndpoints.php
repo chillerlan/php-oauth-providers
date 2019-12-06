@@ -22,7 +22,7 @@ class InstagramEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $profile = [
+	protected array $profile = [
 		'path'          => '/users/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -34,7 +34,7 @@ class InstagramEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $recentMedia = [
+	protected array $recentMedia = [
 		'path'          => '/users/%1$s/media/recent',
 		'method'        => 'GET',
 		'query'         => ['max_id', 'min_id', 'count'],
@@ -46,7 +46,7 @@ class InstagramEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $relationship = [
+	protected array $relationship = [
 		'path'          => '/users/%1$s/relationship',
 		'method'        => 'GET',
 		'query'         => [],
@@ -58,7 +58,7 @@ class InstagramEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $relationshipUpdate = [
+	protected array $relationshipUpdate = [
 		'path'          => '/users/%1$s/relationship',
 		'method'        => 'POST',
 		'query'         => ['action'],
@@ -70,7 +70,7 @@ class InstagramEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $searchUser = [
+	protected array $searchUser = [
 		'path'          => '/users/search',
 		'method'        => 'GET',
 		'query'         => ['q', 'count'],
@@ -82,7 +82,7 @@ class InstagramEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $selfFollows = [
+	protected array $selfFollows = [
 		'path'          => '/users/self/follows',
 		'method'        => 'GET',
 		'query'         => [],
@@ -94,7 +94,7 @@ class InstagramEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $selfFollowedBy = [
+	protected array $selfFollowedBy = [
 		'path'          => '/users/self/followed-by',
 		'method'        => 'GET',
 		'query'         => [],
@@ -106,7 +106,7 @@ class InstagramEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $selfRequestedBy = [
+	protected array $selfRequestedBy = [
 		'path'          => '/users/self/requested-by',
 		'method'        => 'GET',
 		'query'         => [],
@@ -118,7 +118,7 @@ class InstagramEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $selfMediaLiked = [
+	protected array $selfMediaLiked = [
 		'path'          => '/users/self/media/liked',
 		'method'        => 'GET',
 		'query'         => ['max_like_id', 'count'],
@@ -130,7 +130,7 @@ class InstagramEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $media = [
+	protected array $media = [
 		'path'          => '/media/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -142,7 +142,7 @@ class InstagramEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $mediaComments = [
+	protected array $mediaComments = [
 		'path'          => '/media/%1$s/comments',
 		'method'        => 'GET',
 		'query'         => [],
@@ -154,7 +154,7 @@ class InstagramEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $mediaAddComment = [
+	protected array $mediaAddComment = [
 		'path'          => '/media/%1$s/comments',
 		'method'        => 'POST',
 		'query'         => ['text'],
@@ -166,7 +166,7 @@ class InstagramEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $mediaRemoveComment = [
+	protected array $mediaRemoveComment = [
 		'path'          => '/media/%1$s/comments/%2$s',
 		'method'        => 'DELETE',
 		'query'         => [],
@@ -178,7 +178,7 @@ class InstagramEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $mediaLikes = [
+	protected array $mediaLikes = [
 		'path'          => '/media/%1$s/likes',
 		'method'        => 'GET',
 		'query'         => [],
@@ -190,7 +190,7 @@ class InstagramEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $mediaLike = [
+	protected array $mediaLike = [
 		'path'          => '/media/%1$s/likes',
 		'method'        => 'POST',
 		'query'         => [],
@@ -202,7 +202,7 @@ class InstagramEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $mediaUnlike = [
+	protected array $mediaUnlike = [
 		'path'          => '/media/%1$s/likes',
 		'method'        => 'DELETE',
 		'query'         => [],
@@ -214,7 +214,7 @@ class InstagramEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $mediaShortcode = [
+	protected array $mediaShortcode = [
 		'path'          => '/media/shortcode/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -226,7 +226,7 @@ class InstagramEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $searchMedia = [
+	protected array $searchMedia = [
 		'path'          => '/media/search',
 		'method'        => 'GET',
 		'query'         => ['lat', 'lng', 'distance'],
@@ -238,7 +238,7 @@ class InstagramEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $tags = [
+	protected array $tags = [
 		'path'          => '/tags/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -250,7 +250,7 @@ class InstagramEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $tagsRecentMedia = [
+	protected array $tagsRecentMedia = [
 		'path'          => '/tags/%1$s/media/recent',
 		'method'        => 'GET',
 		'query'         => ['max_tag_id', 'min_tag_id', 'count'],
@@ -262,7 +262,7 @@ class InstagramEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $searchTags = [
+	protected array $searchTags = [
 		'path'          => '/tags/search',
 		'method'        => 'GET',
 		'query'         => ['q'],
@@ -274,7 +274,7 @@ class InstagramEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $locations = [
+	protected array $locations = [
 		'path'          => '/locations/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -286,7 +286,7 @@ class InstagramEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $locationRecentMedia = [
+	protected array $locationRecentMedia = [
 		'path'          => '/locations/%1$s/media/recent',
 		'method'        => 'GET',
 		'query'         => ['max_id', 'min_id', 'count'],
@@ -298,7 +298,7 @@ class InstagramEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $searchLocations = [
+	protected array $searchLocations = [
 		'path'          => '/tags/search',
 		'method'        => 'GET',
 		'query'         => ['lat', 'lng', 'distance', 'facebook_places_id'],

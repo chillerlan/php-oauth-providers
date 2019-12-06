@@ -20,6 +20,6 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
  */
 class VimeoTest extends OAuth2ProviderTest{
 
-	protected $FQN = Vimeo::class;
+	protected string $FQN = Vimeo::class;
 
 }

@@ -24,17 +24,17 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class MailChimpAPITest extends OAuth2APITest{
 
-	protected $FQN = MailChimp::class;
-	protected $ENV = 'MAILCHIMP';
+	protected string $FQN = MailChimp::class;
+	protected string $ENV = 'MAILCHIMP';
 
-	public function testGetTokenMetadata(){
+	public function testGetTokenMetadata():void{
 		$token = $this->storage->getAccessToken($this->provider->serviceName);
 		$token = $this->provider->getTokenMetadata($token);
 
 		$this->assertSame($this->testuser, $token->extraParams['accountname']);
 	}
 
-	public function testApiRoot(){
+	public function testApiRoot():void{
 		$r = $this->provider->root();
 
 		$this->assertSame($this->testuser, $this->responseJson($r)->account_name);

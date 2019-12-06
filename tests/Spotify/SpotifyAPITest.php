@@ -24,40 +24,40 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class SpotifyAPITest extends OAuth2APITest{
 
-	protected $FQN = Spotify::class;
-	protected $ENV = 'SPOTIFY';
+	protected string $FQN = Spotify::class;
+	protected string $ENV = 'SPOTIFY';
 
-	public function testAlbum(){
+	public function testAlbum():void{
 		$r = $this->provider->album('4KJaUvkYQ93TH4MxnJfpPh', ['market' => 'de']);
-		$this->assertSame('The Dirt of Luck', $this->responseJson($r)->name);
+		static::assertSame('The Dirt of Luck', $this->responseJson($r)->name);
 	}
 
-	public function testAlbumTracks(){
+	public function testAlbumTracks():void{
 		$r = $this->provider->albumTracks('4KJaUvkYQ93TH4MxnJfpPh', ['market' => 'de']);
-		$this->assertCount(12, $this->responseJson($r)->items);
+		static::assertCount(12, $this->responseJson($r)->items);
 	}
 
-	public function testAlbums(){
+	public function testAlbums():void{
 		$r = $this->provider->albums(['ids' => '4KJaUvkYQ93TH4MxnJfpPh,3TVrfbEBIQTimq6UtUe3vv,5ZcpjhmeKnRTsVyGKtHGP0', 'market' => 'de']);
-		$this->assertSame(['The Dirt of Luck', 'Pirate Prude', 'The Magic City'], array_column($this->responseJson($r)->albums, 'name'));
+		static::assertSame(['The Dirt of Luck', 'Pirate Prude', 'The Magic City'], array_column($this->responseJson($r)->albums, 'name'));
 	}
 
-	public function testArtistAlbums(){
+	public function testArtistAlbums():void{
 		$r = $this->provider->artistAlbums('7mefbdlQXxJVKgEbfAeKjL', ['album_type' => 'album', 'market' => 'de']);
-		$this->assertSame(['3It5ZloS0KnWomY5Jv4Isu','5ZcpjhmeKnRTsVyGKtHGP0','4KJaUvkYQ93TH4MxnJfpPh','3TVrfbEBIQTimq6UtUe3vv'], array_column($this->responseJson($r)->items, 'id'));
+		static::assertSame(['3It5ZloS0KnWomY5Jv4Isu','5ZcpjhmeKnRTsVyGKtHGP0','4KJaUvkYQ93TH4MxnJfpPh','3TVrfbEBIQTimq6UtUe3vv'], array_column($this->responseJson($r)->items, 'id'));
 	}
 
-	public function testArtistRelatedArtists(){
+	public function testArtistRelatedArtists():void{
 		$r = $this->provider->artistRelatedArtists('7mefbdlQXxJVKgEbfAeKjL');
-		$this->assertContains('Mary Timony', array_column($this->responseJson($r)->artists, 'name'));
+		static::assertContains('Mary Timony', array_column($this->responseJson($r)->artists, 'name'));
 	}
 
-	public function testArtistToptracks(){
+	public function testArtistToptracks():void{
 		$r = $this->provider->artistTopTracks('7mefbdlQXxJVKgEbfAeKjL', ['country' => 'de']);
-		$this->assertSame('Helium', $this->responseJson($r)->tracks[0]->artists[0]->name);
+		static::assertSame('Helium', $this->responseJson($r)->tracks[0]->artists[0]->name);
 	}
 
-	public function testArtists(){
+	public function testArtists():void{
 		$ids      = ['7mefbdlQXxJVKgEbfAeKjL', '1FFaHFtnhdnHuY0xGZcnD1', '4wLIbcoqmqI4WZHDiBxeCB','4G3PykZuN4ts87LgYKI9Zu'];
 		$expected = ['Helium', 'Mary Timony', 'Sleater-Kinney', 'WILD FLAG'];
 
@@ -65,78 +65,78 @@ class SpotifyAPITest extends OAuth2APITest{
 
 		if(isset($r->artists)){
 			foreach($r->artists as $k => $artist){
-				$this->assertSame($expected[$k], $artist->name);
+				static::assertSame($expected[$k], $artist->name);
 			}
 		}
 
 	}
 
-	public function testAudioAnalysis(){
+	public function testAudioAnalysis():void{
 		$r = $this->provider->audioAnalysis('10ghIZM3y03CSwjTu1mVin');
-		$this->assertSame(7271502, $this->responseJson($r)->track->num_samples);
+		static::assertSame(7271502, $this->responseJson($r)->track->num_samples);
 	}
 
-	public function testAudioFeatures(){
+	public function testAudioFeatures():void{
 		$r = $this->provider->audioFeatures('10ghIZM3y03CSwjTu1mVin');
-		$this->assertSame(329773, $this->responseJson($r)->duration_ms);
+		static::assertSame(329773, $this->responseJson($r)->duration_ms);
 	}
 
-	public function testAudioFeaturesAll(){
+	public function testAudioFeaturesAll():void{
 		$r = $this->provider->audioFeaturesAll(['ids' => '4wKwANW5UUn5K9WJJWIllV,10ghIZM3y03CSwjTu1mVin']);
-		$this->assertSame([190627, 329773], array_column($this->responseJson($r)->audio_features, 'duration_ms'));
+		static::assertSame([190627, 329773], array_column($this->responseJson($r)->audio_features, 'duration_ms'));
 	}
 
-	public function testCategories(){
+	public function testCategories():void{
 		$r = $this->provider->categories();
-		$this->assertSame('https://api.spotify.com/v1/browse/categories?offset=0&limit=20', $this->responseJson($r)->categories->href);
+		static::assertSame('https://api.spotify.com/v1/browse/categories?offset=0&limit=20', $this->responseJson($r)->categories->href);
 	}
 
-	public function testCategory(){
+	public function testCategory():void{
 		$r = $this->provider->category('toplists',  ['locale' => 'de']);
-		$this->assertSame('Top-Listen', $this->responseJson($r)->name);
+		static::assertSame('Top-Listen', $this->responseJson($r)->name);
 	}
 
-	public function testCategoryPlaylists(){
+	public function testCategoryPlaylists():void{
 		$r = $this->responseJson($this->provider->categoryPlaylists('toplists'));
-		$this->assertTrue(isset($r->playlists));
+		static::assertTrue(isset($r->playlists));
 	}
 
-	public function testFeaturedPlaylists(){
+	public function testFeaturedPlaylists():void{
 		$r = $this->responseJson($this->provider->featuredPlaylists(['country' => 'DE', 'locale' => 'de']));
-		$this->assertTrue(isset($r->playlists));
+		static::assertTrue(isset($r->playlists));
 	}
 
-	public function testMe(){
+	public function testMe():void{
 		$r = $this->provider->me();
-		$this->assertSame($this->testuser, $this->responseJson($r)->id);
+		static::assertSame($this->testuser, $this->responseJson($r)->id);
 	}
 
-	public function testMePlaylists(){
+	public function testMePlaylists():void{
 		$r = $this->provider->mePlaylists(['limit' => 10]);
-		$this->assertCount(10, $this->responseJson($r)->items);
+		static::assertCount(10, $this->responseJson($r)->items);
 	}
 
-	public function testMeTop(){
+	public function testMeTop():void{
 		$r = $this->provider->meTop('artists', ['limit' => 10]);
-		$this->assertCount(10, $this->responseJson($r)->items);
+		static::assertCount(10, $this->responseJson($r)->items);
 	}
 
-	public function testNewReleases(){
+	public function testNewReleases():void{
 		$r = $this->provider->newReleases(['country' => 'DE', 'locale' => 'de']);
-		$this->assertSame('https://api.spotify.com/v1/browse/new-releases?country=DE&locale=de&offset=0&limit=20', $this->responseJson($r)->albums->href);
+		static::assertSame('https://api.spotify.com/v1/browse/new-releases?country=DE&locale=de&offset=0&limit=20', $this->responseJson($r)->albums->href);
 	}
 
-	public function testRecentlyPlayed(){
+	public function testRecentlyPlayed():void{
 		$r = $this->provider->recentlyPlayed();
-		$this->assertSame('https://api.spotify.com/v1/me/player/recently-played', $this->responseJson($r)->href);
+		static::assertSame('https://api.spotify.com/v1/me/player/recently-played', $this->responseJson($r)->href);
 	}
 
-	public function testRecommendations(){
+	public function testRecommendations():void{
 		$r = $this->provider->recommendations(['seed_artists' => '4wLIbcoqmqI4WZHDiBxeCB']);
-		$this->assertSame('4wLIbcoqmqI4WZHDiBxeCB', $this->responseJson($r)->seeds[0]->id);
+		static::assertSame('4wLIbcoqmqI4WZHDiBxeCB', $this->responseJson($r)->seeds[0]->id);
 	}
 
-	public function searchDataProvider():array {
+	public function searchDataProvider():array{
 		return  [
 			[['q' => 'sleater-kinney', 'type' => 'artist'], 'artists', '4wLIbcoqmqI4WZHDiBxeCB'],
 			[['q' => 'wild flag', 'type' => 'artist'], 'artists', '4G3PykZuN4ts87LgYKI9Zu'],
@@ -152,29 +152,29 @@ class SpotifyAPITest extends OAuth2APITest{
 	 * @param string $field
 	 * @param string $expected
 	 */
-	public function testSearch(array $params, string $field, string $expected){
+	public function testSearch(array $params, string $field, string $expected):void{
 		$r = $this->provider->search($params);
-		$this->assertSame($expected, $this->responseJson($r)->{$field}->items[0]->id);
+		static::assertSame($expected, $this->responseJson($r)->{$field}->items[0]->id);
 	}
 
-	public function testTrack(){
+	public function testTrack():void{
 		$r = $this->provider->track('4wKwANW5UUn5K9WJJWIllV', ['market' => 'de']);
-		$this->assertSame('Medusa', $this->responseJson($r)->name);
+		static::assertSame('Medusa', $this->responseJson($r)->name);
 	}
 
-	public function testTracks(){
+	public function testTracks():void{
 		$r = $this->provider->tracks(['ids' => '4wKwANW5UUn5K9WJJWIllV,10ghIZM3y03CSwjTu1mVin', 'market' => 'de']);
-		$this->assertSame(['Medusa', 'Oh The Wind And Rain'], array_column($this->responseJson($r)->tracks, 'name'));
+		static::assertSame(['Medusa', 'Oh The Wind And Rain'], array_column($this->responseJson($r)->tracks, 'name'));
 	}
 
-	public function testUser(){
+	public function testUser():void{
 		$r = $this->provider->user('spotify');
-		$this->assertSame('spotify', $this->responseJson($r)->id);
+		static::assertSame('spotify', $this->responseJson($r)->id);
 	}
 
-	public function testUserPlaylists(){
+	public function testUserPlaylists():void{
 		$r = $this->provider->userPlaylists($this->testuser, ['limit' => 10]);
-		$this->assertSame('https://api.spotify.com/v1/users/'.$this->testuser.'/playlists?offset=0&limit=10', $this->responseJson($r)->href);
+		static::assertSame('https://api.spotify.com/v1/users/'.$this->testuser.'/playlists?offset=0&limit=10', $this->responseJson($r)->href);
 	}
 
 	/**
@@ -186,47 +186,47 @@ class SpotifyAPITest extends OAuth2APITest{
 	 * unfollowPlaylist
 	 * userPlaylistFollowersContains
 	 */
-	public function testFollow(){
+	public function testFollow():void{
 		// unfollow
 		$r = $this->provider->unfollow(['type' => 'user'], ['ids' => ['spotify']]);
-		$this->assertSame(204, $r->getStatusCode());
+		static::assertSame(204, $r->getStatusCode());
 
 		// verify unfollow
 		$r = $this->provider->meFollowingContains(['type' => 'user', 'ids' => 'spotify']);
-		$this->assertFalse($this->responseJson($r)[0]);
+		static::assertFalse($this->responseJson($r)[0]);
 
 		// follow again
 		// @todo: OAuthProvider::__call()
 		$r = $this->provider->follow(['type' => 'user'], ['ids' => ['spotify']]);
-		$this->assertSame(204, $r->getStatusCode());
+		static::assertSame(204, $r->getStatusCode());
 
 		// check if we follow spotify again
 		$r = $this->provider->meFollowingContains(['type' => 'user', 'ids' => 'spotify']);
-		$this->assertTrue($this->responseJson($r)[0]);
+		static::assertTrue($this->responseJson($r)[0]);
 
 		// do we follow the demogorgon playlist?
 		$r = $this->provider->userPlaylistFollowersContains('spotify', '37i9dQZF1DX9Oqi0gBNbHz', ['ids' => $this->testuser]);
-		$this->assertFalse($this->responseJson($r)[0]);
+		static::assertFalse($this->responseJson($r)[0]);
 
 		// follow...
 		$r = $this->provider->followPlaylist('spotify', '37i9dQZF1DX9Oqi0gBNbHz', ['public' => false]);
-		$this->assertSame(200, $r->getStatusCode());
+		static::assertSame(200, $r->getStatusCode());
 
 		// ...
 		$r = $this->provider->userPlaylistFollowersContains('spotify', '37i9dQZF1DX9Oqi0gBNbHz', ['ids' => $this->testuser]);
-		$this->assertTrue($this->responseJson($r)[0]);
+		static::assertTrue($this->responseJson($r)[0]);
 
 		// unfollow
 		$r = $this->provider->unfollowPlaylist('spotify', '37i9dQZF1DX9Oqi0gBNbHz');
-		$this->assertSame(200, $r->getStatusCode());
+		static::assertSame(200, $r->getStatusCode());
 
 		// finally...!
 		$r = $this->provider->userPlaylistFollowersContains('spotify', '37i9dQZF1DX9Oqi0gBNbHz', ['ids' => $this->testuser]);
-		$this->assertFalse($this->responseJson($r)[0]);
+		static::assertFalse($this->responseJson($r)[0]);
 
 		// yes, we do follow some artists...
 		$r = $this->provider->meFollowing(['type' => 'artist', 'limit' => 10]);
-		$this->assertCount(10, $this->responseJson($r)->artists->items);
+		static::assertCount(10, $this->responseJson($r)->artists->items);
 	}
 
 	/**
@@ -235,25 +235,25 @@ class SpotifyAPITest extends OAuth2APITest{
 	 * saveAlbums
 	 * removeSavedAlbums
 	 */
-	public function testSavedAlbums(){
+	public function testSavedAlbums():void{
 		// get a random album
 		$r = $this->provider->meSavedAlbums(['limit' => 1]);
 		$album_id = $this->responseJson($r)->items[0]->album->id;
 
 		$r = $this->provider->removeSavedAlbums(['ids' => [$album_id]]);
-		$this->assertSame(200, $r->getStatusCode());
+		static::assertSame(200, $r->getStatusCode());
 
 		// it's gone!
 		$r = $this->provider->meSavedAlbumsContains(['ids' => $album_id]);
-		$this->assertFalse($this->responseJson($r)[0]);
+		static::assertFalse($this->responseJson($r)[0]);
 
 		// re-add
 		$r = $this->provider->saveAlbums(['ids' => [$album_id]]);
-		$this->assertSame(200, $r->getStatusCode());
+		static::assertSame(200, $r->getStatusCode());
 
 		// verify
 		$r = $this->provider->meSavedAlbumsContains(['ids' => $album_id]);
-		$this->assertTrue($this->responseJson($r)[0]);
+		static::assertTrue($this->responseJson($r)[0]);
 	}
 
 	/**
@@ -262,21 +262,21 @@ class SpotifyAPITest extends OAuth2APITest{
 	 * saveTracks
 	 * removeSavedTracks
 	 */
-	public function testSavedTracks(){
+	public function testSavedTracks():void{
 		$r = $this->provider->meSavedTracks(['limit' => 1]);
 		$track_id = $this->responseJson($r)->items[0]->track->id;
 
 		$r = $this->provider->removeSavedTracks(['ids' => [$track_id]]);
-		$this->assertSame(200, $r->getStatusCode());
+		static::assertSame(200, $r->getStatusCode());
 
 		$r = $this->provider->meSavedTracksContains(['ids' => $track_id]);
-		$this->assertFalse($this->responseJson($r)[0]);
+		static::assertFalse($this->responseJson($r)[0]);
 
 		$r = $this->provider->saveTracks(['ids' => [$track_id]]);
-		$this->assertSame(200, $r->getStatusCode());
+		static::assertSame(200, $r->getStatusCode());
 
 		$r = $this->provider->meSavedTracksContains(['ids' => $track_id]);
-		$this->assertTrue($this->responseJson($r)[0]);
+		static::assertTrue($this->responseJson($r)[0]);
 	}
 
 	/**
@@ -289,28 +289,28 @@ class SpotifyAPITest extends OAuth2APITest{
 	 * userPlaylist
 	 * userPlaylistTracks
 	 */
-	public function testPlaylistCreate(){
+	public function testPlaylistCreate():void{
 		// create
 		$name        = 'test_'.md5(microtime(true));
 		$body        = ['name' => $name, 'description' => 'test', 'public' => false, 'collaborative' => false];
 		$r           = $this->responseJson($this->provider->playlistCreate($this->testuser, $body));
 		$playlist_id = $r->id;
-		$this->assertSame($name, $r->name);
+		static::assertSame($name, $r->name);
 
 		// update details
 		$body = ['name' => 'testy'.$name, 'description' => 'testytest', 'public' => false, 'collaborative' => false];
 		$r = $this->provider->playlistUpdateDetails($this->testuser, $playlist_id, $body);
-		$this->assertSame(200, $r->getStatusCode());
+		static::assertSame(200, $r->getStatusCode());
 
 		// add tracks
 		$body        = ['uris' => ['spotify:track:0vYPwZx9gTU21BE6mEyWWk', 'spotify:track:7ykpEr7bxSlD6N8pf8boSv']];
 		$r           = $this->provider->playlistAddTracks($this->testuser, $playlist_id, $body);
 		$snapshot_id = $this->responseJson($r)->snapshot_id;
-		$this->assertSame(201, $r->getStatusCode());
+		static::assertSame(201, $r->getStatusCode());
 
 		// verify added tracks
 		$r = $this->responseJson($this->provider->userPlaylist($this->testuser, $playlist_id));
-		$this->assertSame('0vYPwZx9gTU21BE6mEyWWk', $r->tracks->items[0]->track->id);
+		static::assertSame('0vYPwZx9gTU21BE6mEyWWk', $r->tracks->items[0]->track->id);
 		$this->assertSame('7ykpEr7bxSlD6N8pf8boSv', $r->tracks->items[1]->track->id);
 
 		// reorder tracks
@@ -357,7 +357,7 @@ class SpotifyAPITest extends OAuth2APITest{
 	 * transfer
 	 * volume*
 	 */
-	public function testDevices(){
+	public function testDevices():void{
 		$active_device   = null;
 		$inactive_device = null;
 		$r = $this->provider->devices();

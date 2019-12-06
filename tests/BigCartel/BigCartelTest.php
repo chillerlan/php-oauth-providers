@@ -20,6 +20,6 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
  */
 class BigCartelTest extends OAuth2ProviderTest{
 
-	protected $FQN = BigCartel::class;
+	protected string $FQN = BigCartel::class;
 
 }

@@ -24,10 +24,10 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class GoogleAPITest extends OAuth2APITest{
 
-	protected $FQN = Google::class;
-	protected $ENV = 'GOOGLE';
+	protected string $FQN = Google::class;
+	protected string $ENV = 'GOOGLE';
 
-	public function testGetUserInfo(){
+	public function testGetUserInfo():void{
 		$r = $this->provider->me();
 
 		$this->assertSame($this->testuser, $this->responseJson($r)->email);

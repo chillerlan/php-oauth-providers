@@ -19,7 +19,7 @@ use chillerlan\HTTP\MagicAPI\EndpointMap;
  */
 class TwitchEndpoints extends EndpointMap{
 
-	protected $me = [
+	protected array $me = [
 		'path'          => '/user',
 		'method'        => 'GET',
 		'query'         => [],
@@ -28,7 +28,7 @@ class TwitchEndpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $user = [
+	protected array $user = [
 		'path'          => '/users/%1$s',
 		'method'        => 'GET',
 		'query'         => [],

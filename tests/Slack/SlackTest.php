@@ -20,6 +20,6 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
  */
 class SlackTest extends OAuth2ProviderTest{
 
-	protected $FQN = Slack::class;
+	protected string $FQN = Slack::class;
 
 }

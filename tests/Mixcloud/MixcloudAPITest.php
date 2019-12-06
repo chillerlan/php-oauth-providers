@@ -20,16 +20,16 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class MixcloudAPITest extends OAuth2APITest{
 
-	protected $FQN = Mixcloud::class;
-	protected $ENV = 'MIXCLOUD';
+	protected string $FQN = Mixcloud::class;
+	protected string $ENV = 'MIXCLOUD';
 
-	public function testMe(){
+	public function testMe():void{
 		$r = $this->provider->me();
 
 		$this->assertSame($this->testuser, $this->responseJson($r)->username);
 	}
 
-	public function testUser(){
+	public function testUser():void{
 		$r = $this->provider->user($this->testuser);
 
 		$this->assertSame($this->testuser, $this->responseJson($r)->username);

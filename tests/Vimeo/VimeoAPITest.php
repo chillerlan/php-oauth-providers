@@ -20,10 +20,10 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class VimeoAPITest extends OAuth2APITest{
 
-	protected $FQN = Vimeo::class;
-	protected $ENV = 'VIMEO';
+	protected string $FQN = Vimeo::class;
+	protected string $ENV = 'VIMEO';
 
-	public function testLogin(){
+	public function testLogin():void{
 		$r = $this->provider->user($this->testuser);
 		$this->assertSame('https://vimeo.com/'.$this->testuser, $this->responseJson($r)->link);
 	}

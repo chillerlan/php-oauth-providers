@@ -20,6 +20,6 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
  */
 class FoursquareTest extends OAuth2ProviderTest{
 
-	protected $FQN = Foursquare::class;
+	protected string $FQN = Foursquare::class;
 
 }

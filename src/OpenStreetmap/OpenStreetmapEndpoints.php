@@ -18,9 +18,9 @@ use chillerlan\HTTP\MagicAPI\EndpointMap;
  */
 class OpenStreetmapEndpoints extends EndpointMap{
 
-	protected $API_BASE = '/api/0.6';
+	protected string $API_BASE = '/api/0.6';
 
-	protected $userDetails = [
+	protected array $userDetails = [
 		'path'          => '/user/details',
 		'method'        => 'GET',
 		'query'         => [],

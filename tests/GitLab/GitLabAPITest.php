@@ -20,10 +20,10 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class GitLabAPITest extends OAuth2APITest{
 
-	protected $FQN = GitLab::class;
-	protected $ENV = 'GITLAB';
+	protected string $FQN = GitLab::class;
+	protected string $ENV = 'GITLAB';
 
-	public function testMe(){
+	public function testMe():void{
 		$r = $this->provider->me();
 		$this->assertSame($this->testuser, $this->responseJson($r)->username);
 	}

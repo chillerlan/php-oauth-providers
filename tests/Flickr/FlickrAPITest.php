@@ -20,8 +20,8 @@ use chillerlan\OAuthTest\Providers\OAuth1APITest;
  */
 class FlickrAPITest extends OAuth1APITest{
 
-	protected $FQN = Flickr::class;
-	protected $ENV = 'FLICKR';
+	protected string $FQN = Flickr::class;
+	protected string $ENV = 'FLICKR';
 
 	protected $test_name;
 	protected $test_id;
@@ -35,12 +35,12 @@ class FlickrAPITest extends OAuth1APITest{
 		$this->test_id   = $tokenParams['user_nsid'];
 	}
 
-	public function testLogin(){
+	public function testLogin():void{
 		$r = $this->provider->testLogin();
 		$j = $this->responseJson($r);
 
-		$this->assertSame($this->test_name, $j->user->username->_content);
-		$this->assertSame($this->test_id, $j->user->id);
+		static::assertSame($this->test_name, $j->user->username->_content);
+		static::assertSame($this->test_id, $j->user->id);
 	}
 
 }

@@ -20,6 +20,6 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
  */
 class SoundCloudTest extends OAuth2ProviderTest{
 
-	protected $FQN = SoundCloud::class;
+	protected string $FQN = SoundCloud::class;
 
 }

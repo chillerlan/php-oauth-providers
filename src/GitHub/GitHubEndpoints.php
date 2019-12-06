@@ -24,7 +24,7 @@ class GitHubEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.github.com/v3/users/#get-the-authenticated-user
 	 */
-	protected $me      = [
+	protected array $me = [
 		'path'          => '/user',
 		'method'        => 'GET',
 		'query'         => [],
@@ -36,7 +36,7 @@ class GitHubEndpoints extends EndpointMap{
 	/**
 	 * @link https://developer.github.com/v3/users/#get-a-single-user
 	 */
-	protected $getUser = [
+	protected array $getUser = [
 		'path'          => '/users/%1$s',
 		'method'        => 'GET',
 		'query'         => [],

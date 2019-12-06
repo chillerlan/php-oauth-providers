@@ -19,9 +19,9 @@ use chillerlan\HTTP\MagicAPI\EndpointMap;
  */
 class NPROneEndpoints extends EndpointMap{
 
-	protected $API_BASE = 'https://'; // i hate this so much
+	protected string $API_BASE = 'https://'; // i hate this so much
 
-	protected $listeningChannels = [
+	protected array $listeningChannels = [
 		'path'          => 'listening.api.npr.org/v2/channels',
 		'method'        => 'GET',
 		'query'         => [],
@@ -30,7 +30,7 @@ class NPROneEndpoints extends EndpointMap{
 		'headers'       => null,
 	];
 
-	protected $listeningOrgRecommendations = [
+	protected array $listeningOrgRecommendations = [
 		'path'          => 'listening.api.npr.org/v2/organizations/%1$s/recommendations',
 		'method'        => 'GET',
 		'query'         => [],
@@ -39,7 +39,7 @@ class NPROneEndpoints extends EndpointMap{
 		'headers'       => null,
 	];
 
-	protected $listeningOrgCategoryRecommendations = [
+	protected array $listeningOrgCategoryRecommendations = [
 		'path'          => 'listening.api.npr.org/v2/organizations/%1$s/categories/%2$s/recommendations',
 		'method'        => 'GET',
 		'query'         => [],
@@ -48,7 +48,7 @@ class NPROneEndpoints extends EndpointMap{
 		'headers'       => null,
 	];
 
-	protected $listeningRatings = [
+	protected array $listeningRatings = [
 		'path'          => 'listening.api.npr.org/v2/ratings',
 		'method'        => 'POST',
 		'query'         => [],
@@ -57,7 +57,7 @@ class NPROneEndpoints extends EndpointMap{
 		'headers'       => ['Content-Type' => 'application/json'],
 	];
 
-	protected $listeningRecommendations = [
+	protected array $listeningRecommendations = [
 		'path'          => 'listening.api.npr.org/v2/recommendations',
 		'method'        => 'GET',
 		'query'         => [],
@@ -66,7 +66,7 @@ class NPROneEndpoints extends EndpointMap{
 		'headers'       => null,
 	];
 
-	protected $listeningHistory = [
+	protected array $listeningHistory = [
 		'path'          => 'listening.api.npr.org/v2/history',
 		'method'        => 'GET',
 		'query'         => [],
@@ -75,7 +75,7 @@ class NPROneEndpoints extends EndpointMap{
 		'headers'       => null,
 	];
 
-	protected $listeningPromoRecommendations = [
+	protected array $listeningPromoRecommendations = [
 		'path'          => 'listening.api.npr.org/v2/promo/recommendations',
 		'method'        => 'GET',
 		'query'         => [],
@@ -84,7 +84,7 @@ class NPROneEndpoints extends EndpointMap{
 		'headers'       => null,
 	];
 
-	protected $listeningAggregationRecommendations = [
+	protected array $listeningAggregationRecommendations = [
 		'path'          => 'listening.api.npr.org/v2/aggregation/%1$s/recommendations',
 		'method'        => 'GET',
 		'query'         => [],
@@ -93,7 +93,7 @@ class NPROneEndpoints extends EndpointMap{
 		'headers'       => null,
 	];
 
-	protected $listeningSearchRecommendations = [
+	protected array $listeningSearchRecommendations = [
 		'path'          => 'listening.api.npr.org/v2/search/recommendations',
 		'method'        => 'GET',
 		'query'         => [],
@@ -102,7 +102,7 @@ class NPROneEndpoints extends EndpointMap{
 		'headers'       => null,
 	];
 
-	protected $stations = [
+	protected array $stations = [
 		'path'          => 'station.api.npr.org/v3/stations',
 		'method'        => 'GET',
 		'query'         => [],
@@ -111,7 +111,7 @@ class NPROneEndpoints extends EndpointMap{
 		'headers'       => null,
 	];
 
-	protected $station = [
+	protected array $station = [
 		'path'          => 'station.api.npr.org/v3/stations/%1$s',
 		'method'        => 'GET',
 		'query'         => [],
@@ -120,7 +120,7 @@ class NPROneEndpoints extends EndpointMap{
 		'headers'       => null,
 	];
 
-	protected $identityUser = [
+	protected array $identityUser = [
 		'path'          => 'identity.api.npr.org/v2/user',
 		'method'        => 'GET',
 		'query'         => [],
@@ -129,7 +129,7 @@ class NPROneEndpoints extends EndpointMap{
 		'headers'       => null,
 	];
 
-	protected $identityStations = [
+	protected array $identityStations = [
 		'path'          => 'identity.api.npr.org/v2/stations',
 		'method'        => 'PUT',
 		'query'         => [],
@@ -138,7 +138,7 @@ class NPROneEndpoints extends EndpointMap{
 		'headers'       => ['Content-Type' => 'application/json'],
 	];
 
-	protected $identityInherit = [
+	protected array $identityInherit = [
 		'path'          => 'identity.api.npr.org/v2/user/inherit',
 		'method'        => 'POST',
 		'query'         => [],
@@ -147,7 +147,7 @@ class NPROneEndpoints extends EndpointMap{
 		'headers'       => ['Content-Type' => 'application/json'],
 	];
 
-	protected $identityFollowing = [
+	protected array $identityFollowing = [
 		'path'          => 'identity.api.npr.org/v2/following',
 		'method'        => 'POST',
 		'query'         => [],

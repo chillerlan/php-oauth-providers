@@ -14,7 +14,6 @@ namespace chillerlan\OAuthTest\Providers\GuildWars2;
 
 use chillerlan\OAuth\Core\AccessToken;
 use chillerlan\OAuth\Providers\GuildWars2\GuildWars2;
-use chillerlan\OAuthTest\API\OAuth2APITestAbstract;
 use chillerlan\OAuthTest\Providers\OAuth2APITest;
 
 /**
@@ -22,11 +21,11 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  */
 class GuildWars2APITest extends OAuth2APITest{
 
-	protected $FQN = GuildWars2::class;
-	protected $ENV = '';
+	protected string $FQN = GuildWars2::class;
+	protected string $ENV = '';
 
-	protected $token;
-	protected $tokenname;
+	protected AccessToken $token;
+	protected string $tokenname;
 
 	protected function setUp():void{
 		parent::setUp();
@@ -40,7 +39,7 @@ class GuildWars2APITest extends OAuth2APITest{
 		$this->tokenname = $this->dotEnv->GW2_TOKEN_NAME;
 	}
 
-	public function testTokenInfo(){
+	public function testTokenInfo():void{
 		$r = $this->provider->tokeninfo(['access_token' => $this->token->accessToken]);
 		$this->assertSame($this->tokenname, $this->responseJson($r)->name);
 	}

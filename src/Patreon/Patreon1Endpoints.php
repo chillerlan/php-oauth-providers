@@ -18,9 +18,9 @@ use chillerlan\HTTP\MagicAPI\EndpointMap;
  */
 class Patreon1Endpoints extends EndpointMap{
 
-	protected $API_BASE = '/api';
+	protected string $API_BASE = '/api';
 
-	protected $currentUser = [
+	protected array $currentUser = [
 		'path'          => '/current_user',
 		'method'        => 'GET',
 		'query'         => [],
@@ -29,7 +29,7 @@ class Patreon1Endpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $currentUserCampaigns = [
+	protected array $currentUserCampaigns = [
 		'path'          => '/current_user/campaigns',
 		'method'        => 'GET',
 		'query'         => ['includes'],
@@ -38,7 +38,7 @@ class Patreon1Endpoints extends EndpointMap{
 		'headers'       => [],
 	];
 
-	protected $campaignPledges = [
+	protected array $campaignPledges = [
 		'path'          => '/campaigns/%1$s/pledges',
 		'method'        => 'GET',
 		'query'         => ['include', 'fields'],

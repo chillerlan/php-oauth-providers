@@ -5,7 +5,7 @@
  * @link https://www.flickr.com/services/api/
  *
  * @filesource   FlickrEndpoints.php
- * @created      27.07.2019
+ * @created      06.12.2019
  * @package      chillerlan\OAuth\Providers\Flickr
  * @license      MIT
  */
@@ -19,7 +19,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.activity.userComments.html
 	 */
-	protected $activityUserComments = [
+	protected array $activityUserComments = [
 		'path'  => 'flickr.activity.userComments',
 		'query' => ['per_page', 'page'],
 	];
@@ -27,7 +27,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.activity.userPhotos.html
 	 */
-	protected $activityUserPhotos = [
+	protected array $activityUserPhotos = [
 		'path'  => 'flickr.activity.userPhotos',
 		'query' => ['timeframe', 'per_page', 'page'],
 	];
@@ -35,7 +35,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.auth.checkToken.html
 	 */
-	protected $authCheckToken = [
+	protected array $authCheckToken = [
 		'path'  => 'flickr.auth.checkToken',
 		'query' => ['auth_token'],
 	];
@@ -43,7 +43,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.auth.getFrob.html
 	 */
-	protected $authGetFrob = [
+	protected array $authGetFrob = [
 		'path'  => 'flickr.auth.getFrob',
 		'query' => [],
 	];
@@ -51,7 +51,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.auth.getFullToken.html
 	 */
-	protected $authGetFullToken = [
+	protected array $authGetFullToken = [
 		'path'  => 'flickr.auth.getFullToken',
 		'query' => ['mini_token'],
 	];
@@ -59,7 +59,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.auth.getToken.html
 	 */
-	protected $authGetToken = [
+	protected array $authGetToken = [
 		'path'  => 'flickr.auth.getToken',
 		'query' => ['frob'],
 	];
@@ -67,7 +67,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.auth.oauth.checkToken.html
 	 */
-	protected $authOauthCheckToken = [
+	protected array $authOauthCheckToken = [
 		'path'  => 'flickr.auth.oauth.checkToken',
 		'query' => ['oauth_token'],
 	];
@@ -75,7 +75,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.auth.oauth.getAccessToken.html
 	 */
-	protected $authOauthGetAccessToken = [
+	protected array $authOauthGetAccessToken = [
 		'path'  => 'flickr.auth.oauth.getAccessToken',
 		'query' => [],
 	];
@@ -83,7 +83,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.blogs.getList.html
 	 */
-	protected $blogsGetList = [
+	protected array $blogsGetList = [
 		'path'  => 'flickr.blogs.getList',
 		'query' => ['service'],
 	];
@@ -91,7 +91,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.blogs.getServices.html
 	 */
-	protected $blogsGetServices = [
+	protected array $blogsGetServices = [
 		'path'  => 'flickr.blogs.getServices',
 		'query' => [],
 	];
@@ -99,7 +99,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.blogs.postPhoto.html
 	 */
-	protected $blogsPostPhoto = [
+	protected array $blogsPostPhoto = [
 		'path'  => 'flickr.blogs.postPhoto',
 		'query' => ['blog_id', 'photo_id', 'title', 'description', 'blog_password', 'service'],
 	];
@@ -107,7 +107,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.cameras.getBrandModels.html
 	 */
-	protected $camerasGetBrandModels = [
+	protected array $camerasGetBrandModels = [
 		'path'  => 'flickr.cameras.getBrandModels',
 		'query' => ['brand'],
 	];
@@ -115,7 +115,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.cameras.getBrands.html
 	 */
-	protected $camerasGetBrands = [
+	protected array $camerasGetBrands = [
 		'path'  => 'flickr.cameras.getBrands',
 		'query' => [],
 	];
@@ -123,7 +123,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.collections.getInfo.html
 	 */
-	protected $collectionsGetInfo = [
+	protected array $collectionsGetInfo = [
 		'path'  => 'flickr.collections.getInfo',
 		'query' => ['collection_id'],
 	];
@@ -131,7 +131,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.collections.getTree.html
 	 */
-	protected $collectionsGetTree = [
+	protected array $collectionsGetTree = [
 		'path'  => 'flickr.collections.getTree',
 		'query' => ['collection_id', 'user_id'],
 	];
@@ -139,7 +139,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.commons.getInstitutions.html
 	 */
-	protected $commonsGetInstitutions = [
+	protected array $commonsGetInstitutions = [
 		'path'  => 'flickr.commons.getInstitutions',
 		'query' => [],
 	];
@@ -147,7 +147,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.contacts.getList.html
 	 */
-	protected $contactsGetList = [
+	protected array $contactsGetList = [
 		'path'  => 'flickr.contacts.getList',
 		'query' => ['filter', 'page', 'per_page', 'sort'],
 	];
@@ -155,7 +155,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.contacts.getListRecentlyUploaded.html
 	 */
-	protected $contactsGetListRecentlyUploaded = [
+	protected array $contactsGetListRecentlyUploaded = [
 		'path'  => 'flickr.contacts.getListRecentlyUploaded',
 		'query' => ['date_lastupload', 'filter'],
 	];
@@ -163,7 +163,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.contacts.getPublicList.html
 	 */
-	protected $contactsGetPublicList = [
+	protected array $contactsGetPublicList = [
 		'path'  => 'flickr.contacts.getPublicList',
 		'query' => ['user_id', 'page', 'per_page'],
 	];
@@ -171,7 +171,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.contacts.getTaggingSuggestions.html
 	 */
-	protected $contactsGetTaggingSuggestions = [
+	protected array $contactsGetTaggingSuggestions = [
 		'path'  => 'flickr.contacts.getTaggingSuggestions',
 		'query' => ['per_page', 'page'],
 	];
@@ -179,7 +179,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.favorites.add.html
 	 */
-	protected $favoritesAdd = [
+	protected array $favoritesAdd = [
 		'path'  => 'flickr.favorites.add',
 		'query' => ['photo_id'],
 	];
@@ -187,7 +187,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.favorites.getContext.html
 	 */
-	protected $favoritesGetContext = [
+	protected array $favoritesGetContext = [
 		'path'  => 'flickr.favorites.getContext',
 		'query' => ['photo_id', 'user_id'],
 	];
@@ -195,7 +195,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.favorites.getList.html
 	 */
-	protected $favoritesGetList = [
+	protected array $favoritesGetList = [
 		'path'  => 'flickr.favorites.getList',
 		'query' => ['user_id', 'min_fave_date', 'max_fave_date', 'extras', 'per_page', 'page'],
 	];
@@ -203,7 +203,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.favorites.getPublicList.html
 	 */
-	protected $favoritesGetPublicList = [
+	protected array $favoritesGetPublicList = [
 		'path'  => 'flickr.favorites.getPublicList',
 		'query' => ['user_id', 'min_fave_date', 'max_fave_date', 'extras', 'per_page', 'page'],
 	];
@@ -211,7 +211,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.favorites.remove.html
 	 */
-	protected $favoritesRemove = [
+	protected array $favoritesRemove = [
 		'path'  => 'flickr.favorites.remove',
 		'query' => ['photo_id'],
 	];
@@ -219,7 +219,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.galleries.addPhoto.html
 	 */
-	protected $galleriesAddPhoto = [
+	protected array $galleriesAddPhoto = [
 		'path'  => 'flickr.galleries.addPhoto',
 		'query' => ['gallery_id', 'photo_id', 'comment', 'full_response'],
 	];
@@ -227,7 +227,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.galleries.create.html
 	 */
-	protected $galleriesCreate = [
+	protected array $galleriesCreate = [
 		'path'  => 'flickr.galleries.create',
 		'query' => ['title', 'description', 'primary_photo_id', 'full_result'],
 	];
@@ -235,7 +235,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.galleries.editMeta.html
 	 */
-	protected $galleriesEditMeta = [
+	protected array $galleriesEditMeta = [
 		'path'  => 'flickr.galleries.editMeta',
 		'query' => ['gallery_id', 'title', 'description'],
 	];
@@ -243,7 +243,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.galleries.editPhoto.html
 	 */
-	protected $galleriesEditPhoto = [
+	protected array $galleriesEditPhoto = [
 		'path'  => 'flickr.galleries.editPhoto',
 		'query' => ['gallery_id', 'photo_id', 'comment'],
 	];
@@ -251,7 +251,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.galleries.editPhotos.html
 	 */
-	protected $galleriesEditPhotos = [
+	protected array $galleriesEditPhotos = [
 		'path'  => 'flickr.galleries.editPhotos',
 		'query' => ['gallery_id', 'primary_photo_id', 'photo_ids'],
 	];
@@ -259,7 +259,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.galleries.getInfo.html
 	 */
-	protected $galleriesGetInfo = [
+	protected array $galleriesGetInfo = [
 		'path'  => 'flickr.galleries.getInfo',
 		'query' => ['gallery_id', 'primary_photo_size', 'cover_photos_size', 'limit', 'short_limit'],
 	];
@@ -267,7 +267,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.galleries.getList.html
 	 */
-	protected $galleriesGetList = [
+	protected array $galleriesGetList = [
 		'path'  => 'flickr.galleries.getList',
 		'query' => ['user_id', 'per_page', 'page', 'primary_photo_extras', 'continuation', 'sort_groups', 'photo_ids', 'cover_photos', 'primary_photo_cover_size', 'cover_photos_size', 'limit', 'short_limit'],
 	];
@@ -275,7 +275,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.galleries.getListForPhoto.html
 	 */
-	protected $galleriesGetListForPhoto = [
+	protected array $galleriesGetListForPhoto = [
 		'path'  => 'flickr.galleries.getListForPhoto',
 		'query' => ['photo_id', 'per_page', 'page'],
 	];
@@ -283,7 +283,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.galleries.getPhotos.html
 	 */
-	protected $galleriesGetPhotos = [
+	protected array $galleriesGetPhotos = [
 		'path'  => 'flickr.galleries.getPhotos',
 		'query' => ['gallery_id', 'continuation', 'per_page', 'get_user_info', 'get_gallery_info', 'extras', 'per_page', 'page'],
 	];
@@ -291,7 +291,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.galleries.removePhoto.html
 	 */
-	protected $galleriesRemovePhoto = [
+	protected array $galleriesRemovePhoto = [
 		'path'  => 'flickr.galleries.removePhoto',
 		'query' => ['gallery_id', 'photo_id', 'full_response'],
 	];
@@ -299,7 +299,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.groups.browse.html
 	 */
-	protected $groupsBrowse = [
+	protected array $groupsBrowse = [
 		'path'  => 'flickr.groups.browse',
 		'query' => ['cat_id'],
 	];
@@ -307,7 +307,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.groups.discuss.replies.add.html
 	 */
-	protected $groupsDiscussRepliesAdd = [
+	protected array $groupsDiscussRepliesAdd = [
 		'path'  => 'flickr.groups.discuss.replies.add',
 		'query' => ['group_id', 'topic_id', 'message'],
 	];
@@ -315,7 +315,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.groups.discuss.replies.delete.html
 	 */
-	protected $groupsDiscussRepliesDelete = [
+	protected array $groupsDiscussRepliesDelete = [
 		'path'  => 'flickr.groups.discuss.replies.delete',
 		'query' => ['group_id', 'topic_id', 'reply_id'],
 	];
@@ -323,7 +323,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.groups.discuss.replies.edit.html
 	 */
-	protected $groupsDiscussRepliesEdit = [
+	protected array $groupsDiscussRepliesEdit = [
 		'path'  => 'flickr.groups.discuss.replies.edit',
 		'query' => ['group_id', 'topic_id', 'reply_id', 'message'],
 	];
@@ -331,7 +331,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.groups.discuss.replies.getInfo.html
 	 */
-	protected $groupsDiscussRepliesGetInfo = [
+	protected array $groupsDiscussRepliesGetInfo = [
 		'path'  => 'flickr.groups.discuss.replies.getInfo',
 		'query' => ['group_id', 'topic_id', 'reply_id'],
 	];
@@ -339,7 +339,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.groups.discuss.replies.getList.html
 	 */
-	protected $groupsDiscussRepliesGetList = [
+	protected array $groupsDiscussRepliesGetList = [
 		'path'  => 'flickr.groups.discuss.replies.getList',
 		'query' => ['group_id', 'topic_id', 'per_page', 'page'],
 	];
@@ -347,7 +347,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.groups.discuss.topics.add.html
 	 */
-	protected $groupsDiscussTopicsAdd = [
+	protected array $groupsDiscussTopicsAdd = [
 		'path'  => 'flickr.groups.discuss.topics.add',
 		'query' => ['group_id', 'subject', 'message'],
 	];
@@ -355,7 +355,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.groups.discuss.topics.getInfo.html
 	 */
-	protected $groupsDiscussTopicsGetInfo = [
+	protected array $groupsDiscussTopicsGetInfo = [
 		'path'  => 'flickr.groups.discuss.topics.getInfo',
 		'query' => ['group_id', 'topic_id'],
 	];
@@ -363,7 +363,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.groups.discuss.topics.getList.html
 	 */
-	protected $groupsDiscussTopicsGetList = [
+	protected array $groupsDiscussTopicsGetList = [
 		'path'  => 'flickr.groups.discuss.topics.getList',
 		'query' => ['group_id', 'per_page', 'page'],
 	];
@@ -371,7 +371,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.groups.getInfo.html
 	 */
-	protected $groupsGetInfo = [
+	protected array $groupsGetInfo = [
 		'path'  => 'flickr.groups.getInfo',
 		'query' => ['group_id', 'group_path_alias', 'lang'],
 	];
@@ -379,7 +379,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.groups.join.html
 	 */
-	protected $groupsJoin = [
+	protected array $groupsJoin = [
 		'path'  => 'flickr.groups.join',
 		'query' => ['group_id', 'accept_rules'],
 	];
@@ -387,7 +387,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.groups.joinRequest.html
 	 */
-	protected $groupsJoinRequest = [
+	protected array $groupsJoinRequest = [
 		'path'  => 'flickr.groups.joinRequest',
 		'query' => ['group_id', 'message', 'accept_rules'],
 	];
@@ -395,7 +395,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.groups.leave.html
 	 */
-	protected $groupsLeave = [
+	protected array $groupsLeave = [
 		'path'  => 'flickr.groups.leave',
 		'query' => ['group_id', 'delete_photos'],
 	];
@@ -403,7 +403,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.groups.members.getList.html
 	 */
-	protected $groupsMembersGetList = [
+	protected array $groupsMembersGetList = [
 		'path'  => 'flickr.groups.members.getList',
 		'query' => ['group_id', 'membertypes', 'per_page', 'page'],
 	];
@@ -411,7 +411,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.groups.pools.add.html
 	 */
-	protected $groupsPoolsAdd = [
+	protected array $groupsPoolsAdd = [
 		'path'  => 'flickr.groups.pools.add',
 		'query' => ['photo_id', 'group_id'],
 	];
@@ -419,7 +419,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.groups.pools.getContext.html
 	 */
-	protected $groupsPoolsGetContext = [
+	protected array $groupsPoolsGetContext = [
 		'path'  => 'flickr.groups.pools.getContext',
 		'query' => ['photo_id', 'group_id'],
 	];
@@ -427,7 +427,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.groups.pools.getGroups.html
 	 */
-	protected $groupsPoolsGetGroups = [
+	protected array $groupsPoolsGetGroups = [
 		'path'  => 'flickr.groups.pools.getGroups',
 		'query' => ['page', 'per_page'],
 	];
@@ -435,7 +435,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.groups.pools.getPhotos.html
 	 */
-	protected $groupsPoolsGetPhotos = [
+	protected array $groupsPoolsGetPhotos = [
 		'path'  => 'flickr.groups.pools.getPhotos',
 		'query' => ['group_id', 'tags', 'user_id', 'extras', 'per_page', 'page'],
 	];
@@ -443,7 +443,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.groups.pools.remove.html
 	 */
-	protected $groupsPoolsRemove = [
+	protected array $groupsPoolsRemove = [
 		'path'  => 'flickr.groups.pools.remove',
 		'query' => ['photo_id', 'group_id'],
 	];
@@ -451,7 +451,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.groups.search.html
 	 */
-	protected $groupsSearch = [
+	protected array $groupsSearch = [
 		'path'  => 'flickr.groups.search',
 		'query' => ['text', 'per_page', 'page'],
 	];
@@ -459,7 +459,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.interestingness.getList.html
 	 */
-	protected $interestingnessGetList = [
+	protected array $interestingnessGetList = [
 		'path'  => 'flickr.interestingness.getList',
 		'query' => ['date', 'extras', 'per_page', 'page'],
 	];
@@ -467,7 +467,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.machinetags.getNamespaces.html
 	 */
-	protected $machinetagsGetNamespaces = [
+	protected array $machinetagsGetNamespaces = [
 		'path'  => 'flickr.machinetags.getNamespaces',
 		'query' => ['predicate', 'per_page', 'page'],
 	];
@@ -475,7 +475,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.machinetags.getPairs.html
 	 */
-	protected $machinetagsGetPairs = [
+	protected array $machinetagsGetPairs = [
 		'path'  => 'flickr.machinetags.getPairs',
 		'query' => ['namespace', 'predicate', 'per_page', 'page'],
 	];
@@ -483,7 +483,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.machinetags.getPredicates.html
 	 */
-	protected $machinetagsGetPredicates = [
+	protected array $machinetagsGetPredicates = [
 		'path'  => 'flickr.machinetags.getPredicates',
 		'query' => ['namespace', 'per_page', 'page'],
 	];
@@ -491,7 +491,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.machinetags.getRecentValues.html
 	 */
-	protected $machinetagsGetRecentValues = [
+	protected array $machinetagsGetRecentValues = [
 		'path'  => 'flickr.machinetags.getRecentValues',
 		'query' => ['namespace', 'predicate', 'added_since'],
 	];
@@ -499,7 +499,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.machinetags.getValues.html
 	 */
-	protected $machinetagsGetValues = [
+	protected array $machinetagsGetValues = [
 		'path'  => 'flickr.machinetags.getValues',
 		'query' => ['namespace', 'predicate', 'per_page', 'page'],
 	];
@@ -507,7 +507,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.panda.getList.html
 	 */
-	protected $pandaGetList = [
+	protected array $pandaGetList = [
 		'path'  => 'flickr.panda.getList',
 		'query' => [],
 	];
@@ -515,7 +515,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.panda.getPhotos.html
 	 */
-	protected $pandaGetPhotos = [
+	protected array $pandaGetPhotos = [
 		'path'  => 'flickr.panda.getPhotos',
 		'query' => ['panda_name', 'extras', 'per_page', 'page'],
 	];
@@ -523,7 +523,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.people.findByEmail.html
 	 */
-	protected $peopleFindByEmail = [
+	protected array $peopleFindByEmail = [
 		'path'  => 'flickr.people.findByEmail',
 		'query' => ['find_email'],
 	];
@@ -531,7 +531,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.people.findByUsername.html
 	 */
-	protected $peopleFindByUsername = [
+	protected array $peopleFindByUsername = [
 		'path'  => 'flickr.people.findByUsername',
 		'query' => ['username'],
 	];
@@ -539,7 +539,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.people.getGroups.html
 	 */
-	protected $peopleGetGroups = [
+	protected array $peopleGetGroups = [
 		'path'  => 'flickr.people.getGroups',
 		'query' => ['user_id', 'extras'],
 	];
@@ -547,7 +547,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.people.getInfo.html
 	 */
-	protected $peopleGetInfo = [
+	protected array $peopleGetInfo = [
 		'path'  => 'flickr.people.getInfo',
 		'query' => ['user_id'],
 	];
@@ -555,7 +555,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.people.getLimits.html
 	 */
-	protected $peopleGetLimits = [
+	protected array $peopleGetLimits = [
 		'path'  => 'flickr.people.getLimits',
 		'query' => [],
 	];
@@ -563,7 +563,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.people.getPhotos.html
 	 */
-	protected $peopleGetPhotos = [
+	protected array $peopleGetPhotos = [
 		'path'  => 'flickr.people.getPhotos',
 		'query' => ['user_id', 'safe_search', 'min_upload_date', 'max_upload_date', 'min_taken_date', 'max_taken_date', 'content_type', 'privacy_filter', 'extras', 'per_page', 'page'],
 	];
@@ -571,7 +571,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.people.getPhotosOf.html
 	 */
-	protected $peopleGetPhotosOf = [
+	protected array $peopleGetPhotosOf = [
 		'path'  => 'flickr.people.getPhotosOf',
 		'query' => ['user_id', 'owner_id', 'extras', 'per_page', 'page'],
 	];
@@ -579,7 +579,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.people.getPublicGroups.html
 	 */
-	protected $peopleGetPublicGroups = [
+	protected array $peopleGetPublicGroups = [
 		'path'  => 'flickr.people.getPublicGroups',
 		'query' => ['user_id', 'invitation_only'],
 	];
@@ -587,7 +587,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.people.getPublicPhotos.html
 	 */
-	protected $peopleGetPublicPhotos = [
+	protected array $peopleGetPublicPhotos = [
 		'path'  => 'flickr.people.getPublicPhotos',
 		'query' => ['user_id', 'safe_search', 'extras', 'per_page', 'page'],
 	];
@@ -595,7 +595,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.people.getUploadStatus.html
 	 */
-	protected $peopleGetUploadStatus = [
+	protected array $peopleGetUploadStatus = [
 		'path'  => 'flickr.people.getUploadStatus',
 		'query' => [],
 	];
@@ -603,7 +603,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.addTags.html
 	 */
-	protected $photosAddTags = [
+	protected array $photosAddTags = [
 		'path'  => 'flickr.photos.addTags',
 		'query' => ['photo_id', 'tags'],
 	];
@@ -611,7 +611,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.comments.addComment.html
 	 */
-	protected $photosCommentsAddComment = [
+	protected array $photosCommentsAddComment = [
 		'path'  => 'flickr.photos.comments.addComment',
 		'query' => ['photo_id', 'comment_text'],
 	];
@@ -619,7 +619,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.comments.deleteComment.html
 	 */
-	protected $photosCommentsDeleteComment = [
+	protected array $photosCommentsDeleteComment = [
 		'path'  => 'flickr.photos.comments.deleteComment',
 		'query' => ['comment_id'],
 	];
@@ -627,7 +627,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.comments.editComment.html
 	 */
-	protected $photosCommentsEditComment = [
+	protected array $photosCommentsEditComment = [
 		'path'  => 'flickr.photos.comments.editComment',
 		'query' => ['comment_id', 'comment_text'],
 	];
@@ -635,7 +635,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.comments.getList.html
 	 */
-	protected $photosCommentsGetList = [
+	protected array $photosCommentsGetList = [
 		'path'  => 'flickr.photos.comments.getList',
 		'query' => ['photo_id', 'min_comment_date', 'max_comment_date'],
 	];
@@ -643,7 +643,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.comments.getRecentForContacts.html
 	 */
-	protected $photosCommentsGetRecentForContacts = [
+	protected array $photosCommentsGetRecentForContacts = [
 		'path'  => 'flickr.photos.comments.getRecentForContacts',
 		'query' => ['date_lastcomment', 'contacts_filter', 'extras', 'per_page', 'page'],
 	];
@@ -651,7 +651,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.delete.html
 	 */
-	protected $photosDelete = [
+	protected array $photosDelete = [
 		'path'  => 'flickr.photos.delete',
 		'query' => ['photo_id'],
 	];
@@ -659,7 +659,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.geo.batchCorrectLocation.html
 	 */
-	protected $photosGeoBatchCorrectLocation = [
+	protected array $photosGeoBatchCorrectLocation = [
 		'path'  => 'flickr.photos.geo.batchCorrectLocation',
 		'query' => ['lat', 'lon', 'accuracy', 'place_id', 'woe_id'],
 	];
@@ -667,7 +667,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.geo.correctLocation.html
 	 */
-	protected $photosGeoCorrectLocation = [
+	protected array $photosGeoCorrectLocation = [
 		'path'  => 'flickr.photos.geo.correctLocation',
 		'query' => ['photo_id', 'place_id', 'woe_id', 'foursquare_id'],
 	];
@@ -675,7 +675,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.geo.getLocation.html
 	 */
-	protected $photosGeoGetLocation = [
+	protected array $photosGeoGetLocation = [
 		'path'  => 'flickr.photos.geo.getLocation',
 		'query' => ['photo_id', 'extras'],
 	];
@@ -683,7 +683,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.geo.getPerms.html
 	 */
-	protected $photosGeoGetPerms = [
+	protected array $photosGeoGetPerms = [
 		'path'  => 'flickr.photos.geo.getPerms',
 		'query' => ['photo_id'],
 	];
@@ -691,7 +691,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.geo.photosForLocation.html
 	 */
-	protected $photosGeoPhotosForLocation = [
+	protected array $photosGeoPhotosForLocation = [
 		'path'  => 'flickr.photos.geo.photosForLocation',
 		'query' => ['lat', 'lon', 'accuracy', 'extras', 'per_page', 'page'],
 	];
@@ -699,7 +699,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.geo.removeLocation.html
 	 */
-	protected $photosGeoRemoveLocation = [
+	protected array $photosGeoRemoveLocation = [
 		'path'  => 'flickr.photos.geo.removeLocation',
 		'query' => ['photo_id'],
 	];
@@ -707,7 +707,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.geo.setContext.html
 	 */
-	protected $photosGeoSetContext = [
+	protected array $photosGeoSetContext = [
 		'path'  => 'flickr.photos.geo.setContext',
 		'query' => ['photo_id', 'context'],
 	];
@@ -715,7 +715,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.geo.setLocation.html
 	 */
-	protected $photosGeoSetLocation = [
+	protected array $photosGeoSetLocation = [
 		'path'  => 'flickr.photos.geo.setLocation',
 		'query' => ['photo_id', 'lat', 'lon', 'accuracy', 'context'],
 	];
@@ -723,7 +723,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.geo.setPerms.html
 	 */
-	protected $photosGeoSetPerms = [
+	protected array $photosGeoSetPerms = [
 		'path'  => 'flickr.photos.geo.setPerms',
 		'query' => ['is_public', 'is_contact', 'is_friend', 'is_family', 'photo_id'],
 	];
@@ -731,7 +731,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.getAllContexts.html
 	 */
-	protected $photosGetAllContexts = [
+	protected array $photosGetAllContexts = [
 		'path'  => 'flickr.photos.getAllContexts',
 		'query' => ['photo_id'],
 	];
@@ -739,7 +739,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.getContactsPhotos.html
 	 */
-	protected $photosGetContactsPhotos = [
+	protected array $photosGetContactsPhotos = [
 		'path'  => 'flickr.photos.getContactsPhotos',
 		'query' => ['count', 'just_friends', 'single_photo', 'include_self', 'extras'],
 	];
@@ -747,7 +747,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.getContactsPublicPhotos.html
 	 */
-	protected $photosGetContactsPublicPhotos = [
+	protected array $photosGetContactsPublicPhotos = [
 		'path'  => 'flickr.photos.getContactsPublicPhotos',
 		'query' => ['user_id', 'count', 'just_friends', 'single_photo', 'include_self', 'extras'],
 	];
@@ -755,7 +755,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.getContext.html
 	 */
-	protected $photosGetContext = [
+	protected array $photosGetContext = [
 		'path'  => 'flickr.photos.getContext',
 		'query' => ['photo_id'],
 	];
@@ -763,7 +763,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.getCounts.html
 	 */
-	protected $photosGetCounts = [
+	protected array $photosGetCounts = [
 		'path'  => 'flickr.photos.getCounts',
 		'query' => ['dates', 'taken_dates'],
 	];
@@ -771,7 +771,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.getExif.html
 	 */
-	protected $photosGetExif = [
+	protected array $photosGetExif = [
 		'path'  => 'flickr.photos.getExif',
 		'query' => ['photo_id', 'secret'],
 	];
@@ -779,7 +779,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.getFavorites.html
 	 */
-	protected $photosGetFavorites = [
+	protected array $photosGetFavorites = [
 		'path'  => 'flickr.photos.getFavorites',
 		'query' => ['photo_id', 'page', 'per_page'],
 	];
@@ -787,7 +787,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.getInfo.html
 	 */
-	protected $photosGetInfo = [
+	protected array $photosGetInfo = [
 		'path'  => 'flickr.photos.getInfo',
 		'query' => ['photo_id', 'secret'],
 	];
@@ -795,7 +795,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.getNotInSet.html
 	 */
-	protected $photosGetNotInSet = [
+	protected array $photosGetNotInSet = [
 		'path'  => 'flickr.photos.getNotInSet',
 		'query' => ['max_upload_date', 'min_taken_date', 'max_taken_date', 'privacy_filter', 'media', 'min_upload_date', 'extras', 'per_page', 'page'],
 	];
@@ -803,7 +803,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.getPerms.html
 	 */
-	protected $photosGetPerms = [
+	protected array $photosGetPerms = [
 		'path'  => 'flickr.photos.getPerms',
 		'query' => ['photo_id'],
 	];
@@ -811,7 +811,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.getPopular.html
 	 */
-	protected $photosGetPopular = [
+	protected array $photosGetPopular = [
 		'path'  => 'flickr.photos.getPopular',
 		'query' => ['user_id', 'sort', 'extras', 'per_page', 'page'],
 	];
@@ -819,7 +819,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.getRecent.html
 	 */
-	protected $photosGetRecent = [
+	protected array $photosGetRecent = [
 		'path'  => 'flickr.photos.getRecent',
 		'query' => ['extras', 'per_page', 'page'],
 	];
@@ -827,7 +827,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.getSizes.html
 	 */
-	protected $photosGetSizes = [
+	protected array $photosGetSizes = [
 		'path'  => 'flickr.photos.getSizes',
 		'query' => ['photo_id'],
 	];
@@ -835,7 +835,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.getUntagged.html
 	 */
-	protected $photosGetUntagged = [
+	protected array $photosGetUntagged = [
 		'path'  => 'flickr.photos.getUntagged',
 		'query' => ['min_upload_date', 'max_upload_date', 'min_taken_date', 'max_taken_date', 'privacy_filter', 'media', 'extras', 'per_page', 'page'],
 	];
@@ -843,7 +843,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.getWithGeoData.html
 	 */
-	protected $photosGetWithGeoData = [
+	protected array $photosGetWithGeoData = [
 		'path'  => 'flickr.photos.getWithGeoData',
 		'query' => ['min_upload_date', 'max_upload_date', 'min_taken_date', 'max_taken_date', 'privacy_filter', 'sort', 'media', 'extras', 'per_page', 'page'],
 	];
@@ -851,7 +851,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.getWithoutGeoData.html
 	 */
-	protected $photosGetWithoutGeoData = [
+	protected array $photosGetWithoutGeoData = [
 		'path'  => 'flickr.photos.getWithoutGeoData',
 		'query' => ['max_upload_date', 'min_taken_date', 'max_taken_date', 'privacy_filter', 'sort', 'media', 'min_upload_date', 'extras', 'per_page', 'page'],
 	];
@@ -859,7 +859,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.licenses.getInfo.html
 	 */
-	protected $photosLicensesGetInfo = [
+	protected array $photosLicensesGetInfo = [
 		'path'  => 'flickr.photos.licenses.getInfo',
 		'query' => [],
 	];
@@ -867,7 +867,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.licenses.setLicense.html
 	 */
-	protected $photosLicensesSetLicense = [
+	protected array $photosLicensesSetLicense = [
 		'path'  => 'flickr.photos.licenses.setLicense',
 		'query' => ['photo_id', 'license_id'],
 	];
@@ -875,7 +875,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.notes.add.html
 	 */
-	protected $photosNotesAdd = [
+	protected array $photosNotesAdd = [
 		'path'  => 'flickr.photos.notes.add',
 		'query' => ['photo_id', 'note_x', 'note_y', 'note_w', 'note_h', 'note_text'],
 	];
@@ -883,7 +883,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.notes.delete.html
 	 */
-	protected $photosNotesDelete = [
+	protected array $photosNotesDelete = [
 		'path'  => 'flickr.photos.notes.delete',
 		'query' => ['note_id'],
 	];
@@ -891,7 +891,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.notes.edit.html
 	 */
-	protected $photosNotesEdit = [
+	protected array $photosNotesEdit = [
 		'path'  => 'flickr.photos.notes.edit',
 		'query' => ['note_id', 'note_x', 'note_y', 'note_w', 'note_h', 'note_text'],
 	];
@@ -899,7 +899,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.people.add.html
 	 */
-	protected $photosPeopleAdd = [
+	protected array $photosPeopleAdd = [
 		'path'  => 'flickr.photos.people.add',
 		'query' => ['photo_id', 'user_id', 'person_x', 'person_y', 'person_w', 'person_h'],
 	];
@@ -907,7 +907,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.people.delete.html
 	 */
-	protected $photosPeopleDelete = [
+	protected array $photosPeopleDelete = [
 		'path'  => 'flickr.photos.people.delete',
 		'query' => ['photo_id', 'user_id'],
 	];
@@ -915,7 +915,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.people.deleteCoords.html
 	 */
-	protected $photosPeopleDeleteCoords = [
+	protected array $photosPeopleDeleteCoords = [
 		'path'  => 'flickr.photos.people.deleteCoords',
 		'query' => ['photo_id', 'user_id'],
 	];
@@ -923,7 +923,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.people.editCoords.html
 	 */
-	protected $photosPeopleEditCoords = [
+	protected array $photosPeopleEditCoords = [
 		'path'  => 'flickr.photos.people.editCoords',
 		'query' => ['photo_id', 'user_id', 'person_x', 'person_y', 'person_w', 'person_h'],
 	];
@@ -931,7 +931,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.people.getList.html
 	 */
-	protected $photosPeopleGetList = [
+	protected array $photosPeopleGetList = [
 		'path'  => 'flickr.photos.people.getList',
 		'query' => ['photo_id'],
 	];
@@ -939,7 +939,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.recentlyUpdated.html
 	 */
-	protected $photosRecentlyUpdated = [
+	protected array $photosRecentlyUpdated = [
 		'path'  => 'flickr.photos.recentlyUpdated',
 		'query' => ['min_date', 'extras', 'per_page', 'page'],
 	];
@@ -947,7 +947,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.removeTag.html
 	 */
-	protected $photosRemoveTag = [
+	protected array $photosRemoveTag = [
 		'path'  => 'flickr.photos.removeTag',
 		'query' => ['tag_id'],
 	];
@@ -955,7 +955,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.search.html
 	 */
-	protected $photosSearch = [
+	protected array $photosSearch = [
 		'path'  => 'flickr.photos.search',
 		'query' => ['user_id', 'tags', 'tag_mode', 'text', 'min_upload_date', 'max_upload_date', 'min_taken_date', 'max_taken_date', 'license', 'sort', 'privacy_filter', 'bbox', 'accuracy', 'safe_search', 'content_type', 'machine_tags', 'machine_tag_mode', 'group_id', 'contacts', 'woe_id', 'place_id', 'media', 'has_geo', 'geo_context', 'lat', 'lon', 'radius', 'radius_units', 'is_commons', 'in_gallery', 'is_getty', 'extras', 'per_page', 'page'],
 	];
@@ -963,7 +963,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.setContentType.html
 	 */
-	protected $photosSetContentType = [
+	protected array $photosSetContentType = [
 		'path'  => 'flickr.photos.setContentType',
 		'query' => ['photo_id', 'content_type'],
 	];
@@ -971,7 +971,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.setDates.html
 	 */
-	protected $photosSetDates = [
+	protected array $photosSetDates = [
 		'path'  => 'flickr.photos.setDates',
 		'query' => ['photo_id', 'date_posted', 'date_taken', 'date_taken_granularity'],
 	];
@@ -979,7 +979,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.setMeta.html
 	 */
-	protected $photosSetMeta = [
+	protected array $photosSetMeta = [
 		'path'  => 'flickr.photos.setMeta',
 		'query' => ['photo_id', 'title', 'description'],
 	];
@@ -987,7 +987,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.setPerms.html
 	 */
-	protected $photosSetPerms = [
+	protected array $photosSetPerms = [
 		'path'  => 'flickr.photos.setPerms',
 		'query' => ['photo_id', 'is_public', 'is_friend', 'is_family', 'perm_comment', 'perm_addmeta'],
 	];
@@ -995,7 +995,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.setSafetyLevel.html
 	 */
-	protected $photosSetSafetyLevel = [
+	protected array $photosSetSafetyLevel = [
 		'path'  => 'flickr.photos.setSafetyLevel',
 		'query' => ['photo_id', 'safety_level', 'hidden'],
 	];
@@ -1003,7 +1003,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.setTags.html
 	 */
-	protected $photosSetTags = [
+	protected array $photosSetTags = [
 		'path'  => 'flickr.photos.setTags',
 		'query' => ['photo_id', 'tags'],
 	];
@@ -1011,7 +1011,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.suggestions.approveSuggestion.html
 	 */
-	protected $photosSuggestionsApproveSuggestion = [
+	protected array $photosSuggestionsApproveSuggestion = [
 		'path'  => 'flickr.photos.suggestions.approveSuggestion',
 		'query' => ['suggestion_id'],
 	];
@@ -1019,7 +1019,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.suggestions.getList.html
 	 */
-	protected $photosSuggestionsGetList = [
+	protected array $photosSuggestionsGetList = [
 		'path'  => 'flickr.photos.suggestions.getList',
 		'query' => ['photo_id', 'status_id'],
 	];
@@ -1027,7 +1027,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.suggestions.rejectSuggestion.html
 	 */
-	protected $photosSuggestionsRejectSuggestion = [
+	protected array $photosSuggestionsRejectSuggestion = [
 		'path'  => 'flickr.photos.suggestions.rejectSuggestion',
 		'query' => ['suggestion_id'],
 	];
@@ -1035,7 +1035,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.suggestions.removeSuggestion.html
 	 */
-	protected $photosSuggestionsRemoveSuggestion = [
+	protected array $photosSuggestionsRemoveSuggestion = [
 		'path'  => 'flickr.photos.suggestions.removeSuggestion',
 		'query' => ['suggestion_id'],
 	];
@@ -1043,7 +1043,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.suggestions.suggestLocation.html
 	 */
-	protected $photosSuggestionsSuggestLocation = [
+	protected array $photosSuggestionsSuggestLocation = [
 		'path'  => 'flickr.photos.suggestions.suggestLocation',
 		'query' => ['photo_id', 'lat', 'lon', 'accuracy', 'woe_id', 'place_id', 'note'],
 	];
@@ -1051,7 +1051,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.transform.rotate.html
 	 */
-	protected $photosTransformRotate = [
+	protected array $photosTransformRotate = [
 		'path'  => 'flickr.photos.transform.rotate',
 		'query' => ['photo_id', 'degrees'],
 	];
@@ -1059,7 +1059,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photos.upload.checkTickets.html
 	 */
-	protected $photosUploadCheckTickets = [
+	protected array $photosUploadCheckTickets = [
 		'path'  => 'flickr.photos.upload.checkTickets',
 		'query' => ['tickets'],
 	];
@@ -1067,7 +1067,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photosets.addPhoto.html
 	 */
-	protected $photosetsAddPhoto = [
+	protected array $photosetsAddPhoto = [
 		'path'  => 'flickr.photosets.addPhoto',
 		'query' => ['photoset_id', 'photo_id'],
 	];
@@ -1075,7 +1075,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photosets.comments.addComment.html
 	 */
-	protected $photosetsCommentsAddComment = [
+	protected array $photosetsCommentsAddComment = [
 		'path'  => 'flickr.photosets.comments.addComment',
 		'query' => ['photoset_id', 'comment_text'],
 	];
@@ -1083,7 +1083,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photosets.comments.deleteComment.html
 	 */
-	protected $photosetsCommentsDeleteComment = [
+	protected array $photosetsCommentsDeleteComment = [
 		'path'  => 'flickr.photosets.comments.deleteComment',
 		'query' => ['comment_id'],
 	];
@@ -1091,7 +1091,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photosets.comments.editComment.html
 	 */
-	protected $photosetsCommentsEditComment = [
+	protected array $photosetsCommentsEditComment = [
 		'path'  => 'flickr.photosets.comments.editComment',
 		'query' => ['comment_id', 'comment_text'],
 	];
@@ -1099,7 +1099,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photosets.comments.getList.html
 	 */
-	protected $photosetsCommentsGetList = [
+	protected array $photosetsCommentsGetList = [
 		'path'  => 'flickr.photosets.comments.getList',
 		'query' => ['photoset_id'],
 	];
@@ -1107,7 +1107,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photosets.create.html
 	 */
-	protected $photosetsCreate = [
+	protected array $photosetsCreate = [
 		'path'  => 'flickr.photosets.create',
 		'query' => ['title', 'description', 'primary_photo_id'],
 	];
@@ -1115,7 +1115,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photosets.delete.html
 	 */
-	protected $photosetsDelete = [
+	protected array $photosetsDelete = [
 		'path'  => 'flickr.photosets.delete',
 		'query' => ['photoset_id'],
 	];
@@ -1123,7 +1123,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photosets.editMeta.html
 	 */
-	protected $photosetsEditMeta = [
+	protected array $photosetsEditMeta = [
 		'path'  => 'flickr.photosets.editMeta',
 		'query' => ['photoset_id', 'title', 'description'],
 	];
@@ -1131,7 +1131,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photosets.editPhotos.html
 	 */
-	protected $photosetsEditPhotos = [
+	protected array $photosetsEditPhotos = [
 		'path'  => 'flickr.photosets.editPhotos',
 		'query' => ['photoset_id', 'primary_photo_id', 'photo_ids'],
 	];
@@ -1139,7 +1139,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photosets.getContext.html
 	 */
-	protected $photosetsGetContext = [
+	protected array $photosetsGetContext = [
 		'path'  => 'flickr.photosets.getContext',
 		'query' => ['photo_id', 'photoset_id'],
 	];
@@ -1147,7 +1147,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photosets.getInfo.html
 	 */
-	protected $photosetsGetInfo = [
+	protected array $photosetsGetInfo = [
 		'path'  => 'flickr.photosets.getInfo',
 		'query' => ['photoset_id', 'user_id'],
 	];
@@ -1155,15 +1155,15 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photosets.getList.html
 	 */
-	protected $photosetsGetList = [
+	protected array $photosetsGetList = [
 		'path'  => 'flickr.photosets.getList',
-		'query' => ['user_id', 'page', 'per_page', 'primary_photo_extras', 'photo_ids'],
+		'query' => ['user_id', 'page', 'per_page', 'primary_photo_extras', 'photo_ids', 'sort_groups'],
 	];
 
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photosets.getPhotos.html
 	 */
-	protected $photosetsGetPhotos = [
+	protected array $photosetsGetPhotos = [
 		'path'  => 'flickr.photosets.getPhotos',
 		'query' => ['photoset_id', 'user_id', 'extras', 'per_page', 'page', 'privacy_filter', 'media'],
 	];
@@ -1171,7 +1171,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photosets.orderSets.html
 	 */
-	protected $photosetsOrderSets = [
+	protected array $photosetsOrderSets = [
 		'path'  => 'flickr.photosets.orderSets',
 		'query' => ['photoset_ids'],
 	];
@@ -1179,7 +1179,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photosets.removePhoto.html
 	 */
-	protected $photosetsRemovePhoto = [
+	protected array $photosetsRemovePhoto = [
 		'path'  => 'flickr.photosets.removePhoto',
 		'query' => ['photoset_id', 'photo_id'],
 	];
@@ -1187,7 +1187,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photosets.removePhotos.html
 	 */
-	protected $photosetsRemovePhotos = [
+	protected array $photosetsRemovePhotos = [
 		'path'  => 'flickr.photosets.removePhotos',
 		'query' => ['photoset_id', 'photo_ids'],
 	];
@@ -1195,7 +1195,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photosets.reorderPhotos.html
 	 */
-	protected $photosetsReorderPhotos = [
+	protected array $photosetsReorderPhotos = [
 		'path'  => 'flickr.photosets.reorderPhotos',
 		'query' => ['photoset_id', 'photo_ids'],
 	];
@@ -1203,7 +1203,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.photosets.setPrimaryPhoto.html
 	 */
-	protected $photosetsSetPrimaryPhoto = [
+	protected array $photosetsSetPrimaryPhoto = [
 		'path'  => 'flickr.photosets.setPrimaryPhoto',
 		'query' => ['photoset_id', 'photo_id'],
 	];
@@ -1211,7 +1211,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.places.find.html
 	 */
-	protected $placesFind = [
+	protected array $placesFind = [
 		'path'  => 'flickr.places.find',
 		'query' => ['query'],
 	];
@@ -1219,7 +1219,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.places.findByLatLon.html
 	 */
-	protected $placesFindByLatLon = [
+	protected array $placesFindByLatLon = [
 		'path'  => 'flickr.places.findByLatLon',
 		'query' => ['lat', 'lon', 'accuracy'],
 	];
@@ -1227,7 +1227,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.places.getChildrenWithPhotosPublic.html
 	 */
-	protected $placesGetChildrenWithPhotosPublic = [
+	protected array $placesGetChildrenWithPhotosPublic = [
 		'path'  => 'flickr.places.getChildrenWithPhotosPublic',
 		'query' => ['place_id', 'woe_id'],
 	];
@@ -1235,7 +1235,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.places.getInfo.html
 	 */
-	protected $placesGetInfo = [
+	protected array $placesGetInfo = [
 		'path'  => 'flickr.places.getInfo',
 		'query' => ['place_id', 'woe_id'],
 	];
@@ -1243,7 +1243,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.places.getInfoByUrl.html
 	 */
-	protected $placesGetInfoByUrl = [
+	protected array $placesGetInfoByUrl = [
 		'path'  => 'flickr.places.getInfoByUrl',
 		'query' => ['url'],
 	];
@@ -1251,7 +1251,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.places.getPlaceTypes.html
 	 */
-	protected $placesGetPlaceTypes = [
+	protected array $placesGetPlaceTypes = [
 		'path'  => 'flickr.places.getPlaceTypes',
 		'query' => [],
 	];
@@ -1259,7 +1259,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.places.getShapeHistory.html
 	 */
-	protected $placesGetShapeHistory = [
+	protected array $placesGetShapeHistory = [
 		'path'  => 'flickr.places.getShapeHistory',
 		'query' => ['place_id', 'woe_id'],
 	];
@@ -1267,7 +1267,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.places.getTopPlacesList.html
 	 */
-	protected $placesGetTopPlacesList = [
+	protected array $placesGetTopPlacesList = [
 		'path'  => 'flickr.places.getTopPlacesList',
 		'query' => ['place_type_id', 'date', 'woe_id', 'place_id'],
 	];
@@ -1275,7 +1275,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.places.placesForBoundingBox.html
 	 */
-	protected $placesPlacesForBoundingBox = [
+	protected array $placesPlacesForBoundingBox = [
 		'path'  => 'flickr.places.placesForBoundingBox',
 		'query' => ['bbox', 'place_type', 'place_type_id'],
 	];
@@ -1283,7 +1283,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.places.placesForContacts.html
 	 */
-	protected $placesPlacesForContacts = [
+	protected array $placesPlacesForContacts = [
 		'path'  => 'flickr.places.placesForContacts',
 		'query' => ['place_type', 'place_type_id', 'woe_id', 'place_id', 'threshold', 'contacts', 'min_upload_date', 'max_upload_date', 'min_taken_date', 'max_taken_date'],
 	];
@@ -1291,7 +1291,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.places.placesForTags.html
 	 */
-	protected $placesPlacesForTags = [
+	protected array $placesPlacesForTags = [
 		'path'  => 'flickr.places.placesForTags',
 		'query' => ['place_type_id', 'woe_id', 'place_id', 'threshold', 'tags', 'tag_mode', 'machine_tags', 'machine_tag_mode', 'min_upload_date', 'max_upload_date', 'min_taken_date', 'max_taken_date'],
 	];
@@ -1299,7 +1299,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.places.placesForUser.html
 	 */
-	protected $placesPlacesForUser = [
+	protected array $placesPlacesForUser = [
 		'path'  => 'flickr.places.placesForUser',
 		'query' => ['place_type_id', 'place_type', 'woe_id', 'place_id', 'threshold', 'min_upload_date', 'max_upload_date', 'min_taken_date', 'max_taken_date'],
 	];
@@ -1307,7 +1307,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.places.resolvePlaceId.html
 	 */
-	protected $placesResolvePlaceId = [
+	protected array $placesResolvePlaceId = [
 		'path'  => 'flickr.places.resolvePlaceId',
 		'query' => ['place_id'],
 	];
@@ -1315,7 +1315,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.places.resolvePlaceURL.html
 	 */
-	protected $placesResolvePlaceURL = [
+	protected array $placesResolvePlaceURL = [
 		'path'  => 'flickr.places.resolvePlaceURL',
 		'query' => ['url'],
 	];
@@ -1323,7 +1323,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.places.tagsForPlace.html
 	 */
-	protected $placesTagsForPlace = [
+	protected array $placesTagsForPlace = [
 		'path'  => 'flickr.places.tagsForPlace',
 		'query' => ['woe_id', 'place_id', 'min_upload_date', 'max_upload_date', 'min_taken_date', 'max_taken_date'],
 	];
@@ -1331,7 +1331,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.prefs.getContentType.html
 	 */
-	protected $prefsGetContentType = [
+	protected array $prefsGetContentType = [
 		'path'  => 'flickr.prefs.getContentType',
 		'query' => [],
 	];
@@ -1339,7 +1339,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.prefs.getGeoPerms.html
 	 */
-	protected $prefsGetGeoPerms = [
+	protected array $prefsGetGeoPerms = [
 		'path'  => 'flickr.prefs.getGeoPerms',
 		'query' => [],
 	];
@@ -1347,7 +1347,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.prefs.getHidden.html
 	 */
-	protected $prefsGetHidden = [
+	protected array $prefsGetHidden = [
 		'path'  => 'flickr.prefs.getHidden',
 		'query' => [],
 	];
@@ -1355,7 +1355,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.prefs.getPrivacy.html
 	 */
-	protected $prefsGetPrivacy = [
+	protected array $prefsGetPrivacy = [
 		'path'  => 'flickr.prefs.getPrivacy',
 		'query' => [],
 	];
@@ -1363,7 +1363,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.prefs.getSafetyLevel.html
 	 */
-	protected $prefsGetSafetyLevel = [
+	protected array $prefsGetSafetyLevel = [
 		'path'  => 'flickr.prefs.getSafetyLevel',
 		'query' => [],
 	];
@@ -1371,7 +1371,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.profile.getProfile.html
 	 */
-	protected $profileGetProfile = [
+	protected array $profileGetProfile = [
 		'path'  => 'flickr.profile.getProfile',
 		'query' => ['user_id'],
 	];
@@ -1379,7 +1379,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.push.getSubscriptions.html
 	 */
-	protected $pushGetSubscriptions = [
+	protected array $pushGetSubscriptions = [
 		'path'  => 'flickr.push.getSubscriptions',
 		'query' => [],
 	];
@@ -1387,7 +1387,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.push.getTopics.html
 	 */
-	protected $pushGetTopics = [
+	protected array $pushGetTopics = [
 		'path'  => 'flickr.push.getTopics',
 		'query' => [],
 	];
@@ -1395,7 +1395,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.push.subscribe.html
 	 */
-	protected $pushSubscribe = [
+	protected array $pushSubscribe = [
 		'path'  => 'flickr.push.subscribe',
 		'query' => ['topic', 'callback', 'verify', 'verify_token', 'lease_seconds', 'woe_ids', 'place_ids', 'lat', 'lon', 'radius', 'radius_units', 'accuracy', 'nsids', 'tags'],
 	];
@@ -1403,7 +1403,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.push.unsubscribe.html
 	 */
-	protected $pushUnsubscribe = [
+	protected array $pushUnsubscribe = [
 		'path'  => 'flickr.push.unsubscribe',
 		'query' => ['topic', 'callback', 'verify', 'verify_token'],
 	];
@@ -1411,7 +1411,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.reflection.getMethodInfo.html
 	 */
-	protected $reflectionGetMethodInfo = [
+	protected array $reflectionGetMethodInfo = [
 		'path'  => 'flickr.reflection.getMethodInfo',
 		'query' => ['method_name'],
 	];
@@ -1419,7 +1419,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.reflection.getMethods.html
 	 */
-	protected $reflectionGetMethods = [
+	protected array $reflectionGetMethods = [
 		'path'  => 'flickr.reflection.getMethods',
 		'query' => [],
 	];
@@ -1427,7 +1427,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.stats.getCollectionDomains.html
 	 */
-	protected $statsGetCollectionDomains = [
+	protected array $statsGetCollectionDomains = [
 		'path'  => 'flickr.stats.getCollectionDomains',
 		'query' => ['date', 'collection_id', 'per_page', 'page'],
 	];
@@ -1435,7 +1435,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.stats.getCollectionReferrers.html
 	 */
-	protected $statsGetCollectionReferrers = [
+	protected array $statsGetCollectionReferrers = [
 		'path'  => 'flickr.stats.getCollectionReferrers',
 		'query' => ['date', 'domain', 'collection_id', 'per_page', 'page'],
 	];
@@ -1443,7 +1443,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.stats.getCollectionStats.html
 	 */
-	protected $statsGetCollectionStats = [
+	protected array $statsGetCollectionStats = [
 		'path'  => 'flickr.stats.getCollectionStats',
 		'query' => ['date', 'collection_id'],
 	];
@@ -1451,7 +1451,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.stats.getCSVFiles.html
 	 */
-	protected $statsGetCSVFiles = [
+	protected array $statsGetCSVFiles = [
 		'path'  => 'flickr.stats.getCSVFiles',
 		'query' => [],
 	];
@@ -1459,7 +1459,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.stats.getPhotoDomains.html
 	 */
-	protected $statsGetPhotoDomains = [
+	protected array $statsGetPhotoDomains = [
 		'path'  => 'flickr.stats.getPhotoDomains',
 		'query' => ['date', 'photo_id', 'per_page', 'page'],
 	];
@@ -1467,7 +1467,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.stats.getPhotoReferrers.html
 	 */
-	protected $statsGetPhotoReferrers = [
+	protected array $statsGetPhotoReferrers = [
 		'path'  => 'flickr.stats.getPhotoReferrers',
 		'query' => ['date', 'domain', 'photo_id', 'per_page', 'page'],
 	];
@@ -1475,7 +1475,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.stats.getPhotosetDomains.html
 	 */
-	protected $statsGetPhotosetDomains = [
+	protected array $statsGetPhotosetDomains = [
 		'path'  => 'flickr.stats.getPhotosetDomains',
 		'query' => ['date', 'photoset_id', 'per_page', 'page'],
 	];
@@ -1483,7 +1483,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.stats.getPhotosetReferrers.html
 	 */
-	protected $statsGetPhotosetReferrers = [
+	protected array $statsGetPhotosetReferrers = [
 		'path'  => 'flickr.stats.getPhotosetReferrers',
 		'query' => ['date', 'domain', 'photoset_id', 'per_page', 'page'],
 	];
@@ -1491,7 +1491,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.stats.getPhotosetStats.html
 	 */
-	protected $statsGetPhotosetStats = [
+	protected array $statsGetPhotosetStats = [
 		'path'  => 'flickr.stats.getPhotosetStats',
 		'query' => ['date', 'photoset_id'],
 	];
@@ -1499,7 +1499,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.stats.getPhotoStats.html
 	 */
-	protected $statsGetPhotoStats = [
+	protected array $statsGetPhotoStats = [
 		'path'  => 'flickr.stats.getPhotoStats',
 		'query' => ['date', 'photo_id'],
 	];
@@ -1507,7 +1507,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.stats.getPhotostreamDomains.html
 	 */
-	protected $statsGetPhotostreamDomains = [
+	protected array $statsGetPhotostreamDomains = [
 		'path'  => 'flickr.stats.getPhotostreamDomains',
 		'query' => ['date', 'per_page', 'page'],
 	];
@@ -1515,7 +1515,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.stats.getPhotostreamReferrers.html
 	 */
-	protected $statsGetPhotostreamReferrers = [
+	protected array $statsGetPhotostreamReferrers = [
 		'path'  => 'flickr.stats.getPhotostreamReferrers',
 		'query' => ['date', 'domain', 'per_page', 'page'],
 	];
@@ -1523,7 +1523,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.stats.getPhotostreamStats.html
 	 */
-	protected $statsGetPhotostreamStats = [
+	protected array $statsGetPhotostreamStats = [
 		'path'  => 'flickr.stats.getPhotostreamStats',
 		'query' => ['date'],
 	];
@@ -1531,7 +1531,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.stats.getPopularPhotos.html
 	 */
-	protected $statsGetPopularPhotos = [
+	protected array $statsGetPopularPhotos = [
 		'path'  => 'flickr.stats.getPopularPhotos',
 		'query' => ['date', 'sort', 'per_page', 'page'],
 	];
@@ -1539,7 +1539,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.stats.getTotalViews.html
 	 */
-	protected $statsGetTotalViews = [
+	protected array $statsGetTotalViews = [
 		'path'  => 'flickr.stats.getTotalViews',
 		'query' => ['date'],
 	];
@@ -1547,7 +1547,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.tags.getClusterPhotos.html
 	 */
-	protected $tagsGetClusterPhotos = [
+	protected array $tagsGetClusterPhotos = [
 		'path'  => 'flickr.tags.getClusterPhotos',
 		'query' => ['tag', 'cluster_id'],
 	];
@@ -1555,7 +1555,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.tags.getClusters.html
 	 */
-	protected $tagsGetClusters = [
+	protected array $tagsGetClusters = [
 		'path'  => 'flickr.tags.getClusters',
 		'query' => ['tag'],
 	];
@@ -1563,7 +1563,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.tags.getHotList.html
 	 */
-	protected $tagsGetHotList = [
+	protected array $tagsGetHotList = [
 		'path'  => 'flickr.tags.getHotList',
 		'query' => ['period', 'count'],
 	];
@@ -1571,7 +1571,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.tags.getListPhoto.html
 	 */
-	protected $tagsGetListPhoto = [
+	protected array $tagsGetListPhoto = [
 		'path'  => 'flickr.tags.getListPhoto',
 		'query' => ['photo_id'],
 	];
@@ -1579,7 +1579,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.tags.getListUser.html
 	 */
-	protected $tagsGetListUser = [
+	protected array $tagsGetListUser = [
 		'path'  => 'flickr.tags.getListUser',
 		'query' => ['user_id'],
 	];
@@ -1587,7 +1587,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.tags.getListUserPopular.html
 	 */
-	protected $tagsGetListUserPopular = [
+	protected array $tagsGetListUserPopular = [
 		'path'  => 'flickr.tags.getListUserPopular',
 		'query' => ['user_id', 'count'],
 	];
@@ -1595,7 +1595,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.tags.getListUserRaw.html
 	 */
-	protected $tagsGetListUserRaw = [
+	protected array $tagsGetListUserRaw = [
 		'path'  => 'flickr.tags.getListUserRaw',
 		'query' => ['tag'],
 	];
@@ -1603,7 +1603,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.tags.getMostFrequentlyUsed.html
 	 */
-	protected $tagsGetMostFrequentlyUsed = [
+	protected array $tagsGetMostFrequentlyUsed = [
 		'path'  => 'flickr.tags.getMostFrequentlyUsed',
 		'query' => [],
 	];
@@ -1611,7 +1611,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.tags.getRelated.html
 	 */
-	protected $tagsGetRelated = [
+	protected array $tagsGetRelated = [
 		'path'  => 'flickr.tags.getRelated',
 		'query' => ['tag'],
 	];
@@ -1619,7 +1619,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.test.echo.html
 	 */
-	protected $testEcho = [
+	protected array $testEcho = [
 		'path'  => 'flickr.test.echo',
 		'query' => [],
 	];
@@ -1627,7 +1627,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.test.login.html
 	 */
-	protected $testLogin = [
+	protected array $testLogin = [
 		'path'  => 'flickr.test.login',
 		'query' => [],
 	];
@@ -1635,7 +1635,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.test.null.html
 	 */
-	protected $testNull = [
+	protected array $testNull = [
 		'path'  => 'flickr.test.null',
 		'query' => [],
 	];
@@ -1643,7 +1643,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.testimonials.addTestimonial.html
 	 */
-	protected $testimonialsAddTestimonial = [
+	protected array $testimonialsAddTestimonial = [
 		'path'  => 'flickr.testimonials.addTestimonial',
 		'query' => ['user_id', 'testimonial_text'],
 	];
@@ -1651,7 +1651,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.testimonials.approveTestimonial.html
 	 */
-	protected $testimonialsApproveTestimonial = [
+	protected array $testimonialsApproveTestimonial = [
 		'path'  => 'flickr.testimonials.approveTestimonial',
 		'query' => ['testimonial_id'],
 	];
@@ -1659,7 +1659,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.testimonials.deleteTestimonial.html
 	 */
-	protected $testimonialsDeleteTestimonial = [
+	protected array $testimonialsDeleteTestimonial = [
 		'path'  => 'flickr.testimonials.deleteTestimonial',
 		'query' => ['testimonial_id'],
 	];
@@ -1667,7 +1667,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.testimonials.editTestimonial.html
 	 */
-	protected $testimonialsEditTestimonial = [
+	protected array $testimonialsEditTestimonial = [
 		'path'  => 'flickr.testimonials.editTestimonial',
 		'query' => ['user_id', 'testimonial_id', 'testimonial_text'],
 	];
@@ -1675,7 +1675,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.testimonials.getAllTestimonialsAbout.html
 	 */
-	protected $testimonialsGetAllTestimonialsAbout = [
+	protected array $testimonialsGetAllTestimonialsAbout = [
 		'path'  => 'flickr.testimonials.getAllTestimonialsAbout',
 		'query' => ['page', 'per_page'],
 	];
@@ -1683,7 +1683,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.testimonials.getAllTestimonialsAboutBy.html
 	 */
-	protected $testimonialsGetAllTestimonialsAboutBy = [
+	protected array $testimonialsGetAllTestimonialsAboutBy = [
 		'path'  => 'flickr.testimonials.getAllTestimonialsAboutBy',
 		'query' => ['user_id'],
 	];
@@ -1691,7 +1691,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.testimonials.getAllTestimonialsBy.html
 	 */
-	protected $testimonialsGetAllTestimonialsBy = [
+	protected array $testimonialsGetAllTestimonialsBy = [
 		'path'  => 'flickr.testimonials.getAllTestimonialsBy',
 		'query' => ['page', 'per_page'],
 	];
@@ -1699,7 +1699,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.testimonials.getPendingTestimonialsAbout.html
 	 */
-	protected $testimonialsGetPendingTestimonialsAbout = [
+	protected array $testimonialsGetPendingTestimonialsAbout = [
 		'path'  => 'flickr.testimonials.getPendingTestimonialsAbout',
 		'query' => ['page', 'per_page'],
 	];
@@ -1707,7 +1707,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.testimonials.getPendingTestimonialsAboutBy.html
 	 */
-	protected $testimonialsGetPendingTestimonialsAboutBy = [
+	protected array $testimonialsGetPendingTestimonialsAboutBy = [
 		'path'  => 'flickr.testimonials.getPendingTestimonialsAboutBy',
 		'query' => ['user_id'],
 	];
@@ -1715,7 +1715,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.testimonials.getPendingTestimonialsBy.html
 	 */
-	protected $testimonialsGetPendingTestimonialsBy = [
+	protected array $testimonialsGetPendingTestimonialsBy = [
 		'path'  => 'flickr.testimonials.getPendingTestimonialsBy',
 		'query' => ['page', 'per_page'],
 	];
@@ -1723,7 +1723,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.testimonials.getTestimonialsAbout.html
 	 */
-	protected $testimonialsGetTestimonialsAbout = [
+	protected array $testimonialsGetTestimonialsAbout = [
 		'path'  => 'flickr.testimonials.getTestimonialsAbout',
 		'query' => ['user_id', 'page', 'per_page'],
 	];
@@ -1731,7 +1731,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.testimonials.getTestimonialsAboutBy.html
 	 */
-	protected $testimonialsGetTestimonialsAboutBy = [
+	protected array $testimonialsGetTestimonialsAboutBy = [
 		'path'  => 'flickr.testimonials.getTestimonialsAboutBy',
 		'query' => ['user_id'],
 	];
@@ -1739,7 +1739,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.testimonials.getTestimonialsBy.html
 	 */
-	protected $testimonialsGetTestimonialsBy = [
+	protected array $testimonialsGetTestimonialsBy = [
 		'path'  => 'flickr.testimonials.getTestimonialsBy',
 		'query' => ['user_id', 'page', 'per_page'],
 	];
@@ -1747,7 +1747,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.urls.getGroup.html
 	 */
-	protected $urlsGetGroup = [
+	protected array $urlsGetGroup = [
 		'path'  => 'flickr.urls.getGroup',
 		'query' => ['group_id'],
 	];
@@ -1755,7 +1755,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.urls.getUserPhotos.html
 	 */
-	protected $urlsGetUserPhotos = [
+	protected array $urlsGetUserPhotos = [
 		'path'  => 'flickr.urls.getUserPhotos',
 		'query' => ['user_id'],
 	];
@@ -1763,7 +1763,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.urls.getUserProfile.html
 	 */
-	protected $urlsGetUserProfile = [
+	protected array $urlsGetUserProfile = [
 		'path'  => 'flickr.urls.getUserProfile',
 		'query' => ['user_id'],
 	];
@@ -1771,7 +1771,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.urls.lookupGallery.html
 	 */
-	protected $urlsLookupGallery = [
+	protected array $urlsLookupGallery = [
 		'path'  => 'flickr.urls.lookupGallery',
 		'query' => ['url'],
 	];
@@ -1779,7 +1779,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.urls.lookupGroup.html
 	 */
-	protected $urlsLookupGroup = [
+	protected array $urlsLookupGroup = [
 		'path'  => 'flickr.urls.lookupGroup',
 		'query' => ['url'],
 	];
@@ -1787,7 +1787,7 @@ class FlickrEndpoints extends EndpointMap{
 	/**
 	 * @link https://www.flickr.com/services/api/flickr.urls.lookupUser.html
 	 */
-	protected $urlsLookupUser = [
+	protected array $urlsLookupUser = [
 		'path'  => 'flickr.urls.lookupUser',
 		'query' => ['url'],
 	];

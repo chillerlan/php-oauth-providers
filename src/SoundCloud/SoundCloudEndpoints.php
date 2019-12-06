@@ -72,7 +72,7 @@ class SoundCloudEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $me   = [
+	protected array $me = [
 		'path'          => '/me',
 		'method'        => 'GET',
 		'query'         => [],
@@ -84,7 +84,7 @@ class SoundCloudEndpoints extends EndpointMap{
 	/**
 	 * @link
 	 */
-	protected $user = [
+	protected array $user = [
 		'path'          => '/users/%1$s',
 		'method'        => 'GET',
 		'query'         => [],

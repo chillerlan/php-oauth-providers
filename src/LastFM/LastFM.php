@@ -94,12 +94,12 @@ class LastFM extends OAuthProvider{
 		self::PERIOD_12MONTH,
 	];
 
-	protected $apiURL         = 'https://ws.audioscrobbler.com/2.0';
-	protected $authURL        = 'https://www.last.fm/api/auth';
-	protected $userRevokeURL  = 'https://www.last.fm/settings/applications';
-	protected $endpointMap    = LastFMEndpoints::class;
-	protected $apiDocs        = 'https://www.last.fm/api/';
-	protected $applicationURL = 'https://www.last.fm/api/account/create';
+	protected string $authURL        = 'https://www.last.fm/api/auth';
+	protected ?string $apiURL         = 'https://ws.audioscrobbler.com/2.0';
+	protected ?string $userRevokeURL  = 'https://www.last.fm/settings/applications';
+	protected ?string $endpointMap    = LastFMEndpoints::class;
+	protected ?string $apiDocs        = 'https://www.last.fm/api/';
+	protected ?string $applicationURL = 'https://www.last.fm/api/account/create';
 
 	/**
 	 * @inheritdoc
@@ -118,7 +118,7 @@ class LastFM extends OAuthProvider{
 	 *
 	 * @return string
 	 */
-	protected function getSignature(array $params):string {
+	protected function getSignature(array $params):string{
 		ksort($params);
 
 		$signature = '';
@@ -194,7 +194,7 @@ class LastFM extends OAuthProvider{
 	 *
 	 * @return array
 	 */
-	protected function requestParams(string $apiMethod, array $params, array $body):array {
+	protected function requestParams(string $apiMethod, array $params, array $body):array{
 
 		$params = array_merge($params, $body, [
 			'method'  => $apiMethod,
@@ -224,7 +224,7 @@ class LastFM extends OAuthProvider{
 		$body = null,
 		array $headers = null
 	):ResponseInterface{
-		$method = $method ?? 'GET';
+		$method ??= 'GET';
 		$params = $this->requestParams($path, $params ?? [], $body ?? []);
 
 		if($method === 'POST'){

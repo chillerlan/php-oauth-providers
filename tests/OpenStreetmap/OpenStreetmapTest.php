@@ -20,6 +20,6 @@ use chillerlan\OAuthTest\Providers\OAuth1ProviderTest;
  */
 class OpenStreetmapTest extends OAuth1ProviderTest{
 
-	protected $FQN = OpenStreetmap::class;
+	protected string $FQN = OpenStreetmap::class;
 
 }
