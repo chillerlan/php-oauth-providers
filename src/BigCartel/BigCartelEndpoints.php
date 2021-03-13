@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\BigCartel;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * @link https://developers.bigcartel.com/api/v1

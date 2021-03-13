@@ -15,7 +15,7 @@
 
 namespace chillerlan\OAuth\Providers\MusicBrainz;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 class MusicBrainzEndpoints extends EndpointMap{
 

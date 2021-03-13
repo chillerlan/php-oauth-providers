@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\Microsoft;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * @link https://docs.microsoft.com/en-us/graph/api/overview?view=graph-rest-1.0

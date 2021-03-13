@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\Twitch;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * @link https://dev.twitch.tv/docs/api/reference/

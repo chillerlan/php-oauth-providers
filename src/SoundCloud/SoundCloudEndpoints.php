@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\SoundCloud;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * @link https://developers.soundcloud.com/docs/api/guide

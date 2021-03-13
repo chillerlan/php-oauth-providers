@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\Spotify;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * @link https://beta.developer.spotify.com/documentation/web-api/reference/

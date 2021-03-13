@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\Tumblr;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * @link https://www.tumblr.com/docs/en/api/v2

@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\OpenStreetmap;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  */

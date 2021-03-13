@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\NPR;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * @link https://dev.npr.org/api/

@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\Discogs;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * @todo https://www.discogs.com/forum/thread/757766

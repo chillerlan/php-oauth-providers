@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\PayPal;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * @link https://developer.paypal.com/docs/api/identity/v1/

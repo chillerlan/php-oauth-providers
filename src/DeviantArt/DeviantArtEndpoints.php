@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\DeviantArt;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * @link https://www.deviantart.com/developers/http/v1/20160316

@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\OpenCaching;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 class OpenCachingEndpoints extends EndpointMap{
 

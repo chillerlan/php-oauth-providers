@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\LastFM;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * @link https://www.last.fm/api

@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\Discord;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * @link https://discordapp.com/developers/docs/intro

@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\Mixcloud;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * @link https://www.mixcloud.com/developers/

@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\GitLab;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * @link https://docs.gitlab.com/ee/api/README.html

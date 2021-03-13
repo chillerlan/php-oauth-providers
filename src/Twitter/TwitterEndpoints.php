@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\Twitter;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * https://developer.twitter.com/en/docs/basics/getting-started

@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\Gitter;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * @link https://developer.gitter.im/docs/rest-api

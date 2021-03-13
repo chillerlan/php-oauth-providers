@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\Slack;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * @todo: abstract class for the different endpoint types

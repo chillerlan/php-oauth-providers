@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\Deezer;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * @link https://developers.deezer.com/api/

@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\Instagram;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * @link https://www.instagram.com/developer/endpoints/

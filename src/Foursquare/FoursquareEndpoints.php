@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\Foursquare;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * @link https://developer.foursquare.com/docs

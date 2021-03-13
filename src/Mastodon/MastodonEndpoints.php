@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\Mastodon;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * @link https://github.com/tootsuite/documentation/blob/master/Using-the-API/API.md

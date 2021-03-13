@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\Stripe;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * @link https://stripe.com/docs/api

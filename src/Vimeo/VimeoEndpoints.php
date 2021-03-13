@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\Vimeo;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * @todo WIP

@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\Wordpress;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * @link https://developer.wordpress.com/docs/api/

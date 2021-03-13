@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\BattleNet;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * @link https://develop.battle.net/documentation/api-reference

@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\MailChimp;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * in case you're bored:

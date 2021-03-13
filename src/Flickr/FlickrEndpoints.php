@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\Flickr;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 class FlickrEndpoints extends EndpointMap{
 

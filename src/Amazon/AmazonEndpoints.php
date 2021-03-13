@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers\Amazon;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  */

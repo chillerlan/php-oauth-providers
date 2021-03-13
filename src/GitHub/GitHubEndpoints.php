@@ -14,7 +14,7 @@
 
 namespace chillerlan\OAuth\Providers\GitHub;
 
-use chillerlan\HTTP\MagicAPI\EndpointMap;
+use chillerlan\OAuth\MagicAPI\EndpointMap;
 
 /**
  * @todo
