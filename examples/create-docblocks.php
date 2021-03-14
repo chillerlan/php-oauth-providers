@@ -39,7 +39,9 @@ foreach(getProviders() as $p){
 	/** @var \chillerlan\OAuth\Core\OAuthInterface $provider */
 	$provider = new $p['fqcn']($http, $storage, $options, $logger);
 
+	/** @phan-suppress-next-line PhanUndeclaredClassMethod */
 	$doc = new EndpointDocblock($provider, $provider->endpoints);
+	/** @phan-suppress-next-line PhanUndeclaredClassMethod */
 	$doc->create(ResponseInterface::class);
 #	$doc->createInterface($p['name'], ResponseInterface::class);
 #	$doc->createJSON();
@@ -55,12 +57,11 @@ foreach(getProviders() as $p){
 			$oauth = '-';
 	}
 
-	$table[]
-		= '['.$p['name'].']('.$provider->apiDocs.') '.
-		  '| [link]('.$provider->applicationURL.') '.
-		  '| '.(!$provider->userRevokeURL ? '' : '[link]('.$provider->userRevokeURL.')').
-		  '| '.$oauth.
-		  '| '.($provider instanceof ClientCredentials ? '✓' : '');
+	$table[] = '['.$p['name'].']('.$provider->apiDocs.')'.
+		' | [link]('.$provider->applicationURL.')'.
+		' | '.(!$provider->userRevokeURL ? '' : '[link]('.$provider->userRevokeURL.')').
+		' | '.$oauth.
+		' | '.($provider instanceof ClientCredentials ? '✓' : '');
 
 }
 

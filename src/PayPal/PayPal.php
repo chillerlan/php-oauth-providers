@@ -23,7 +23,7 @@ use function chillerlan\HTTP\Psr7\decompress_content;
 use const PHP_QUERY_RFC1738;
 
 /**
- * @method \Psr\Http\Message\ResponseInterface me(array $params = ['schema'])
+ * @method ResponseInterface me(array $params = ['schema'])
  */
 class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh{
 
@@ -96,10 +96,7 @@ class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	 * @return \chillerlan\OAuth\Core\AccessToken
 	 */
 	public function getAccessToken(string $code, string $state = null):AccessToken{
-
-		if($this instanceof CSRFToken){
-			$this->checkState($state);
-		}
+		$this->checkState($state); // we're instance of CSRFToken
 
 		$body = [
 			'code'          => $code,

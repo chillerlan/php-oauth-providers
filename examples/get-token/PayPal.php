@@ -10,7 +10,7 @@
  */
 
 use chillerlan\HTTP\Psr7;
-use chillerlan\OAuth\Providers\PayPal\{PayPal, PayPalSandbox};
+use chillerlan\OAuth\Providers\PayPal\PayPal; // PayPalSandbox
 
 $ENVVAR = 'PAYPAL'; // PAYPAL_SANDBOX
 

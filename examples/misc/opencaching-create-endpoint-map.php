@@ -101,7 +101,7 @@ $content = '<?php
 
 namespace '.$epr->getNamespaceName().';
 
-use chillerlan\\HTTP\\MagicAPI\\EndpointMap;
+use chillerlan\\OAuth\\MagicAPI\\EndpointMap;
 
 class '.$epr->getShortName().' extends EndpointMap{
 '.implode(PHP_EOL, $str).'

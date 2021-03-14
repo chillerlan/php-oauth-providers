@@ -11,7 +11,7 @@
  */
 
 use chillerlan\HTTP\Psr7;
-use chillerlan\OAuth\Providers\Twitter\{Twitter, TwitterCC};
+use chillerlan\OAuth\Providers\Twitter\Twitter; // TwitterCC
 
 $ENVVAR = 'TWITTER';
 

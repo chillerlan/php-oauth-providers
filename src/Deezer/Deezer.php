@@ -60,7 +60,7 @@ class Deezer extends OAuth2Provider implements CSRFToken{
 		$params = array_merge($params, [
 			'app_id'        => $this->options->key,
 			'redirect_uri'  => $this->options->callbackURL,
-			'perms'         => implode($this->scopesDelimiter, $scopes),
+			'perms'         => implode($this->scopesDelimiter, $scopes ?? []),
 #			'response_type' => 'token', // -> token in hash fragment
 		]);
 

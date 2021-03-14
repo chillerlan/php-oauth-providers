@@ -124,13 +124,7 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	}
 
 	/**
-	 * @param string $path
-	 * @param array  $params
-	 * @param string $method
-	 * @param null   $body
-	 * @param array  $headers
-	 *
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @inheritDoc
 	 */
 	public function request(
 		string $path,
@@ -140,7 +134,7 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenRefresh{
 		array $headers = null
 	):ResponseInterface{
 		$params = $params ?? [];
-		$method = strtoupper($method);
+		$method = strtoupper($method ?? '');
 		$token  = $this->storage->getAccessToken($this->serviceName);
 
 		if($token->isExpired()){

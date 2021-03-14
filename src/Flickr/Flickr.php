@@ -18,6 +18,7 @@ namespace chillerlan\OAuth\Providers\Flickr;
 use chillerlan\OAuth\Core\OAuth1Provider;
 use Psr\Http\Message\ResponseInterface;
 
+use function array_merge;
 use function chillerlan\HTTP\Psr7\merge_query;
 
 /**
@@ -163,7 +164,7 @@ use function chillerlan\HTTP\Psr7\merge_query;
  * @method \Psr\Http\Message\ResponseInterface photosetsEditPhotos(array $params = ['photoset_id', 'primary_photo_id', 'photo_ids'])
  * @method \Psr\Http\Message\ResponseInterface photosetsGetContext(array $params = ['photo_id', 'photoset_id'])
  * @method \Psr\Http\Message\ResponseInterface photosetsGetInfo(array $params = ['photoset_id', 'user_id'])
- * @method \Psr\Http\Message\ResponseInterface photosetsGetList(array $params = ['user_id', 'page', 'per_page', 'primary_photo_extras', 'photo_ids'])
+ * @method \Psr\Http\Message\ResponseInterface photosetsGetList(array $params = ['user_id', 'page', 'per_page', 'primary_photo_extras', 'photo_ids', 'sort_groups'])
  * @method \Psr\Http\Message\ResponseInterface photosetsGetPhotos(array $params = ['photoset_id', 'user_id', 'extras', 'per_page', 'page', 'privacy_filter', 'media'])
  * @method \Psr\Http\Message\ResponseInterface photosetsOrderSets(array $params = ['photoset_ids'])
  * @method \Psr\Http\Message\ResponseInterface photosetsRemovePhoto(array $params = ['photoset_id', 'photo_id'])
@@ -260,13 +261,7 @@ class Flickr extends OAuth1Provider{
 	protected ?string $applicationURL  = 'https://www.flickr.com/services/apps/create/';
 
 	/**
-	 * @param string $path
-	 * @param array  $params
-	 * @param string $method
-	 * @param null   $body
-	 * @param array  $headers
-	 *
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @inheritDoc
 	 */
 	public function request(
 		string $path,
@@ -276,13 +271,14 @@ class Flickr extends OAuth1Provider{
 		array $headers = null
 	):ResponseInterface{
 
-		$params = \array_merge($params ?? [], [
+		$params = array_merge($params ?? [], [
 			'method'         => $path,
 			'format'         => 'json',
 			'nojsoncallback' => true,
 		]);
 
 		$request = $this->getRequestAuthorization(
+			/** @phan-suppress-next-line PhanTypeMismatchArgumentNullable */
 			$this->requestFactory->createRequest($method ?? 'POST', merge_query($this->apiURL, $params)),
 			$this->storage->getAccessToken($this->serviceName)
 		);

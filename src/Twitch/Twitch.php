@@ -63,9 +63,9 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	/**
 	 * @link https://dev.twitch.tv/docs/authentication#oauth-client-credentials-flow-app-access-tokens
 	 *
-	 * @param array $scopes
+	 * @param array|null $scopes
 	 *
-	 * @return \chillerlan\OAuth\Core\AccessToken|\chillerlan\Settings\SettingsContainerInterface
+	 * @return \chillerlan\OAuth\Core\AccessToken
 	 */
 	public function getClientCredentialsToken(array $scopes = null):AccessToken{
 		$params = [

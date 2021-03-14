@@ -34,6 +34,7 @@ $classfile = $epr->getFileName();
 $gw2->storeGW2Token($env->GW2_TOKEN);
 
 #$api = explode("\r\n", explode("\r\n\r\n", explode("API:\r\n",  file_get_contents('https://api.guildwars2.com/v2'), 2)[1])[0]);
+/** @phan-suppress-next-line PhanTypeArraySuspiciousNullable */
 $api = json_decode(file_get_contents('https://api.guildwars2.com/v2.json'), true)['routes'];
 
 // add missing endpoints
@@ -109,6 +110,8 @@ $api[] = ['path' => '/v2/wvw/matches/stats/:id', 'lang' => false, 'auth' => fals
 $api[] = ['path' => '/v2/wvw/objectives/:id', 'lang' => true, 'auth' => false, 'active' => true];
 $api[] = ['path' => '/v2/wvw/ranks/:id', 'lang' => true, 'auth' => false, 'active' => true];
 $api[] = ['path' => '/v2/wvw/upgrades/:id', 'lang' => true, 'auth' => false, 'active' => true];
+
+$apiMethods = [];
 
 foreach($api as $endpoint){
 	$query         = [];
@@ -187,7 +190,7 @@ $content = '<?php
 
 namespace '.$epr->getNamespaceName().';
 
-use chillerlan\\HTTP\\MagicAPI\\EndpointMap;
+use chillerlan\\OAuth\\MagicAPI\\EndpointMap;
 
 class '.$epr->getShortName().' extends EndpointMap{
 '.implode(PHP_EOL, $str).'

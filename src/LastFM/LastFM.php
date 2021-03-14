@@ -148,6 +148,7 @@ class LastFM extends OAuthProvider{
 
 		$params['api_sig'] = $this->getSignature($params);
 
+		/** @phan-suppress-next-line PhanTypeMismatchArgumentNullable */
 		$request = $this->requestFactory->createRequest('GET', merge_query($this->apiURL, $params));
 
 		return $this->parseTokenResponse($this->http->sendRequest($request));
@@ -209,13 +210,7 @@ class LastFM extends OAuthProvider{
 	}
 
 	/**
-	 * @param string $path
-	 * @param array  $params
-	 * @param string $method
-	 * @param null   $body
-	 * @param array  $headers
-	 *
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @inheritDoc
 	 */
 	public function request(
 		string $path,
@@ -232,6 +227,7 @@ class LastFM extends OAuthProvider{
 			$params = [];
 		}
 
+		/** @phan-suppress-next-line PhanTypeMismatchArgumentNullable */
 		$request = $this->requestFactory->createRequest($method, merge_query($this->apiURL, $params));
 
 		foreach(array_merge($this->apiHeaders, $headers ?? []) as $header => $value){

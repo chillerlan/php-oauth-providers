@@ -40,20 +40,14 @@ class Foursquare extends OAuth2Provider{
 	protected int $authMethod         = self::AUTH_METHOD_QUERY;
 
 	/**
-	 * @param string $path
-	 * @param array  $params
-	 * @param string $method
-	 * @param null   $body
-	 * @param array  $headers
-	 *
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @inheritDoc
 	 */
 	public function request(
 		string $path,
 		array $params = null,
 		string $method = null,
-		$body = null, array
-		$headers = null
+		$body = null,
+		array $headers = null
 	):ResponseInterface{
 
 		parse_str(parse_url($this->apiURL.$path, PHP_URL_QUERY), $query);
