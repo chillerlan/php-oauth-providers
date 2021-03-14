@@ -29,7 +29,7 @@
 		"php": "^7.4 || ^8.0",
 		"ext-json":"*",
 		"ext-simplexml":"*",
-		"chillerlan/php-oauth-core": "dev-main#ca3556b60f075314839c1868b517e892d733bcb1",
+		"chillerlan/php-oauth-core": "dev-main#a8114ca961c1915e9052330bcc1f89fc2f35002f",
 		"psr/http-client":"^1.0",
 		"psr/http-message": "^1.0"
 	},
