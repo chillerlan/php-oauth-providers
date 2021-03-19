@@ -13,9 +13,8 @@ use chillerlan\OAuth\OAuthOptions;
 use chillerlan\OAuthTest\{OAuthTestHttpClient, OAuthTestLogger};
 use function ini_set;
 
-require_once __DIR__.'/../vendor/autoload.php';
-
-$CFGDIR = __DIR__.'/../config';
+// allow to use a different autoloader to make it easier to use the examples (@todo: WIP)
+require_once $VENDORDIR ?? __DIR__.'/../vendor/autoload.php';
 
 ini_set('date.timezone', 'Europe/Amsterdam');
 
