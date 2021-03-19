@@ -87,8 +87,7 @@ class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh{
 
 			// attempt to refresh an expired token
 			if(
-				$this instanceof TokenRefresh
-				&& $this->options->tokenAutoRefresh
+				$this->options->tokenAutoRefresh
 				&& ($token->isExpired() || $token->expires === $token::EOL_UNKNOWN)
 			){
 				$token = $this->refreshAccessToken($token); // @codeCoverageIgnore
