@@ -13,6 +13,7 @@ namespace chillerlan\OAuthExamples;
 use chillerlan\DotEnv\DotEnv;
 use chillerlan\HTTP\Psr18\CurlClient;
 use chillerlan\OAuth\OAuthOptions;
+use chillerlan\OAuth\Storage\SessionStorage;
 use Psr\Log\NullLogger;
 
 use function ini_set;
@@ -66,5 +67,5 @@ $http    = new CurlClient($options); // new OAuthTestHttpClient($options);
 #$http->setLogger($logger);
 
 /** @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage */
-$storage = $storage ?? new OAuthExampleSessionStorage($options, $CFGDIR);
+$storage = New SessionStorage($options); // new OAuthExampleSessionStorage($options, $CFGDIR);
 #$storage->setLogger($logger);
