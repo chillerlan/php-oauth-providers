@@ -11,11 +11,17 @@
 namespace chillerlan\OAuthExamples;
 
 use chillerlan\DotEnv\DotEnv;
+use chillerlan\HTTP\Psr18\CurlClient;
 use chillerlan\OAuth\OAuthOptions;
-use chillerlan\OAuthTest\{OAuthTestHttpClient, OAuthTestLogger};
+use Psr\Log\NullLogger;
+
 use function ini_set;
 
-// allow to use a different autoloader to make it easier to use the examples (@todo: WIP)
+/**
+ * allow to use a different autoloader to make it easier to use the examples (@todo: WIP)
+ *
+ * @var string $AUTOLOADER - path to an alternate autoloader
+ */
 require_once $AUTOLOADER ?? __DIR__.'/../vendor/autoload.php';
 
 ini_set('date.timezone', 'Europe/Amsterdam');
@@ -23,15 +29,17 @@ ini_set('date.timezone', 'Europe/Amsterdam');
 /**
  * these vars are supposed to be set before this file is included
  *
+ * @var string $ENVFILE  - the name of the .env file in case it differs from the default
  * @var string $ENVVAR   - name prefix for the environment variable
  * @var string $CFGDIR   - the directory where configuration is stored (.env, cacert, tokens)
  * @var string $LOGLEVEL - log level for the test logger, use 'none' to suppress logging
  */
+$ENVFILE  = $ENVFILE ?? '.env';
 $ENVVAR   = $ENVVAR ?? '';
 $CFGDIR   = $CFGDIR ?? __DIR__.'/../config';
 $LOGLEVEL = $LOGLEVEL ?? 'info';
 
-$env = (new DotEnv($CFGDIR, '.env', false))->load();
+$env = (new DotEnv($CFGDIR, $ENVFILE, false))->load();
 
 $options_arr = [
 	// OAuthOptions
@@ -53,8 +61,8 @@ $options_arr = [
  * @var \Psr\Http\Client\ClientInterface $http
  */
 $options = $options ?? new OAuthOptions($options_arr);
-$logger  = $logger ?? new OAuthTestLogger($LOGLEVEL);
-$http    = $http ?? new OAuthTestHttpClient($options);
+$logger  = new NullLogger; // new OAuthTestLogger($LOGLEVEL);
+$http    = new CurlClient($this->options); // new OAuthTestHttpClient($options);
 #$http->setLogger($logger);
 
 /** @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage */
