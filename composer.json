@@ -27,9 +27,10 @@
 	"prefer-stable": true,
 	"require": {
 		"php": "^7.4 || ^8.0",
+		"ext-curl": "*",
 		"ext-json":"*",
 		"ext-simplexml":"*",
-		"chillerlan/php-oauth-core": "dev-main#e8bbca42c7e13a69f4d49112e0e42c9ac84c217e",
+		"chillerlan/php-oauth-core": "dev-main#e41c5f4e83f05b8aa4c6065b97e6889bc890422b",
 		"psr/http-client":"^1.0",
 		"psr/http-message": "^1.0"
 	},
@@ -48,7 +49,6 @@
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"chillerlan\\HTTPTest\\MagicAPI\\": "vendor/chillerlan/php-magic-apiclient/tests",
 			"chillerlan\\OAuthTest\\": "vendor/chillerlan/php-oauth-core/tests",
 			"chillerlan\\OAuthTest\\Providers\\": "tests/",
 			"chillerlan\\OAuthExamples\\": "examples/"
