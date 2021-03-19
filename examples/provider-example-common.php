@@ -52,11 +52,11 @@ $options_arr = [
  * @var \Psr\Log\LoggerInterface $logger
  * @var \Psr\Http\Client\ClientInterface $http
  */
-$options = new OAuthOptions($options_arr);
-$logger  = new OAuthTestLogger($LOGLEVEL);
-$http    = new OAuthTestHttpClient($options);
+$options = $options ?? new OAuthOptions($options_arr);
+$logger  = $logger ?? new OAuthTestLogger($LOGLEVEL);
+$http    = $http ?? new OAuthTestHttpClient($options);
 #$http->setLogger($logger);
 
 /** @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage */
-$storage = new OAuthExampleSessionStorage($options, $CFGDIR);
+$storage = $storage ?? new OAuthExampleSessionStorage($options, $CFGDIR);
 #$storage->setLogger($logger);
