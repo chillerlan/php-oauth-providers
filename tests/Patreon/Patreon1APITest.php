@@ -2,9 +2,7 @@
 /**
  * Class Patreon1APITest
  *
- * @filesource   Patreon1APITest.php
  * @created      04.03.2019
- * @package      chillerlan\OAuthTest\Providers\Patreon
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley
  * @license      MIT

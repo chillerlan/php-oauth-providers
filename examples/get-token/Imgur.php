@@ -2,7 +2,6 @@
 /**
  * @link https://apidocs.imgur.com/?version=latest#authorization-and-oauth
  *
- * @filesource   Imgur.php
  * @created      28.07.2019
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley

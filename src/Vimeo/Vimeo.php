@@ -5,9 +5,7 @@
  * @link https://developer.vimeo.com/
  * @link https://developer.vimeo.com/api/authentication
  *
- * @filesource   Vimeo.php
  * @created      09.04.2018
- * @package      chillerlan\OAuth\Providers\Vimeo
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2018 Smiley
  * @license      MIT

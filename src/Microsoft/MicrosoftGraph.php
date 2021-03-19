@@ -4,9 +4,7 @@
  *
  * @link https://docs.microsoft.com/graph/permissions-reference
  *
- * @filesource   MicrosoftGraph.php
  * @created      30.07.2019
- * @package      chillerlan\OAuth\Providers\Microsoft
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley
  * @license      MIT

@@ -2,9 +2,7 @@
 /**
  * Class DiscogsEndpoints
  *
- * @filesource   DiscogsEndpoints.php
  * @created      08.04.2018
- * @package      chillerlan\OAuth\Providers\Discogs
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
  * @license      MIT

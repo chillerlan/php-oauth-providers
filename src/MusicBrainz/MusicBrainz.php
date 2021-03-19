@@ -5,9 +5,7 @@
  * @link https://musicbrainz.org/doc/Development
  * @link https://musicbrainz.org/doc/Development/OAuth2
  *
- * @filesource   MusicBrainz.php
  * @created      31.07.2018
- * @package      chillerlan\OAuth\Providers
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT

@@ -2,7 +2,6 @@
 /**
  * @link https://developers.google.com/identity/protocols/OAuth2WebServer
  *
- * @filesource   Google.php
  * @created      09.08.2018
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley

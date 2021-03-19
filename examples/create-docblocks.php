@@ -1,7 +1,6 @@
 <?php
 /**
  *
- * @filesource   create-docblocks.php
  * @created      27.07.2019
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley

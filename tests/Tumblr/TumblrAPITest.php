@@ -2,9 +2,7 @@
 /**
  * Class TumblrTest
  *
- * @filesource   TumblrTest.php
  * @created      24.10.2017
- * @package      chillerlan\OAuthTest\Providers\Tumblr
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT

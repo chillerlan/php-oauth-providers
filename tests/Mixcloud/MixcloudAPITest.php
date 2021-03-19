@@ -2,9 +2,7 @@
 /**
  * Class MixcloudAPITest
  *
- * @filesource   MixcloudAPITest.php
  * @created      20.04.2018
- * @package      chillerlan\OAuthTest\Providers\Mixcloud
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
  * @license      MIT

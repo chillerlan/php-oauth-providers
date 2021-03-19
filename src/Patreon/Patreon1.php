@@ -5,9 +5,7 @@
  * @link https://docs.patreon.com/
  * @link https://docs.patreon.com/#oauth
  *
- * @filesource   Patreon1.php
  * @created      09.08.2018
- * @package      chillerlan\OAuth\Providers\Patreon1
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2018 Smiley
  * @license      MIT

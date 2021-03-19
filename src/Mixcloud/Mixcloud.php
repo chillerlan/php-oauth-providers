@@ -4,9 +4,7 @@
  *
  * @link https://www.mixcloud.com/developers/
  *
- * @filesource   Mixcloud.php
  * @created      28.10.2017
- * @package      chillerlan\OAuth\Providers\Mixcloud
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT

@@ -2,9 +2,7 @@
 /**
  * Class MixcloudEndpoints
  *
- * @filesource   MixcloudEndpoints.php
  * @created      20.04.2018
- * @package      chillerlan\OAuth\Providers\Mixcloud
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
  * @license      MIT

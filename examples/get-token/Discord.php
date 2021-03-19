@@ -2,7 +2,6 @@
 /**
  * @link https://discordapp.com/developers/docs/topics/oauth2
  *
- * @filesource   Discord.php
  * @created      20.04.2018
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley

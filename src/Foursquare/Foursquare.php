@@ -5,9 +5,7 @@
  * @link https://developer.foursquare.com/docs/
  * @link https://developer.foursquare.com/overview/auth
  *
- * @filesource   Foursquare.php
  * @created      10.08.2018
- * @package      chillerlan\OAuth\Providers\Foursquare
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2018 Smiley
  * @license      MIT

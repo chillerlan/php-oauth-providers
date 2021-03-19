@@ -2,7 +2,6 @@
 /**
  * @link https://developers.bigcartel.com/api/v1#oauth-from-scratch
  *
- * @filesource   BigCartel.php
  * @created      10.04.2018
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2018 Smiley

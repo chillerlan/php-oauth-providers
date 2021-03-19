@@ -5,9 +5,7 @@
  * @link https://www.discogs.com/developers/
  * @link https://www.discogs.com/developers/#page:authentication,header:authentication-oauth-flow
  *
- * @filesource   Discogs.php
  * @created      08.04.2018
- * @package      chillerlan\OAuth\Providers\Discogs
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2018 Smiley
  * @license      MIT

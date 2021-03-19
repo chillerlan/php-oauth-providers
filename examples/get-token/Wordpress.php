@@ -2,7 +2,6 @@
 /**
  * @link https://developer.wordpress.com/docs/oauth2/
  *
- * @filesource   Wordpress.php
  * @created      21.04.2018
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley

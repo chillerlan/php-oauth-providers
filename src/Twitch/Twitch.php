@@ -5,9 +5,7 @@
  * @link https://dev.twitch.tv/docs/api/reference/
  * @link https://dev.twitch.tv/docs/authentication/
  *
- * @filesource   Twitch.php
  * @created      22.10.2017
- * @package      chillerlan\OAuth\Providers\Twitch
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT

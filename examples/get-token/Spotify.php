@@ -2,7 +2,6 @@
 /**
  * @link https://beta.developer.spotify.com/documentation/general/guides/authorization-guide/
  *
- * @filesource   Spotify.php
  * @created      10.07.2017
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley

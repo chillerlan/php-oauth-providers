@@ -1,6 +1,5 @@
 <?php
 /**
- * @filesource   gw2-create-endpoint-map.php
  * @created      28.07.2019
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley
@@ -182,9 +181,7 @@ $content = '<?php
  * @link https://wiki.guildwars2.com/wiki/API:Main
  * @link https://api.guildwars2.com/v2.json
  *
- * @filesource   '.$epr->getShortName().'.php
  * @created      '.date('d.m.Y').'
- * @package      '.$epr->getNamespaceName().'
  * @license      MIT
  */
 

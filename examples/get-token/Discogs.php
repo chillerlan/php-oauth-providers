@@ -2,7 +2,6 @@
 /**
  * @link https://www.discogs.com/developers/#page:authentication,header:authentication-oauth-flow
  *
- * @filesource   Discogs.php
  * @created      10.07.2017
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley

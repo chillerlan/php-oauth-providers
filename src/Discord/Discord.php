@@ -4,9 +4,7 @@
  *
  * @link https://discordapp.com/developers/docs/topics/oauth2
  *
- * @filesource   Discord.php
  * @created      22.10.2017
- * @package      chillerlan\OAuth\Providers\Discord
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT

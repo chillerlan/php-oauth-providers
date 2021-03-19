@@ -2,9 +2,7 @@
 /**
  * Class DiscogsAPITest
  *
- * @filesource   DiscogsAPITest.php
  * @created      10.07.2017
- * @package      chillerlan\OAuthTest\Providers\Discogs
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT

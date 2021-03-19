@@ -5,9 +5,7 @@
  * @link https://musicbrainz.org/doc/Development/XML_Web_Service/Version_2
  * @link https://musicbrainz.org/doc/Development/JSON_Web_Service
  *
- * @filesource   MusicBrainzEndpoints.php
  * @created      31.07.2018
- * @package      chillerlan\OAuth\Providers\MusicBrainz
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
  * @license      MIT

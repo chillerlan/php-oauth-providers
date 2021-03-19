@@ -5,9 +5,7 @@
  * @link https://developers.bigcartel.com/api/v1
  * @link https://bigcartel.wufoo.com/confirm/big-cartel-api-application/
  *
- * @filesource   BigCartel.php
  * @created      10.04.2018
- * @package      chillerlan\OAuth\Providers\BigCartel
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 Smiley
  * @license      MIT

@@ -2,9 +2,7 @@
 /**
  * Class DeviantArt
  *
- * @filesource   DeviantArt.php
  * @created      26.10.2017
- * @package      chillerlan\OAuth\Providers\DeviantArt
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT

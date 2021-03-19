@@ -2,9 +2,7 @@
 /**
  * Class SlackAPITest
  *
- * @filesource   SlackAPITest.php
  * @created      20.04.2018
- * @package      chillerlan\OAuthTest\Providers\Slack
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
  * @license      MIT

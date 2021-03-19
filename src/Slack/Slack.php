@@ -6,9 +6,7 @@
  * @link https://api.slack.com/docs/sign-in-with-slack
  * @link https://api.slack.com/docs/token-types
  *
- * @filesource   Slack.php
  * @created      26.10.2017
- * @package      chillerlan\OAuth\Providers\Slack
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT

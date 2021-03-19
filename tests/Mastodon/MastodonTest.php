@@ -2,9 +2,7 @@
 /**
  * Class MastodonTest
  *
- * @filesource   MastodonTest.php
  * @created      19.08.2018
- * @package      chillerlan\OAuthTest\Providers\Mastodon
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
  * @license      MIT

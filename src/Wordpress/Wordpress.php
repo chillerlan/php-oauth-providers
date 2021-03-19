@@ -4,9 +4,7 @@
  *
  * @link https://developer.wordpress.com/docs/oauth2/
  *
- * @filesource   Wordpress.php
  * @created      26.10.2017
- * @package      chillerlan\OAuth\Providers\Wordpress
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT

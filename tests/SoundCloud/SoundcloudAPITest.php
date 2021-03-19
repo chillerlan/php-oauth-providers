@@ -2,9 +2,7 @@
 /**
  * Class SoundcloudAPITest
  *
- * @filesource   SoundcloudAPITest.php
  * @created      16.07.2017
- * @package      chillerlan\OAuthTest\Providers\SoundCloud
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT

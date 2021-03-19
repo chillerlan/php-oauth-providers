@@ -2,9 +2,7 @@
 /**
  * Class GitHubAPITest
  *
- * @filesource   GitHubAPITest.php
  * @created      18.07.2017
- * @package      chillerlan\OAuthTest\Providers\GitHub
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT

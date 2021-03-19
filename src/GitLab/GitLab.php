@@ -4,9 +4,7 @@
  *
  * @link https://docs.gitlab.com/ee/api/oauth2.html
  *
- * @filesource   GitLab.php
  * @created      29.07.2019
- * @package      chillerlan\OAuth\Providers\GitLab
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley
  * @license      MIT

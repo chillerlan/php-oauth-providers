@@ -7,9 +7,7 @@
  * sure, you *can* use different parameter names than the standard ones... and what about JSON?
  * https://xkcd.com/927/
  *
- * @filesource   Deezer.php
  * @created      09.08.2018
- * @package      chillerlan\OAuth\Providers\Deezer
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2018 Smiley
  * @license      MIT

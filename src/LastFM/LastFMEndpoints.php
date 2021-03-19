@@ -2,9 +2,7 @@
 /**
  * Class LastFMEndpoints
  *
- * @filesource   LastFMEndpoints.php
  * @created      08.04.2018
- * @package      chillerlan\OAuth\Providers\LastFM
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
  * @license      MIT

@@ -2,7 +2,6 @@
 /**
  * @link https://www.deviantart.com/developers/authentication
  *
- * @filesource   DeviantArt.php
  * @created      21.04.2018
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley

@@ -2,7 +2,6 @@
 /**
  * @link https://dev.twitch.tv/docs/authentication/
  *
- * @filesource   Twitch.php
  * @created      20.04.2018
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley

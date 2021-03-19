@@ -2,7 +2,6 @@
 /**
  * @link https://wiki.openstreetmap.org/wiki/OAuth
  *
- * @filesource   OpenStreetmap.php
  * @created      12.05.2019
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2019 Smiley

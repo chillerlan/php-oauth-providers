@@ -2,9 +2,7 @@
 /**
  * Class MastodonEndpoints
  *
- * @filesource   MastodonEndpoints.php
  * @created      19.08.2018
- * @package      chillerlan\OAuth\Providers\Mastodon
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
  * @license      MIT

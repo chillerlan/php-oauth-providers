@@ -2,9 +2,7 @@
 /**
  * Class DeviantArtAPITest
  *
- * @filesource   DeviantArtAPITest.php
  * @created      27.10.2017
- * @package      chillerlan\OAuthTest\Providers\DeviantArt
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT

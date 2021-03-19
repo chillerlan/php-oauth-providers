@@ -2,9 +2,7 @@
 /**
  * Class VimeoEndpoints
  *
- * @filesource   VimeoEndpoints.php
  * @created      09.04.2018
- * @package      chillerlan\OAuth\Providers\Vimeo
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
  * @license      MIT

@@ -5,9 +5,7 @@
  * @link https://developers.soundcloud.com/
  * @link https://developers.soundcloud.com/docs/api/guide#authentication
  *
- * @filesource   SoundCloud.php
  * @created      22.10.2017
- * @package      chillerlan\OAuth\Providers\SoundCloud
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT

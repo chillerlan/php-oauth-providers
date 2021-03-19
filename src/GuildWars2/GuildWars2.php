@@ -7,9 +7,7 @@
  *
  * GW2 does not support authentication (anymore) but the API still works like a regular OAUth API, so...
  *
- * @filesource   GuildWars2.php
  * @created      22.10.2017
- * @package      chillerlan\OAuth\Providers\GuildWars2
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT

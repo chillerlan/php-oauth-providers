@@ -8,9 +8,7 @@
  * @link https://stripe.com/docs/connect/standard-accounts
  * @link https://gist.github.com/amfeng/3507366
  *
- * @filesource   Stripe.php
  * @created      09.08.2018
- * @package      chillerlan\OAuth\Providers\Stripe
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2018 Smiley
  * @license      MIT

@@ -2,9 +2,7 @@
 /**
  * Class TwitterAPITest
  *
- * @filesource   TwitterAPITest.php
  * @created      11.07.2017
- * @package      chillerlan\OAuthTest\Providers\Twitter
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT

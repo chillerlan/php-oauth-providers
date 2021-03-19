@@ -4,9 +4,7 @@
  *
  * @link https://developer.github.com/v3/
  *
- * @filesource   GitHubEndpoints.php
  * @created      12.04.2018
- * @package      chillerlan\OAuth\Providers\GitHub
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
  * @license      MIT

@@ -2,7 +2,6 @@
 /**
  * @link https://docs.microsoft.com/azure/active-directory/develop/v2-app-types
  *
- * @filesource   MicrosoftGraph.php
  * @created      31.07.2019
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley

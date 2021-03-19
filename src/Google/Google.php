@@ -6,9 +6,7 @@
  * @link https://developers.google.com/identity/protocols/OAuth2ServiceAccount
  * @link https://developers.google.com/oauthplayground/
  *
- * @filesource   Google.php
  * @created      09.08.2018
- * @package      chillerlan\Google
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
  * @license      MIT

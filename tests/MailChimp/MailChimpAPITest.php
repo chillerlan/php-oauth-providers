@@ -2,9 +2,7 @@
 /**
  * Class MailChimpAPITest
  *
- * @filesource   MailChimpAPITest.php
  * @created      16.08.2018
- * @package      chillerlan\OAuthTest\Providers\MailChimp
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
  * @license      MIT

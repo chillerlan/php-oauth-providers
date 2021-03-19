@@ -2,9 +2,7 @@
 /**
  * Class OpenStreetmapAPITest
  *
- * @filesource   OpenStreetmapAPITest.php
  * @created      12.05.2019
- * @package      chillerlan\OAuthTest\Providers\OpenStreetmap
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley
  * @license      MIT

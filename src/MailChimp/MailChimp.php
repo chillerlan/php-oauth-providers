@@ -5,9 +5,7 @@
  * @link http://developer.mailchimp.com/
  * @link http://developer.mailchimp.com/documentation/mailchimp/guides/how-to-use-oauth2/
  *
- * @filesource   MailChimp.php
  * @created      16.08.2018
- * @package      chillerlan\OAuth\Providers\MailChimp
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
  * @license      MIT

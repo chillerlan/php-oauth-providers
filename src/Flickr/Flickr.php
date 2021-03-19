@@ -5,9 +5,7 @@
  * @link https://www.flickr.com/services/api/auth.oauth.html
  * @link https://www.flickr.com/services/api/
  *
- * @filesource   Flickr.php
  * @created      20.10.2017
- * @package      chillerlan\OAuth\Providers\Flickr
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT

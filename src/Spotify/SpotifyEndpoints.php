@@ -2,9 +2,7 @@
 /**
  * Class SpotifyEndpoints
  *
- * @filesource   SpotifyEndpoints.php
  * @created      06.04.2018
- * @package      chillerlan\OAuth\Providers\Spotify
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
  * @license      MIT

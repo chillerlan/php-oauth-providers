@@ -2,7 +2,6 @@
 /**
  * @link https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/
  *
- * @filesource   GitHub.php
  * @created      22.10.2017
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley

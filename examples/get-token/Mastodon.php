@@ -2,7 +2,6 @@
 /**
  * @link https://github.com/tootsuite/documentation/blob/master/Using-the-API/OAuth-details.md
  *
- * @filesource   Mastodon.php
  * @created      19.08.2018
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley

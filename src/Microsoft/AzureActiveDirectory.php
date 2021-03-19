@@ -4,9 +4,7 @@
  *
  * @link https://docs.microsoft.com/azure/active-directory/develop/v2-app-types
  *
- * @filesource   AzureActiveDirectory.php
  * @created      29.07.2019
- * @package      chillerlan\OAuth\Providers\Microsoft
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley
  * @license      MIT

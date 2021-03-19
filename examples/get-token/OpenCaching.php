@@ -2,7 +2,6 @@
 /**
  * @link https://www.opencaching.de/okapi/introduction.html
  *
- * @filesource   OpenCaching.php
  * @created      04.03.2019
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley

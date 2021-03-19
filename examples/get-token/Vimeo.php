@@ -2,7 +2,6 @@
 /**
  * @link https://developer.vimeo.com/api/authentication
  *
- * @filesource   Vimeo.php
  * @created      10.04.2018
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2018 Smiley

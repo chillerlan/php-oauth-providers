@@ -1,6 +1,5 @@
 <?php
 /**
- * @filesource   provider-example-common.php
  * @created      26.07.2019
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley

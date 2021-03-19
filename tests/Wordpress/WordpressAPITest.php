@@ -2,9 +2,7 @@
 /**
  * Class WordpressAPITest
  *
- * @filesource   WordpressAPITest.php
  * @created      21.04.2018
- * @package      chillerlan\OAuthTest\Providers\Wordpress
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
  * @license      MIT

@@ -2,9 +2,7 @@
 /**
  * Class AmazonTest
  *
- * @filesource   AmazonTest.php
  * @created      10.08.2018
- * @package      chillerlan\OAuthTest\Providers\Amazon
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2018 Smiley
  * @license      MIT

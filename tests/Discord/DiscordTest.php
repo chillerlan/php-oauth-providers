@@ -2,9 +2,7 @@
 /**
  * Class DiscordTest
  *
- * @filesource   DiscordTest.php
  * @created      01.01.2018
- * @package      chillerlan\OAuthTest\Providers\Discord
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2018 Smiley
  * @license      MIT

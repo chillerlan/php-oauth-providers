@@ -2,7 +2,6 @@
 /**
  * @link https://developer.foursquare.com/overview/auth
  *
- * @filesource   Foursquare.php
  * @created      10.08.2018
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2018 Smiley

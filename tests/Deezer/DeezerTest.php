@@ -2,9 +2,7 @@
 /**
  * Class DeezerTest
  *
- * @filesource   DeezerTest.php
  * @created      09.08.2018
- * @package      chillerlan\OAuthTest\Providers\Deezer
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT

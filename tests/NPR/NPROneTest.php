@@ -2,9 +2,7 @@
 /**
  * Class NPROneTest
  *
- * @filesource   NPROneTest.php
  * @created      28.07.2019
- * @package      chillerlan\OAuthTest\Providers\NPR
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley
  * @license      MIT

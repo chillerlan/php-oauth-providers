@@ -2,9 +2,7 @@
 /**
  * Class OpenStreetmapEndpoints
  *
- * @filesource   OpenStreetmapEndpoints.php
  * @created      12.05.2019
- * @package      chillerlan\OAuth\Providers\OpenStreetmap
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley
  * @license      MIT

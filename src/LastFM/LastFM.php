@@ -4,9 +4,7 @@
  *
  * @link https://www.last.fm/api/authentication
  *
- * @filesource   LastFM.php
  * @created      10.04.2018
- * @package      chillerlan\OAuth\Providers\LastFM
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2018 Smiley
  * @license      MIT

@@ -2,9 +2,7 @@
 /**
  * Class MicrosoftGraphEndpoints
  *
- * @filesource   MicrosoftGraphEndpoints.php
  * @created      30.07.2019
- * @package      chillerlan\OAuth\Providers\Microsoft
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley
  * @license      MIT

@@ -2,9 +2,7 @@
 /**
  * Class InstagramTest
  *
- * @filesource   InstagramTest.php
  * @created      10.07.2017
- * @package      chillerlan\OAuthTest\Providers\Instagram
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT

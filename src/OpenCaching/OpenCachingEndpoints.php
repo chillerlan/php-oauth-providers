@@ -4,9 +4,7 @@
  *
  * @link https://www.opencaching.de/okapi/introduction.html
  *
- * @filesource   OpenCachingEndpoints.php
  * @created      06.12.2019
- * @package      chillerlan\OAuth\Providers\OpenCaching
  * @license      MIT
  */
 

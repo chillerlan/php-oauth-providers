@@ -5,9 +5,7 @@
  * @link https://www.instagram.com/developer/endpoints/
  * @link https://www.instagram.com/developer/authentication/
  *
- * @filesource   Instagram.php
  * @created      10.04.2018
- * @package      chillerlan\OAuth\Providers\Instagram
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
  * @license      MIT

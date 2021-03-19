@@ -2,9 +2,7 @@
 /**
  * Class StripeTest
  *
- * @filesource   StripeTest.php
  * @created      09.08.2018
- * @package      chillerlan\OAuthTest\Providers\Stripe
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2018 Smiley
  * @license      MIT

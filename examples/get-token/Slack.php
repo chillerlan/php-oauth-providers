@@ -2,7 +2,6 @@
 /**
  * @link https://api.slack.com/docs/oauth
  *
- * @filesource   Slack.php
  * @created      20.04.2018
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley

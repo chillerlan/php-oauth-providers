@@ -1,6 +1,5 @@
 <?php
 /**
- * @filesource   opencaching-create-endpoint-map.php
  * @created      05.03.2019
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley
@@ -93,9 +92,7 @@ $content = '<?php
  *
  * @link https://www.opencaching.de/okapi/introduction.html
  *
- * @filesource   '.$epr->getShortName().'.php
  * @created      '.date('d.m.Y').'
- * @package      '.$epr->getNamespaceName().'
  * @license      MIT
  */
 

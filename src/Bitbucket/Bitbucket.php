@@ -4,10 +4,7 @@
  *
  * @link https://developer.atlassian.com/cloud/bitbucket/oauth-2/
  *
- *
- * @filesource   Bitbucket.php
  * @created      29.07.2019
- * @package      chillerlan\OAuth\Providers\Bitbucket
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley
  * @license      MIT

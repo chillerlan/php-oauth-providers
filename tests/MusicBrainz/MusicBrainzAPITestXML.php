@@ -2,9 +2,7 @@
 /**
  * Class MusicBrainzTestXML
  *
- * @filesource   MusicBrainzTest.php
  * @created      31.07.2018
- * @package      chillerlan\OAuthTest\Providers\MusicBrainz
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT

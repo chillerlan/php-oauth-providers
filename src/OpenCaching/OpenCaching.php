@@ -2,9 +2,7 @@
 /**
  * Class OpenCaching
  *
- * @filesource   OpenCaching.php
  * @created      04.03.2019
- * @package      chillerlan\OAuth\Providers\OpenCaching
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley
  * @license      MIT

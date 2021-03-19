@@ -2,7 +2,6 @@
 /**
  * @link https://develop.battle.net/documentation/guides/using-oauth
  *
- * @filesource   BattleNet.php
  * @created      02.08.2019
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley

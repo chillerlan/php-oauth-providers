@@ -5,9 +5,7 @@
  * @link https://developer.twitter.com/en/docs/basics/authentication/overview/oauth
  *
  *
- * @filesource   Twitter.php
  * @created      08.04.2018
- * @package      chillerlan\OAuth\Providers\Twitter
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2018 Smiley
  * @license      MIT

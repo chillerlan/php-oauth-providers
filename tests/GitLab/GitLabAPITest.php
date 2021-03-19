@@ -2,9 +2,7 @@
 /**
  * Class GitLabAPITest
  *
- * @filesource   GitLabAPITest.php
  * @created      29.07.2019
- * @package      chillerlan\OAuthTest\Providers\GitLab
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley
  * @license      MIT

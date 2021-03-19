@@ -2,7 +2,6 @@
 /**
  * @link https://docs.gitlab.com/ee/api/oauth2.html
  *
- * @filesource   GitLab.php
  * @created      29.07.2019
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley

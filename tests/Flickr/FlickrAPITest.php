@@ -2,9 +2,7 @@
 /**
  * Class FlickrAPITest
  *
- * @filesource   FlickrAPITest.phpphp
  * @created      15.07.2017
- * @package      chillerlan\OAuthTest\Providers\Flickr
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT

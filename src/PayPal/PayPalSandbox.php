@@ -2,9 +2,7 @@
 /**
  * Class PayPalSandbox
  *
- * @filesource   PayPalSandbox.php
  * @created      29.07.2019
- * @package      chillerlan\OAuth\Providers\PayPal
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley
  * @license      MIT

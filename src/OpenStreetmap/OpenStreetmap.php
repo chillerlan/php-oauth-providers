@@ -5,9 +5,7 @@
  * @link https://wiki.openstreetmap.org/wiki/API
  * @link https://wiki.openstreetmap.org/wiki/OAuth
  *
- * @filesource   OpenStreetmap.php
  * @created      12.05.2019
- * @package      chillerlan\OAuth\Providers\OpenStreetmap
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley
  * @license      MIT

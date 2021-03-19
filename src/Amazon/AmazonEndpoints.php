@@ -2,9 +2,7 @@
 /**
  * Class AmazonEndpoints
  *
- * @filesource   AmazonEndpoints.php
  * @created      10.08.2018
- * @package      chillerlan\OAuth\Providers\Amazon
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
  * @license      MIT

@@ -3,7 +3,6 @@
  * @link https://developer.twitter.com/en/docs/basics/authentication/overview/oauth
  * @link https://developer.twitter.com/en/docs/basics/authentication/overview/application-only
  *
- * @filesource   Twitter.php
  * @created      10.07.2017
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley

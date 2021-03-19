@@ -5,9 +5,7 @@
  * @link https://dev.npr.org
  * @link https://github.com/npr/npr-one-backend-proxy-php
  *
- * @filesource   NPROne.php
  * @created      28.07.2019
- * @package      chillerlan\OAuth\Providers\NPR
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley
  * @license      MIT

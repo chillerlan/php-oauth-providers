@@ -2,9 +2,7 @@
 /**
  * Class TwitchTest
  *
- * @filesource   TwitchTest.php
  * @created      15.07.2017
- * @package      chillerlan\OAuthTest\Providers\Twitch
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT

@@ -5,9 +5,7 @@
  * @link https://wiki.guildwars2.com/wiki/API:Main
  * @link https://api.guildwars2.com/v2.json
  *
- * @filesource   GuildWars2Endpoints.php
  * @created      06.12.2019
- * @package      chillerlan\OAuth\Providers\GuildWars2
  * @license      MIT
  */
 

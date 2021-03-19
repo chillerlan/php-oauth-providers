@@ -2,9 +2,7 @@
 /**
  * Class DeezerEndpoints
  *
- * @filesource   DeezerEndpoints.php
  * @created      09.08.2018
- * @package      chillerlan\OAuth\Providers\Deezer
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
  * @license      MIT

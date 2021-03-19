@@ -5,9 +5,7 @@
  * @link https://developer.spotify.com/web-api
  * @link https://beta.developer.spotify.com/documentation/general/guides/authorization-guide/
  *
- * @filesource   Spotify.php
  * @created      06.04.2018
- * @package      chillerlan\OAuth\Providers\Spotify
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2018 Smiley
  * @license      MIT

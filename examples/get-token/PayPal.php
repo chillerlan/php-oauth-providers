@@ -2,7 +2,6 @@
 /**
  * @link https://developer.paypal.com/docs/connect-with-paypal/integrate/
  *
- * @filesource   PayPal.php
  * @created      29.07.2019
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley

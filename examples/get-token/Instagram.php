@@ -2,7 +2,6 @@
 /**
  * @link https://www.instagram.com/developer/authentication/
  *
- * @filesource   Instagram.php
  * @created      10.07.2017
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley

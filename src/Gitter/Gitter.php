@@ -5,9 +5,7 @@
  * @link https://developer.gitter.im/
  * @link https://developer.gitter.im/docs/authentication
  *
- * @filesource   Gitter.php
  * @created      09.08.2018
- * @package      chillerlan\OAuth\Providers\Gitter
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2018 Smiley
  * @license      MIT

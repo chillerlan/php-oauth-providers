@@ -4,9 +4,7 @@
  *
  * @link https://www.flickr.com/services/api/
  *
- * @filesource   FlickrEndpoints.php
  * @created      06.12.2019
- * @package      chillerlan\OAuth\Providers\Flickr
  * @license      MIT
  */
 

@@ -2,9 +2,7 @@
 /**
  * Class InstagramEndpoints
  *
- * @filesource   InstagramEndpoints.php
  * @created      11.04.2018
- * @package      chillerlan\OAuth\Providers\Instagram
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
  * @license      MIT

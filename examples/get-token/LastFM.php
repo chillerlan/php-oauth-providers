@@ -2,7 +2,6 @@
 /**
  * @link https://www.last.fm/api/authentication
  *
- * @filesource   LastFM.php
  * @created      10.04.2018
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2018 Smiley

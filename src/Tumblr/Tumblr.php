@@ -4,9 +4,7 @@
  *
  * @link https://www.tumblr.com/docs/en/api/v2
  *
- * @filesource   Tumblr.php
  * @created      22.10.2017
- * @package      chillerlan\OAuth\Providers\Tumblr
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT

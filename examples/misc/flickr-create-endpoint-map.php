@@ -1,6 +1,5 @@
 <?php
 /**
- * @filesource   flickr-create-endpoint-map.php
  * @created      11.04.2018
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
@@ -86,9 +85,7 @@ $content = '<?php
  *
  * @link https://www.flickr.com/services/api/
  *
- * @filesource   '.$epr->getShortName().'.php
  * @created      '.date('d.m.Y').'
- * @package      '.$epr->getNamespaceName().'
  * @license      MIT
  */
 

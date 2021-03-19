@@ -2,9 +2,7 @@
 /**
  * Class PatreonAbstract
  *
- * @filesource   PatreonAbstract.php
  * @created      04.03.2019
- * @package      chillerlan\OAuth\Providers\Patreon
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley
  * @license      MIT

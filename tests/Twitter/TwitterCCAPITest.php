@@ -2,9 +2,7 @@
 /**
  * Class TwitterCCAPITest
  *
- * @filesource   TwitterCCAPITest.php
  * @created      26.10.2017
- * @package      chillerlan\OAuthTest\Providers\Twitter
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT
