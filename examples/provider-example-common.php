@@ -62,7 +62,7 @@ $options_arr = [
  */
 $options = $options ?? new OAuthOptions($options_arr);
 $logger  = new NullLogger; // new OAuthTestLogger($LOGLEVEL);
-$http    = new CurlClient($this->options); // new OAuthTestHttpClient($options);
+$http    = new CurlClient($options); // new OAuthTestHttpClient($options);
 #$http->setLogger($logger);
 
 /** @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage */
