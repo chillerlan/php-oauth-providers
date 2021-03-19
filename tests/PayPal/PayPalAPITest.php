@@ -30,7 +30,6 @@ class PayPalAPITest extends OAuth2APITest{
 
 		if(!isset($json->emails) || !is_array($json->emails) || empty($json->emails)){
 			$this->markTestSkipped('no email found');
-			return;
 		}
 
 		foreach($json->emails as $email){

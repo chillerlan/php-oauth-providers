@@ -25,7 +25,7 @@ class OpenStreetmapAPITest extends OAuth1APITest{
 
 	public function testIdentity():void{
 		$r = $this->provider->userDetails();
-		static::assertSame($this->testuser, $this->responseXML($r)->user->attributes()->display_name->__toString());
+		$this::assertSame($this->testuser, $this->responseXML($r)->user->attributes()->display_name->__toString());
 	}
 
 }

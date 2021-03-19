@@ -17,13 +17,13 @@ namespace chillerlan\OAuth\Providers\PayPal;
 use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, ProviderException, TokenRefresh};
 use Psr\Http\Message\ResponseInterface;
 
-use function array_column, base64_encode, http_build_query, implode, is_array, json_decode;
+use function array_column, base64_encode, http_build_query, implode, is_array, json_decode, sprintf;
 use function chillerlan\HTTP\Psr7\decompress_content;
 
 use const PHP_QUERY_RFC1738;
 
 /**
- * @method ResponseInterface me(array $params = ['schema'])
+ * @method \Psr\Http\Message\ResponseInterface me(array $params = ['schema'])
  */
 class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh{
 
@@ -61,7 +61,7 @@ class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 
 		// @codeCoverageIgnoreStart
 		if(isset($data['name'], $data['message'])){
-			$msg = \sprintf('error retrieving access token: "%s" [%s]', $data['message'], $data['name']);
+			$msg = sprintf('error retrieving access token: "%s" [%s]', $data['message'], $data['name']);
 
 			if(isset($data['links']) && is_array($data['links'])){
 				$msg .= "\n".implode("\n", array_column($data['links'], 'href'));

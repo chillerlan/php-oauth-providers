@@ -25,7 +25,7 @@ class Patreon1APITest extends OAuth2APITest{
 
 	public function testGetCurrentUser():void{
 		$r = $this->provider->currentUser();
-		static::assertSame($this->testuser, $this->responseJson($r)->data->attributes->email);
+		$this::assertSame($this->testuser, $this->responseJson($r)->data->attributes->email);
 	}
 
 }

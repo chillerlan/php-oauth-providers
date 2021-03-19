@@ -39,8 +39,8 @@ class FlickrAPITest extends OAuth1APITest{
 		$r = $this->provider->testLogin();
 		$j = $this->responseJson($r);
 
-		static::assertSame($this->test_name, $j->user->username->_content);
-		static::assertSame($this->test_id, $j->user->id);
+		$this::assertSame($this->test_name, $j->user->username->_content);
+		$this::assertSame($this->test_id, $j->user->id);
 	}
 
 }

@@ -41,7 +41,7 @@ class LastFMTest extends OAuthProviderTest{
 	public function testGetAuthURL():void{
 		$url = $this->provider->getAuthURL(['foo' => 'bar']);
 
-		static::assertSame('https://www.last.fm/api/auth?api_key='.$this->options->key.'&foo=bar', (string)$url);
+		$this::assertSame('https://www.last.fm/api/auth?api_key='.$this->options->key.'&foo=bar', (string)$url);
 	}
 
 	public function testGetSignature():void{
@@ -49,7 +49,7 @@ class LastFMTest extends OAuthProviderTest{
 			->getMethod('getSignature')
 			->invokeArgs($this->provider, [['foo' => 'bar', 'format' => 'whatever', 'callback' => 'nope']]);
 
-		static::assertSame('cb143650fa678449f5492a2aa6fab216', $signature);
+		$this::assertSame('cb143650fa678449f5492a2aa6fab216', $signature);
 	}
 
 	public function testParseTokenResponse():void{
@@ -59,7 +59,7 @@ class LastFMTest extends OAuthProviderTest{
 			->getMethod('parseTokenResponse')
 			->invokeArgs($this->provider, [$r]);
 
-		static::assertSame('whatever', $token->accessToken);
+		$this::assertSame('whatever', $token->accessToken);
 	}
 
 	public function testParseTokenResponseNoData():void{
@@ -98,10 +98,10 @@ class LastFMTest extends OAuthProviderTest{
 			->getMethod('requestParams')
 			->invokeArgs($this->provider, ['whatever', ['foo' => 'bar'], []]);
 
-		static::assertSame('310be19b3ff6967ca8425666753019fb', $params['api_sig']);
-		static::assertSame($this->options->key, $params['api_key']);
-		static::assertSame('whatever', $params['method']);
-		static::assertSame('bar', $params['foo']);
+		$this::assertSame('310be19b3ff6967ca8425666753019fb', $params['api_sig']);
+		$this::assertSame($this->options->key, $params['api_key']);
+		$this::assertSame('whatever', $params['method']);
+		$this::assertSame('bar', $params['foo']);
 	}
 
 	public function testGetAccessToken():void{
@@ -109,21 +109,21 @@ class LastFMTest extends OAuthProviderTest{
 
 		$token = $this->provider->getAccessToken('session_token');
 
-		static::assertSame('session_key', $token->accessToken);
+		$this::assertSame('session_key', $token->accessToken);
 	}
 
 	// coverage
 	public function testRequest():void{
 		$r = $this->provider->request('');
 
-		static::assertSame('such data! much wow!', get_json($r)->data);
+		$this::assertSame('such data! much wow!', get_json($r)->data);
 	}
 
 	// coverage
 	public function testRequestPost():void{
 		$r = $this->provider->request('', [], 'POST', ['foo' => 'bar'], ['Content-Type' => 'whatever']);
 
-		static::assertSame('such data! much wow!', get_json($r)->data);
+		$this::assertSame('such data! much wow!', get_json($r)->data);
 	}
 
 }

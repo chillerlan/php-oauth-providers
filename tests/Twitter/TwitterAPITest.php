@@ -42,17 +42,17 @@ class TwitterAPITest extends OAuth1APITest{
 
 	public function testGeoReverseGeocode():void{
 		$r = $this->provider->geoReverseGeocode(['lat' => 37.781157, 'long' => -122.400612831116, 'accuracy' => '3m', 'granularity' => 'city', 'max_results' => 3]);
-		static::assertSame('5a110d312052166f', $this->responseJson($r)->result->places[0]->id);
+		$this::assertSame('5a110d312052166f', $this->responseJson($r)->result->places[0]->id);
 	}
 
 	public function testGeoSearch():void{
 		$r = $this->provider->geoSearch(['query' => 'Toronto', 'max_results' => 3]);
-		static::assertSame('3797791ff9c0e4c6', $this->responseJson($r)->result->places[0]->id);
+		$this::assertSame('3797791ff9c0e4c6', $this->responseJson($r)->result->places[0]->id);
 	}
 
 	public function testLanguages():void{
 		$r = $this->provider->helpLanguages();
-		static::assertContains('de', array_column($this->responseJson($r), 'code'));
+		$this::assertContains('de', array_column($this->responseJson($r), 'code'));
 	}
 	/**
 	 * @dataProvider endpointDataProvider
@@ -71,17 +71,17 @@ class TwitterAPITest extends OAuth1APITest{
 
 
 		if($headers){
-			static::assertTrue($r->hasHeader($field));
+			$this::assertTrue($r->hasHeader($field));
 		}
 		elseif(is_array($j)){
 			is_null($expected)
-				? static::assertTrue(isset($j[0]->{$field}))
-				: static::assertSame($expected, $j[0]->{$field});
+				? $this::assertTrue(isset($j[0]->{$field}))
+				: $this::assertSame($expected, $j[0]->{$field});
 		}
 		else{
 			is_null($expected)
-				? static::assertTrue(isset($j->{$field}))
-				: static::assertSame($expected, $j->{$field});
+				? $this::assertTrue(isset($j->{$field}))
+				: $this::assertSame($expected, $j->{$field});
 		}
 
 	}
@@ -163,13 +163,13 @@ class TwitterAPITest extends OAuth1APITest{
 
 		$favorited2 = $this->responseJson($r)->favorited;
 
-		static::assertSame(!$favorited1, $favorited2);
+		$this::assertSame(!$favorited1, $favorited2);
 
 		$r = $favorited2
 			? $this->provider->unfavorite($params)
 			: $this->provider->favorite($params);
 
-		static::assertSame(!$favorited2, $this->responseJson($r)->favorited);
+		$this::assertSame(!$favorited2, $this->responseJson($r)->favorited);
 	}
 
 	public function testFollow():void{
@@ -181,11 +181,11 @@ class TwitterAPITest extends OAuth1APITest{
 
 		if($following){
 			$r = $this->provider->unfollow($params);
-#			static::assertFalse($this->responseJson($r)->following); // ??? twitter
+#			$this::assertFalse($this->responseJson($r)->following); // ??? twitter
 		}
 
 		$r = $this->provider->follow($params);
-#		static::assertTrue($this->responseJson($r)->following);  // ??? twitter
+#		$this::assertTrue($this->responseJson($r)->following);  // ??? twitter
 	}
 
 	public function testBlocks():void{
@@ -195,14 +195,14 @@ class TwitterAPITest extends OAuth1APITest{
 		$r = $this->provider->block(['user_id' => '402181258']);
 
 		// make sure it's gone
-		static::assertSame(402181258, $this->responseJson($r)->id);
+		$this::assertSame(402181258, $this->responseJson($r)->id);
 
 		// plonk!
 		$r = $this->provider->blocksIds();
-		static::assertTrue(in_array(402181258, $this->responseJson($r)->ids));
+		$this::assertTrue(in_array(402181258, $this->responseJson($r)->ids));
 
 		$r = $this->provider->unblock(['screen_name' => 'Twitter']);
-		static::assertSame('Twitter', $this->responseJson($r)->screen_name);
+		$this::assertSame('Twitter', $this->responseJson($r)->screen_name);
 	}
 
 	public function testUsersMute():void{
@@ -210,7 +210,7 @@ class TwitterAPITest extends OAuth1APITest{
 
 		$params = ['screen_name' => 'Twitter', 'include_entities' => false, 'skip_status' => true];
 		$r = $this->provider->mute($params);
-		static::assertSame('Twitter', $this->responseJson($r)->screen_name);
+		$this::assertSame('Twitter', $this->responseJson($r)->screen_name);
 
 		$r = $this->provider->mutesUsersList(['include_entities' => false, 'skip_status' => true]);
 		$this->assertTrue(in_array('Twitter', array_column($this->responseJson($r)->users, 'screen_name')));

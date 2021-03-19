@@ -13,16 +13,17 @@
 namespace chillerlan\OAuthTest\Providers;
 
 use chillerlan\OAuth\Core\OAuthInterface;
-use function chillerlan\OAuth\Providers\getProviders;
-
 use PHPUnit\Framework\TestCase;
+use ReflectionClass;
+
+use function chillerlan\OAuth\Providers\getProviders;
 
 class FunctionTest extends TestCase{
 
 	public function testGetProviders(){
 
 		foreach(getProviders() as $p){
-			static::assertTrue((new \ReflectionClass($p['fqcn']))->implementsInterface(OAuthInterface::class));
+			$this::assertTrue((new ReflectionClass($p['fqcn']))->implementsInterface(OAuthInterface::class));
 		}
 
 	}

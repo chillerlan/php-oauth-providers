@@ -33,7 +33,7 @@ class BigCartelAPITest extends OAuth2APITest{
 
 	public function testAccount():void{
 		$r = $this->provider->account();
-		static::assertSame($this->account_id, (int)$this->responseJson($r)->data[0]->id);
+		$this::assertSame($this->account_id, (int)$this->responseJson($r)->data[0]->id);
 	}
 
 	public function testGetAccount():void{

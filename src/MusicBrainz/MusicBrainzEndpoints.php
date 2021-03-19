@@ -220,7 +220,7 @@ class MusicBrainzEndpoints extends EndpointMap{
 		'method'        => 'POST',
 		'query'         => ['client'],
 		'path_elements' => [],
-		'body'          => [],
+		'body'          => null,
 		'headers'       => ['Content-Type' => 'application/xml'],
 	];
 
@@ -250,7 +250,7 @@ class MusicBrainzEndpoints extends EndpointMap{
 		'method'        => 'POST',
 		'query'         => ['client'],
 		'path_elements' => [],
-		'body'          => [],
+		'body'          => null,
 		'headers'       => ['Content-Type' => 'application/xml'],
 	];
 
@@ -266,7 +266,7 @@ class MusicBrainzEndpoints extends EndpointMap{
 		'method'        => 'PUT',
 		'query'         => ['client'],
 		'path_elements' => ['collectionID', 'releaseIDs'],
-		'body'          => [],
+		'body'          => null,
 		'headers'       => ['Content-Type' => 'application/xml'],
 	];
 
@@ -275,7 +275,7 @@ class MusicBrainzEndpoints extends EndpointMap{
 		'method'        => 'DELETE',
 		'query'         => ['client'],
 		'path_elements' => ['collectionID', 'releaseIDs'],
-		'body'          => [],
+		'body'          => null,
 		'headers'       => ['Content-Type' => 'application/xml'],
 	];
 

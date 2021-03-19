@@ -47,7 +47,7 @@ class MailChimpTest extends OAuth2ProviderTest{
 	public function testRequest():void{
 		$this->storage->storeAccessToken($this->provider->serviceName, $this->token);
 
-		static::assertSame('such data! much wow! (/3.0)', get_json($this->provider->request(''))->data);
+		$this::assertSame('such data! much wow! (/3.0)', get_json($this->provider->request(''))->data);
 	}
 
 	public function testRequestInvalidAuthTypeException():void{
@@ -63,7 +63,7 @@ class MailChimpTest extends OAuth2ProviderTest{
 	public function testGetTokenMetadata():void{
 		$token = $this->provider->getTokenMetadata($this->token);
 
-		static::assertSame('whatever', $token->extraParams['metadata']);
+		$this::assertSame('whatever', $token->extraParams['metadata']);
 	}
 
 }

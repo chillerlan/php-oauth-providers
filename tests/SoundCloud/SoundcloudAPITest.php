@@ -25,7 +25,7 @@ class SoundcloudAPITest extends OAuth2APITest{
 
 	public function testGetUserInfo():void{
 		$r = $this->provider->me();
-		static::assertSame($this->testuser, $this->responseJson($r)->username);
+		$this::assertSame($this->testuser, $this->responseJson($r)->username);
 	}
 
 }

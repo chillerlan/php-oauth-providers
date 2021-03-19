@@ -25,7 +25,7 @@ class OpenCachingAPITest extends OAuth1APITest{
 
 	public function testUser():void{
 		$r = $this->provider->usersUser(['fields' => 'username']);
-		static::assertSame($this->testuser, $this->responseJson($r)->username);
+		$this::assertSame($this->testuser, $this->responseJson($r)->username);
 	}
 
 }

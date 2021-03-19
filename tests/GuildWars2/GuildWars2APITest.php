@@ -36,6 +36,7 @@ class GuildWars2APITest extends OAuth2APITest{
 			? $this->provider->storeGW2Token($this->dotEnv->GW2_TOKEN)
 			: (new AccessToken)->fromJSON(file_get_contents($tokenfile));
 
+		/** @noinspection PhpFieldAssignmentTypeMismatchInspection */
 		$this->tokenname = $this->dotEnv->GW2_TOKEN_NAME;
 	}
 
