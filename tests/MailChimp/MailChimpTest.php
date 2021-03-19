@@ -26,20 +26,22 @@ class MailChimpTest extends OAuth2ProviderTest{
 
 	protected string $FQN = MailChimp::class;
 
-	protected $token;
+	protected array $testResponses = [
+		'/oauth2/access_token' => '{"access_token":"test_access_token","expires_in":3600,"state":"test_state"}',
+		'/oauth2/metadata'     => '{"metadata":"whatever"}',
+		'/3.0'                 => '{"data":"such data! much wow! (/3.0)"}',
+	];
+
+	protected AccessToken $token;
 
 	public function setUp():void{
 		parent::setUp();
 
-		$this->token = new AccessToken(['accessToken' => 'test_access_token_secret', 'expires' => 1, 'extraParams' => ['dc' => 'bar']]);
-	}
-
-	protected function getTestResponses():array{
-		return [
-			'/oauth2/access_token' => '{"access_token":"test_access_token","expires_in":3600,"state":"test_state"}',
-			'/oauth2/metadata'     => '{"metadata":"whatever"}',
-			'/3.0'                 => '{"data":"such data! much wow! (/3.0)"}',
-		];
+		$this->token = new AccessToken([
+			'accessToken' => 'test_access_token_secret',
+			'expires'     => 1,
+			'extraParams' => ['dc' => 'bar']
+		]);
 	}
 
 	public function testRequest():void{

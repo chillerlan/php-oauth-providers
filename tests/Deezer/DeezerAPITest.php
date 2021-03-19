@@ -4,15 +4,16 @@
  *
  * @filesource   DeezerAPITest.php
  * @created      10.08.2018
- * @package      chillerlan\OAuthTest\Providers
+ * @package      chillerlan\OAuthTest\Providers\Deezer
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
  * @license      MIT
  */
 
-namespace chillerlan\OAuthTest\Providers;
+namespace chillerlan\OAuthTest\Providers\Deezer;
 
 use chillerlan\OAuth\Providers\Deezer\Deezer;
+use chillerlan\OAuthTest\Providers\OAuth2APITest;
 
 /**
  * Spotify API usage tests/examples

@@ -15,7 +15,7 @@ namespace chillerlan\OAuthTest\Providers\LastFM;
 use chillerlan\HTTP\Psr7\Response;
 use chillerlan\OAuth\Core\ProviderException;
 use chillerlan\OAuth\Providers\LastFM\LastFM;
-use chillerlan\OAuthTest\Providers\ProviderTestAbstract;
+use chillerlan\OAuthTest\Providers\OAuthProviderTest;
 
 use function chillerlan\HTTP\Psr17\create_stream;
 use function chillerlan\HTTP\Psr7\get_json;
@@ -23,21 +23,19 @@ use function chillerlan\HTTP\Psr7\get_json;
 /**
  * @property \chillerlan\OAuth\Providers\LastFM\LastFM $provider
  */
-class LastFMTest extends ProviderTestAbstract{
+class LastFMTest extends OAuthProviderTest{
 
 	protected string $FQN = LastFM::class;
+
+	protected array $testResponses = [
+		'/lastfm/auth'        => '{"session":{"key":"session_key"}}',
+		'/lastfm/api/request' => '{"data":"such data! much wow!"}',
+	];
 
 	public function setUp():void{
 		parent::setUp();
 
 		$this->setProperty($this->provider, 'apiURL', '/lastfm/api/request');
-	}
-
-	protected function getTestResponses():array{
-		return [
-			'/lastfm/auth'        => '{"session":{"key":"session_key"}}',
-			'/lastfm/api/request' => '{"data":"such data! much wow!"}',
-		];
 	}
 
 	public function testGetAuthURL():void{

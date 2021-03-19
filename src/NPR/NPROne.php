@@ -15,10 +15,10 @@
 
 namespace chillerlan\OAuth\Providers\NPR;
 
-use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, TokenRefresh};
+use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, ProviderException, TokenRefresh};
 use Psr\Http\Message\{RequestInterface, ResponseInterface};
 
-use function strpos;
+use function parse_url, strpos;
 
 /**
  * @method \Psr\Http\Message\ResponseInterface identityFollowing(array $body = ['Affiliation'])
@@ -53,18 +53,46 @@ class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	protected ?string $applicationURL = 'https://dev.npr.org/console';
 
 	/**
-	 * @param \Psr\Http\Message\RequestInterface $request
-	 *
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @inheritDoc
+	 */
+	protected function getRequestTarget(string $uri):string{
+		$parsedURL = parse_url($uri);
+
+		if(!isset($parsedURL['path'])){
+			throw new ProviderException('invalid path'); // @codeCoverageIgnore
+		}
+
+		// for some reason we were given a host name
+		if(isset($parsedURL['host'])){
+
+			// back out if it doesn't match
+			if(strpos($parsedURL['host'], '.api.npr.org') === false){
+				throw new ProviderException('given host does not match provider host'); // @codeCoverageIgnore
+			}
+
+			// we explicitly ignore any existing parameters here
+			return 'https://'.$parsedURL['host'].$parsedURL['path'];
+		}
+
+		// $apiURL may already include a part of the path
+		return $this->apiURL.$parsedURL['path'];
+	}
+
+	/**
+	 * @inheritDoc
 	 */
 	public function sendRequest(RequestInterface $request):ResponseInterface{
 
 		// get authorization only if we request the provider API
-		if(strpos((string)$request->getUri(), '.api.npr.org/') !== false){ // silly resource subdomains >.<
+		if(strpos((string)$request->getUri(), '.api.npr.org') !== false){
 			$token = $this->storage->getAccessToken($this->serviceName);
 
 			// attempt to refresh an expired token
-			if($this->options->tokenAutoRefresh && ($token->isExpired() || $token->expires === $token::EOL_UNKNOWN)){
+			if(
+				$this instanceof TokenRefresh
+				&& $this->options->tokenAutoRefresh
+				&& ($token->isExpired() || $token->expires === $token::EOL_UNKNOWN)
+			){
 				$token = $this->refreshAccessToken($token); // @codeCoverageIgnore
 			}
 

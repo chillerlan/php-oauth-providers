@@ -4,17 +4,18 @@
  *
  * @filesource   DeezerTest.php
  * @created      09.08.2018
- * @package      chillerlan\OAuthTest\Providers
+ * @package      chillerlan\OAuthTest\Providers\Deezer
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT
  */
 
-namespace chillerlan\OAuthTest\Providers;
+namespace chillerlan\OAuthTest\Providers\Deezer;
 
 use chillerlan\HTTP\Psr7\Response;
 use chillerlan\OAuth\Core\{AccessToken, ProviderException};
 use chillerlan\OAuth\Providers\Deezer\Deezer;
+use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
 
 use function chillerlan\HTTP\Psr17\create_stream_from_input;
 
@@ -25,12 +26,10 @@ class DeezerTest extends OAuth2ProviderTestAbstract{
 
 	protected string $FQN = Deezer::class;
 
-	protected function getTestResponses():array{
-		return [
-			'/oauth2/access_token' => 'access_token=test_access_token&expires_in=3600&state=test_state',
-			'/oauth2/api/request'  => '{"data":"such data! much wow!"}',
-		];
-	}
+	protected array $testResponses = [
+		'/oauth2/access_token' => 'access_token=test_access_token&expires_in=3600&state=test_state',
+		'/oauth2/api/request'  => '{"data":"such data! much wow!"}',
+	];
 
 	public function testGetAuthURL():void{
 		$this->assertStringContainsString(

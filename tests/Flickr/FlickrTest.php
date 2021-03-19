@@ -22,13 +22,11 @@ class FlickrTest extends OAuth1ProviderTest{
 
 	protected string $FQN = Flickr::class;
 
-	protected function getTestResponses():array{
-		return [
-			'/oauth1/request_token' => 'oauth_token=test_request_token&oauth_token_secret=test_request_token_secret&oauth_callback_confirmed=true',
-			'/oauth1/access_token'  => 'oauth_token=test_access_token&oauth_token_secret=test_access_token_secret&oauth_callback_confirmed=true',
-			// the Flickr client does not add a path, so "/request" is missing
-			'/oauth1/api'           => '{"data":"such data! much wow!"}',
-		];
-	}
+	protected array $testResponses = [
+		'/oauth1/request_token' => 'oauth_token=test_request_token&oauth_token_secret=test_request_token_secret&oauth_callback_confirmed=true',
+		'/oauth1/access_token'  => 'oauth_token=test_access_token&oauth_token_secret=test_access_token_secret&oauth_callback_confirmed=true',
+		// the Flickr client does not add a path, so "/request" is missing
+		'/oauth1/api'           => '{"data":"such data! much wow!"}',
+	];
 
 }
