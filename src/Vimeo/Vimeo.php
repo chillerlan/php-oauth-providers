@@ -122,4 +122,9 @@ class Vimeo extends OAuth2Provider implements ClientCredentials, CSRFToken{
 	protected array $authHeaders                 = ['Accept' => 'application/vnd.vimeo.*+json;version='.self::API_VERSION];
 	protected array $apiHeaders                  = ['Accept' => 'application/vnd.vimeo.*+json;version='.self::API_VERSION];
 
+	protected array $defaultScopes               =  [
+		self::SCOPE_PUBLIC,
+		self::SCOPE_INTERACT,
+	];
+
 }

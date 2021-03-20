@@ -25,16 +25,6 @@ require_once __DIR__.'/../provider-example-common.php';
 $musicbrainz = new MusicBrainz($http, $storage, $options, $logger);
 $servicename = $musicbrainz->serviceName;
 
-$scopes = [
-	MusicBrainz::SCOPE_PROFILE,
-	MusicBrainz::SCOPE_EMAIL,
-	MusicBrainz::SCOPE_TAG,
-	MusicBrainz::SCOPE_RATING,
-	MusicBrainz::SCOPE_COLLECTION,
-	MusicBrainz::SCOPE_SUBMIT_ISRC,
-	MusicBrainz::SCOPE_SUBMIT_BARCODE,
-];
-
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
 
@@ -44,7 +34,7 @@ if(isset($_GET['login']) && $_GET['login'] === $servicename){
 		'state'           => sha1(random_bytes(256)),
 	];
 
-	header('Location: '.$musicbrainz->getAuthURL($params, $scopes));
+	header('Location: '.$musicbrainz->getAuthURL($params));
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){

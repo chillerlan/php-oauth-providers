@@ -35,4 +35,12 @@ class Patreon2 extends PatreonAbstract{
 
 	protected ?string $endpointMap = Patreon2Endpoints::class;
 
+	protected array $defaultScopes = [
+		self::SCOPE_IDENTITY,
+		self::SCOPE_IDENTITY_EMAIL,
+		self::SCOPE_IDENTITY_MEMBERSHIPS,
+		self::SCOPE_CAMPAIGNS,
+		self::SCOPE_CAMPAIGNS_MEMBERS,
+	];
+
 }

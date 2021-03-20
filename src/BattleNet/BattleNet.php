@@ -35,6 +35,13 @@ class BattleNet extends OAuth2Provider implements ClientCredentials, CSRFToken{
 	protected ?string $userRevokeURL  = 'https://account.blizzard.com/connections';
 	protected ?string $endpointMap    = BattleNetEndpoints::class;
 
+	protected array $defaultScopes    = [
+		self::SCOPE_OPENID,
+		self::SCOPE_PROFILE_D3,
+		self::SCOPE_PROFILE_SC2,
+		self::SCOPE_PROFILE_WOW,
+	];
+
 	/**
 	 * BattleNet constructor.
 	 *

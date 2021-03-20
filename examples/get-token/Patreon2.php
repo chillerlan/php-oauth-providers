@@ -25,17 +25,9 @@ require_once __DIR__.'/../provider-example-common.php';
 $patreon2    = new Patreon2($http, $storage, $options, $logger);
 $servicename = $patreon2->serviceName;
 
-$scopes = [
-	Patreon2::SCOPE_IDENTITY,
-	Patreon2::SCOPE_IDENTITY_EMAIL,
-	Patreon2::SCOPE_IDENTITY_MEMBERSHIPS,
-	Patreon2::SCOPE_CAMPAIGNS,
-	Patreon2::SCOPE_CAMPAIGNS_MEMBERS,
-];
-
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$patreon2->getAuthURL(null, $scopes));
+	header('Location: '.$patreon2->getAuthURL());
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){

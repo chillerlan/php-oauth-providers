@@ -45,6 +45,14 @@ class Deezer extends OAuth2Provider implements CSRFToken{
 	protected ?string $applicationURL = 'http://developers.deezer.com/myapps';
 	protected int $authMethod         = self::AUTH_METHOD_QUERY;
 
+	protected array $defaultScopes    = [
+		self::SCOPE_BASIC,
+		self::SCOPE_EMAIL,
+		self::SCOPE_OFFLINE_ACCESS,
+		self::SCOPE_MANAGE_LIBRARY,
+		self::SCOPE_LISTENING_HISTORY,
+	];
+
 	/**
 	 * @inheritDoc
 	 */

@@ -25,18 +25,9 @@ require_once __DIR__.'/../provider-example-common.php';
 $instagram   = new Instagram($http, $storage, $options, $logger);
 $servicename = $instagram->serviceName;
 
-$scopes = [
-	Instagram::SCOPE_BASIC,
-	Instagram::SCOPE_COMMENTS,
-	Instagram::SCOPE_RELATIONSHIPS,
-	Instagram::SCOPE_LIKES,
-	Instagram::SCOPE_PUBLIC_CONTENT,
-	Instagram::SCOPE_FOLLOWER_LIST,
-];
-
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$instagram->getAuthURL(null, $scopes));
+	header('Location: '.$instagram->getAuthURL());
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){

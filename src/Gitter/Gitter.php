@@ -31,4 +31,9 @@ class Gitter extends OAuth2Provider implements CSRFToken{
 	protected ?string $apiDocs        = 'https://developer.gitter.im';
 	protected ?string $applicationURL = 'https://developer.gitter.im/apps';
 
+	protected array $defaultScopes    = [
+		self::SCOPE_FLOW,
+		self::SCOPE_PRIVATE,
+	];
+
 }

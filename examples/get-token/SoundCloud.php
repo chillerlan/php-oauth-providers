@@ -25,14 +25,9 @@ require_once __DIR__.'/../provider-example-common.php';
 $soundcloud  = new SoundCloud($http, $storage, $options, $logger);
 $servicename = $soundcloud->serviceName;
 
-$scopes = [
-	SoundCloud::SCOPE_NONEXPIRING,
-#	SoundCloud::SCOPE_EMAIL, // ???
-];
-
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$soundcloud->getAuthURL(null, $scopes));
+	header('Location: '.$soundcloud->getAuthURL());
 }
 // step 3: receive the access token
 elseif(isset($_GET['code'])){ // soundcloud doesn't support <state>

@@ -25,15 +25,9 @@ require_once __DIR__.'/../provider-example-common.php';
 $github      = new GitHub($http, $storage, $options, $logger);
 $servicename = $github->serviceName;
 
-$scopes = [
-	GitHub::SCOPE_USER,
-	GitHub::SCOPE_PUBLIC_REPO,
-	GitHub::SCOPE_GIST,
-];
-
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$github->getAuthURL(null, $scopes));
+	header('Location: '.$github->getAuthURL());
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){

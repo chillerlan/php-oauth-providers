@@ -25,14 +25,9 @@ require_once __DIR__.'/../provider-example-common.php';
 $wordpress   = new Wordpress($http, $storage, $options, $logger);
 $servicename = $wordpress->serviceName;
 
-$scopes =  [
-#	Wordpress::SCOPE_AUTH,
-	Wordpress::SCOPE_GLOBAL,
-];
-
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$wordpress->getAuthURL(null, $scopes));
+	header('Location: '.$wordpress->getAuthURL());
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){

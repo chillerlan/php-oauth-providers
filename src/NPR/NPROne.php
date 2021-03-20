@@ -50,6 +50,11 @@ class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	protected ?string $apiDocs        = 'https://dev.npr.org/api/';
 	protected ?string $applicationURL = 'https://dev.npr.org/console';
 
+	protected array $defaultScopes    = [
+		self::SCOPE_IDENTITY_READONLY,
+		self::SCOPE_LISTENING_READONLY,
+	];
+
 	/**
 	 * @inheritDoc
 	 */

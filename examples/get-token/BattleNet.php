@@ -25,16 +25,9 @@ require_once __DIR__.'/../provider-example-common.php';
 $battlenet   = new BattleNet($http, $storage, $options, $logger);
 $servicename = $battlenet->serviceName;
 
-$scopes = [
-	BattleNet::SCOPE_OPENID,
-	BattleNet::SCOPE_PROFILE_D3,
-	BattleNet::SCOPE_PROFILE_SC2,
-	BattleNet::SCOPE_PROFILE_WOW,
-];
-
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$battlenet->getAuthURL(null, $scopes));
+	header('Location: '.$battlenet->getAuthURL());
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){

@@ -25,14 +25,9 @@ require_once __DIR__.'/../provider-example-common.php';
 $stripe      = new Stripe($http, $storage, $options, $logger);
 $servicename = $stripe->serviceName;
 
-$scopes = [
-	Stripe::SCOPE_READ_WRITE,
-#	Stripe::SCOPE_READ_ONLY,
-];
-
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$stripe->getAuthURL(null, $scopes));
+	header('Location: '.$stripe->getAuthURL());
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){

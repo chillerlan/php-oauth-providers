@@ -25,24 +25,9 @@ require_once __DIR__.'/../provider-example-common.php';
 $discord     = new Discord($http, $storage, $options, $logger);
 $servicename = $discord->serviceName;
 
-$scopes = [
-	Discord::SCOPE_CONNECTIONS,
-	Discord::SCOPE_EMAIL,
-	Discord::SCOPE_IDENTIFY,
-	Discord::SCOPE_GUILDS,
-	Discord::SCOPE_GUILDS_JOIN,
-	Discord::SCOPE_GDM_JOIN,
-	Discord::SCOPE_MESSAGES_READ,
-#	Discord::SCOPE_RPC_API,
-#	Discord::SCOPE_RPC_NOTIFICATIONS_READ,
-#	Discord::SCOPE_BOT,
-#	Discord::SCOPE_RPC,
-#	Discord::SCOPE_WEBHOOK_INCOMING,
-];
-
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$discord->getAuthURL(null, $scopes));
+	header('Location: '.$discord->getAuthURL());
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){

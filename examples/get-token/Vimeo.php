@@ -25,23 +25,9 @@ require_once __DIR__.'/../provider-example-common.php';
 $vimeo       = new Vimeo($http, $storage, $options, $logger);
 $servicename = $vimeo->serviceName;
 
-$scopes = [
-	Vimeo::SCOPE_PRIVATE,
-	Vimeo::SCOPE_PUBLIC,
-	Vimeo::SCOPE_PURCHASED,
-	Vimeo::SCOPE_PURCHASE,
-	Vimeo::SCOPE_CREATE,
-	Vimeo::SCOPE_EDIT,
-	Vimeo::SCOPE_DELETE,
-	Vimeo::SCOPE_INTERACT,
-#	Vimeo::SCOPE_UPLOAD,
-	Vimeo::SCOPE_PROMO_CODES,
-	Vimeo::SCOPE_VIDEO_FILES,
-];
-
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$vimeo->getAuthURL(null, $scopes));
+	header('Location: '.$vimeo->getAuthURL());
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){

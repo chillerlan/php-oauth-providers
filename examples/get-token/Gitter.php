@@ -25,14 +25,9 @@ require_once __DIR__.'/../provider-example-common.php';
 $gitter      = new Gitter($http, $storage, $options, $logger);
 $servicename = $gitter->serviceName;
 
-$scopes = [
-	Gitter::SCOPE_FLOW,
-	Gitter::SCOPE_PRIVATE,
-];
-
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$gitter->getAuthURL(null, $scopes));
+	header('Location: '.$gitter->getAuthURL());
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){

@@ -30,4 +30,8 @@ class Wordpress extends OAuth2Provider implements CSRFToken{
 	protected ?string $apiDocs        = 'https://developer.wordpress.com/docs/api/';
 	protected ?string $applicationURL = 'https://developer.wordpress.com/apps/';
 
+	protected array $defaultScopes    = [
+		self::SCOPE_GLOBAL,
+	];
+
 }

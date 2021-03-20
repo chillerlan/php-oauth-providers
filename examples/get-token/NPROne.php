@@ -25,17 +25,9 @@ require_once __DIR__.'/../provider-example-common.php';
 $npr         = new NPROne($http, $storage, $options, $logger);
 $servicename = $npr->serviceName;
 
-$scopes = [
-	NPROne::SCOPE_IDENTITY_READONLY,
-	NPROne::SCOPE_IDENTITY_WRITE,
-	NPROne::SCOPE_LISTENING_READONLY,
-	NPROne::SCOPE_LISTENING_WRITE,
-	NPROne::SCOPE_LOCALACTIVATION
-];
-
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$npr->getAuthURL(null, $scopes));
+	header('Location: '.$npr->getAuthURL());
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){

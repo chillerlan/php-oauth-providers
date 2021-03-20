@@ -35,4 +35,8 @@ class Stripe extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	protected ?string $apiDocs        = 'https://stripe.com/docs/api';
 	protected ?string $applicationURL = 'https://dashboard.stripe.com/apikeys';
 
+	protected array $defaultScopes    = [
+		self::SCOPE_READ_ONLY,
+	];
+
 }

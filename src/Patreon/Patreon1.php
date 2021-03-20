@@ -26,4 +26,8 @@ class Patreon1 extends PatreonAbstract{
 
 	protected ?string $endpointMap = Patreon1Endpoints::class;
 
+	protected array $defaultScopes = [
+		self::SCOPE_USERS,
+	];
+
 }

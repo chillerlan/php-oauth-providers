@@ -34,4 +34,9 @@ class Google extends OAuth2Provider implements CSRFToken{
 	protected ?string $apiDocs        = 'https://developers.google.com/oauthplayground/';
 	protected ?string $applicationURL = 'https://console.developers.google.com/apis/credentials';
 
+	protected array $defaultScopes    = [
+		self::SCOPE_EMAIL,
+		self::SCOPE_PROFILE,
+	];
+
 }

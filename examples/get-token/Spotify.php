@@ -25,30 +25,9 @@ require_once __DIR__.'/../provider-example-common.php';
 $spotify     = new Spotify($http, $storage, $options, $logger);
 $servicename = $spotify->serviceName;
 
-$scopes = [
-	Spotify::SCOPE_PLAYLIST_READ_PRIVATE,
-	Spotify::SCOPE_PLAYLIST_READ_COLLABORATIVE,
-	Spotify::SCOPE_PLAYLIST_MODIFY_PUBLIC,
-	Spotify::SCOPE_PLAYLIST_MODIFY_PRIVATE,
-	Spotify::SCOPE_USER_FOLLOW_MODIFY,
-	Spotify::SCOPE_USER_FOLLOW_READ,
-	Spotify::SCOPE_USER_LIBRARY_READ,
-	Spotify::SCOPE_USER_LIBRARY_MODIFY,
-	Spotify::SCOPE_USER_TOP_READ,
-	Spotify::SCOPE_USER_READ_PRIVATE,
-	Spotify::SCOPE_USER_READ_BIRTHDATE,
-	Spotify::SCOPE_USER_READ_EMAIL,
-	Spotify::SCOPE_STREAMING,
-	Spotify::SCOPE_USER_READ_PLAYBACK_STATE,
-	Spotify::SCOPE_USER_MODIFY_PLAYBACK_STATE,
-	Spotify::SCOPE_USER_READ_CURRENTLY_PLAYING,
-	Spotify::SCOPE_USER_READ_RECENTLY_PLAYED,
-#	Spotify::SCOPE_UGC_IMAGE_UPLOAD,
-];
-
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$spotify->getAuthURL(null, $scopes));
+	header('Location: '.$spotify->getAuthURL());
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){

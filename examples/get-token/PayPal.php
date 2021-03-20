@@ -26,17 +26,9 @@ $paypal      = new PayPal($http, $storage, $options, $logger);
 #$paypal      = new PayPalSandbox($http, $storage, $options, $logger);
 $servicename = $paypal->serviceName;
 
-$scopes = [
-	PayPal::SCOPE_BASIC_AUTH,
-	PayPal::SCOPE_FULL_NAME,
-	PayPal::SCOPE_EMAIL,
-	PayPal::SCOPE_ADDRESS,
-	PayPal::SCOPE_ACCOUNT,
-];
-
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$paypal->getAuthURL(['flowEntry' => 'static', 'fullPage' => 'true'], $scopes));
+	header('Location: '.$paypal->getAuthURL(['flowEntry' => 'static', 'fullPage' => 'true']));
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){

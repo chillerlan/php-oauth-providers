@@ -24,4 +24,13 @@ class MicrosoftGraph extends AzureActiveDirectory{
 	protected ?string $apiDocs     = 'https://docs.microsoft.com/graph/overview';
 	protected ?string $endpointMap = MicrosoftGraphEndpoints::class;
 
+	protected array $defaultScopes = [
+		self::SCOPE_OPENID,
+		self::SCOPE_OPENID_EMAIL,
+		self::SCOPE_OPENID_PROFILE,
+		self::SCOPE_OFFLINE_ACCESS,
+		self::SCOPE_USER_READ,
+		self::SCOPE_USER_READBASIC_ALL,
+	];
+
 }

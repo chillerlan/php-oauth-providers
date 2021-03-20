@@ -25,13 +25,9 @@ require_once __DIR__.'/../provider-example-common.php';
 $twitch      = new Twitch($http, $storage, $options, $logger);
 $servicename = $twitch->serviceName;
 
-$scopes = [
-	Twitch::SCOPE_USER_READ,
-];
-
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$twitch->getAuthURL(null, $scopes));
+	header('Location: '.$twitch->getAuthURL());
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){

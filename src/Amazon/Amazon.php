@@ -31,4 +31,9 @@ class Amazon extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	protected ?string $endpointMap    = AmazonEndpoints::class;
 	protected ?string $apiDocs        = 'https://login.amazon.com/';
 	protected ?string $applicationURL = 'https://sellercentral.amazon.com/hz/home';
+
+	protected array $defaultScopes    = [
+		self::SCOPE_PROFILE,
+		self::SCOPE_PROFILE_USER_ID,
+	];
 }

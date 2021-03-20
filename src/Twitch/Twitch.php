@@ -59,6 +59,10 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	protected array $authHeaders       = ['Accept' => 'application/vnd.twitchtv.v5+json'];
 	protected array $apiHeaders        = ['Accept' => 'application/vnd.twitchtv.v5+json'];
 
+	protected array $defaultScopes     =  [
+		self::SCOPE_USER_READ,
+	];
+
 	/**
 	 * @link https://dev.twitch.tv/docs/authentication#oauth-client-credentials-flow-app-access-tokens
 	 *

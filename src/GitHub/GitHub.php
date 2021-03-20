@@ -56,4 +56,11 @@ class GitHub extends OAuth2Provider implements CSRFToken{
 	protected array $authHeaders      = ['Accept' => 'application/json'];
 	protected array $apiHeaders       = ['Accept' => 'application/vnd.github.beta+json'];
 
+	protected array $defaultScopes    = [
+		self::SCOPE_USER,
+		self::SCOPE_USER_EMAIL,
+		self::SCOPE_PUBLIC_REPO,
+		self::SCOPE_GIST,
+	];
+
 }

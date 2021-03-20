@@ -25,16 +25,9 @@ require_once __DIR__.'/../provider-example-common.php';
 $slack       = new Slack($http, $storage, $options, $logger);
 $servicename = $slack->serviceName;
 
-$scopes = [
-	Slack::SCOPE_IDENTITY_AVATAR,
-	Slack::SCOPE_IDENTITY_BASIC,
-	Slack::SCOPE_IDENTITY_EMAIL,
-	Slack::SCOPE_IDENTITY_TEAM,
-];
-
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$slack->getAuthURL(null, $scopes));
+	header('Location: '.$slack->getAuthURL());
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){

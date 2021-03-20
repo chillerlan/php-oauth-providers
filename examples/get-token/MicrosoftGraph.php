@@ -25,18 +25,9 @@ require_once __DIR__.'/../provider-example-common.php';
 $msgraph     = new MicrosoftGraph($http, $storage, $options, $logger);
 $servicename = $msgraph->serviceName;
 
-$scopes = [
-	MicrosoftGraph::SCOPE_OPENID,
-	MicrosoftGraph::SCOPE_OPENID_EMAIL,
-	MicrosoftGraph::SCOPE_OPENID_PROFILE,
-	MicrosoftGraph::SCOPE_OFFLINE_ACCESS,
-	MicrosoftGraph::SCOPE_USER_READ,
-	MicrosoftGraph::SCOPE_USER_READBASIC_ALL,
-];
-
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$msgraph->getAuthURL(null, $scopes));
+	header('Location: '.$msgraph->getAuthURL());
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){

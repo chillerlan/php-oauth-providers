@@ -27,15 +27,9 @@ require_once __DIR__.'/../provider-example-common.php';
 $mastodon    = (new Mastodon($http, $storage, $options, $logger))->setInstance($env->get($ENVVAR.'_INSTANCE'));
 $servicename = $mastodon->serviceName;
 
-$scopes = [
-	Mastodon::SCOPE_READ,
-	Mastodon::SCOPE_WRITE,
-	Mastodon::SCOPE_FOLLOW,
-];
-
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$mastodon->getAuthURL(null, $scopes));
+	header('Location: '.$mastodon->getAuthURL());
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){

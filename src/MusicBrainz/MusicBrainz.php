@@ -78,6 +78,14 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	protected ?string $apiDocs        = 'https://musicbrainz.org/doc/Development';
 	protected ?string $applicationURL = 'https://musicbrainz.org/account/applications';
 
+	protected array $defaultScopes    = [
+		self::SCOPE_PROFILE,
+		self::SCOPE_EMAIL,
+		self::SCOPE_TAG,
+		self::SCOPE_RATING,
+		self::SCOPE_COLLECTION,
+	];
+
 	/**
 	 * @inheritdoc
 	 * @throws \chillerlan\OAuth\Core\ProviderException

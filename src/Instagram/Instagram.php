@@ -59,4 +59,9 @@ class Instagram extends OAuth2Provider implements CSRFToken{
 	protected ?string $applicationURL = 'https://www.instagram.com/developer/clients/manage/';
 	protected int $authMethod         = self::AUTH_METHOD_QUERY;
 
+	protected array $defaultScopes    = [
+		self::SCOPE_BASIC,
+		self::SCOPE_PUBLIC_CONTENT,
+	];
+
 }

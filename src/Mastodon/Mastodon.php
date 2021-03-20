@@ -106,6 +106,11 @@ class Mastodon extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	protected ?string $endpointMap    = MastodonEndpoints::class;
 	protected ?string $apiDocs        = 'https://docs.joinmastodon.org/api/guidelines/';
 
+	protected array $defaultScopes    = [
+		Mastodon::SCOPE_READ,
+		Mastodon::SCOPE_FOLLOW,
+	];
+
 	protected string $instance = '';
 
 	/**

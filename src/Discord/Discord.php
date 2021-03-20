@@ -40,4 +40,14 @@ class Discord extends OAuth2Provider implements ClientCredentials, CSRFToken, To
 	protected ?string $apiDocs        = 'https://discordapp.com/developers/';
 	protected ?string $applicationURL = 'https://discordapp.com/developers/applications/';
 
+	protected array $defaultScopes    = [
+		self::SCOPE_CONNECTIONS,
+		self::SCOPE_EMAIL,
+		self::SCOPE_IDENTIFY,
+		self::SCOPE_GUILDS,
+		self::SCOPE_GUILDS_JOIN,
+		self::SCOPE_GDM_JOIN,
+		self::SCOPE_MESSAGES_READ,
+	];
+
 }

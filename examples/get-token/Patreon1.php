@@ -25,13 +25,9 @@ require_once __DIR__.'/../provider-example-common.php';
 $patreon1    = new Patreon1($http, $storage, $options, $logger);
 $servicename = $patreon1->serviceName;
 
-$scopes = [
-	Patreon1::SCOPE_USERS,
-];
-
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$patreon1->getAuthURL(null, $scopes));
+	header('Location: '.$patreon1->getAuthURL());
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){

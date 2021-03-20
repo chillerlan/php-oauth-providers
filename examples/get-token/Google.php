@@ -25,16 +25,11 @@ require_once __DIR__.'/../provider-example-common.php';
 $google      = new Google($http, $storage, $options, $logger);
 $servicename = $google->serviceName;
 
-$scopes = [
-	Google::SCOPE_EMAIL,
-	Google::SCOPE_PROFILE,
-];
-
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
 	$params = ['access_type' => 'online'];
 
-	header('Location: '.$google->getAuthURL($params, $scopes));
+	header('Location: '.$google->getAuthURL($params));
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){

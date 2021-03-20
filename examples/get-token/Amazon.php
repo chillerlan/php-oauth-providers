@@ -25,15 +25,9 @@ require_once __DIR__.'/../provider-example-common.php';
 $amazon      = new Amazon($http, $storage, $options, $logger);
 $servicename = $amazon->serviceName;
 
-$scopes = [
-	Amazon::SCOPE_PROFILE,
-	Amazon::SCOPE_PROFILE_USER_ID,
-	Amazon::SCOPE_POSTAL_CODE,
-];
-
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$amazon->getAuthURL(null, $scopes));
+	header('Location: '.$amazon->getAuthURL());
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){

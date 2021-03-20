@@ -109,4 +109,20 @@ class Spotify extends OAuth2Provider implements ClientCredentials, CSRFToken, To
 	protected ?string $apiDocs        = 'https://developer.spotify.com/documentation/web-api/';
 	protected ?string $applicationURL = 'https://developer.spotify.com/dashboard/applications';
 
+	protected array $defaultScopes    = [
+		self::SCOPE_PLAYLIST_READ_COLLABORATIVE,
+		self::SCOPE_PLAYLIST_MODIFY_PUBLIC,
+		self::SCOPE_USER_FOLLOW_MODIFY,
+		self::SCOPE_USER_FOLLOW_READ,
+		self::SCOPE_USER_LIBRARY_READ,
+		self::SCOPE_USER_LIBRARY_MODIFY,
+		self::SCOPE_USER_TOP_READ,
+		self::SCOPE_USER_READ_EMAIL,
+		self::SCOPE_STREAMING,
+		self::SCOPE_USER_READ_PLAYBACK_STATE,
+		self::SCOPE_USER_MODIFY_PLAYBACK_STATE,
+		self::SCOPE_USER_READ_CURRENTLY_PLAYING,
+		self::SCOPE_USER_READ_RECENTLY_PLAYED,
+	];
+
 }

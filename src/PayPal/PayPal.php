@@ -38,6 +38,11 @@ class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	protected ?string $apiDocs        = 'https://developer.paypal.com/docs/connect-with-paypal/reference/';
 	protected ?string $endpointMap    = PayPalEndpoints::class;
 
+	protected array $defaultScopes    = [
+		self::SCOPE_BASIC_AUTH,
+		self::SCOPE_EMAIL,
+	];
+
 	/**
 	 * @param \Psr\Http\Message\ResponseInterface $response
 	 *

@@ -33,4 +33,8 @@ class SoundCloud extends OAuth2Provider{
 	protected ?string $applicationURL  = 'https://soundcloud.com/you/apps';
 	protected string $authMethodHeader = 'OAuth';
 
+	protected array $defaultScopes     = [
+		self::SCOPE_NONEXPIRING,
+	];
+
 }

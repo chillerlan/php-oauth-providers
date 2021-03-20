@@ -37,4 +37,9 @@ class DeviantArt extends OAuth2Provider implements ClientCredentials, CSRFToken,
 	protected ?string $apiDocs        = 'https://www.deviantart.com/developers/';
 	protected ?string $applicationURL = 'https://www.deviantart.com/developers/apps';
 
+	protected array $defaultScopes    = [
+		self::SCOPE_BASIC,
+		self::SCOPE_BROWSE,
+	];
+
 }
