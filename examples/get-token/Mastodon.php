@@ -41,11 +41,7 @@ if(isset($_GET['login']) && $_GET['login'] === $servicename){
 elseif(isset($_GET['code']) && isset($_GET['state'])){
 	$token = $mastodon->getAccessToken($_GET['code'], $_GET['state']);
 
-	// store the instance the token belongs to
-	$token->extraParams = array_merge($token->extraParams, ['instance' => $env->get($ENVVAR.'_TESTINSTANCE')]);
-
 	// save the token [...]
-	$storage->storeAccessToken($servicename, $token);
 
 	// access granted, redirect
 	header('Location: ?granted='.$servicename);

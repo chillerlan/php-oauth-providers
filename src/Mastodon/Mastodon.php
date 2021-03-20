@@ -13,10 +13,11 @@
 
 namespace chillerlan\OAuth\Providers\Mastodon;
 
-use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, TokenRefresh};
+use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2Provider, TokenRefresh};
 use chillerlan\OAuth\OAuthException;
 
-use function parse_url;
+use function array_merge, http_build_query, parse_url;
+use const PHP_QUERY_RFC1738;
 
 /**
  * @method \Psr\Http\Message\ResponseInterface acceptFollowRequest(string $request_id)
@@ -105,13 +106,10 @@ class Mastodon extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	protected ?string $endpointMap    = MastodonEndpoints::class;
 	protected ?string $apiDocs        = 'https://docs.joinmastodon.org/api/guidelines/';
 
+	protected string $instance = '';
+
 	/**
 	 * set the internal URLs for the given Mastodon instance
-	 *
-	 * @param string $instance
-	 *
-	 * @return \chillerlan\OAuth\Providers\Mastodon\Mastodon
-	 * @throws \chillerlan\OAuth\OAuthException
 	 */
 	public function setInstance(string $instance):Mastodon{
 		$instance = parse_url($instance);
@@ -122,15 +120,49 @@ class Mastodon extends OAuth2Provider implements CSRFToken, TokenRefresh{
 
 		// @todo: check if host exists/responds
 
-		$instance = $instance['scheme'].'://'.$instance['host'];
+		$this->instance = $instance['scheme'].'://'.$instance['host'];
 
-		$this->apiURL         = $instance.'/api';
-		$this->authURL        = $instance.'/oauth/authorize';
-		$this->accessTokenURL = $instance.'/oauth/token';
-		$this->userRevokeURL  = $instance.'/oauth/authorized_applications';
-		$this->applicationURL = $instance.'/settings/applications';
+		$this->apiURL         = $this->instance.'/api';
+		$this->authURL        = $this->instance.'/oauth/authorize';
+		$this->accessTokenURL = $this->instance.'/oauth/token';
+		$this->userRevokeURL  = $this->instance.'/oauth/authorized_applications';
+		$this->applicationURL = $this->instance.'/settings/applications';
 
 		return $this;
 	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getAccessToken(string $code, string $state = null):AccessToken{
+
+		$body = [
+			'client_id'     => $this->options->key,
+			'client_secret' => $this->options->secret,
+			'code'          => $code,
+			'grant_type'    => 'authorization_code',
+			'redirect_uri'  => $this->options->callbackURL,
+		];
+
+		$request = $this->requestFactory
+			->createRequest('POST', $this->accessTokenURL)
+			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
+			->withHeader('Accept-Encoding', 'identity')
+			->withBody($this->streamFactory->createStream(http_build_query($body, '', '&', PHP_QUERY_RFC1738)));
+
+		foreach($this->authHeaders as $header => $value){
+			$request = $request->withHeader($header, $value);
+		}
+
+		$token = $this->parseTokenResponse($this->http->sendRequest($request));
+		// store the instance the token belongs to
+		$token->extraParams = array_merge($token->extraParams, ['instance' => $this->instance]);
+
+		$this->storage->storeAccessToken($this->serviceName, $token);
+
+		return $token;
+	}
+
+
 
 }
