@@ -46,7 +46,7 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
 	echo '<pre>'.print_r(get_json($stripe->me()), true).'</pre>';
-	echo '<pre onclick="this.select();">'.print_r($storage->getAccessToken($servicename)->toJSON(), true).'</pre>';
+	echo '<textarea cols="120" rows="3" onclick="this.select();">'.$storage->getAccessToken($servicename)->toJSON().'</textarea>';
 }
 // step 1 (optional): display a login link
 else{
