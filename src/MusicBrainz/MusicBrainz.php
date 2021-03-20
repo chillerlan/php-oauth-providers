@@ -16,7 +16,7 @@ namespace chillerlan\OAuth\Providers\MusicBrainz;
 use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2Provider, ProviderException, TokenRefresh};
 use Psr\Http\Message\ResponseInterface;
 
-use function array_merge, date, explode, http_build_query, in_array, sprintf, strtoupper;
+use function date, explode, http_build_query, in_array, sprintf, strtoupper;
 
 use const PHP_QUERY_RFC1738;
 
@@ -146,8 +146,6 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenRefresh{
 		if(in_array($method, ['POST', 'PUT', 'DELETE']) && !isset($params['client'])){
 			$params['client'] = $this->options->user_agent; // @codeCoverageIgnore
 		}
-
-		$headers = array_merge($this->apiHeaders, $headers ?? [], ['Authorization' => 'Bearer '.$token->accessToken]);
 
 		return parent::request(explode('?', $path)[0], $params, $method, $body, $headers);
 	}
