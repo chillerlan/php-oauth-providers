@@ -24,7 +24,7 @@ require_once __DIR__.'/../provider-example-common.php';
  */
 
 // set the mastodon instance we're about to request data from
-$mastodon    =(new Mastodon($http, $storage, $options, $logger))->setInstance($env->get($ENVVAR.'_TESTINSTANCE'));
+$mastodon    = (new Mastodon($http, $storage, $options, $logger))->setInstance($env->get($ENVVAR.'_INSTANCE'));
 $servicename = $mastodon->serviceName;
 
 $scopes = [

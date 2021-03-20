@@ -24,7 +24,7 @@ class TwitchAPITest extends OAuth2APITest{
 	public function testMe():void{
 		$r = $this->provider->me();
 
-		$this->assertSame($this->testuser, $this->responseJson($r)->name);
+		$this->assertSame($this->testuser, $this->responseJson($r)->data[0]->display_name);
 	}
 
 }
