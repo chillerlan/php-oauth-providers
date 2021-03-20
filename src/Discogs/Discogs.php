@@ -82,28 +82,4 @@ class Discogs extends OAuth1Provider{
 	protected ?string $applicationURL = 'https://www.discogs.com/settings/developers';
 	protected array $apiHeaders       = ['Accept' => 'application/vnd.discogs.v2.discogs+json'];
 
-	/**
-	 * @return \chillerlan\OAuth\Core\AccessToken
-	 */
-	public function getRequestToken():AccessToken{
-
-		$params = [
-			'oauth_callback'         => $this->options->callbackURL,
-			'oauth_consumer_key'     => $this->options->key,
-			'oauth_nonce'            => $this->nonce(),
-			'oauth_signature'        => $this->options->secret.'&',
-			'oauth_signature_method' => 'PLAINTEXT',
-			'oauth_timestamp'        => (new DateTime)->format('U'),
-		];
-
-		$params['oauth_signature'] = $this->getSignature($this->requestTokenURL, $params, 'POST');
-
-		$request = $this->requestFactory
-			->createRequest('POST', $this->requestTokenURL)
-			->withHeader('Authorization', 'OAuth '.build_http_query($params, true, ', ', '"'));
-		;
-
-		return $this->parseTokenResponse($this->http->sendRequest($request), true);
-	}
-
 }
