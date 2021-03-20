@@ -49,7 +49,7 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
 	echo '<pre>'.print_r(get_json($patreon2->identity(['fields[user]' => 'about,created,email,first_name,full_name,image_url,last_name,social_connections,thumb_url,url,vanity'])), true).'</pre>';
-	echo '<pre>'.print_r($storage->getAccessToken($servicename)->toJSON(), true).'</pre>';
+	echo '<pre onclick="this.select();">'.print_r($storage->getAccessToken($servicename)->toJSON(), true).'</pre>';
 }
 // step 1 (optional): display a login link
 else{

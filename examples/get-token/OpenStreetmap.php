@@ -41,7 +41,7 @@ elseif(isset($_GET['oauth_token']) && isset($_GET['oauth_verifier'])){
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
 	echo '<pre>'.print_r(get_xml($osm->userDetails()), true).'</pre>';
-	echo '<pre>'.print_r($storage->getAccessToken($servicename)->toJSON(), true).'</pre>';
+	echo '<pre onclick="this.select();">'.print_r($storage->getAccessToken($servicename)->toJSON(), true).'</pre>';
 }
 // step 1 (optional): display a login link
 else{

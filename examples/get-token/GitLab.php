@@ -41,7 +41,7 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
 	echo '<pre>'.print_r(get_json($gitlab->me()), true).'</pre>';
-	echo '<pre>'.print_r($storage->getAccessToken($servicename)->toJSON(), true).'</pre>';
+	echo '<pre onclick="this.select();">'.print_r($storage->getAccessToken($servicename)->toJSON(), true).'</pre>';
 }
 // step 1 (optional): display a login link
 else{

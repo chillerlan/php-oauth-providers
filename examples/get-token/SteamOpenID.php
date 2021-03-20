@@ -47,7 +47,7 @@ elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
 	$token = $storage->getAccessToken($servicename); // the user's steamid is stored as access token
 
 	echo '<pre>'.print_r(get_json($steam->steamUserGetPlayerSummaries(['steamids' => $token->accessToken])), true).'</pre>';
-	echo '<pre>'.print_r($token->toJSON(), true).'</pre>';
+	echo '<pre onclick="this.select();">'.print_r($token->toJSON(), true).'</pre>';
 }
 // step 1 (optional): display a login link
 else{
