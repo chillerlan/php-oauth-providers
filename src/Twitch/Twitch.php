@@ -15,6 +15,7 @@ namespace chillerlan\OAuth\Providers\Twitch;
 
 use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, TokenRefresh};
 
+use Psr\Http\Message\RequestInterface;
 use function http_build_query, implode;
 
 use const PHP_QUERY_RFC1738;
@@ -45,16 +46,16 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	public const SCOPE_USER_SUBSCRIPTIONS         = 'user_subscriptions';
 	public const SCOPE_VIEWING_ACTIVITY_READ      = 'viewing_activity_read';
 
-	protected string $authURL          = 'https://api.twitch.tv/kraken/oauth2/authorize';
-	protected string $accessTokenURL   = 'https://api.twitch.tv/kraken/oauth2/token';
-	protected ?string $apiURL          = 'https://api.twitch.tv/kraken';
+	protected string $authURL          = 'https://id.twitch.tv/oauth2/authorize';
+	protected string $accessTokenURL   = 'https://id.twitch.tv/oauth2/token';
+	protected ?string $apiURL          = 'https://api.twitch.tv/helix';
 	protected ?string $userRevokeURL   = 'https://www.twitch.tv/settings/connections';
-	protected ?string $revokeURL       = 'https://api.twitch.tv/kraken/oauth2/revoke';
+	protected ?string $revokeURL       = 'https://id.twitch.tv/oauth2/revoke';
 	protected ?string $endpointMap     = TwitchEndpoints::class;
 	protected ?string $apiDocs         = 'https://dev.twitch.tv/docs/api/reference/';
 	protected ?string $applicationURL  = 'https://dev.twitch.tv/console/apps/create';
-	protected string $authMethodHeader = 'OAuth';  // -> https://api.twitch.tv/kraken
-#	protected string $authMethodHeader = 'Bearer'; // -> https://api.twitch.tv/helix
+#	protected string $authMethodHeader = 'OAuth';  // -> https://api.twitch.tv/kraken
+	protected string $authMethodHeader = 'Bearer'; // -> https://api.twitch.tv/helix
 	protected array $authHeaders       = ['Accept' => 'application/vnd.twitchtv.v5+json'];
 	protected array $apiHeaders        = ['Accept' => 'application/vnd.twitchtv.v5+json'];
 
@@ -91,6 +92,15 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 		$this->storage->storeAccessToken($this->serviceName, $token);
 
 		return $token;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getRequestAuthorization(RequestInterface $request, AccessToken $token):RequestInterface{
+		return $request
+			->withHeader('Authorization', $this->authMethodHeader.'Bearer '.$token->accessToken)
+			->withHeader('Client-ID', $this->options->key);
 	}
 
 }

@@ -18,7 +18,7 @@ use chillerlan\OAuth\MagicAPI\EndpointMap;
 class TwitchEndpoints extends EndpointMap{
 
 	protected array $me = [
-		'path'          => '/user',
+		'path'          => '/users',
 		'method'        => 'GET',
 		'query'         => [],
 		'path_elements' => [],
