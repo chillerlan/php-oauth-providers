@@ -99,7 +99,7 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	 */
 	public function getRequestAuthorization(RequestInterface $request, AccessToken $token):RequestInterface{
 		return $request
-			->withHeader('Authorization', $this->authMethodHeader.'Bearer '.$token->accessToken)
+			->withHeader('Authorization', $this->authMethodHeader.' '.$token->accessToken)
 			->withHeader('Client-ID', $this->options->key);
 	}
 
