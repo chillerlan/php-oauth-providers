@@ -8,8 +8,8 @@
  * @license      MIT
  */
 
-use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Providers\Discogs\Discogs;
+use function chillerlan\HTTP\Psr7\get_json;
 
 $ENVVAR = 'DISCOGS';
 
@@ -22,8 +22,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$discogs = new Discogs($http, $storage, $options, $logger);
-
+$discogs     = new Discogs($http, $storage, $options, $logger);
 $servicename = $discogs->serviceName;
 
 // step 2: redirect to the provider's login screen
@@ -41,7 +40,8 @@ elseif(isset($_GET['oauth_token']) && isset($_GET['oauth_verifier'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(Psr7\get_json($discogs->identity()), true).'</pre>';
+	echo '<pre>'.print_r(get_json($discogs->identity()), true).'</pre>';
+	echo '<pre>'.print_r($storage->getAccessToken($servicename)->toJSON(), true).'</pre>';
 }
 // step 1 (optional): display a login link
 else{

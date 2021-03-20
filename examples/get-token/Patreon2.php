@@ -8,8 +8,8 @@
  * @license      MIT
  */
 
-use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Providers\Patreon\Patreon2;
+use function chillerlan\HTTP\Psr7\get_json;
 
 $ENVVAR = 'PATREON2';
 
@@ -22,7 +22,8 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$patreon2 = new Patreon2($http, $storage, $options, $logger);
+$patreon2    = new Patreon2($http, $storage, $options, $logger);
+$servicename = $patreon2->serviceName;
 
 $scopes = [
 	Patreon2::SCOPE_IDENTITY,
@@ -31,8 +32,6 @@ $scopes = [
 	Patreon2::SCOPE_CAMPAIGNS,
 	Patreon2::SCOPE_CAMPAIGNS_MEMBERS,
 ];
-
-$servicename = $patreon2->serviceName;
 
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
@@ -49,7 +48,8 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(Psr7\get_json($patreon2->identity(['fields[user]' => 'about,created,email,first_name,full_name,image_url,last_name,social_connections,thumb_url,url,vanity'])), true).'</pre>';
+	echo '<pre>'.print_r(get_json($patreon2->identity(['fields[user]' => 'about,created,email,first_name,full_name,image_url,last_name,social_connections,thumb_url,url,vanity'])), true).'</pre>';
+	echo '<pre>'.print_r($storage->getAccessToken($servicename)->toJSON(), true).'</pre>';
 }
 // step 1 (optional): display a login link
 else{

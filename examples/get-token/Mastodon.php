@@ -8,8 +8,8 @@
  * @license      MIT
  */
 
-use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Providers\Mastodon\Mastodon;
+use function chillerlan\HTTP\Psr7\get_json;
 
 $ENVVAR = 'MASTODON';
 
@@ -20,20 +20,18 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage
  * @var \chillerlan\Settings\SettingsContainerInterface $options
  * @var \Psr\Log\LoggerInterface $logger
+ * @var \chillerlan\DotEnv\DotEnv $env
  */
 
-$mastodon = new Mastodon($http, $storage, $options, $logger);
-
 // set the mastodon instance we're about to request data from
-$mastodon->setInstance($env->get($ENVVAR.'_TESTINSTANCE'));
+$mastodon    =(new Mastodon($http, $storage, $options, $logger))->setInstance($env->get($ENVVAR.'_TESTINSTANCE'));
+$servicename = $mastodon->serviceName;
 
 $scopes = [
 	Mastodon::SCOPE_READ,
 	Mastodon::SCOPE_WRITE,
 	Mastodon::SCOPE_FOLLOW,
 ];
-
-$servicename = $mastodon->serviceName;
 
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
@@ -47,13 +45,15 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 	$token->extraParams = array_merge($token->extraParams, ['instance' => $env->get($ENVVAR.'_TESTINSTANCE')]);
 
 	// save the token [...]
+	$storage->storeAccessToken($servicename, $token);
 
 	// access granted, redirect
 	header('Location: ?granted='.$servicename);
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(Psr7\get_json($mastodon->getCurrentUser()), true).'</pre>';
+	echo '<pre>'.print_r(get_json($mastodon->getCurrentUser()), true).'</pre>';
+	echo '<pre>'.print_r($storage->getAccessToken($servicename)->toJSON(), true).'</pre>';
 }
 // step 1 (optional): display a login link
 else{

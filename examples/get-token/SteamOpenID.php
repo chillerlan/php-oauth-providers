@@ -1,17 +1,17 @@
 <?php
 /**
- * @link https://apidocs.imgur.com/?version=latest#authorization-and-oauth
+ * @link https://steamcommunity.com/dev
  *
- * @created      28.07.2019
+ * @created      20.03.2021
  * @author       smiley <smiley@chillerlan.net>
- * @copyright    2019 smiley
+ * @copyright    2021 smiley
  * @license      MIT
  */
 
-use chillerlan\OAuth\Providers\Imgur\Imgur;
+use chillerlan\OAuth\Providers\Steam\SteamOpenID;
 use function chillerlan\HTTP\Psr7\get_json;
 
-$ENVVAR = 'IMGUR';
+$ENVVAR = 'STEAMOPENID';
 
 require_once __DIR__.'/../provider-example-common.php';
 
@@ -22,35 +22,34 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$imgur       = new Imgur($http, $storage, $options, $logger);
-$servicename = $imgur->serviceName;
+$steam       = new SteamOpenID($http, $storage, $options, $logger);
+$servicename = $steam->serviceName;
 
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$imgur->getAuthURL());
+	header('Location: '.$steam->getAuthURL());
 }
 // step 3: receive the access token
-elseif(isset($_GET['code']) && isset($_GET['state'])){
-	$token = $imgur->getAccessToken($_GET['code'], $_GET['state']);
+elseif(isset($_GET['openid_sig']) && isset($_GET['openid_signed'])){
+	$token = $steam->getAccessToken($_GET);
 
-	$username = $token->extraParams['account_username'];
-	$id       = $token->extraParams['account_id'];
-
-	$token->expires = time() + 2592000; // 30 days
 	// save the token [...]
-	$storage->storeAccessToken($servicename, $token);
 
 	// access granted, redirect
 	header('Location: ?granted='.$servicename);
 }
+//step 3.1: oh noes!
+elseif(isset($_GET['openid_error'])){ // openid.error -> https://stackoverflow.com/questions/68651/
+	exit('oh noes: '.$_GET['openid_error']);
+}
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(get_json($imgur->me()), true).'</pre>';
-	echo '<pre>'.print_r($storage->getAccessToken($servicename)->toJSON(), true).'</pre>';
+	$token = $storage->getAccessToken($servicename); // the user's steamid is stored as access token
+
+	echo '<pre>'.print_r(get_json($steam->steamUserGetPlayerSummaries(['steamids' => $token->accessToken])), true).'</pre>';
+	echo '<pre>'.print_r($token->toJSON(), true).'</pre>';
 }
 // step 1 (optional): display a login link
 else{
 	echo '<a href="?login='.$servicename.'">connect with '.$servicename.'!</a>';
 }
-
-exit;

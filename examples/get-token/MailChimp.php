@@ -8,8 +8,8 @@
  * @license      MIT
  */
 
-use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Providers\MailChimp\MailChimp;
+use function chillerlan\HTTP\Psr7\get_json;
 
 $ENVVAR = 'MAILCHIMP';
 
@@ -22,15 +22,12 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$mailchimp = new MailChimp($http, $storage, $options, $logger);
-
-$scopes = [];
-
+$mailchimp   = new MailChimp($http, $storage, $options, $logger);
 $servicename = $mailchimp->serviceName;
 
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$mailchimp->getAuthURL(null, $scopes));
+	header('Location: '.$mailchimp->getAuthURL());
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){
@@ -48,7 +45,8 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(Psr7\get_json($mailchimp->root()), true).'</pre>';
+	echo '<pre>'.print_r(get_json($mailchimp->root()), true).'</pre>';
+	echo '<pre>'.print_r($storage->getAccessToken($servicename)->toJSON(), true).'</pre>';
 }
 // step 1 (optional): display a login link
 else{

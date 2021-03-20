@@ -8,8 +8,8 @@
  * @license      MIT
  */
 
-use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Providers\LastFM\LastFM;
+use function chillerlan\HTTP\Psr7\get_json;
 
 $ENVVAR = 'LASTFM';
 
@@ -22,8 +22,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$lastfm = new LastFM($http, $storage, $options, $logger);
-
+$lastfm      = new LastFM($http, $storage, $options, $logger);
 $servicename = $lastfm->serviceName;
 
 // step 2: redirect to the provider's login screen
@@ -41,7 +40,8 @@ elseif(isset($_GET['token'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(Psr7\get_json($lastfm->userGetInfo()), true).'</pre>';
+	echo '<pre>'.print_r(get_json($lastfm->userGetInfo()), true).'</pre>';
+	echo '<pre>'.print_r($storage->getAccessToken($servicename)->toJSON(), true).'</pre>';
 }
 // step 1 (optional): display a login link
 else{

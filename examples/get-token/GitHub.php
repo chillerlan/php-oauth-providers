@@ -8,8 +8,8 @@
  * @license      MIT
  */
 
-use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Providers\GitHub\GitHub;
+use function chillerlan\HTTP\Psr7\get_json;
 
 $ENVVAR = 'GITHUB';
 
@@ -22,15 +22,14 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$github = new GitHub($http, $storage, $options, $logger);
+$github      = new GitHub($http, $storage, $options, $logger);
+$servicename = $github->serviceName;
 
 $scopes = [
 	GitHub::SCOPE_USER,
 	GitHub::SCOPE_PUBLIC_REPO,
 	GitHub::SCOPE_GIST,
 ];
-
-$servicename = $github->serviceName;
 
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
@@ -47,7 +46,8 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(Psr7\get_json($github->me()), true).'</pre>';
+	echo '<pre>'.print_r(get_json($github->me()), true).'</pre>';
+	echo '<pre>'.print_r($storage->getAccessToken($servicename)->toJSON(), true).'</pre>';
 }
 // step 1 (optional): display a login link
 else{

@@ -8,8 +8,8 @@
  * @license      MIT
  */
 
-use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Providers\Amazon\Amazon;
+use function chillerlan\HTTP\Psr7\get_json;
 
 $ENVVAR = 'AMAZON';
 
@@ -22,15 +22,14 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$amazon = new Amazon($http, $storage, $options, $logger);
+$amazon      = new Amazon($http, $storage, $options, $logger);
+$servicename = $amazon->serviceName;
 
 $scopes = [
 	Amazon::SCOPE_PROFILE,
 	Amazon::SCOPE_PROFILE_USER_ID,
 	Amazon::SCOPE_POSTAL_CODE,
 ];
-
-$servicename = $amazon->serviceName;
 
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
@@ -47,7 +46,8 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(Psr7\get_json($amazon->userProfile()), true).'</pre>';
+	echo '<pre>'.print_r(get_json($amazon->userProfile()), true).'</pre>';
+	echo '<pre>'.print_r($storage->getAccessToken($servicename)->toJSON(), true).'</pre>';
 }
 // step 1 (optional): display a login link
 else{

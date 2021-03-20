@@ -8,8 +8,8 @@
  * @license      MIT
  */
 
-use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Providers\Microsoft\MicrosoftGraph;
+use function chillerlan\HTTP\Psr7\get_json;
 
 $ENVVAR = 'MICROSOFT_AAD';
 
@@ -22,8 +22,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$msgraph = new MicrosoftGraph($http, $storage, $options, $logger);
-
+$msgraph     = new MicrosoftGraph($http, $storage, $options, $logger);
 $servicename = $msgraph->serviceName;
 
 $scopes = [
@@ -50,7 +49,8 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(Psr7\get_json($msgraph->me()), true).'</pre>';
+	echo '<pre>'.print_r(get_json($msgraph->me()), true).'</pre>';
+	echo '<pre>'.print_r($storage->getAccessToken($servicename)->toJSON(), true).'</pre>';
 }
 // step 1 (optional): display a login link
 else{

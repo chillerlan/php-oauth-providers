@@ -8,8 +8,8 @@
  * @license      MIT
  */
 
-use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Providers\Spotify\Spotify;
+use function chillerlan\HTTP\Psr7\get_json;
 
 $ENVVAR = 'SPOTIFY';
 
@@ -22,7 +22,8 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$spotify = new Spotify($http, $storage, $options, $logger);
+$spotify     = new Spotify($http, $storage, $options, $logger);
+$servicename = $spotify->serviceName;
 
 $scopes = [
 	Spotify::SCOPE_PLAYLIST_READ_PRIVATE,
@@ -45,8 +46,6 @@ $scopes = [
 #	Spotify::SCOPE_UGC_IMAGE_UPLOAD,
 ];
 
-$servicename = $spotify->serviceName;
-
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
 	header('Location: '.$spotify->getAuthURL(null, $scopes));
@@ -62,7 +61,8 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(Psr7\get_json($spotify->me()), true).'</pre>';
+	echo '<pre>'.print_r(get_json($spotify->me()), true).'</pre>';
+	echo '<pre>'.print_r($storage->getAccessToken($servicename)->toJSON(), true).'</pre>';
 }
 // step 1 (optional): display a login link
 else{

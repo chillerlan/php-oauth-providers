@@ -8,8 +8,8 @@
  * @license      MIT
  */
 
-use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Providers\Foursquare\Foursquare;
+use function chillerlan\HTTP\Psr7\get_json;
 
 $ENVVAR = 'FOURSQUARE';
 
@@ -22,8 +22,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$foursquare = new Foursquare($http, $storage, $options, $logger);
-
+$foursquare  = new Foursquare($http, $storage, $options, $logger);
 $servicename = $foursquare->serviceName;
 
 // step 2: redirect to the provider's login screen
@@ -41,7 +40,8 @@ elseif(isset($_GET['code'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(Psr7\get_json($foursquare->me()), true).'</pre>';
+	echo '<pre>'.print_r(get_json($foursquare->me()), true).'</pre>';
+	echo '<pre>'.print_r($storage->getAccessToken($servicename)->toJSON(), true).'</pre>';
 }
 // step 1 (optional): display a login link
 else{

@@ -8,8 +8,8 @@
  * @license      MIT
  */
 
-use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Providers\Twitch\Twitch;
+use function chillerlan\HTTP\Psr7\get_json;
 
 $ENVVAR = 'TWITCH';
 
@@ -22,13 +22,12 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$twitch = new Twitch($http, $storage, $options, $logger);
+$twitch      = new Twitch($http, $storage, $options, $logger);
+$servicename = $twitch->serviceName;
 
 $scopes = [
 	Twitch::SCOPE_USER_READ,
 ];
-
-$servicename = $twitch->serviceName;
 
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
@@ -45,7 +44,8 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(Psr7\get_json($twitch->me()),true).'</pre>';
+	echo '<pre>'.print_r(get_json($twitch->me()),true).'</pre>';
+	echo '<pre>'.print_r($storage->getAccessToken($servicename)->toJSON(), true).'</pre>';
 }
 // step 1 (optional): display a login link
 else{

@@ -8,8 +8,8 @@
  * @license      MIT
  */
 
-use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Providers\MusicBrainz\MusicBrainz;
+use function chillerlan\HTTP\Psr7\get_json;
 
 $ENVVAR = 'MUSICBRAINZ';
 
@@ -23,6 +23,7 @@ require_once __DIR__.'/../provider-example-common.php';
  */
 
 $musicbrainz = new MusicBrainz($http, $storage, $options, $logger);
+$servicename = $musicbrainz->serviceName;
 
 $scopes = [
 	MusicBrainz::SCOPE_PROFILE,
@@ -35,7 +36,7 @@ $scopes = [
 ];
 
 // step 2: redirect to the provider's login screen
-if(isset($_GET['login']) && $_GET['login'] === $musicbrainz->serviceName){
+if(isset($_GET['login']) && $_GET['login'] === $servicename){
 
 	$params = [
 		'access_type'     => 'offline',
@@ -52,15 +53,16 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 	// save the token [...]
 
 	// access granted, redirect
-	header('Location: ?granted='.$musicbrainz->serviceName);
+	header('Location: ?granted='.$servicename);
 }
 // step 4: verify the token and use the API
-elseif(isset($_GET['granted']) && $_GET['granted'] === $musicbrainz->serviceName){
-	echo '<pre>'.print_r(Psr7\get_json($musicbrainz->artistId('573510d6-bb5d-4d07-b0aa-ea6afe39e28d', ['inc' => 'url-rels work-rels'])), true).'</pre>';
+elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
+	echo '<pre>'.print_r(get_json($musicbrainz->artistId('573510d6-bb5d-4d07-b0aa-ea6afe39e28d', ['inc' => 'url-rels work-rels'])), true).'</pre>';
+	echo '<pre>'.print_r($storage->getAccessToken($servicename)->toJSON(), true).'</pre>';
 }
 // step 1 (optional): display a login link
 else{
-	echo '<a href="?login='.$musicbrainz->serviceName.'">connect with '.$musicbrainz->serviceName.'!</a>';
+	echo '<a href="?login='.$servicename.'">connect with '.$servicename.'!</a>';
 }
 
 exit;

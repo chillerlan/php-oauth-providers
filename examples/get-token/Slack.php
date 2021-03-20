@@ -8,8 +8,8 @@
  * @license      MIT
  */
 
-use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Providers\Slack\Slack;
+use function chillerlan\HTTP\Psr7\get_json;
 
 $ENVVAR = 'SLACK';
 
@@ -22,7 +22,8 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$slack = new Slack($http, $storage, $options, $logger);
+$slack       = new Slack($http, $storage, $options, $logger);
+$servicename = $slack->serviceName;
 
 $scopes = [
 	Slack::SCOPE_IDENTITY_AVATAR,
@@ -30,8 +31,6 @@ $scopes = [
 	Slack::SCOPE_IDENTITY_EMAIL,
 	Slack::SCOPE_IDENTITY_TEAM,
 ];
-
-$servicename = $slack->serviceName;
 
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
@@ -48,7 +47,8 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(Psr7\get_json($slack->userIdentity()), true).'</pre>';
+	echo '<pre>'.print_r(get_json($slack->userIdentity()), true).'</pre>';
+	echo '<pre>'.print_r($storage->getAccessToken($servicename)->toJSON(), true).'</pre>';
 }
 // step 1 (optional): display a login link
 else{

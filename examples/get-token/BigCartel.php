@@ -8,8 +8,8 @@
  * @license      MIT
  */
 
-use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Providers\BigCartel\BigCartel;
+use function chillerlan\HTTP\Psr7\get_json;
 
 $ENVVAR = 'BIGCARTEL';
 
@@ -22,8 +22,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$bigcartel = new BigCartel($http, $storage, $options, $logger);
-
+$bigcartel   = new BigCartel($http, $storage, $options, $logger);
 $servicename = $bigcartel->serviceName;
 
 // step 2: redirect to the provider's login screen
@@ -43,7 +42,8 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(Psr7\get_json($bigcartel->account()), true).'</pre>';
+	echo '<pre>'.print_r(get_json($bigcartel->account()), true).'</pre>';
+	echo '<pre>'.print_r($storage->getAccessToken($servicename)->toJSON(), true).'</pre>';
 }
 // step 1 (optional): display a login link
 else{

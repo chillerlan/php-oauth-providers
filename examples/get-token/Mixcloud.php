@@ -8,8 +8,8 @@
  * @license      MIT
  */
 
-use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Providers\Mixcloud\Mixcloud;
+use function chillerlan\HTTP\Psr7\get_json;
 
 $ENVVAR = 'MIXCLOUD';
 
@@ -22,16 +22,12 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$mixcloud  = new Mixcloud($http, $storage, $options, $logger);
-
-// no scopes available yet
-$scopes = [];
-
+$mixcloud    = new Mixcloud($http, $storage, $options, $logger);
 $servicename = $mixcloud->serviceName;
 
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$mixcloud->getAuthURL(null, $scopes));
+	header('Location: '.$mixcloud->getAuthURL());
 }
 // step 3: receive the access token
 elseif(isset($_GET['code'])){ // mixcloud doesn't support <state>
@@ -44,7 +40,8 @@ elseif(isset($_GET['code'])){ // mixcloud doesn't support <state>
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(Psr7\get_json($mixcloud->me()), true).'</pre>';
+	echo '<pre>'.print_r(get_json($mixcloud->me()), true).'</pre>';
+	echo '<pre>'.print_r($storage->getAccessToken($servicename)->toJSON(), true).'</pre>';
 }
 // step 1 (optional): display a login link
 else{

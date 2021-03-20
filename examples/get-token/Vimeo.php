@@ -8,8 +8,8 @@
  * @license      MIT
  */
 
-use chillerlan\HTTP\Psr7;
 use chillerlan\OAuth\Providers\Vimeo\Vimeo;
+use function chillerlan\HTTP\Psr7\get_json;
 
 $ENVVAR = 'VIMEO';
 
@@ -22,7 +22,8 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$vimeo     = new Vimeo($http, $storage, $options, $logger);
+$vimeo       = new Vimeo($http, $storage, $options, $logger);
+$servicename = $vimeo->serviceName;
 
 $scopes = [
 	Vimeo::SCOPE_PRIVATE,
@@ -37,8 +38,6 @@ $scopes = [
 	Vimeo::SCOPE_PROMO_CODES,
 	Vimeo::SCOPE_VIDEO_FILES,
 ];
-
-$servicename = $vimeo->serviceName;
 
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
@@ -57,7 +56,8 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(Psr7\get_json($vimeo->verifyToken()),true).'</pre>';
+	echo '<pre>'.print_r(get_json($vimeo->verifyToken()),true).'</pre>';
+	echo '<pre>'.print_r($storage->getAccessToken($servicename)->toJSON(), true).'</pre>';
 }
 // step 1 (optional): display a login link
 else{
