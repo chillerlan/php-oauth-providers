@@ -97,10 +97,12 @@ use chillerlan\OAuth\Core\{ClientCredentials, CSRFToken, OAuth2Provider};
  */
 class Vimeo extends OAuth2Provider implements ClientCredentials, CSRFToken{
 
-	public const SCOPE_PRIVATE     = 'private';
+	/**
+	 * @link https://developer.vimeo.com/api/authentication#understanding-the-auth-process
+	 */
 	public const SCOPE_PUBLIC      = 'public';
+	public const SCOPE_PRIVATE     = 'private';
 	public const SCOPE_PURCHASED   = 'purchased';
-	public const SCOPE_PURCHASE    = 'purchase';
 	public const SCOPE_CREATE      = 'create';
 	public const SCOPE_EDIT        = 'edit';
 	public const SCOPE_DELETE      = 'delete';
@@ -123,7 +125,7 @@ class Vimeo extends OAuth2Provider implements ClientCredentials, CSRFToken{
 	protected array $apiHeaders                  = ['Accept' => 'application/vnd.vimeo.*+json;version='.self::API_VERSION];
 
 	protected array $defaultScopes               =  [
-		self::SCOPE_PUBLIC,
+		self::SCOPE_PRIVATE,
 		self::SCOPE_INTERACT,
 	];
 
