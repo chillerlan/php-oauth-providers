@@ -60,12 +60,12 @@ $options_arr = [
  * @var \chillerlan\Settings\SettingsContainerInterface $options
  * @var \Psr\Log\LoggerInterface $logger
  * @var \Psr\Http\Client\ClientInterface $http
+ * @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage
  */
 $options = $options ?? new OAuthOptions($options_arr);
-$logger  = new NullLogger; // new OAuthTestLogger($LOGLEVEL);
-$http    = new CurlClient($options); // new OAuthTestHttpClient($options);
-#$http->setLogger($logger);
+$logger  = new NullLogger;
+$http    = new CurlClient($options);
+$storage = new SessionStorage($options);
 
-/** @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage */
-$storage = New SessionStorage($options); // new OAuthExampleSessionStorage($options, $CFGDIR);
+#$http->setLogger($logger);
 #$storage->setLogger($logger);

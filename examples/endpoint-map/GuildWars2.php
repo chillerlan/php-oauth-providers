@@ -6,16 +6,9 @@
  * @license      MIT
  */
 
-namespace chillerlan\OAuthExamples\misc;
-
 use chillerlan\OAuth\Providers\GuildWars2\GuildWars2;
 
-use function array_merge, count, date, explode, file_get_contents, file_put_contents,
-	implode, json_decode, lcfirst, strpos, substr, trim, ucfirst, uksort;
-
-use const PHP_EOL;
-
-require_once __DIR__.'/../provider-example-common.php';
+require_once __DIR__.'/create-endpointmap-common.php';
 
 /**
  * @var \Psr\Http\Client\ClientInterface $http
@@ -26,10 +19,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \chillerlan\DotEnv\DotEnv $env
  */
 
-$gw2       = new GuildWars2($http, $storage, $options, $logger);
-$epr       = new \ReflectionClass($gw2->endpoints);
-$classfile = $epr->getFileName();
-
+$gw2 = new GuildWars2($http, $storage, $options, $logger);
 $gw2->storeGW2Token($env->GW2_TOKEN);
 
 #$api = explode("\r\n", explode("\r\n\r\n", explode("API:\r\n",  file_get_contents('https://api.guildwars2.com/v2'), 2)[1])[0]);
@@ -158,12 +148,12 @@ foreach($api as $endpoint){
 
 uksort($apiMethods, 'strcmp');
 
-$str = [];
+$content = [];
 
 foreach($apiMethods as $method => $args){
 	// create a docblock
 	// @todo
-	$str[] = '
+	$content[] = '
 	protected array $'.explode('?', $method)[0].' = [
 		\'path\'          => \''.$args['path'].'\',
 		\'query\'         => ['.(!empty($args['query']) ? '\''.implode('\', \'', $args['query']).'\'' : '').'],
@@ -174,25 +164,6 @@ foreach($apiMethods as $method => $args){
 }
 
 // and replace the class
-$content = '<?php
-/**
- * Class '.$epr->getShortName().' (auto created)
- *
- * @link https://wiki.guildwars2.com/wiki/API:Main
- * @link https://api.guildwars2.com/v2.json
- *
- * @created      '.date('d.m.Y').'
- * @license      MIT
- */
+createEndpointMap($content, 'https://api.guildwars2.com/v2.json', $gw2->endpoints);
 
-namespace '.$epr->getNamespaceName().';
-
-use chillerlan\\OAuth\\MagicAPI\\EndpointMap;
-
-class '.$epr->getShortName().' extends EndpointMap{
-'.implode(PHP_EOL, $str).'
-
-}
-';
-
-file_put_contents($classfile, $content);
+exit;

@@ -1,23 +1,18 @@
 <?php
 /**
- *
  * @created      15.03.2021
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2021 smiley
  * @license      MIT
  */
 
-namespace chillerlan\OAuthExamples\misc;
-
 use chillerlan\OAuth\Providers\Steam\SteamOpenID;
-use ReflectionClass;
+
 use function chillerlan\HTTP\Psr7\get_json;
-use function date, file_put_contents, implode, in_array, lcfirst, print_r, str_pad, substr;
-use const PHP_EOL, STR_PAD_LEFT;
 
-$ENVVAR = 'STEAM';
+$ENVVAR = 'STEAMOPENID';
 
-require_once __DIR__.'/../provider-example-common.php';
+require_once __DIR__.'/create-endpointmap-common.php';
 
 /**
  * @var \Psr\Http\Client\ClientInterface $http
@@ -26,14 +21,13 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$steam     = new SteamOpenID($http, $storage, $options, $logger);
-$epr       = new ReflectionClass($steam->endpoints);
-$classfile = $epr->getFileName();
-
+$steam         = new SteamOpenID($http, $storage, $options, $logger);
 // fetch a list of available methods
-$r = $steam->request('/ISteamWebAPIUtil/GetSupportedAPIList/v0001');
-$interfaces = get_json($r)->apilist->interfaces;
-
+$r             = $steam->request('/ISteamWebAPIUtil/GetSupportedAPIList/v0001');
+$interfaces    = get_json($r)->apilist->interfaces;
+$content       = [];
+$allInterfaces = [];
+/*
 $typeTranslation = [
 	'uint64'    => 'int',
 	'uint32'    => 'int',
@@ -42,11 +36,7 @@ $typeTranslation = [
 	'{message}' => 'array',
 	'{enum}'    => 'array',
 ];
-
-$str = [];
-
-$allInterfaces = [];
-
+*/
 $includeInterfaces = [
 	'ISteamApps',
 	'ISteamNews',
@@ -64,8 +54,10 @@ foreach($interfaces as $interface){
 		continue;
 	}
 
-	$str[] = '
-	/* 
+	$logger->info($interface->name);
+
+	$content[] = '
+	/*
 	 * '.$interface->name.'
 	 */';
 
@@ -84,46 +76,25 @@ foreach($interfaces as $interface){
 		}
 
 		$methodName = lcfirst(substr($interface->name, 1).$method->name);
-		$version    = str_pad($method->version, 1, '0', STR_PAD_LEFT);
 
-		$str[$methodName] = '
+		$content[$methodName] = '
 	/**
 	 * '.$interface->name.'/'.$method->name.'
 	 */
 	protected array $'.$methodName.' = [
-		\'path\'   => \'/'.$interface->name.'/'.$method->name.'/v'.$version.'\',
+		\'path\'   => \'/'.$interface->name.'/'.$method->name.'/v'.str_pad($method->version, 1, '0', STR_PAD_LEFT).'\',
 		\'method\' => \''.$method->httpmethod.'\',
 		\'query\'  => ['.(!empty($args) ? '\''.implode('\', \'', $args).'\'' : '').'],
 	];';
 
-
+		$logger->info('- '.$method->name);
 	}
 
 }
 
-print_r($allInterfaces);
+#print_r($allInterfaces);
 
 // and replace the class
-$content = '<?php
-/**
- * Class '.$epr->getShortName().' (auto created)
- *
- * @link http://api.steampowered.com/ISteamWebAPIUtil/GetSupportedAPIList/v0001/
- *
- * @created '.date('d.m.Y').'
- * @license MIT
- */
-
-namespace '.$epr->getNamespaceName().';
-
-use chillerlan\\OAuth\\MagicAPI\\EndpointMap;
-
-class '.$epr->getShortName().' extends EndpointMap{
-'.implode(PHP_EOL, $str).'
-
-}
-';
-
-file_put_contents($classfile, $content);
+createEndpointMap($content, 'http://api.steampowered.com/ISteamWebAPIUtil/GetSupportedAPIList/v0001/', $steam->endpoints);
 
 exit;
