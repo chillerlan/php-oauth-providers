@@ -2,9 +2,8 @@
 /**
  * Class SteamEndpoints (auto created)
  *
- * @link http://api.steampowered.com/ISteamWebAPIUtil/GetSupportedAPIList/v0001/
- *
- * @created 16.03.2021
+ * @link    http://api.steampowered.com/ISteamWebAPIUtil/GetSupportedAPIList/v0001/
+ * @created 22.03.2021
  * @license MIT
  */
 

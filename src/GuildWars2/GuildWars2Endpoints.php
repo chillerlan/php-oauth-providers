@@ -2,11 +2,9 @@
 /**
  * Class GuildWars2Endpoints (auto created)
  *
- * @link https://wiki.guildwars2.com/wiki/API:Main
- * @link https://api.guildwars2.com/v2.json
- *
- * @created      06.12.2019
- * @license      MIT
+ * @link    https://api.guildwars2.com/v2.json
+ * @created 22.03.2021
+ * @license MIT
  */
 
 namespace chillerlan\OAuth\Providers\GuildWars2;
@@ -29,6 +27,12 @@ class GuildWars2Endpoints extends EndpointMap{
 
 	protected array $accountBank = [
 		'path'          => '/account/bank',
+		'query'         => ['access_token'],
+		'path_elements' => [],
+	];
+
+	protected array $accountBuildstorage = [
+		'path'          => '/account/buildstorage',
 		'query'         => ['access_token'],
 		'path_elements' => [],
 	];
@@ -309,6 +313,18 @@ class GuildWars2Endpoints extends EndpointMap{
 		'path_elements' => ['id'],
 	];
 
+	protected array $charactersIdBuildtabs = [
+		'path'          => '/characters/%1$s/buildtabs',
+		'query'         => ['access_token'],
+		'path_elements' => ['id'],
+	];
+
+	protected array $charactersIdBuildtabsActive = [
+		'path'          => '/characters/%1$s/buildtabs/active',
+		'query'         => ['access_token'],
+		'path_elements' => ['id'],
+	];
+
 	protected array $charactersIdCore = [
 		'path'          => '/characters/%1$s/core',
 		'query'         => ['access_token'],
@@ -323,6 +339,18 @@ class GuildWars2Endpoints extends EndpointMap{
 
 	protected array $charactersIdEquipment = [
 		'path'          => '/characters/%1$s/equipment',
+		'query'         => ['access_token'],
+		'path_elements' => ['id'],
+	];
+
+	protected array $charactersIdEquipmenttabs = [
+		'path'          => '/characters/%1$s/equipmenttabs',
+		'query'         => ['access_token'],
+		'path_elements' => ['id'],
+	];
+
+	protected array $charactersIdEquipmenttabsActive = [
+		'path'          => '/characters/%1$s/equipmenttabs/active',
 		'query'         => ['access_token'],
 		'path_elements' => ['id'],
 	];

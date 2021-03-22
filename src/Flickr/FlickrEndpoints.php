@@ -2,10 +2,9 @@
 /**
  * Class FlickrEndpoints (auto created)
  *
- * @link https://www.flickr.com/services/api/
- *
- * @created      06.12.2019
- * @license      MIT
+ * @link    https://www.flickr.com/services/api/
+ * @created 22.03.2021
+ * @license MIT
  */
 
 namespace chillerlan\OAuth\Providers\Flickr;
@@ -283,7 +282,7 @@ class FlickrEndpoints extends EndpointMap{
 	 */
 	protected array $galleriesGetPhotos = [
 		'path'  => 'flickr.galleries.getPhotos',
-		'query' => ['gallery_id', 'continuation', 'per_page', 'get_user_info', 'get_gallery_info', 'extras', 'per_page', 'page'],
+		'query' => ['gallery_id', 'continuation', 'get_user_info', 'get_gallery_info', 'extras', 'per_page', 'page'],
 	];
 
 	/**

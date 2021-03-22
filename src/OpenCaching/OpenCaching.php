@@ -63,7 +63,7 @@ class OpenCaching extends OAuth1Provider{
 	protected string $requestTokenURL = 'https://www.opencaching.de/okapi/services/oauth/request_token';
 	protected string $authURL         = 'https://www.opencaching.de/okapi/services/oauth/authorize';
 	protected string $accessTokenURL  = 'https://www.opencaching.de/okapi/services/oauth/access_token';
-	protected ?string $apiURL         = 'https://www.opencaching.de/okapi/services';
+	protected ?string $apiURL         = 'https://www.opencaching.de/okapi';
 	protected ?string $userRevokeURL  = 'https://www.opencaching.de/okapi/apps/';
 	protected ?string $endpointMap    = OpenCachingEndpoints::class;
 	protected ?string $apiDocs        = 'https://www.opencaching.de/okapi/';

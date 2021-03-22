@@ -53,7 +53,7 @@ use function chillerlan\HTTP\Psr7\merge_query;
  * @method \Psr\Http\Message\ResponseInterface galleriesGetInfo(array $params = ['gallery_id', 'primary_photo_size', 'cover_photos_size', 'limit', 'short_limit'])
  * @method \Psr\Http\Message\ResponseInterface galleriesGetList(array $params = ['user_id', 'per_page', 'page', 'primary_photo_extras', 'continuation', 'sort_groups', 'photo_ids', 'cover_photos', 'primary_photo_cover_size', 'cover_photos_size', 'limit', 'short_limit'])
  * @method \Psr\Http\Message\ResponseInterface galleriesGetListForPhoto(array $params = ['photo_id', 'per_page', 'page'])
- * @method \Psr\Http\Message\ResponseInterface galleriesGetPhotos(array $params = ['gallery_id', 'continuation', 'per_page', 'get_user_info', 'get_gallery_info', 'extras', 'per_page', 'page'])
+ * @method \Psr\Http\Message\ResponseInterface galleriesGetPhotos(array $params = ['gallery_id', 'continuation', 'get_user_info', 'get_gallery_info', 'extras', 'per_page', 'page'])
  * @method \Psr\Http\Message\ResponseInterface galleriesRemovePhoto(array $params = ['gallery_id', 'photo_id', 'full_response'])
  * @method \Psr\Http\Message\ResponseInterface groupsBrowse(array $params = ['cat_id'])
  * @method \Psr\Http\Message\ResponseInterface groupsDiscussRepliesAdd(array $params = ['group_id', 'topic_id', 'message'])
