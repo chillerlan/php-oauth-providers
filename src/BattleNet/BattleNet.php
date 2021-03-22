@@ -43,12 +43,7 @@ class BattleNet extends OAuth2Provider implements ClientCredentials, CSRFToken{
 	];
 
 	/**
-	 * BattleNet constructor.
-	 *
-	 * @param \Psr\Http\Client\ClientInterface                $http
-	 * @param \chillerlan\OAuth\Storage\OAuthStorageInterface $storage
-	 * @param \chillerlan\Settings\SettingsContainerInterface $options
-	 * @param \Psr\Log\LoggerInterface|null                   $logger
+	 * @inheritDoc
 	 */
 	public function __construct(
 		ClientInterface $http,
@@ -62,10 +57,7 @@ class BattleNet extends OAuth2Provider implements ClientCredentials, CSRFToken{
 	}
 
 	/**
-	 * @param string $region
-	 *
-	 * @return \chillerlan\OAuth\Providers\BattleNet\BattleNet
-	 * @throws \chillerlan\OAuth\Core\ProviderException
+	 * Set the datacenter URLs for the given region
 	 */
 	public function setRegion(string $region):BattleNet{
 		$region = strtolower($region);

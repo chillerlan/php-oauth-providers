@@ -168,6 +168,4 @@ class Mastodon extends OAuth2Provider implements CSRFToken, TokenRefresh{
 		return $token;
 	}
 
-
-
 }
