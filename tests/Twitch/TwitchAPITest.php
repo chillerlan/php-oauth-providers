@@ -22,7 +22,7 @@ class TwitchAPITest extends OAuth2APITest{
 	protected string $ENV = 'TWITCH';
 
 	public function testMe():void{
-		$r = $this->provider->me();
+		$r = $this->provider->users();
 
 		$this->assertSame($this->testuser, $this->responseJson($r)->data[0]->display_name);
 	}
