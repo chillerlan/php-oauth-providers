@@ -18,7 +18,7 @@ namespace chillerlan\OAuth\Providers\Deezer;
 use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2Provider, ProviderException};
 use Psr\Http\Message\{ResponseInterface, UriInterface};
 
-use function array_merge, http_build_query, implode, is_array, parse_str;
+use function array_merge, http_build_query, implode, parse_str;
 use function chillerlan\HTTP\Psr7\{decompress_content, merge_query};
 
 use const PHP_QUERY_RFC1738;
