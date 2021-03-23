@@ -107,10 +107,6 @@ class Deezer extends OAuth2Provider implements CSRFToken{
 	protected function parseTokenResponse(ResponseInterface $response):AccessToken{
 		parse_str(decompress_content($response), $data);
 
-		if(!is_array($data) || empty($data)){
-			throw new ProviderException('unable to parse token response');
-		}
-
 		if(isset($data['error_reason'])){
 			throw new ProviderException('error retrieving access token: "'.$data['error_reason'].'"');
 		}

@@ -58,4 +58,8 @@ class DeezerTest extends OAuth2ProviderTestAbstract{
 			->invokeArgs($this->provider, [(new Response)->withBody(create_stream_from_input('error_reason=whatever'))]);
 	}
 
+	public function testParseTokenResponseNoDataException():void{
+		$this::markTestSkipped('N/A');
+	}
+
 }

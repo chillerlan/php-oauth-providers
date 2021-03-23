@@ -20,4 +20,8 @@ class TwitchTest extends OAuth2ProviderTest{
 
 	protected string $FQN = Twitch::class;
 
+	public function testRequestInvalidAuthTypeException():void{
+		$this::markTestSkipped('N/A');
+	}
+
 }
