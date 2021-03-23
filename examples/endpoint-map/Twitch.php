@@ -2,8 +2,6 @@
 /**
  * Here be dragons. Do not try this at home.
  *
- * - scrape the api docs
- * - save the result json
  * - run this script
  * - run create-docblock
  *
@@ -11,6 +9,8 @@
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2021 smiley
  * @license      MIT
+ *
+ * @phan-file-suppress PhanTypeMismatchArgumentNullableInternal
  */
 
 use chillerlan\OAuth\Providers\Twitch\Twitch;

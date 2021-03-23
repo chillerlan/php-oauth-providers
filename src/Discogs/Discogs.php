@@ -13,10 +13,7 @@
 
 namespace chillerlan\OAuth\Providers\Discogs;
 
-use chillerlan\OAuth\Core\{AccessToken, OAuth1Provider};
-use DateTime;
-
-use function chillerlan\HTTP\Psr7\build_http_query;
+use chillerlan\OAuth\Core\OAuth1Provider;
 
 /**
  * @method \Psr\Http\Message\ResponseInterface artist(string $artist_id)
