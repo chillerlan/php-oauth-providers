@@ -36,6 +36,7 @@
 	},
 	"require-dev": {
 		"chillerlan/php-dotenv": "^2.1",
+		"chillerlan/php-prototype-dom": "dev-master#d07226b9dd525b607999232a9bcb592625989373",
 		"phpunit/phpunit": "^9.5",
 		"phan/phan": "^4.0"
 	},
