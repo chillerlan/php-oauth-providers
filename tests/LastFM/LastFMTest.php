@@ -91,17 +91,6 @@ class LastFMTest extends OAuthProviderTest{
 			->invokeArgs($this->provider, [$r]);
 	}
 
-	public function testRequestParams():void{
-		$params = $this
-			->getMethod('requestParams')
-			->invokeArgs($this->provider, ['whatever', ['foo' => 'bar'], []]);
-
-		$this::assertSame('310be19b3ff6967ca8425666753019fb', $params['api_sig']);
-		$this::assertSame($this->options->key, $params['api_key']);
-		$this::assertSame('whatever', $params['method']);
-		$this::assertSame('bar', $params['foo']);
-	}
-
 	public function testGetAccessToken():void{
 		$this->setProperty($this->provider, 'apiURL', '/lastfm/auth');
 

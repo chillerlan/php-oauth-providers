@@ -187,27 +187,6 @@ class LastFM extends OAuthProvider{
 	}
 
 	/**
-	 * @param string $apiMethod
-	 * @param array  $params
-	 * @param array  $body
-	 *
-	 * @return array
-	 */
-	protected function requestParams(string $apiMethod, array $params, array $body):array{
-
-		$params = array_merge($params, $body, [
-			'method'  => $apiMethod,
-			'format'  => 'json',
-			'api_key' => $this->options->key,
-			'sk'      => $this->storage->getAccessToken($this->serviceName)->accessToken,
-		]);
-
-		$params['api_sig'] = $this->getSignature($params);
-
-		return $params;
-	}
-
-	/**
 	 * @inheritDoc
 	 */
 	public function request(
@@ -218,7 +197,15 @@ class LastFM extends OAuthProvider{
 		array $headers = null
 	):ResponseInterface{
 		$method ??= 'GET';
-		$params = $this->requestParams($path, $params ?? [], $body ?? []);
+
+		$params = array_merge(($params ?? []), ($body ?? []), [
+			'method'  => $path,
+			'format'  => 'json',
+			'api_key' => $this->options->key,
+			'sk'      => $this->storage->getAccessToken($this->serviceName)->accessToken,
+		]);
+
+		$params['api_sig'] = $this->getSignature($params);
 
 		if($method === 'POST'){
 			$body   = $params;
