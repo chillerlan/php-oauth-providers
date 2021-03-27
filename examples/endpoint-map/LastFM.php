@@ -31,7 +31,7 @@ foreach($urls as $a){
 	$params = [];
 #	$str    = [];
 
-	$href = $a->getAttribute('href');
+	$href = $a->getHref();
 	$path = str_replace('/api/show/', '' ,$href);
 
 	if(in_array($path, ['auth.getMobileSession', 'auth.getSession', 'auth.getToken', 'track.scrobble'])){
@@ -41,17 +41,17 @@ foreach($urls as $a){
 	$link = 'https://www.last.fm'.$href;
 	$page = (new Document(file_get_contents($link)));
 	$name = lcfirst(implode('', array_map('ucfirst', explode('.', $path))));
-	$desc = trim($page->select(['.theme-default-content h1'])[0]->next('p')->nodeValue);
+	$desc = $page->select(['.theme-default-content h1'])[0]->next('p')->value();
 
-	foreach($page->select(['.theme-default-content #params'])[0]->next('p')->childNodes as $nodeList){
+	foreach($page->select(['.theme-default-content #params'])[0]->next('p')->childElements() as $node){
 
-		if($nodeList->nodeName === 'strong'){
-			$param->name = str_replace('[0|1]', '',trim($nodeList->nodeValue));
+		if($node->tag() === 'strong'){
+			$param->name = str_replace('[0|1]', '', $node->value());
 		}
-#		elseif($nodeList->nodeName === '#text'){
-#			$str[] = $nodeList->nodeValue;
+#		elseif($node->name() === '#text'){
+#			$str[] = $node->value();
 #		}
-		elseif($nodeList->nodeName === 'br'){
+		elseif($node->tag() === 'br'){
 
 			if(in_array($param->name, ['api_key', 'api_sig', 'sk'])){
 				continue;
@@ -65,7 +65,7 @@ foreach($urls as $a){
 		}
 	}
 
-	$method = strpos($page->select(['.theme-default-content #auth'])[0]->next('p')->nodeValue, 'HTTP POST') !== false
+	$method = strpos($page->select(['.theme-default-content #auth'])[0]->next('p')->value(), 'HTTP POST') !== false
 		? 'POST' : 'GET';
 
 	$param_names = array_column($params, 'name');

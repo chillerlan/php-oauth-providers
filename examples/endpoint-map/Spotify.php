@@ -43,8 +43,8 @@ $el->parentNode->insertBefore($clearfix, $el);
 
 $nodes = $document->getElementsByClassName('post-content')[0]->childElements();
 
-$endpoints = [];
 $endpoint  = new stdClass;
+$endpoints = [];
 $content   = [];
 
 foreach($nodes as $node){
@@ -54,32 +54,32 @@ foreach($nodes as $node){
 	}
 
 	if($node->nodeName === 'h2'){
-		$endpoint->desc = $node->childNodes[0]->nodeValue;
-		$endpoint->link = $url.'#'.$node->getID();
+		$endpoint->desc = $node->value();
+		$endpoint->link = $url.'#'.$node->identify();
 	}
 	elseif($node->getClassName() === 'hidden-xs'){
-		[$endpoint->method, $endpoint->url] = explode(' ', trim($node->down(1)->nodeValue));
+		[$endpoint->method, $endpoint->url] = explode(' ', $node->down(1)->value());
 	}
 	elseif($node->nodeName === 'table'){
 
 		$params = $node->down(0)->next()->childElements()->map(function(PrototypeHTMLElement $tr){
-			$p = new stdClass;
-			$td = $tr->childElements();
-			$p->name = str_replace(['&lbrace;', '&rbrace;'], '', $td[0]->down()->nodeValue);
+			$p       = new stdClass;
+			$td      = $tr->childElements();
+			$p->name = str_replace(['&lbrace;', '&rbrace;'], '', $td[0]->down()->value());
 			$p->type = $td[1]->nodeValue;
 
 			if(isset($td[0]->childElements()[2])){
-				$p->desc = $td[0]->childElements()[2]->nodeValue;
+				$p->desc = $td[0]->childElements()[2]->value();
 			}
 
 			if($td[2] instanceof PrototypeHTMLElement){
-				$p->required = $td[2]->childElements()[0]->nodeValue === 'Required';
+				$p->required = $td[2]->childElements()[0]->value() === 'Required';
 			}
 
 			return $p;
 		});
 
-		$type = $node->down(2)->nodeValue;
+		$type = $node->down(2)->value();
 
 		if($type === 'Header'){
 			$endpoint->headers = $params;

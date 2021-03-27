@@ -60,14 +60,14 @@ foreach($nodes as $node){
 
 	foreach($headers as $header){
 
-		if($header->nodeName === 'h2'){
-			$endpoint->desc = $header->nodeValue;
-			$endpoint->link = $url.'#'.$header->getID();
+		if($header->tag() === 'h2'){
+			$endpoint->desc = $header->value();
+			$endpoint->link = $url.'#'.$header->identify();
 		}
-		elseif($header->nodeName === 'h3'){
+		elseif($header->tag() === 'h3'){
 
-			if(strpos($header->nodeValue, 'URL') !== false){
-				$v = explode(' ', $header->next()->nodeValue);
+			if(strpos($header->value(), 'URL') !== false){
+				$v = explode(' ', $header->next()->value());
 				$l = count($v) >= 2;
 
 				$endpoint->method = $l ? $v[0] : 'GET';
@@ -75,16 +75,16 @@ foreach($nodes as $node){
 
 				$endpointMethods[str_replace(['https://api.twitch.tv/', 'helix'], '', $endpoint->url)][] = $endpoint->method;
 			}
-			elseif(preg_match($headerPattern, $header->nodeValue)){
+			elseif(preg_match($headerPattern, $header->value())){
 
 				$table = $header->next('table');
 
 				// no table follows that header - no params
-				if(!$table || $table->previous('h3')->nodeValue !== $header->nodeValue){
+				if(!$table || $table->previous('h3')->value() !== $header->value()){
 					continue;
 				}
 
-				$h    = explode(' ', $header->nodeValue);
+				$h    = explode(' ', $header->value());
 				$type = strtolower(count($h) === 3 ? $h[1] : $h[0]);
 
 				if($type === 'return'){
@@ -102,7 +102,7 @@ foreach($nodes as $node){
 					$keys = $tds->count() === 3 ? ['name', 'type', 'desc'] : ['name', 'required', 'type', 'desc'];
 
 					foreach($tds as $i => $td){
-						$params->{$keys[$i]} = $td->nodeValue;
+						$params->{$keys[$i]} = $td->value();
 					}
 
 					if($type !== 'response'){
