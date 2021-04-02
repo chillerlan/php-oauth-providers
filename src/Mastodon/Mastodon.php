@@ -2,8 +2,8 @@
 /**
  * Class Mastodon
  *
- * @link https://github.com/tootsuite/documentation/blob/master/Using-the-API/API.md
- * @link https://github.com/tootsuite/documentation/blob/master/Using-the-API/OAuth-details.md
+ * @link https://docs.joinmastodon.org/client/intro/
+ * @link https://docs.joinmastodon.org/methods/apps/oauth/
  *
  * @created      19.08.2018
  * @author       smiley <smiley@chillerlan.net>
@@ -104,7 +104,7 @@ class Mastodon extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	public const SCOPE_PUSH   = 'push';
 
 	protected ?string $endpointMap    = MastodonEndpoints::class;
-	protected ?string $apiDocs        = 'https://docs.joinmastodon.org/api/guidelines/';
+	protected ?string $apiDocs        = 'https://docs.joinmastodon.org/api/';
 
 	protected array $defaultScopes    = [
 		Mastodon::SCOPE_READ,
@@ -154,10 +154,6 @@ class Mastodon extends OAuth2Provider implements CSRFToken, TokenRefresh{
 			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
 			->withHeader('Accept-Encoding', 'identity')
 			->withBody($this->streamFactory->createStream(http_build_query($body, '', '&', PHP_QUERY_RFC1738)));
-
-		foreach($this->authHeaders as $header => $value){
-			$request = $request->withHeader($header, $value);
-		}
 
 		$token = $this->parseTokenResponse($this->http->sendRequest($request));
 		// store the instance the token belongs to
