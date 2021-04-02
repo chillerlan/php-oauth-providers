@@ -9,7 +9,7 @@
  */
 
 use chillerlan\OAuth\Providers\Vimeo\Vimeo;
-use function chillerlan\HTTP\Psr7\get_json;
+use function chillerlan\HTTP\Utils\get_json;
 
 $ENVVAR = 'VIMEO';
 

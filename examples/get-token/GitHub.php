@@ -9,7 +9,7 @@
  */
 
 use chillerlan\OAuth\Providers\GitHub\GitHub;
-use function chillerlan\HTTP\Psr7\get_json;
+use function chillerlan\HTTP\Utils\get_json;
 
 $ENVVAR = 'GITHUB';
 

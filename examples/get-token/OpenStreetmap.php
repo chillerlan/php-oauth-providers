@@ -9,7 +9,7 @@
  */
 
 use chillerlan\OAuth\Providers\OpenStreetmap\OpenStreetmap;
-use function chillerlan\HTTP\Psr7\get_xml;
+use function chillerlan\HTTP\Utils\get_xml;
 
 $ENVVAR = 'OPENSTREETMAP';
 
