@@ -117,14 +117,13 @@ class SteamOpenIDAPITest extends OAuthAPITest{
 	}
 
 
-	public function testSteamUserStatsGetGlobalStatsForGame():void{
-		$this::markTestSkipped('fix Psr7\\build_http_query to properly recognize arrays in queries');
-
+/*	public function testSteamUserStatsGetGlobalStatsForGame():void{
+		// @todo: find proper example that uses aggregated stats
 		$r = $this->provider->steamUserStatsGetGlobalStatsForGame(
 			['appid' => 440, 'count' => 1, 'name[0]' => 'TF_SCOUT_LONG_DISTANCE_RUNNER']
 		);
 		$this->assertSame(200, $r->getStatusCode());
-	}
+	}*/
 
 	public function testSteamUserStatsGetNumberOfCurrentPlayers():void{
 		$r = $this->provider->steamUserStatsGetNumberOfCurrentPlayers(['appid' => 227300]);

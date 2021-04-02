@@ -17,7 +17,6 @@ use chillerlan\OAuth\Core\OAuth1Provider;
 use Psr\Http\Message\ResponseInterface;
 
 use function array_merge;
-use function chillerlan\HTTP\Psr7\merge_query;
 
 /**
  * @method \Psr\Http\Message\ResponseInterface activityUserComments(array $params = ['per_page', 'page'])
@@ -277,7 +276,7 @@ class Flickr extends OAuth1Provider{
 
 		$request = $this->getRequestAuthorization(
 			/** @phan-suppress-next-line PhanTypeMismatchArgumentNullable */
-			$this->requestFactory->createRequest($method ?? 'POST', merge_query($this->apiURL, $params)),
+			$this->requestFactory->createRequest($method ?? 'POST', $this->mergeQuery($this->apiURL, $params)),
 			$this->storage->getAccessToken($this->serviceName)
 		);
 

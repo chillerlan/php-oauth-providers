@@ -10,13 +10,9 @@
 
 namespace chillerlan\OAuthTest\Providers\LastFM;
 
-use chillerlan\HTTP\Psr7\Response;
 use chillerlan\OAuth\Core\ProviderException;
 use chillerlan\OAuth\Providers\LastFM\LastFM;
 use chillerlan\OAuthTest\Providers\OAuthProviderTest;
-
-use function chillerlan\HTTP\Psr17\create_stream;
-use function chillerlan\HTTP\Psr7\get_json;
 
 /**
  * @property \chillerlan\OAuth\Providers\LastFM\LastFM $provider
@@ -51,7 +47,10 @@ class LastFMTest extends OAuthProviderTest{
 	}
 
 	public function testParseTokenResponse():void{
-		$r = (new Response)->withBody(create_stream('{"session":{"key":"whatever"}}'));
+		$r = $this->responseFactory
+			->createResponse()
+			->withBody($this->streamFactory->createStream('{"session":{"key":"whatever"}}'))
+		;
 
 		$token = $this
 			->getMethod('parseTokenResponse')
@@ -66,14 +65,17 @@ class LastFMTest extends OAuthProviderTest{
 
 		$this
 			->getMethod('parseTokenResponse')
-			->invokeArgs($this->provider, [new Response]);
+			->invokeArgs($this->provider, [$this->responseFactory->createResponse()]);
 	}
 
 	public function testParseTokenResponseError():void{
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('error retrieving access token:');
 
-		$r = (new Response)->withBody(create_stream('{"error":42,"message":"whatever"}'));
+		$r = $this->responseFactory
+			->createResponse()
+			->withBody($this->streamFactory->createStream('{"error":42,"message":"whatever"}'))
+		;
 
 		$this
 			->getMethod('parseTokenResponse')
@@ -84,7 +86,7 @@ class LastFMTest extends OAuthProviderTest{
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('token missing');
 
-		$r = (new Response)->withBody(create_stream('{"session":[]}'));
+		$r = $this->responseFactory->createResponse()->withBody($this->streamFactory->createStream('{"session":[]}'));
 
 		$this
 			->getMethod('parseTokenResponse')
@@ -103,14 +105,14 @@ class LastFMTest extends OAuthProviderTest{
 	public function testRequest():void{
 		$r = $this->provider->request('');
 
-		$this::assertSame('such data! much wow!', get_json($r)->data);
+		$this::assertSame('such data! much wow!', $this->responseJson($r)->data);
 	}
 
 	// coverage
 	public function testRequestPost():void{
 		$r = $this->provider->request('', [], 'POST', ['foo' => 'bar'], ['Content-Type' => 'whatever']);
 
-		$this::assertSame('such data! much wow!', get_json($r)->data);
+		$this::assertSame('such data! much wow!', $this->responseJson($r)->data);
 	}
 
 }

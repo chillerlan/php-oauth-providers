@@ -17,8 +17,7 @@ namespace chillerlan\OAuth\Providers\Steam;
 use chillerlan\OAuth\Core\{AccessToken, OAuthProvider, ProviderException};
 use Psr\Http\Message\{RequestInterface, ResponseInterface, UriInterface};
 
-use function chillerlan\HTTP\Psr7\merge_query;
-use function explode, http_build_query, intval, parse_url, preg_replace, strpos;
+use function explode, intval, parse_url, preg_replace, strpos;
 
 use const PHP_URL_QUERY;
 
@@ -75,7 +74,7 @@ class SteamOpenID extends OAuthProvider{
 			'openid.claimed_id' => 'http://specs.openid.net/auth/2.0/identifier_select',
 		];
 
-		return $this->uriFactory->createUri(merge_query($this->authURL, $params));
+		return $this->uriFactory->createUri($this->mergeQuery($this->authURL, $params));
 	}
 
 	/**
@@ -98,7 +97,7 @@ class SteamOpenID extends OAuthProvider{
 		$request = $this->requestFactory
 			->createRequest('POST', $this->accessTokenURL)
 			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
-			->withBody($this->streamFactory->createStream(http_build_query($body)));
+			->withBody($this->streamFactory->createStream($this->buildQuery($body)));
 
 		$token = $this->parseTokenResponse($this->http->sendRequest($request));
 		$id    = preg_replace('/[^\d]/', '', $received['openid_claimed_id']);
@@ -156,7 +155,7 @@ class SteamOpenID extends OAuthProvider{
 			$params['steamid']= $token->accessToken;
 		}
 
-		return $request->withUri($this->uriFactory->createUri(merge_query($uri, $params)));
+		return $request->withUri($this->uriFactory->createUri($this->mergeQuery($uri, $params)));
 	}
 
 }

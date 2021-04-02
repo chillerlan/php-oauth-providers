@@ -18,8 +18,8 @@ namespace chillerlan\OAuth\Providers\Deezer;
 use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2Provider, ProviderException};
 use Psr\Http\Message\{ResponseInterface, UriInterface};
 
-use function array_merge, http_build_query, implode, parse_str;
-use function chillerlan\HTTP\Psr7\{decompress_content, merge_query};
+use function array_merge, implode;
+use function chillerlan\HTTP\Utils\decompress_content;
 
 use const PHP_QUERY_RFC1738;
 
@@ -72,7 +72,7 @@ class Deezer extends OAuth2Provider implements CSRFToken{
 
 		$params = $this->setState($params);
 
-		return $this->uriFactory->createUri(merge_query($this->authURL, $params));
+		return $this->uriFactory->createUri($this->mergeQuery($this->authURL, $params));
 	}
 
 	/**
@@ -92,7 +92,7 @@ class Deezer extends OAuth2Provider implements CSRFToken{
 			->createRequest('POST', $this->accessTokenURL)
 			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
 			->withHeader('Accept-Encoding', 'identity')
-			->withBody($this->streamFactory->createStream(http_build_query($body, '', '&', PHP_QUERY_RFC1738)));
+			->withBody($this->streamFactory->createStream($this->buildQuery($body, PHP_QUERY_RFC1738)));
 
 		$token = $this->parseTokenResponse($this->http->sendRequest($request));
 
@@ -105,7 +105,7 @@ class Deezer extends OAuth2Provider implements CSRFToken{
 	 * @inheritDoc
 	 */
 	protected function parseTokenResponse(ResponseInterface $response):AccessToken{
-		parse_str(decompress_content($response), $data);
+		$data = $this->parseQuery(decompress_content($response));
 
 		if(isset($data['error_reason'])){
 			throw new ProviderException('error retrieving access token: "'.$data['error_reason'].'"');

@@ -16,7 +16,7 @@ namespace chillerlan\OAuth\Providers\Twitch;
 use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, TokenRefresh};
 use Psr\Http\Message\RequestInterface;
 
-use function http_build_query, implode;
+use function implode;
 use const PHP_QUERY_RFC1738;
 
 /**
@@ -140,7 +140,7 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 		$request = $this->requestFactory
 			->createRequest('POST', $this->clientCredentialsTokenURL ?? $this->accessTokenURL)
 			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
-			->withBody($this->streamFactory->createStream(http_build_query($params, '', '&', PHP_QUERY_RFC1738)))
+			->withBody($this->streamFactory->createStream($this->buildQuery($params, PHP_QUERY_RFC1738)))
 		;
 
 		foreach($this->authHeaders as $header => $value){

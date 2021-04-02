@@ -1,6 +1,6 @@
 {
 	"name": "chillerlan/php-oauth-providers",
-	"description": "OAuth 1/2 Provider implementations for chillerlan/php-oauth-core. PHP 7.2+",
+	"description": "OAuth 1/2 Provider implementations for chillerlan/php-oauth-core. PHP 7.4+",
 	"homepage": "https://github.com/chillerlan/php-oauth-providers",
 	"license": "MIT",
 	"type": "library",
@@ -9,7 +9,7 @@
 		"amazon", "bigcartel", "deezer", "deviantart", "discogs", "discord", "flickr", "foursquare",
 		"github", "gitter", "google", "guildwars2", "instagram", "lastfm", "mailchimp", "mastodon",
 		"mixcloud", "musicbrainz", "opencaching", "openstreetmap", "patreon", "slack", "soundcloud",
-		"spotify", "stripe", "tumblr", "twitch", "twitter", "vimeo", "wordpress",
+		"spotify", "steam", "stripe", "tumblr", "twitch", "twitter", "vimeo", "wordpress",
 		"npr", "imgur", "gitlab", "bitbucket", "paypal", "microsoft", "battlenet"
 	],
 	"authors": [
@@ -30,7 +30,7 @@
 		"ext-curl": "*",
 		"ext-json":"*",
 		"ext-simplexml":"*",
-		"chillerlan/php-oauth-core": "dev-main#59f122e88c19e44c9d1d31599e73f06d3ef67c90",
+		"chillerlan/php-oauth-core": "dev-main#1522c62b715fe1300d3774c00be155565d83ace8",
 		"psr/http-client":"^1.0",
 		"psr/http-message": "^1.0"
 	},

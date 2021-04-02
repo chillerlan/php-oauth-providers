@@ -15,8 +15,8 @@ namespace chillerlan\OAuth\Providers\PayPal;
 use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, ProviderException, TokenRefresh};
 use Psr\Http\Message\ResponseInterface;
 
-use function array_column, base64_encode, http_build_query, implode, is_array, json_decode, sprintf;
-use function chillerlan\HTTP\Psr7\decompress_content;
+use function array_column, base64_encode, implode, is_array, json_decode, sprintf;
+use function chillerlan\HTTP\Utils\decompress_content;
 
 use const PHP_QUERY_RFC1738;
 
@@ -112,7 +112,7 @@ class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
 			->withHeader('Accept-Encoding', 'identity')
 			->withHeader('Authorization', 'Basic '.base64_encode($this->options->key.':'.$this->options->secret))
-			->withBody($this->streamFactory->createStream(http_build_query($body, '', '&', PHP_QUERY_RFC1738)));
+			->withBody($this->streamFactory->createStream($this->buildQuery($body, PHP_QUERY_RFC1738)));
 
 		$token = $this->parseTokenResponse($this->http->sendRequest($request));
 

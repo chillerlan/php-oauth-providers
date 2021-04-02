@@ -15,8 +15,8 @@ namespace chillerlan\OAuth\Providers\LastFM;
 use chillerlan\OAuth\Core\{AccessToken, OAuthProvider, ProviderException};
 use Psr\Http\Message\{RequestInterface, ResponseInterface, UriInterface};
 
-use function array_merge, http_build_query, in_array, is_array,ksort, md5;
-use function chillerlan\HTTP\Psr7\{get_json, merge_query};
+use function array_merge, in_array, is_array, ksort, md5;
+use function chillerlan\HTTP\Utils\get_json;
 
 use const PHP_QUERY_RFC1738;
 
@@ -109,7 +109,7 @@ class LastFM extends OAuthProvider{
 			'api_key' => $this->options->key,
 		]);
 
-		return $this->uriFactory->createUri(merge_query($this->authURL, $params));
+		return $this->uriFactory->createUri($this->mergeQuery($this->authURL, $params));
 	}
 
 	/**
@@ -148,7 +148,7 @@ class LastFM extends OAuthProvider{
 		$params['api_sig'] = $this->getSignature($params);
 
 		/** @phan-suppress-next-line PhanTypeMismatchArgumentNullable */
-		$request = $this->requestFactory->createRequest('GET', merge_query($this->apiURL, $params));
+		$request = $this->requestFactory->createRequest('GET', $this->mergeQuery($this->apiURL, $params));
 
 		return $this->parseTokenResponse($this->http->sendRequest($request));
 	}
@@ -214,7 +214,7 @@ class LastFM extends OAuthProvider{
 		}
 
 		/** @phan-suppress-next-line PhanTypeMismatchArgumentNullable */
-		$request = $this->requestFactory->createRequest($method, merge_query($this->apiURL, $params));
+		$request = $this->requestFactory->createRequest($method, $this->mergeQuery($this->apiURL, $params));
 
 		foreach(array_merge($this->apiHeaders, $headers ?? []) as $header => $value){
 			$request = $request->withAddedHeader($header, $value);
@@ -222,7 +222,7 @@ class LastFM extends OAuthProvider{
 
 		if($method === 'POST'){
 			$request = $request->withHeader('Content-Type', 'application/x-www-form-urlencoded');
-			$body    = $this->streamFactory->createStream(http_build_query($body, '', '&', PHP_QUERY_RFC1738));
+			$body    = $this->streamFactory->createStream($this->buildQuery($body, PHP_QUERY_RFC1738));
 			$request = $request->withBody($body);
 		}
 

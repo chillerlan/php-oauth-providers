@@ -16,7 +16,8 @@ namespace chillerlan\OAuth\Providers\Mastodon;
 use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2Provider, TokenRefresh};
 use chillerlan\OAuth\OAuthException;
 
-use function array_merge, http_build_query, parse_url;
+use function array_merge;
+use function chillerlan\HTTP\Utils\parseUrl;
 use const PHP_QUERY_RFC1738;
 
 /**
@@ -117,7 +118,7 @@ class Mastodon extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	 * set the internal URLs for the given Mastodon instance
 	 */
 	public function setInstance(string $instance):Mastodon{
-		$instance = parse_url($instance);
+		$instance = parseUrl($instance);
 
 		if(!isset($instance['scheme']) || !isset($instance['host'])){
 			throw new OAuthException('invalid instance URL');
@@ -153,7 +154,7 @@ class Mastodon extends OAuth2Provider implements CSRFToken, TokenRefresh{
 			->createRequest('POST', $this->accessTokenURL)
 			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
 			->withHeader('Accept-Encoding', 'identity')
-			->withBody($this->streamFactory->createStream(http_build_query($body, '', '&', PHP_QUERY_RFC1738)));
+			->withBody($this->streamFactory->createStream($this->buildQuery($body, PHP_QUERY_RFC1738)));
 
 		$token = $this->parseTokenResponse($this->http->sendRequest($request));
 		// store the instance the token belongs to

@@ -16,7 +16,7 @@ namespace chillerlan\OAuth\Providers\MusicBrainz;
 use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2Provider, ProviderException, TokenRefresh};
 use Psr\Http\Message\ResponseInterface;
 
-use function date, explode, http_build_query, in_array, sprintf, strtoupper;
+use function date, explode, in_array, sprintf, strtoupper;
 
 use const PHP_QUERY_RFC1738;
 
@@ -115,7 +115,7 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenRefresh{
 			->createRequest('POST', $this->refreshTokenURL ?? $this->accessTokenURL) // refreshTokenURL is used in tests
 			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
 			->withHeader('Accept-Encoding', 'identity')
-			->withBody($this->streamFactory->createStream(http_build_query($body, '', '&', PHP_QUERY_RFC1738)))
+			->withBody($this->streamFactory->createStream($this->buildQuery($body, PHP_QUERY_RFC1738)))
 		;
 
 		$newToken = $this->parseTokenResponse($this->http->sendRequest($request));
@@ -144,7 +144,7 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenRefresh{
 		$token  = $this->storage->getAccessToken($this->serviceName);
 
 		if($token->isExpired()){
-			$token = $this->refreshAccessToken($token);
+			$this->refreshAccessToken($token);
 		}
 
 		if(!isset($params['fmt'])){

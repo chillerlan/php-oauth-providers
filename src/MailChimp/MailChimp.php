@@ -18,7 +18,7 @@ use chillerlan\OAuth\OAuthException;
 use Psr\Http\Message\ResponseInterface;
 
 use function array_merge, sprintf;
-use function chillerlan\HTTP\Psr7\get_json;
+use function chillerlan\HTTP\Utils\get_json;
 
 /**
  * @method \Psr\Http\Message\ResponseInterface createAuthorizedApp(array $body = ['client_id', 'client_secret'])

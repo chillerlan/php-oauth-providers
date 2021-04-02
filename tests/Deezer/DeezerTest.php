@@ -10,12 +10,9 @@
 
 namespace chillerlan\OAuthTest\Providers\Deezer;
 
-use chillerlan\HTTP\Psr7\Response;
 use chillerlan\OAuth\Core\{AccessToken, ProviderException};
 use chillerlan\OAuth\Providers\Deezer\Deezer;
 use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
-
-use function chillerlan\HTTP\Psr17\create_stream_from_input;
 
 /**
  * @property \chillerlan\OAuth\Providers\Deezer\Deezer $provider
@@ -43,7 +40,9 @@ class DeezerTest extends OAuth2ProviderTestAbstract{
 	public function testParseTokenResponse():void{
 		$token = $this
 			->getMethod('parseTokenResponse')
-			->invokeArgs($this->provider, [(new Response)->withBody(create_stream_from_input('access_token=whatever'))]);
+			->invokeArgs($this->provider, [
+				$this->responseFactory->createResponse()->withBody($this->streamFactory->createStream('access_token=whatever'))
+			]);
 
 		$this->assertInstanceOf(AccessToken::class, $token);
 		$this->assertSame('whatever', $token->accessToken);
@@ -55,7 +54,9 @@ class DeezerTest extends OAuth2ProviderTestAbstract{
 
 		$this
 			->getMethod('parseTokenResponse')
-			->invokeArgs($this->provider, [(new Response)->withBody(create_stream_from_input('error_reason=whatever'))]);
+			->invokeArgs($this->provider, [
+				$this->responseFactory->createResponse()->withBody($this->streamFactory->createStream('error_reason=whatever'))
+			]);
 	}
 
 	public function testParseTokenResponseNoDataException():void{
