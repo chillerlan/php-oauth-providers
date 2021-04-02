@@ -11,7 +11,7 @@
 
 [php-badge]: https://img.shields.io/packagist/php-v/chillerlan/php-oauth-providers?logo=php&color=8892BF
 [php]: https://www.php.net/supported-versions.php
-[packagist-badge]: https://img.shields.io/packagist/v/chillerlan/php-oauth-providers.svg
+[packagist-badge]: https://img.shields.io/packagist/v/chillerlan/php-oauth-providers.svg?logo=packagist
 [packagist]: https://packagist.org/packages/chillerlan/php-oauth-providers
 [license-badge]: https://img.shields.io/github/license/chillerlan/php-oauth-providers.svg
 [license]: https://github.com/chillerlan/php-oauth-providers/blob/main/LICENSE
@@ -21,7 +21,7 @@
 [coverage]: https://codecov.io/github/chillerlan/php-oauth-providers
 [scrutinizer-badge]: https://img.shields.io/scrutinizer/g/chillerlan/php-oauth-providers.svg?logo=scrutinizer
 [scrutinizer]: https://scrutinizer-ci.com/g/chillerlan/php-oauth-providers
-[downloads-badge]: https://img.shields.io/packagist/dt/chillerlan/php-oauth-providers.svg
+[downloads-badge]: https://img.shields.io/packagist/dt/chillerlan/php-oauth-providers.svg?logo=packagist
 [downloads]: https://packagist.org/packages/chillerlan/php-oauth-providers/stats
 [gh-action-badge]: https://github.com/chillerlan/php-oauth-providers/workflows/Continuous%20Integration/badge.svg
 [gh-action]: https://github.com/chillerlan/php-oauth-providers/actions
