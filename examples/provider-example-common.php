@@ -11,6 +11,7 @@
 namespace chillerlan\OAuthExamples;
 
 use chillerlan\DotEnv\DotEnv;
+use chillerlan\HTTP\HTTPOptionsTrait;
 use chillerlan\HTTP\Psr18\CurlClient;
 use chillerlan\OAuth\OAuthOptions;
 use chillerlan\OAuth\Storage\SessionStorage;
@@ -62,7 +63,7 @@ $options_arr = [
  * @var \Psr\Http\Client\ClientInterface $http
  * @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage
  */
-$options = $options ?? new OAuthOptions($options_arr);
+$options = $options ?? new class($options_arr) extends OAuthOptions{ use HTTPOptionsTrait; };
 $logger  = new NullLogger;
 $http    = new CurlClient($options);
 $storage = new SessionStorage($options);
