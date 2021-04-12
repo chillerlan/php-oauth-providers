@@ -16,7 +16,5 @@ use chillerlan\OAuthTest\API\OAuthAPITestAbstract;
  * @property \chillerlan\OAuth\Core\OAuthInterface $provider
  */
 abstract class OAuthAPITest extends OAuthAPITestAbstract{
-
-	protected string $CFG = __DIR__.'/../config';
-
+	use APITestTrait;
 }
