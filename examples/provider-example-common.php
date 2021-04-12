@@ -5,7 +5,7 @@
  * @copyright    2019 smiley
  * @license      MIT
  *
- * @phan-file-suppress PhanUndeclaredClassMethod
+ * @phan-file-suppress PhanUndeclaredClassMethod, PhanInvalidCommentForDeclarationType
  */
 
 namespace chillerlan\OAuthExamples;

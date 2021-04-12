@@ -17,9 +17,8 @@ namespace chillerlan\OAuth\Providers\Steam;
 use chillerlan\OAuth\Core\{AccessToken, OAuthProvider, ProviderException};
 use Psr\Http\Message\{RequestInterface, ResponseInterface, UriInterface};
 
-use function explode, intval, parse_url, preg_replace, strpos;
+use function explode, intval, preg_replace, strpos;
 
-use const PHP_URL_QUERY;
 
 /**
  * @method \Psr\Http\Message\ResponseInterface playerServiceGetBadges(array $params = ['steamid'])
@@ -151,7 +150,7 @@ class SteamOpenID extends OAuthProvider{
 		$params = ['key' => $this->options->secret];
 
 		// the steamid parameter does not necessarily specify the current user, so add it only when it's not already set
-		if(strpos(parse_url($uri, PHP_URL_QUERY), 'steamid=') === false){ // php8: str_contains
+		if(strpos($uri, 'steamid=') === false){ // php8: str_contains
 			$params['steamid']= $token->accessToken;
 		}
 
