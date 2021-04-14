@@ -76,7 +76,7 @@ A list of already implemented Providers.
 [Instagram](https://www.instagram.com/developer/) | [link](https://www.instagram.com/developer/clients/manage/) | [link](https://www.instagram.com/accounts/manage_access/) | 2 | 
 [LastFM](https://www.last.fm/api/) | [link](https://www.last.fm/api/account/create) | [link](https://www.last.fm/settings/applications) | - | 
 [MailChimp](https://developer.mailchimp.com/) | [link](https://admin.mailchimp.com/account/oauth2/) |  | 2 | 
-[Mastodon](https://docs.joinmastodon.org/api/guidelines/) | [link]() |  | 2 | 
+[Mastodon](https://docs.joinmastodon.org/api/) | [link]() |  | 2 | 
 [MicrosoftGraph](https://docs.microsoft.com/graph/overview) | [link](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) | [link](https://account.live.com/consent/Manage) | 2 | 
 [Mixcloud](https://www.mixcloud.com/developers/) | [link](https://www.mixcloud.com/developers/create/) | [link](https://www.mixcloud.com/settings/applications/) | 2 | 
 [MusicBrainz](https://musicbrainz.org/doc/Development) | [link](https://musicbrainz.org/account/applications) | [link](https://musicbrainz.org/account/applications) | 2 | 
