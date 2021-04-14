@@ -12,12 +12,12 @@ namespace chillerlan\OAuthTest\Providers\Twitter;
 
 
 use chillerlan\OAuth\Providers\Twitter\TwitterCC;
-use chillerlan\OAuthTest\Providers\OAuth2APITest;
+use chillerlan\OAuthTest\Providers\OAuth2APITestAbstract;
 
 /**
  * @property \chillerlan\OAuth\Providers\Twitter\TwitterCC $provider
  */
-class TwitterCCAPITest extends OAuth2APITest{
+class TwitterCCAPITest extends OAuth2APITestAbstract{
 
 	protected string $FQN = TwitterCC::class;
 	protected string $ENV = 'TWITTER';

@@ -12,12 +12,12 @@ namespace chillerlan\OAuthTest\Providers\Mastodon;
 
 use chillerlan\OAuth\OAuthException;
 use chillerlan\OAuth\Providers\Mastodon\Mastodon;
-use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
+use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
 
 /**
  * @property \chillerlan\OAuth\Providers\Mastodon\Mastodon $provider
  */
-class MastodonTest extends OAuth2ProviderTest{
+class MastodonTest extends OAuth2ProviderTestAbstract{
 
 	protected string $FQN = Mastodon::class;
 

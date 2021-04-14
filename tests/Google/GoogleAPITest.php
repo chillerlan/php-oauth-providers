@@ -11,7 +11,7 @@
 namespace chillerlan\OAuthTest\Providers\Google;
 
 use chillerlan\OAuth\Providers\Google\Google;
-use chillerlan\OAuthTest\Providers\OAuth2APITest;
+use chillerlan\OAuthTest\Providers\OAuth2APITestAbstract;
 
 /**
  * Google API usage tests/examples
@@ -20,7 +20,7 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  *
  * @property \chillerlan\OAuth\Providers\Google\Google $provider
  */
-class GoogleAPITest extends OAuth2APITest{
+class GoogleAPITest extends OAuth2APITestAbstract{
 
 	protected string $FQN = Google::class;
 	protected string $ENV = 'GOOGLE';

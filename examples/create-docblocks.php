@@ -9,7 +9,7 @@
 
 namespace chillerlan\OAuthExamples;
 
-use chillerlan\OAuthTest\MagicAPI\EndpointDocblock;
+use chillerlan\OAuthTest\Providers\EndpointDocblock;
 use chillerlan\OAuth\Core\{ClientCredentials, OAuth1Interface, OAuth2Interface};
 use Psr\Http\Message\ResponseInterface;
 

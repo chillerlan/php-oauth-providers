@@ -11,12 +11,12 @@
 namespace chillerlan\OAuthTest\Providers\Microsoft;
 
 use chillerlan\OAuth\Providers\Microsoft\MicrosoftGraph;
-use chillerlan\OAuthTest\Providers\OAuth2APITest;
+use chillerlan\OAuthTest\Providers\OAuth2APITestAbstract;
 
 /**
  * @property \chillerlan\OAuth\Providers\Microsoft\MicrosoftGraph $provider
  */
-class MicrosoftGraphAPITest extends OAuth2APITest{
+class MicrosoftGraphAPITest extends OAuth2APITestAbstract{
 
 	protected string $FQN = MicrosoftGraph::class;
 	protected string $ENV = 'MICROSOFT_AAD';

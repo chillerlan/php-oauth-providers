@@ -11,7 +11,7 @@
 namespace chillerlan\OAuthTest\Providers\LastFM;
 
 use chillerlan\OAuth\Providers\LastFM\LastFM;
-use chillerlan\OAuthTest\Providers\OAuthAPITest;
+use chillerlan\OAuthTest\Providers\OAuthAPITestAbstract;
 
 /**
  * last.fm API test & examples
@@ -20,7 +20,7 @@ use chillerlan\OAuthTest\Providers\OAuthAPITest;
  *
  * @property \chillerlan\OAuth\Providers\LastFM\LastFM $provider
  */
-class LastFMAPITest extends OAuthAPITest{
+class LastFMAPITest extends OAuthAPITestAbstract{
 
 	protected string $FQN = LastFM::class;
 	protected string $ENV = 'LASTFM';

@@ -13,12 +13,12 @@ namespace chillerlan\OAuthTest\Providers\MailChimp;
 use chillerlan\OAuth\Core\AccessToken;
 use chillerlan\OAuth\OAuthException;
 use chillerlan\OAuth\Providers\MailChimp\MailChimp;
-use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
+use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
 
 /**
  * @property \chillerlan\OAuth\Providers\MailChimp\MailChimp $provider
  */
-class MailChimpTest extends OAuth2ProviderTest{
+class MailChimpTest extends OAuth2ProviderTestAbstract{
 
 	protected string $FQN = MailChimp::class;
 

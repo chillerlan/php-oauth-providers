@@ -11,12 +11,12 @@
 namespace chillerlan\OAuthTest\Providers\PayPal;
 
 use chillerlan\OAuth\Providers\PayPal\PayPal;
-use chillerlan\OAuthTest\Providers\OAuth2APITest;
+use chillerlan\OAuthTest\Providers\OAuth2APITestAbstract;
 
 /**
  * @property \chillerlan\OAuth\Providers\PayPal\PayPal $provider
  */
-class PayPalAPITest extends OAuth2APITest{
+class PayPalAPITest extends OAuth2APITestAbstract{
 
 	protected string $FQN = PayPal::class;
 	protected string $ENV = 'PAYPAL'; // PAYPAL_SANDBOX

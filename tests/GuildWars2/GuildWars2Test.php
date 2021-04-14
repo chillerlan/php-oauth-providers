@@ -12,12 +12,12 @@ namespace chillerlan\OAuthTest\Providers\GuildWars2;
 
 use chillerlan\OAuth\Core\ProviderException;
 use chillerlan\OAuth\Providers\GuildWars2\GuildWars2;
-use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
+use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
 
 /**
  * @property \chillerlan\OAuth\Providers\GuildWars2\GuildWars2 $provider
  */
-class GuildWars2Test extends OAuth2ProviderTest{
+class GuildWars2Test extends OAuth2ProviderTestAbstract{
 
 	protected string $FQN = GuildWars2::class;
 

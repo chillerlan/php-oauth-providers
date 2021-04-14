@@ -11,12 +11,12 @@
 namespace chillerlan\OAuthTest\Providers\Patreon;
 
 use chillerlan\OAuth\Providers\Patreon\Patreon2;
-use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
+use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
 
 /**
  * @property \chillerlan\OAuth\Providers\Patreon\Patreon2 $provider
  */
-class Patreon2Test extends OAuth2ProviderTest{
+class Patreon2Test extends OAuth2ProviderTestAbstract{
 
 	protected string $FQN = Patreon2::class;
 

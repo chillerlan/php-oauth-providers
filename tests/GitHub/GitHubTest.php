@@ -11,12 +11,12 @@
 namespace chillerlan\OAuthTest\Providers\GitHub;
 
 use chillerlan\OAuth\Providers\GitHub\GitHub;
-use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
+use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
 
 /**
  * @property \chillerlan\OAuth\Providers\GitHub\GitHub $provider
  */
-class GitHubTest extends OAuth2ProviderTest{
+class GitHubTest extends OAuth2ProviderTestAbstract{
 
 	protected string $FQN = GitHub::class;
 

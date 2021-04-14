@@ -12,12 +12,12 @@ namespace chillerlan\OAuthTest\Providers\LastFM;
 
 use chillerlan\OAuth\Core\ProviderException;
 use chillerlan\OAuth\Providers\LastFM\LastFM;
-use chillerlan\OAuthTest\Providers\OAuthProviderTest;
+use chillerlan\OAuthTest\Providers\OAuthProviderTestAbstract;
 
 /**
  * @property \chillerlan\OAuth\Providers\LastFM\LastFM $provider
  */
-class LastFMTest extends OAuthProviderTest{
+class LastFMTest extends OAuthProviderTestAbstract{
 
 	protected string $FQN = LastFM::class;
 

@@ -11,7 +11,7 @@
 namespace chillerlan\OAuthTest\Providers\Mastodon;
 
 use chillerlan\OAuth\Providers\Mastodon\Mastodon;
-use chillerlan\OAuthTest\Providers\OAuth2APITest;
+use chillerlan\OAuthTest\Providers\OAuth2APITestAbstract;
 
 /**
  * Spotify API usage tests/examples
@@ -20,7 +20,7 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  *
  * @property \chillerlan\OAuth\Providers\Mastodon\Mastodon $provider
  */
-class MastodonAPITest extends OAuth2APITest{
+class MastodonAPITest extends OAuth2APITestAbstract{
 
 	protected string $FQN = Mastodon::class;
 	protected string $ENV = 'MASTODON';

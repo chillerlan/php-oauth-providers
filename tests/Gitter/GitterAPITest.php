@@ -11,7 +11,7 @@
 namespace chillerlan\OAuthTest\Providers\Gitter;
 
 use chillerlan\OAuth\Providers\Gitter\Gitter;
-use chillerlan\OAuthTest\Providers\OAuth2APITest;
+use chillerlan\OAuthTest\Providers\OAuth2APITestAbstract;
 
 /**
  * Gitter API usage tests/examples
@@ -20,7 +20,7 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  *
  * @property \chillerlan\OAuth\Providers\Gitter\Gitter $provider
  */
-class GitterAPITest extends OAuth2APITest{
+class GitterAPITest extends OAuth2APITestAbstract{
 
 	protected string $FQN = Gitter::class;
 	protected string $ENV = 'GITTER';

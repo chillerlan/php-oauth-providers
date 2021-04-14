@@ -11,12 +11,12 @@
 namespace chillerlan\OAuthTest\Providers\OpenCaching;
 
 use chillerlan\OAuth\Providers\OpenCaching\OpenCaching;
-use chillerlan\OAuthTest\Providers\OAuth1APITest;
+use chillerlan\OAuthTest\Providers\OAuth1APITestAbstract;
 
 /**
  * @property \chillerlan\OAuth\Providers\OpenCaching\OpenCaching $provider
  */
-class OpenCachingAPITest extends OAuth1APITest{
+class OpenCachingAPITest extends OAuth1APITestAbstract{
 
 	protected string $FQN = OpenCaching::class;
 	protected string $ENV = 'OKAPI';

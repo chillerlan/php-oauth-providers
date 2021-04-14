@@ -11,12 +11,12 @@
 namespace chillerlan\OAuthTest\Providers\BattleNet;
 
 use chillerlan\OAuth\Providers\BattleNet\BattleNet;
-use chillerlan\OAuthTest\Providers\OAuth2APITest;
+use chillerlan\OAuthTest\Providers\OAuth2APITestAbstract;
 
 /**
  * @property \chillerlan\OAuth\Providers\BattleNet\BattleNet $provider
  */
-class BattleNetAPITest extends OAuth2APITest{
+class BattleNetAPITest extends OAuth2APITestAbstract{
 
 	protected string $FQN = BattleNet::class;
 	protected string $ENV = 'BATTLENET';

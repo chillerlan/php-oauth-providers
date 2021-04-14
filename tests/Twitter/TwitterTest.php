@@ -11,12 +11,12 @@
 namespace chillerlan\OAuthTest\Providers\Twitter;
 
 use chillerlan\OAuth\Providers\Twitter\Twitter;
-use chillerlan\OAuthTest\Providers\OAuth1ProviderTest;
+use chillerlan\OAuthTest\Providers\OAuth1ProviderTestAbstract;
 
 /**
  * @property \chillerlan\OAuth\Providers\Twitter\Twitter $provider
  */
-class TwitterTest extends OAuth1ProviderTest{
+class TwitterTest extends OAuth1ProviderTestAbstract{
 
 	protected string $FQN = Twitter::class;
 

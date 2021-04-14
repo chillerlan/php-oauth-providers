@@ -30,7 +30,7 @@
 		"ext-curl": "*",
 		"ext-json":"*",
 		"ext-simplexml":"*",
-		"chillerlan/php-oauth-core": "dev-main#9f6de524f16f332cdb4d8b6d16e079085145091b",
+		"chillerlan/php-oauth-core": "dev-main#543a012843c8e0bd19b3bd3c99f0656ca34b061c",
 		"psr/http-client":"^1.0",
 		"psr/http-message": "^1.0"
 	},

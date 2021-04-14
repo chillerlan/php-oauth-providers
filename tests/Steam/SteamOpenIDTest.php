@@ -11,14 +11,14 @@
 namespace chillerlan\OAuthTest\Providers\Steam;
 
 use chillerlan\OAuth\Providers\Steam\SteamOpenID;
-use chillerlan\OAuthTest\Providers\OAuthProviderTest;
+use chillerlan\OAuthTest\Providers\OAuthProviderTestAbstract;
 
 use function urlencode;
 
 /**
  * @property \chillerlan\OAuth\Providers\Steam\SteamOpenID $provider
  */
-class SteamOpenIDTest extends OAuthProviderTest{
+class SteamOpenIDTest extends OAuthProviderTestAbstract{
 
 	protected string $FQN = SteamOpenID::class;
 

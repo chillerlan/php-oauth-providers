@@ -11,12 +11,12 @@
 namespace chillerlan\OAuthTest\Providers\Tumblr;
 
 use chillerlan\OAuth\Providers\Tumblr\Tumblr;
-use chillerlan\OAuthTest\Providers\OAuth1ProviderTest;
+use chillerlan\OAuthTest\Providers\OAuth1ProviderTestAbstract;
 
 /**
  * @property \chillerlan\OAuth\Providers\Tumblr\Tumblr $provider
  */
-class TumblrTest extends OAuth1ProviderTest{
+class TumblrTest extends OAuth1ProviderTestAbstract{
 
 	protected string $FQN = Tumblr::class;
 

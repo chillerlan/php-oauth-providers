@@ -11,12 +11,12 @@
 namespace chillerlan\OAuthTest\Providers\NPR;
 
 use chillerlan\OAuth\Providers\NPR\NPROne;
-use chillerlan\OAuthTest\Providers\OAuth2APITest;
+use chillerlan\OAuthTest\Providers\OAuth2APITestAbstract;
 
 /**
  * @property \chillerlan\OAuth\Providers\NPR\NPROne $provider
  */
-class NPROneAPITest extends OAuth2APITest{
+class NPROneAPITest extends OAuth2APITestAbstract{
 
 	protected string $FQN = NPROne::class;
 	protected string $ENV = 'NPRONE';

@@ -13,12 +13,12 @@ namespace chillerlan\OAuthTest\Providers\NPR;
 use chillerlan\OAuth\Core\AccessToken;
 use chillerlan\OAuth\OAuthException;
 use chillerlan\OAuth\Providers\NPR\NPROne;
-use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
+use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
 
 /**
  * @property \chillerlan\OAuth\Providers\NPR\NPROne $provider
  */
-class NPROneTest extends OAuth2ProviderTest{
+class NPROneTest extends OAuth2ProviderTestAbstract{
 
 	protected string $FQN = NPROne::class;
 

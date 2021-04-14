@@ -11,12 +11,12 @@
 namespace chillerlan\OAuthTest\Providers\Amazon;
 
 use chillerlan\OAuth\Providers\Amazon\Amazon;
-use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
+use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
 
 /**
  * @property \chillerlan\OAuth\Providers\Amazon\Amazon $provider
  */
-class AmazonTest extends OAuth2ProviderTest{
+class AmazonTest extends OAuth2ProviderTestAbstract{
 
 	protected string $FQN = Amazon::class;
 

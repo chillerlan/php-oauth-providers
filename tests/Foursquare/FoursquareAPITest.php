@@ -11,7 +11,7 @@
 namespace chillerlan\OAuthTest\Providers\Foursquare;
 
 use chillerlan\OAuth\Providers\Foursquare\Foursquare;
-use chillerlan\OAuthTest\Providers\OAuth2APITest;
+use chillerlan\OAuthTest\Providers\OAuth2APITestAbstract;
 
 /**
  * Foursquare API usage tests/examples
@@ -20,7 +20,7 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  *
  * @property \chillerlan\OAuth\Providers\Foursquare\Foursquare $provider
  */
-class FoursquareAPITest extends OAuth2APITest{
+class FoursquareAPITest extends OAuth2APITestAbstract{
 
 	protected string $FQN = Foursquare::class;
 	protected string $ENV = 'FOURSQUARE';

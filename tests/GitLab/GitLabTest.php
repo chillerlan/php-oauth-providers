@@ -11,12 +11,12 @@
 namespace chillerlan\OAuthTest\Providers\GitLab;
 
 use chillerlan\OAuth\Providers\GitLab\GitLab;
-use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
+use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
 
 /**
  * @property \chillerlan\OAuth\Providers\GitLab\GitLab $provider
  */
-class GitLabTest extends OAuth2ProviderTest{
+class GitLabTest extends OAuth2ProviderTestAbstract{
 
 	protected string $FQN = GitLab::class;
 

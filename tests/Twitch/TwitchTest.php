@@ -11,12 +11,12 @@
 namespace chillerlan\OAuthTest\Providers\Twitch;
 
 use chillerlan\OAuth\Providers\Twitch\Twitch;
-use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
+use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
 
 /**
  * @property \chillerlan\OAuth\Providers\Twitch\Twitch $provider
  */
-class TwitchTest extends OAuth2ProviderTest{
+class TwitchTest extends OAuth2ProviderTestAbstract{
 
 	protected string $FQN = Twitch::class;
 

@@ -11,12 +11,12 @@
 namespace chillerlan\OAuthTest\Providers\Imgur;
 
 use chillerlan\OAuth\Providers\Imgur\Imgur;
-use chillerlan\OAuthTest\Providers\OAuth2APITest;
+use chillerlan\OAuthTest\Providers\OAuth2APITestAbstract;
 
 /**
  * @property \chillerlan\OAuth\Providers\Imgur\Imgur $provider
  */
-class ImgurAPITest extends OAuth2APITest{
+class ImgurAPITest extends OAuth2APITestAbstract{
 
 	protected string $FQN = Imgur::class;
 	protected string $ENV = 'IMGUR';

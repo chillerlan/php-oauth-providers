@@ -11,12 +11,12 @@
 namespace chillerlan\OAuthTest\Providers\OpenStreetmap;
 
 use chillerlan\OAuth\Providers\OpenStreetmap\OpenStreetmap;
-use chillerlan\OAuthTest\Providers\OAuth1APITest;
+use chillerlan\OAuthTest\Providers\OAuth1APITestAbstract;
 
 /**
  * @property \chillerlan\OAuth\Providers\OpenStreetmap\OpenStreetmap $provider
  */
-class OpenStreetmapAPITest extends OAuth1APITest{
+class OpenStreetmapAPITest extends OAuth1APITestAbstract{
 
 	protected string $FQN = OpenStreetmap::class;
 	protected string $ENV = 'OPENSTREETMAP';

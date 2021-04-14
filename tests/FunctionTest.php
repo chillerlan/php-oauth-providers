@@ -16,7 +16,7 @@ use ReflectionClass;
 
 use function chillerlan\OAuth\Providers\getProviders;
 
-class FunctionTest extends TestCase{
+final class FunctionTest extends TestCase{
 
 	public function testGetProviders(){
 

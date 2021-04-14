@@ -11,7 +11,7 @@
 namespace chillerlan\OAuthTest\Providers\MailChimp;
 
 use chillerlan\OAuth\Providers\MailChimp\MailChimp;
-use chillerlan\OAuthTest\Providers\OAuth2APITest;
+use chillerlan\OAuthTest\Providers\OAuth2APITestAbstract;
 
 /**
  * MailChimp API usage tests/examples
@@ -20,7 +20,7 @@ use chillerlan\OAuthTest\Providers\OAuth2APITest;
  *
  * @property \chillerlan\OAuth\Providers\MailChimp\MailChimp $provider
  */
-class MailChimpAPITest extends OAuth2APITest{
+class MailChimpAPITest extends OAuth2APITestAbstract{
 
 	protected string $FQN = MailChimp::class;
 	protected string $ENV = 'MAILCHIMP';

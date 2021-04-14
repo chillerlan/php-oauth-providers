@@ -12,12 +12,12 @@ namespace chillerlan\OAuthTest\Providers\Discord;
 
 use chillerlan\OAuth\Core\AccessToken;
 use chillerlan\OAuth\Providers\Discord\Discord;
-use chillerlan\OAuthTest\Providers\OAuth2APITest;
+use chillerlan\OAuthTest\Providers\OAuth2APITestAbstract;
 
 /**
  * @property  \chillerlan\OAuth\Providers\Discord\Discord $provider
  */
-class DiscordAPITest extends OAuth2APITest{
+class DiscordAPITest extends OAuth2APITestAbstract{
 
 	protected string $FQN = Discord::class;
 	protected string $ENV = 'DISCORD';

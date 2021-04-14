@@ -11,12 +11,12 @@
 namespace chillerlan\OAuthTest\Providers\Slack;
 
 use chillerlan\OAuth\Providers\Slack\Slack;
-use chillerlan\OAuthTest\Providers\OAuth2APITest;
+use chillerlan\OAuthTest\Providers\OAuth2APITestAbstract;
 
 /**
  * @property \chillerlan\OAuth\Providers\Slack\Slack $provider
  */
-class SlackAPITest extends OAuth2APITest{
+class SlackAPITest extends OAuth2APITestAbstract{
 
 	protected string $FQN = Slack::class;
 	protected string $ENV = 'SLACK';

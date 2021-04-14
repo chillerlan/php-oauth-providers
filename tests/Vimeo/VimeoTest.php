@@ -11,12 +11,12 @@
 namespace chillerlan\OAuthTest\Providers\Vimeo;
 
 use chillerlan\OAuth\Providers\Vimeo\Vimeo;
-use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
+use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
 
 /**
  * @property \chillerlan\OAuth\Providers\Vimeo\Vimeo $provider
  */
-class VimeoTest extends OAuth2ProviderTest{
+class VimeoTest extends OAuth2ProviderTestAbstract{
 
 	protected string $FQN = Vimeo::class;
 

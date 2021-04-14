@@ -12,12 +12,12 @@ namespace chillerlan\OAuthTest\Providers\BattleNet;
 
 use chillerlan\OAuth\Core\ProviderException;
 use chillerlan\OAuth\Providers\BattleNet\BattleNet;
-use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
+use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
 
 /**
  * @property \chillerlan\OAuth\Providers\BattleNet\BattleNet $provider
  */
-class BattleNetTest extends OAuth2ProviderTest{
+class BattleNetTest extends OAuth2ProviderTestAbstract{
 
 	protected string $FQN = BattleNet::class;
 

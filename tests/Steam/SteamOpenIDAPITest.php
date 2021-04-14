@@ -11,12 +11,12 @@
 namespace chillerlan\OAuthTest\Providers\Steam;
 
 use chillerlan\OAuth\Providers\Steam\SteamOpenID;
-use chillerlan\OAuthTest\Providers\OAuthAPITest;
+use chillerlan\OAuthTest\Providers\OAuthAPITestAbstract;
 
 /**
  * @property \chillerlan\OAuth\Providers\Steam\SteamOpenID $provider
  */
-class SteamOpenIDAPITest extends OAuthAPITest{
+class SteamOpenIDAPITest extends OAuthAPITestAbstract{
 
 	protected string $FQN = SteamOpenID::class;
 	protected string $ENV = 'STEAMOPENID';

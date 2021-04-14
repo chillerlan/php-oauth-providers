@@ -11,12 +11,12 @@
 namespace chillerlan\OAuthTest\Providers\Stripe;
 
 use chillerlan\OAuth\Providers\Stripe\Stripe;
-use chillerlan\OAuthTest\Providers\OAuth2ProviderTest;
+use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
 
 /**
  * @property \chillerlan\OAuth\Providers\Stripe\Stripe $provider
  */
-class StripeTest extends OAuth2ProviderTest{
+class StripeTest extends OAuth2ProviderTestAbstract{
 
 	protected string $FQN = Stripe::class;
 
