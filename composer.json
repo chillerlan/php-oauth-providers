@@ -23,14 +23,13 @@
 		"issues": "https://github.com/chillerlan/php-oauth-providers/issues",
 		"source": "https://github.com/chillerlan/php-oauth-providers"
 	},
-	"minimum-stability": "dev",
-	"prefer-stable": true,
+	"minimum-stability": "stable",
 	"require": {
 		"php": "^7.4 || ^8.0",
 		"ext-curl": "*",
 		"ext-json":"*",
 		"ext-simplexml":"*",
-		"chillerlan/php-oauth-core": "dev-main#543a012843c8e0bd19b3bd3c99f0656ca34b061c",
+		"chillerlan/php-oauth-core": "^4.0",
 		"psr/http-client":"^1.0",
 		"psr/http-message": "^1.0"
 	},
