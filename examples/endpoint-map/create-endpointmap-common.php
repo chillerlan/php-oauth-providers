@@ -6,9 +6,10 @@
  * @license      MIT
  */
 
+use chillerlan\HTTP\Psr18\CurlClient;
 use chillerlan\OAuth\MagicAPI\EndpointMapInterface;
 use chillerlan\OAuthExamples\OAuthExampleSessionStorage;
-use chillerlan\OAuthTest\{OAuthTestHttpClient, OAuthTestLogger};
+use chillerlan\OAuthTest\OAuthTestLogger;
 
 /**
  * @var \chillerlan\Settings\SettingsContainerInterface $options
@@ -25,7 +26,7 @@ require_once __DIR__.'/../provider-example-common.php';
 
 $logger  = new OAuthTestLogger($LOGLEVEL);
 $storage = new OAuthExampleSessionStorage($options, $CFGDIR);
-$http    = new OAuthTestHttpClient($options);
+$http    = new CurlClient($options);
 
 function createEndpointMap(array $content, string $link, EndpointMapInterface $endpoints, string $base = null):void{
 	$reflection = new ReflectionClass($endpoints);
