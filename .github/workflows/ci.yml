@@ -53,7 +53,7 @@ jobs:
 
     steps:
       - name: "Configure git to avoid issues with line endings"
-        if: runner.os == 'Windows'
+        if: ${{ runner.os == 'Windows' }}
         run: git config --global core.autocrlf false
 
       - name: "Checkout"
