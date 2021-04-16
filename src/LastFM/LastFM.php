@@ -172,11 +172,11 @@ class LastFM extends OAuthProvider{
 			throw new ProviderException('token missing');
 		}
 
-		$token = new AccessToken([
-			'provider'    => $this->serviceName,
-			'accessToken' => $data['session']['key'],
-			'expires'     => AccessToken::EOL_NEVER_EXPIRES,
-		]);
+		$token = new AccessToken;
+
+		$token->provider     = $this->serviceName;
+		$token->accessToken  = $data['session']['key'];
+		$token->expires      = AccessToken::EOL_NEVER_EXPIRES;
 
 		unset($data['session']['key']);
 

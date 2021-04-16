@@ -279,18 +279,18 @@ class GuildWars2 extends OAuth2Provider{
 
 		if(isset($tokeninfo->id) && strpos($access_token, $tokeninfo->id) === 0){
 
-			$token = new AccessToken([
-				'provider'     => $this->serviceName,
-				'accessToken'       => $access_token,
-				'accessTokenSecret' => substr($access_token, 36, 36), // the actual token
-				'expires'           => AccessToken::EOL_NEVER_EXPIRES,
-				'extraParams'       => [
-					'token_type' => 'Bearer',
-					'id'         => $tokeninfo->id,
-					'name'       => $tokeninfo->name,
-					'scope'      => implode($this->scopesDelimiter, $tokeninfo->permissions),
-				],
-			]);
+			$token = new AccessToken;
+
+			$token->provider          = $this->serviceName;
+			$token->accessToken       = $access_token;
+			$token->accessTokenSecret = substr($access_token, 36, 36); // the actual token
+			$token->expires           = AccessToken::EOL_NEVER_EXPIRES;
+			$token->extraParams       = [
+				'token_type' => 'Bearer',
+				'id'         => $tokeninfo->id,
+				'name'       => $tokeninfo->name,
+				'scope'      => implode($this->scopesDelimiter, $tokeninfo->permissions),
+			];
 
 			$this->storage->storeAccessToken($this->serviceName, $token);
 
