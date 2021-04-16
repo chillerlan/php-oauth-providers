@@ -15,7 +15,7 @@
 [packagist]: https://packagist.org/packages/chillerlan/php-oauth-providers
 [license-badge]: https://img.shields.io/github/license/chillerlan/php-oauth-providers.svg
 [license]: https://github.com/chillerlan/php-oauth-providers/blob/main/LICENSE
-[travis-badge]: https://img.shields.io/travis/chillerlan/php-oauth-providers/main.svg?logo=travis
+[travis-badge]: https://img.shields.io/travis/com/chillerlan/php-oauth-providers/main.svg?logo=travis
 [travis]: https://travis-ci.com/github/chillerlan/php-oauth-providers
 [coverage-badge]: https://img.shields.io/codecov/c/github/chillerlan/php-oauth-providers.svg?logo=codecov
 [coverage]: https://codecov.io/github/chillerlan/php-oauth-providers
