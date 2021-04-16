@@ -16,7 +16,7 @@ use ReflectionClass;
 
 use function count, dirname, file_get_contents, file_put_contents, implode, in_array, is_array, ksort, str_replace;
 
-use const JSON_PRETTY_PRINT, PHP_EOL;
+use const JSON_PRETTY_PRINT;
 
 final class EndpointDocblock{
 
@@ -41,7 +41,7 @@ final class EndpointDocblock{
 	 * @return string
 	 */
 	public function create(string $returntype):string{
-		$n   = PHP_EOL;
+		$n   = "\n";
 		$str = '/**'.$n;
 		$ep  = $this->endpointMap->toArray();
 
@@ -98,7 +98,7 @@ final class EndpointDocblock{
 	public function createInterface(string $name, string $returntype, string $namespace = null):bool{
 		$reflection    = new ReflectionClass($this->provider);
 		$interfaceName = $name.'Interface';
-		$n             = PHP_EOL;
+		$n             = "\n";
 		$ep            = $this->endpointMap->toArray();
 
 		$str = '<?php'.$n.$n

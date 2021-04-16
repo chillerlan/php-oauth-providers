@@ -16,10 +16,6 @@ use Psr\Http\Message\ResponseInterface;
 use function chillerlan\OAuth\Providers\getProviders;
 use function file_get_contents, file_put_contents, implode, str_replace, strpos, substr;
 
-use const PHP_EOL;
-
-$ENVVAR = '';
-
 require_once __DIR__.'/provider-example-common.php';
 
 /**
@@ -69,4 +65,4 @@ $readme = file_get_contents($file);
 $start  = strpos($readme, '<!--A-->') + 8;
 $end    = strpos($readme, '<!--O-->');
 
-file_put_contents($file, str_replace(substr($readme, $start, $end - $start), PHP_EOL.implode(PHP_EOL, $table).PHP_EOL, $readme));
+file_put_contents($file, str_replace(substr($readme, $start, $end - $start), "\n".implode("\n", $table)."\n", $readme));
