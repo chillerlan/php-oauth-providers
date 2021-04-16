@@ -20,7 +20,7 @@ use chillerlan\OAuth\Core\OAuth1Provider;
  * @method \Psr\Http\Message\ResponseInterface accountSettings()
  * @method \Psr\Http\Message\ResponseInterface accountUpdateProfile(array $body = ['name', 'url', 'location', 'description', 'profile_link_color', 'include_entities', 'skip_status'])
  * @method \Psr\Http\Message\ResponseInterface accountUpdateSettings(array $body = ['sleep_time_enabled', 'start_sleep_time', 'end_sleep_time', 'time_zone', 'trend_location_woeid', 'lang'])
- * @method \Psr\Http\Message\ResponseInterface block(array $body = ['user_id', 'screen_name', 'include_entities', 'skip_status'])
+ * @method \Psr\Http\Message\ResponseInterface block(array $params = ['user_id', 'screen_name', 'include_entities', 'skip_status'])
  * @method \Psr\Http\Message\ResponseInterface blocksIds(array $params = ['cursor', 'stringify_ids'])
  * @method \Psr\Http\Message\ResponseInterface blocksList(array $params = ['cursor', 'include_entities', 'skip_status'])
  * @method \Psr\Http\Message\ResponseInterface collectionsCreate(array $body = ['name', 'description', 'url', 'timeline_order'])
@@ -38,8 +38,8 @@ use chillerlan\OAuth\Core\OAuth1Provider;
  * @method \Psr\Http\Message\ResponseInterface directMessagesEventsDestroy(array $params = ['id'])
  * @method \Psr\Http\Message\ResponseInterface directMessagesEventsList(array $params = ['cursor'])
  * @method \Psr\Http\Message\ResponseInterface directMessagesEventsShow(array $params = ['id'])
- * @method \Psr\Http\Message\ResponseInterface directMessagesIndicateTyping(array $body = ['recipient_id'])
- * @method \Psr\Http\Message\ResponseInterface directMessagesMarkRead(array $body = ['last_read_event_id', 'recipient_id'])
+ * @method \Psr\Http\Message\ResponseInterface directMessagesIndicateTyping(array $params = ['recipient_id'])
+ * @method \Psr\Http\Message\ResponseInterface directMessagesMarkRead(array $params = ['last_read_event_id', 'recipient_id'])
  * @method \Psr\Http\Message\ResponseInterface directMessagesSent(array $params = ['since_id', 'max_id', 'count', 'page', 'trim_user', 'include_entities'])
  * @method \Psr\Http\Message\ResponseInterface directMessagesShow(array $params = ['id', 'trim_user', 'include_entities'])
  * @method \Psr\Http\Message\ResponseInterface directMessagesWelcomeMessagesDestroy(array $params = ['id'])
@@ -122,9 +122,6 @@ use chillerlan\OAuth\Core\OAuth1Provider;
  * @method \Psr\Http\Message\ResponseInterface usersProfileBanner(array $params = ['user_id', 'screen_name'])
  * @method \Psr\Http\Message\ResponseInterface usersSearch(array $params = ['q', 'page', 'count', 'include_entities', 'skip_status'])
  * @method \Psr\Http\Message\ResponseInterface usersShow(array $params = ['user_id', 'screen_name', 'include_entities', 'skip_status'])
- * @method \Psr\Http\Message\ResponseInterface usersSuggestions(array $params = ['lang'])
- * @method \Psr\Http\Message\ResponseInterface usersSuggestionsSlug(string $slug, array $params = ['lang'])
- * @method \Psr\Http\Message\ResponseInterface usersSuggestionsSlugMembers(string $slug, array $params = ['lang'])
  * @method \Psr\Http\Message\ResponseInterface verifyCredentials(array $params = ['include_entities', 'skip_status'])
  */
 class Twitter extends OAuth1Provider{
@@ -137,7 +134,7 @@ class Twitter extends OAuth1Provider{
 
 	protected string $requestTokenURL = 'https://api.twitter.com/oauth/request_token';
 	protected string $accessTokenURL  = 'https://api.twitter.com/oauth/access_token';
-	protected ?string $apiURL         = 'https://api.twitter.com/1.1';
+	protected ?string $apiURL         = 'https://api.twitter.com';
 	protected ?string $userRevokeURL  = 'https://twitter.com/settings/applications';
 	protected ?string $endpointMap    = TwitterEndpoints::class;
 	protected ?string $apiDocs        = 'https://developer.twitter.com/docs';
