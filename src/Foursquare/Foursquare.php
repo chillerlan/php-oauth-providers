@@ -47,12 +47,7 @@ class Foursquare extends OAuth2Provider{
 		array $headers = null
 	):ResponseInterface{
 
-		$queryparams = [];
-		$querystring = parseUrl($this->apiURL.$path)['query'] ?? '';
-
-		if(!empty($querystring)){
-			$queryparams = $this->parseQuery($querystring);
-		}
+		$queryparams = $this->parseQuery(parseUrl($this->apiURL.$path)['query'] ?? '');
 
 		$queryparams['v'] = $this::API_VERSIONDATE;
 		$queryparams['m'] = 'foursquare';

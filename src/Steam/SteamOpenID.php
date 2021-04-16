@@ -134,6 +134,7 @@ class SteamOpenID extends OAuthProvider{
 
 		// the response is only validation, so we'll just return an empty token and add the id in the next step
 		return new AccessToken([
+			'accessToken' => 'SteamID',
 			'provider' => $this->serviceName,
 			'expires'  => AccessToken::EOL_NEVER_EXPIRES,
 		]);
