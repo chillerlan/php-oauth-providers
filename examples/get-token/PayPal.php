@@ -20,6 +20,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage
  * @var \chillerlan\Settings\SettingsContainerInterface $options
  * @var \Psr\Log\LoggerInterface $logger
+ * @var array $SCOPES
  */
 
 $paypal      = new PayPal($http, $storage, $options, $logger);
@@ -28,7 +29,7 @@ $servicename = $paypal->serviceName;
 
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$paypal->getAuthURL(['flowEntry' => 'static', 'fullPage' => 'true']));
+	header('Location: '.$paypal->getAuthURL(['flowEntry' => 'static', 'fullPage' => 'true'], $SCOPES));
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){

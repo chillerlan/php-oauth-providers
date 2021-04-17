@@ -20,6 +20,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage
  * @var \chillerlan\Settings\SettingsContainerInterface $options
  * @var \Psr\Log\LoggerInterface $logger
+ * @var array $SCOPES
  */
 
 $twitch      = new Twitch($http, $storage, $options, $logger);
@@ -27,7 +28,7 @@ $servicename = $twitch->serviceName;
 
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$twitch->getAuthURL());
+	header('Location: '.$twitch->getAuthURL(null, $SCOPES));
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){

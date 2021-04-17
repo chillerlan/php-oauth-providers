@@ -35,11 +35,13 @@ ini_set('date.timezone', 'Europe/Amsterdam');
  * @var string $ENVVAR   - name prefix for the environment variable
  * @var string $CFGDIR   - the directory where configuration is stored (.env, cacert, tokens)
  * @var string $LOGLEVEL - log level for the test logger, use 'none' to suppress logging
+ * @var array  $SCOPES   - a set of scopes for the current provider (OAuth2 only)
  */
-$ENVFILE  = $ENVFILE ?? '.env';
-$ENVVAR   = $ENVVAR ?? '';
-$CFGDIR   = $CFGDIR ?? __DIR__.'/../config';
-$LOGLEVEL = $LOGLEVEL ?? 'info';
+$ENVFILE  ??= '.env';
+$ENVVAR   ??= '';
+$CFGDIR   ??= __DIR__.'/../config';
+$LOGLEVEL ??= 'info';
+$SCOPES   ??= null;
 
 $env = (new DotEnv($CFGDIR, $ENVFILE, false))->load();
 

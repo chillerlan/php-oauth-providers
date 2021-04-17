@@ -20,6 +20,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage
  * @var \chillerlan\Settings\SettingsContainerInterface $options
  * @var \Psr\Log\LoggerInterface $logger
+ * @var array $SCOPES
  */
 
 $google      = new Google($http, $storage, $options, $logger);
@@ -29,7 +30,7 @@ $servicename = $google->serviceName;
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
 	$params = ['access_type' => 'online'];
 
-	header('Location: '.$google->getAuthURL($params));
+	header('Location: '.$google->getAuthURL($params, $SCOPES));
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){

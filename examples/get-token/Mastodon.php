@@ -21,6 +21,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \chillerlan\Settings\SettingsContainerInterface $options
  * @var \Psr\Log\LoggerInterface $logger
  * @var \chillerlan\DotEnv\DotEnv $env
+ * @var array $SCOPES
  */
 
 // set the mastodon instance we're about to request data from
@@ -29,7 +30,7 @@ $servicename = $mastodon->serviceName;
 
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$mastodon->getAuthURL());
+	header('Location: '.$mastodon->getAuthURL(null, $SCOPES));
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){

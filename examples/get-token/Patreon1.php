@@ -20,6 +20,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage
  * @var \chillerlan\Settings\SettingsContainerInterface $options
  * @var \Psr\Log\LoggerInterface $logger
+ * @var array $SCOPES
  */
 
 $patreon1    = new Patreon1($http, $storage, $options, $logger);
@@ -27,7 +28,7 @@ $servicename = $patreon1->serviceName;
 
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$patreon1->getAuthURL());
+	header('Location: '.$patreon1->getAuthURL(null, $SCOPES));
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){
