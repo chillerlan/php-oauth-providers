@@ -26,8 +26,8 @@ require_once __DIR__.'/provider-example-common.php';
  */
 
 $table = [
-	' Provider | API keys | revoke access | OAuth | `ClientCredentials`',
-	'----------|----------|---------------|-------|--------------------',
+	'| Provider | API keys | revoke access | OAuth | `ClientCredentials` |',
+	'|----------|----------|---------------|-------|---------------------|',
 ];
 
 foreach(getProviders() as $p){
@@ -52,11 +52,12 @@ foreach(getProviders() as $p){
 			$oauth = '-';
 	}
 
-	$table[] = '['.$p['name'].']('.$provider->apiDocs.')'.
+	$table[] = '| ['.$p['name'].']('.$provider->apiDocs.')'.
 		' | [link]('.$provider->applicationURL.')'.
 		' | '.(!$provider->userRevokeURL ? '' : '[link]('.$provider->userRevokeURL.')').
 		' | '.$oauth.
-		' | '.($provider instanceof ClientCredentials ? '✓' : '');
+		' | '.($provider instanceof ClientCredentials ? '✓' : '').
+	    ' |' ;
 
 }
 
