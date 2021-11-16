@@ -36,10 +36,10 @@
 	"require-dev": {
 		"chillerlan/php-dotenv": "^2.1",
 		"chillerlan/php-prototype-dom": "^3.0.1",
-		"guzzlehttp/guzzle": "^7.3",
+		"guzzlehttp/guzzle": "^7.4",
 		"monolog/monolog": "^2.3",
 		"phpunit/phpunit": "^9.5",
-		"phan/phan": "^4.0"
+		"phan/phan": "^5.3"
 	},
 	"autoload": {
 		"psr-4": {
@@ -55,5 +55,14 @@
 			"chillerlan\\OAuthTest\\Providers\\": "tests/",
 			"chillerlan\\OAuthExamples\\": "examples/"
 		}
+	},
+	"scripts": {
+		"phpunit": "@php vendor/bin/phpunit",
+		"phan": "@php vendor/bin/phan"
+	},
+	"config": {
+		"lock": false,
+		"sort-packages": true,
+		"platform-check": true
 	}
 }
