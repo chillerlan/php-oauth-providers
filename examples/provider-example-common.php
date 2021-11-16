@@ -15,7 +15,9 @@ use chillerlan\HTTP\HTTPOptionsTrait;
 use chillerlan\HTTP\Psr18\CurlClient;
 use chillerlan\OAuth\OAuthOptions;
 use chillerlan\OAuth\Storage\SessionStorage;
-use Psr\Log\NullLogger;
+use Monolog\Formatter\LineFormatter;
+use Monolog\Handler\{NullHandler, StreamHandler};
+use Monolog\Logger;
 
 use function ini_set;
 
@@ -66,7 +68,15 @@ $options_arr = [
  * @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage
  */
 $options = $options ?? new class($options_arr) extends OAuthOptions{ use HTTPOptionsTrait; };
-$logger  = new NullLogger;
+$logger  = new Logger('oauthProviderExample', [new NullHandler]);
+
+if($LOGLEVEL){
+	$logHandler = (new StreamHandler('php://stdout', $LOGLEVEL))
+		->setFormatter(new LineFormatter(null, 'Y-m-d H:i:s', true, true));
+
+	$logger->pushHandler($logHandler);
+}
+
 $http    = new CurlClient($options);
 $storage = new SessionStorage($options);
 

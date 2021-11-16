@@ -9,7 +9,6 @@
 use chillerlan\HTTP\Psr18\CurlClient;
 use chillerlan\OAuth\MagicAPI\EndpointMapInterface;
 use chillerlan\OAuthExamples\OAuthExampleSessionStorage;
-use chillerlan\OAuthTest\OAuthTestLogger;
 
 /**
  * @var \chillerlan\Settings\SettingsContainerInterface $options
@@ -24,7 +23,6 @@ use chillerlan\OAuthTest\OAuthTestLogger;
 
 require_once __DIR__.'/../provider-example-common.php';
 
-$logger  = new OAuthTestLogger($LOGLEVEL);
 $storage = new OAuthExampleSessionStorage($options, $CFGDIR);
 $http    = new CurlClient($options);
 
