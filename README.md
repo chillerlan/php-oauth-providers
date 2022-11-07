@@ -3,11 +3,10 @@
 [![PHP Version Support][php-badge]][php]
 [![Packagist version][packagist-badge]][packagist]
 [![License][license-badge]][license]
-[![Travis CI][travis-badge]][travis]
+[![Continuous Integration][gh-action-badge]][gh-action]
 [![CodeCov][coverage-badge]][coverage]
 [![Scrunitizer CI][scrutinizer-badge]][scrutinizer]
-[![Packagist downloads][downloads-badge]][downloads]<br/>
-[![Continuous Integration][gh-action-badge]][gh-action]
+[![Packagist downloads][downloads-badge]][downloads]
 
 [php-badge]: https://img.shields.io/packagist/php-v/chillerlan/php-oauth-providers?logo=php&color=8892BF
 [php]: https://www.php.net/supported-versions.php
@@ -15,15 +14,13 @@
 [packagist]: https://packagist.org/packages/chillerlan/php-oauth-providers
 [license-badge]: https://img.shields.io/github/license/chillerlan/php-oauth-providers.svg
 [license]: https://github.com/chillerlan/php-oauth-providers/blob/main/LICENSE
-[travis-badge]: https://img.shields.io/travis/com/chillerlan/php-oauth-providers/main.svg?logo=travis
-[travis]: https://travis-ci.com/github/chillerlan/php-oauth-providers
 [coverage-badge]: https://img.shields.io/codecov/c/github/chillerlan/php-oauth-providers.svg?logo=codecov
 [coverage]: https://codecov.io/github/chillerlan/php-oauth-providers
 [scrutinizer-badge]: https://img.shields.io/scrutinizer/g/chillerlan/php-oauth-providers.svg?logo=scrutinizer
 [scrutinizer]: https://scrutinizer-ci.com/g/chillerlan/php-oauth-providers
 [downloads-badge]: https://img.shields.io/packagist/dt/chillerlan/php-oauth-providers.svg?logo=packagist
 [downloads]: https://packagist.org/packages/chillerlan/php-oauth-providers/stats
-[gh-action-badge]: https://github.com/chillerlan/php-oauth-providers/workflows/Continuous%20Integration/badge.svg
+[gh-action-badge]: https://img.shields.io/github/workflow/status/chillerlan/php-oauth-providers/Continuous%20Integration?logo=github
 [gh-action]: https://github.com/chillerlan/php-oauth-providers/actions
 
 # Documentation
@@ -96,6 +93,7 @@ A list of already implemented Providers.
 | [Twitch](https://dev.twitch.tv/docs/api/reference/) | [link](https://dev.twitch.tv/console/apps/create) | [link](https://www.twitch.tv/settings/connections) | 2 | ✓ |
 | [Twitter](https://developer.twitter.com/docs) | [link](https://developer.twitter.com/apps) | [link](https://twitter.com/settings/applications) | 1 |  |
 | [TwitterCC](https://developer.twitter.com/en/docs/basics/authentication/overview/application-only) | [link](https://developer.twitter.com/apps) | [link](https://twitter.com/settings/applications) | 2 | ✓ |
+| [TwitterV2](https://developer.twitter.com/docs) | [link](https://developer.twitter.com/apps) | [link](https://twitter.com/settings/applications) | 1 |  |
 | [Vimeo](https://developer.vimeo.com) | [link](https://developer.vimeo.com/apps) | [link](https://vimeo.com/settings/apps) | 2 | ✓ |
 | [Wordpress](https://developer.wordpress.com/docs/api/) | [link](https://developer.wordpress.com/apps/) | [link](https://wordpress.com/me/security/connected-applications) | 2 |  |
 <!--O-->
