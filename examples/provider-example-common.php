@@ -71,8 +71,10 @@ $options = $options ?? new class($options_arr) extends OAuthOptions{ use HTTPOpt
 $logger  = new Logger('oauthProviderExample', [new NullHandler]);
 
 if($LOGLEVEL){
-	$logHandler = (new StreamHandler('php://stdout', $LOGLEVEL))
-		->setFormatter(new LineFormatter(null, 'Y-m-d H:i:s', true, true));
+	$formatter = new LineFormatter(null, 'Y-m-d H:i:s', true, true);
+	$formatter->setJsonPrettyPrint(true);
+
+	$logHandler = (new StreamHandler('php://stdout', $LOGLEVEL))->setFormatter($formatter);
 
 	$logger->pushHandler($logHandler);
 }

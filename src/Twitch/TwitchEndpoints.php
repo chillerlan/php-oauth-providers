@@ -3,7 +3,7 @@
  * Class TwitchEndpoints (auto created)
  *
  * @link    https://dev.twitch.tv/docs/api/reference
- * @created 23.03.2021
+ * @created 03.10.2021
  * @license MIT
  */
 
@@ -55,6 +55,32 @@ class TwitchEndpoints extends EndpointMap{
 	];
 
 	/**
+	 * Get Extension Bits Products
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#get-extension-bits-products
+	 */
+	protected array $bitsExtensions = [
+		'method'  => 'GET',
+		'path'    => '/bits/extensions',
+		'query'   => ['should_include_all'],
+		'body'    => null,
+		'headers' => null,
+	];
+
+	/**
+	 * Update Extension Bits Product
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#update-extension-bits-product
+	 */
+	protected array $bitsExtensionsUpdate = [
+		'method'  => 'PUT',
+		'path'    => '/bits/extensions',
+		'query'   => null,
+		'body'    => ['sku', 'cost', 'cost.amount', 'cost.type', 'display_name', 'in_development', 'expiration', 'is_broadcast'],
+		'headers' => ['Content-Type' => 'application/json'],
+	];
+
+	/**
 	 * Get Bits Leaderboard
 	 *
 	 * @link https://dev.twitch.tv/docs/api/reference#get-bits-leaderboard
@@ -89,7 +115,7 @@ class TwitchEndpoints extends EndpointMap{
 		'method'  => 'POST',
 		'path'    => '/channel_points/custom_rewards',
 		'query'   => ['broadcaster_id'],
-		'body'    => ['title', 'prompt', 'cost', 'is_enabled', 'background_color', 'is_user_input_required', 'is_max_per_stream_enabled', 'max_per_stream', 'is_max_per_user_per_stream_enabled', 'max_per_user_per_stream', 'is_global_cooldown_enabled', 'global_cooldown_seconds', 'should_redemptions_skip_request_queue'],
+		'body'    => ['title', 'cost', 'prompt', 'is_enabled', 'background_color', 'is_user_input_required', 'is_max_per_stream_enabled', 'max_per_stream', 'is_max_per_user_per_stream_enabled', 'max_per_user_per_stream', 'is_global_cooldown_enabled', 'global_cooldown_seconds', 'should_redemptions_skip_request_queue'],
 		'headers' => ['Content-Type' => 'application/json'],
 	];
 
@@ -193,8 +219,73 @@ class TwitchEndpoints extends EndpointMap{
 		'method'  => 'PATCH',
 		'path'    => '/channels',
 		'query'   => ['broadcaster_id'],
-		'body'    => ['game_id', 'broadcaster_language', 'title'],
+		'body'    => ['game_id', 'broadcaster_language', 'title', 'delay'],
 		'headers' => ['Content-Type' => 'application/json'],
+	];
+
+	/**
+	 * Get Channel Chat Badges
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#get-channel-chat-badges
+	 */
+	protected array $chatBadges = [
+		'method'  => 'GET',
+		'path'    => '/chat/badges',
+		'query'   => ['broadcaster_id'],
+		'body'    => null,
+		'headers' => null,
+	];
+
+	/**
+	 * Get Global Chat Badges
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#get-global-chat-badges
+	 */
+	protected array $chatBadgesGlobal = [
+		'method'  => 'GET',
+		'path'    => '/chat/badges/global',
+		'query'   => null,
+		'body'    => null,
+		'headers' => null,
+	];
+
+	/**
+	 * Get Channel Emotes
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#get-channel-emotes
+	 */
+	protected array $chatEmotes = [
+		'method'  => 'GET',
+		'path'    => '/chat/emotes',
+		'query'   => ['broadcaster_id'],
+		'body'    => null,
+		'headers' => null,
+	];
+
+	/**
+	 * Get Global Emotes
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#get-global-emotes
+	 */
+	protected array $chatEmotesGlobal = [
+		'method'  => 'GET',
+		'path'    => '/chat/emotes/global',
+		'query'   => null,
+		'body'    => null,
+		'headers' => null,
+	];
+
+	/**
+	 * Get Emote Sets
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#get-emote-sets
+	 */
+	protected array $chatEmotesSet = [
+		'method'  => 'GET',
+		'path'    => '/chat/emotes/set',
+		'query'   => ['emote_set_id'],
+		'body'    => null,
+		'headers' => null,
 	];
 
 	/**
@@ -257,7 +348,20 @@ class TwitchEndpoints extends EndpointMap{
 	protected array $entitlementsDrops = [
 		'method'  => 'GET',
 		'path'    => '/entitlements/drops',
-		'query'   => ['id', 'user_id', 'game_id', 'after', 'first'],
+		'query'   => ['id', 'user_id', 'game_id', 'fulfillment_status', 'after', 'first'],
+		'body'    => null,
+		'headers' => null,
+	];
+
+	/**
+	 * Update Drops Entitlements
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#update-drops-entitlements
+	 */
+	protected array $entitlementsDropsUpdate = [
+		'method'  => 'PATCH',
+		'path'    => '/entitlements/drops',
+		'query'   => ['entitlement_ids', 'fulfillment_status'],
 		'body'    => null,
 		'headers' => null,
 	];
@@ -270,7 +374,7 @@ class TwitchEndpoints extends EndpointMap{
 	protected array $eventsubSubscriptions = [
 		'method'  => 'GET',
 		'path'    => '/eventsub/subscriptions',
-		'query'   => ['status', 'type'],
+		'query'   => ['status', 'type', 'after'],
 		'body'    => null,
 		'headers' => null,
 	];
@@ -299,6 +403,136 @@ class TwitchEndpoints extends EndpointMap{
 		'query'   => ['id'],
 		'body'    => null,
 		'headers' => null,
+	];
+
+	/**
+	 * Get Extensions
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#get-extensions
+	 */
+	protected array $extensions = [
+		'method'  => 'GET',
+		'path'    => '/extensions',
+		'query'   => ['extension_id', 'extension_version'],
+		'body'    => null,
+		'headers' => null,
+	];
+
+	/**
+	 * Send Extension Chat Message
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#send-extension-chat-message
+	 */
+	protected array $extensionsChat = [
+		'method'  => 'POST',
+		'path'    => '/extensions/chat',
+		'query'   => ['broadcaster_id'],
+		'body'    => ['text', 'extension_id', 'extension_version'],
+		'headers' => ['Content-Type' => 'application/json'],
+	];
+
+	/**
+	 * Get Extension Configuration Segment
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#get-extension-configuration-segment
+	 */
+	protected array $extensionsConfigurations = [
+		'method'  => 'GET',
+		'path'    => '/extensions/configurations',
+		'query'   => ['broadcaster_id', 'extension_id', 'segment'],
+		'body'    => null,
+		'headers' => null,
+	];
+
+	/**
+	 * Set Extension Configuration Segment
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#set-extension-configuration-segment
+	 */
+	protected array $extensionsConfigurationsUpdate = [
+		'method'  => 'PUT',
+		'path'    => '/extensions/configurations',
+		'query'   => null,
+		'body'    => ['extension_id', 'segment', 'broadcaster_id', 'content', 'version'],
+		'headers' => ['Content-Type' => 'application/json'],
+	];
+
+	/**
+	 * Get Extension Secrets
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#get-extension-secrets
+	 */
+	protected array $extensionsJwtSecrets = [
+		'method'  => 'GET',
+		'path'    => '/extensions/jwt/secrets',
+		'query'   => null,
+		'body'    => null,
+		'headers' => null,
+	];
+
+	/**
+	 * Create Extension Secret
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#create-extension-secret
+	 */
+	protected array $extensionsJwtSecretsCreate = [
+		'method'  => 'POST',
+		'path'    => '/extensions/jwt/secrets',
+		'query'   => ['delay'],
+		'body'    => null,
+		'headers' => null,
+	];
+
+	/**
+	 * Get Extension Live Channels
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#get-extension-live-channels
+	 */
+	protected array $extensionsLive = [
+		'method'  => 'GET',
+		'path'    => '/extensions/live',
+		'query'   => ['extension_id', 'first', 'after'],
+		'body'    => null,
+		'headers' => null,
+	];
+
+	/**
+	 * Send Extension PubSub Message
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#send-extension-pubsub-message
+	 */
+	protected array $extensionsPubsub = [
+		'method'  => 'POST',
+		'path'    => '/extensions/pubsub',
+		'query'   => null,
+		'body'    => ['target', 'broadcaster_id', 'is_global_broadcast', 'message'],
+		'headers' => ['Content-Type' => 'application/json'],
+	];
+
+	/**
+	 * Get Released Extensions
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#get-released-extensions
+	 */
+	protected array $extensionsReleased = [
+		'method'  => 'GET',
+		'path'    => '/extensions/released',
+		'query'   => ['extension_id', 'extension_version'],
+		'body'    => null,
+		'headers' => null,
+	];
+
+	/**
+	 * Set Extension Required Configuration
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#set-extension-required-configuration
+	 */
+	protected array $extensionsRequiredConfiguration = [
+		'method'  => 'PUT',
+		'path'    => '/extensions/required_configuration',
+		'query'   => ['broadcaster_id'],
+		'body'    => ['extension_id', 'extension_version', 'configuration_version'],
+		'headers' => ['Content-Type' => 'application/json'],
 	];
 
 	/**
@@ -341,6 +575,19 @@ class TwitchEndpoints extends EndpointMap{
 	];
 
 	/**
+	 * Get Creator Goals
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#get-creator-goals
+	 */
+	protected array $goals = [
+		'method'  => 'GET',
+		'path'    => '/goals',
+		'query'   => ['broadcaster_id'],
+		'body'    => null,
+		'headers' => null,
+	];
+
+	/**
 	 * Get Hype Train Events
 	 *
 	 * @link https://dev.twitch.tv/docs/api/reference#get-hype-train-events
@@ -351,6 +598,19 @@ class TwitchEndpoints extends EndpointMap{
 		'query'   => ['broadcaster_id', 'first', 'id', 'cursor'],
 		'body'    => null,
 		'headers' => null,
+	];
+
+	/**
+	 * Manage Held AutoMod Messages
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#manage-held-automod-messages
+	 */
+	protected array $moderationAutomodMessage = [
+		'method'  => 'POST',
+		'path'    => '/moderation/automod/message',
+		'query'   => null,
+		'body'    => ['user_id', 'msg_id', 'action'],
+		'headers' => ['Content-Type' => 'application/json'],
 	];
 
 	/**
@@ -419,6 +679,162 @@ class TwitchEndpoints extends EndpointMap{
 	];
 
 	/**
+	 * Get Polls
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#get-polls
+	 */
+	protected array $polls = [
+		'method'  => 'GET',
+		'path'    => '/polls',
+		'query'   => ['broadcaster_id', 'id', 'after', 'first'],
+		'body'    => null,
+		'headers' => null,
+	];
+
+	/**
+	 * Create Poll
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#create-poll
+	 */
+	protected array $pollsCreate = [
+		'method'  => 'POST',
+		'path'    => '/polls',
+		'query'   => null,
+		'body'    => ['broadcaster_id', 'title', 'choices', 'choice.title', 'duration', 'bits_voting_enabled', 'bits_per_vote', 'channel_points_voting_enabled', 'channel_points_per_vote'],
+		'headers' => ['Content-Type' => 'application/json'],
+	];
+
+	/**
+	 * End Poll
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#end-poll
+	 */
+	protected array $pollsUpdate = [
+		'method'  => 'PATCH',
+		'path'    => '/polls',
+		'query'   => null,
+		'body'    => ['broadcaster_id', 'id', 'status'],
+		'headers' => ['Content-Type' => 'application/json'],
+	];
+
+	/**
+	 * Get Predictions
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#get-predictions
+	 */
+	protected array $predictions = [
+		'method'  => 'GET',
+		'path'    => '/predictions',
+		'query'   => ['broadcaster_id', 'id', 'after', 'first'],
+		'body'    => null,
+		'headers' => null,
+	];
+
+	/**
+	 * Create Prediction
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#create-prediction
+	 */
+	protected array $predictionsCreate = [
+		'method'  => 'POST',
+		'path'    => '/predictions',
+		'query'   => null,
+		'body'    => ['broadcaster_id', 'title', 'outcomes', 'outcome.title', 'prediction_window'],
+		'headers' => ['Content-Type' => 'application/json'],
+	];
+
+	/**
+	 * End Prediction
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#end-prediction
+	 */
+	protected array $predictionsUpdate = [
+		'method'  => 'PATCH',
+		'path'    => '/predictions',
+		'query'   => null,
+		'body'    => ['broadcaster_id', 'id', 'status', 'winning_outcome_id'],
+		'headers' => ['Content-Type' => 'application/json'],
+	];
+
+	/**
+	 * Get Channel Stream Schedule
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#get-channel-stream-schedule
+	 */
+	protected array $schedule = [
+		'method'  => 'GET',
+		'path'    => '/schedule',
+		'query'   => ['broadcaster_id', 'id', 'start_time', 'utc_offset', 'first', 'after'],
+		'body'    => null,
+		'headers' => null,
+	];
+
+	/**
+	 * Get Channel iCalendar
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#get-channel-icalendar
+	 */
+	protected array $scheduleIcalendar = [
+		'method'  => 'GET',
+		'path'    => '/schedule/icalendar',
+		'query'   => ['broadcaster_id'],
+		'body'    => null,
+		'headers' => null,
+	];
+
+	/**
+	 * Create Channel Stream Schedule Segment
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#create-channel-stream-schedule-segment
+	 */
+	protected array $scheduleSegmentCreate = [
+		'method'  => 'POST',
+		'path'    => '/schedule/segment',
+		'query'   => ['broadcaster_id'],
+		'body'    => ['start_time', 'timezone', 'is_recurring', 'duration', 'category_id', 'title'],
+		'headers' => ['Content-Type' => 'application/json'],
+	];
+
+	/**
+	 * Delete Channel Stream Schedule Segment
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#delete-channel-stream-schedule-segment
+	 */
+	protected array $scheduleSegmentDelete = [
+		'method'  => 'DELETE',
+		'path'    => '/schedule/segment',
+		'query'   => ['broadcaster_id', 'id'],
+		'body'    => null,
+		'headers' => null,
+	];
+
+	/**
+	 * Update Channel Stream Schedule Segment
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#update-channel-stream-schedule-segment
+	 */
+	protected array $scheduleSegmentUpdate = [
+		'method'  => 'PATCH',
+		'path'    => '/schedule/segment',
+		'query'   => ['broadcaster_id', 'id'],
+		'body'    => ['start_time', 'duration', 'category_id', 'title', 'is_canceled', 'timezone'],
+		'headers' => ['Content-Type' => 'application/json'],
+	];
+
+	/**
+	 * Update Channel Stream Schedule
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#update-channel-stream-schedule
+	 */
+	protected array $scheduleSettings = [
+		'method'  => 'PATCH',
+		'path'    => '/schedule/settings',
+		'query'   => ['broadcaster_id', 'is_vacation_enabled', 'vacation_start_time', 'vacation_end_time', 'timezone'],
+		'body'    => null,
+		'headers' => null,
+	];
+
+	/**
 	 * Search Categories
 	 *
 	 * @link https://dev.twitch.tv/docs/api/reference#search-categories
@@ -453,6 +869,19 @@ class TwitchEndpoints extends EndpointMap{
 		'method'  => 'GET',
 		'path'    => '/streams',
 		'query'   => ['after', 'before', 'first', 'game_id', 'language', 'user_id', 'user_login'],
+		'body'    => null,
+		'headers' => null,
+	];
+
+	/**
+	 * Get Followed Streams
+	 *
+	 * @link https://dev.twitch.tv/docs/api/reference#get-followed-streams
+	 */
+	protected array $streamsFollowed = [
+		'method'  => 'GET',
+		'path'    => '/streams/followed',
+		'query'   => ['user_id', 'after', 'first'],
 		'body'    => null,
 		'headers' => null,
 	];
@@ -674,8 +1103,8 @@ class TwitchEndpoints extends EndpointMap{
 		'method'  => 'PUT',
 		'path'    => '/users/extensions',
 		'query'   => null,
-		'body'    => null,
-		'headers' => null,
+		'body'    => ['data'],
+		'headers' => ['Content-Type' => 'application/json'],
 	];
 
 	/**
@@ -686,33 +1115,7 @@ class TwitchEndpoints extends EndpointMap{
 	protected array $usersFollows = [
 		'method'  => 'GET',
 		'path'    => '/users/follows',
-		'query'   => null,
-		'body'    => null,
-		'headers' => null,
-	];
-
-	/**
-	 * Create User Follows
-	 *
-	 * @link https://dev.twitch.tv/docs/api/reference#create-user-follows
-	 */
-	protected array $usersFollowsCreate = [
-		'method'  => 'POST',
-		'path'    => '/users/follows',
-		'query'   => ['from_id', 'to_id', 'allow_notifications'],
-		'body'    => null,
-		'headers' => null,
-	];
-
-	/**
-	 * Delete User Follows
-	 *
-	 * @link https://dev.twitch.tv/docs/api/reference#delete-user-follows
-	 */
-	protected array $usersFollowsDelete = [
-		'method'  => 'DELETE',
-		'path'    => '/users/follows',
-		'query'   => ['from_id', 'to_id'],
+		'query'   => ['after', 'first', 'from_id', 'to_id'],
 		'body'    => null,
 		'headers' => null,
 	];
@@ -752,19 +1155,6 @@ class TwitchEndpoints extends EndpointMap{
 		'method'  => 'DELETE',
 		'path'    => '/videos',
 		'query'   => ['id'],
-		'body'    => null,
-		'headers' => null,
-	];
-
-	/**
-	 * Get Webhook Subscriptions
-	 *
-	 * @link https://dev.twitch.tv/docs/api/reference#get-webhook-subscriptions
-	 */
-	protected array $webhooksSubscriptions = [
-		'method'  => 'GET',
-		'path'    => '/webhooks/subscriptions',
-		'query'   => ['after', 'first'],
 		'body'    => null,
 		'headers' => null,
 	];

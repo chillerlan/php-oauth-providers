@@ -4,6 +4,7 @@
  *
  * @link https://developers.soundcloud.com/
  * @link https://developers.soundcloud.com/docs/api/guide#authentication
+ * @link https://developers.soundcloud.com/blog/security-updates-api
  *
  * @created      22.10.2017
  * @author       Smiley <smiley@chillerlan.net>
@@ -13,7 +14,7 @@
 
 namespace chillerlan\OAuth\Providers\SoundCloud;
 
-use chillerlan\OAuth\Core\{OAuth2Provider};
+use chillerlan\OAuth\Core\{ClientCredentials, OAuth2Provider, TokenRefresh};
 
 /**
  * @method \Psr\Http\Message\ResponseInterface likesPlaylistsPlaylistIdCreate(string $playlist_id)
@@ -74,7 +75,7 @@ use chillerlan\OAuth\Core\{OAuth2Provider};
  * @method \Psr\Http\Message\ResponseInterface usersUserIdTracks(string $user_id, array $params = ['limit', 'linked_partitioning'])
  * @method \Psr\Http\Message\ResponseInterface usersUserIdWebProfiles(string $user_id, array $params = ['limit'])
  */
-class SoundCloud extends OAuth2Provider{
+class SoundCloud extends OAuth2Provider implements ClientCredentials, TokenRefresh{
 
 	public const SCOPE_NONEXPIRING = 'non-expiring';
 #	public const SCOPE_EMAIL       = 'email'; // ???
