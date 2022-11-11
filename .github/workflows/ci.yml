@@ -28,7 +28,7 @@ jobs:
           php-version: "8.1"
           tools: pecl
           coverage: none
-          extensions: ast, curl, json, simplexml, zlib
+          extensions: ast, curl, json, sodium, simplexml, zlib
 
       - name: "Update dependencies with composer"
         uses: ramsey/composer-install@v2
@@ -63,7 +63,7 @@ jobs:
         with:
           php-version: ${{ matrix.php-version }}
           coverage: pcov
-          extensions: curl, json, simplexml, zlib
+          extensions: curl, json, sodium, simplexml, zlib
 #          ini-values:
 
       - name: "Install dependencies with composer"
