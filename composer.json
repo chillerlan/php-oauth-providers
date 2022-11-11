@@ -1,6 +1,6 @@
 {
 	"name": "chillerlan/php-oauth-providers",
-	"description": "OAuth 1/2 Provider implementations for chillerlan/php-oauth-core. PHP 7.4+",
+	"description": "OAuth 1/2 Provider implementations for chillerlan/php-oauth-core.",
 	"homepage": "https://github.com/chillerlan/php-oauth-providers",
 	"license": "MIT",
 	"type": "library",
@@ -23,23 +23,24 @@
 		"issues": "https://github.com/chillerlan/php-oauth-providers/issues",
 		"source": "https://github.com/chillerlan/php-oauth-providers"
 	},
-	"minimum-stability": "stable",
+	"minimum-stability": "dev",
+	"prefer-stable": true,
 	"require": {
-		"php": "^7.4 || ^8.0",
+		"php": "^8.1",
 		"ext-curl": "*",
 		"ext-json":"*",
 		"ext-simplexml":"*",
-		"chillerlan/php-oauth-core": "^4.0",
+		"chillerlan/php-oauth-core": "dev-main#0218a632a07f97d14bddd0af15533b82b1f91586",
 		"psr/http-client":"^1.0",
 		"psr/http-message": "^1.0"
 	},
 	"require-dev": {
-		"chillerlan/php-dotenv": "^2.1",
+		"chillerlan/php-dotenv": "^2.1.2",
 		"chillerlan/php-prototype-dom": "^3.0.1",
-		"guzzlehttp/guzzle": "^7.4",
-		"monolog/monolog": "^2.3",
+		"guzzlehttp/guzzle": "^7.5",
+		"monolog/monolog": "^3.2",
 		"phpunit/phpunit": "^9.5",
-		"phan/phan": "^5.3"
+		"phan/phan": "^5.4"
 	},
 	"autoload": {
 		"psr-4": {

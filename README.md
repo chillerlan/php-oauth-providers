@@ -27,7 +27,7 @@
 See [the wiki](https://github.com/chillerlan/php-oauth-providers/wiki) for advanced documentation.
 
 ## Requirements
-- PHP 7.4+
+- PHP 8.1+
 - a [PSR-18](https://www.php-fig.org/psr/psr-18/) compatible HTTP client library of your choice ([there is one included](https://github.com/chillerlan/php-httpinterface), though)
   - optional [PSR-17](https://www.php-fig.org/psr/psr-17/) compatible Request-, Response- and UriFactories
 
@@ -40,7 +40,7 @@ For documentation of the core components see [`chillerlan/php-oauth-core`](https
 ```json
 {
 	"require": {
-		"php": "^7.4 || ^8.0",
+		"php": "^8.1",
 		"chillerlan/php-oauth-providers": "dev-main"
 	}
 }

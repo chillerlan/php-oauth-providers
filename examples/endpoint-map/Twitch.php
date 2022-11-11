@@ -66,7 +66,7 @@ foreach($nodes as $node){
 		}
 		elseif($header->tag() === 'h3'){
 
-			if(strpos($header->value(), 'URL') !== false){
+			if(str_contains($header->value(), 'URL')){
 				$v = explode(' ', $header->next()->value());
 				$l = count($v) >= 2;
 

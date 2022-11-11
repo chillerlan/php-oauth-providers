@@ -98,7 +98,7 @@ createEndpointMap($content, $url, $soundcloud->endpoints);
 
 exit;
 
-function getRef(string $ref, object $target){
+function getRef(string $ref, object $target):object{
 	$ref = explode('/', $ref);
 
 	if(empty($ref) || array_shift($ref) !== '#'){

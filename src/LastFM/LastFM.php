@@ -13,11 +13,10 @@
 namespace chillerlan\OAuth\Providers\LastFM;
 
 use chillerlan\OAuth\Core\{AccessToken, OAuthProvider, ProviderException};
-use Psr\Http\Message\{RequestInterface, ResponseInterface, UriInterface};
-
-use function array_merge, in_array, is_array, ksort, md5;
-use function chillerlan\HTTP\Utils\get_json;
-
+use chillerlan\HTTP\Utils\MessageUtil;
+use Psr\Http\Message\{RequestInterface, ResponseInterface, StreamInterface, UriInterface};
+use Throwable;
+use function array_merge, in_array, is_array, ksort, md5, trigger_error;
 use const PHP_QUERY_RFC1738;
 
 /**
@@ -93,7 +92,7 @@ class LastFM extends OAuthProvider{
 		self::PERIOD_12MONTH,
 	];
 
-	protected string $authURL        = 'https://www.last.fm/api/auth';
+	protected string $authURL         = 'https://www.last.fm/api/auth';
 	protected ?string $apiURL         = 'https://ws.audioscrobbler.com/2.0';
 	protected ?string $userRevokeURL  = 'https://www.last.fm/settings/applications';
 	protected ?string $endpointMap    = LastFMEndpoints::class;
@@ -160,12 +159,19 @@ class LastFM extends OAuthProvider{
 	 * @throws \chillerlan\OAuth\Core\ProviderException
 	 */
 	protected function parseTokenResponse(ResponseInterface $response):AccessToken{
-		$data = get_json($response, true);
 
-		if(!$data || !is_array($data)){
+		try{
+			$data = MessageUtil::decodeJSON($response, true);
+
+			if(!$data || !is_array($data)){
+				trigger_error('');
+			}
+		}
+		catch(Throwable $e){
 			throw new ProviderException('unable to parse token response');
 		}
-		elseif(isset($data['error'])){
+
+		if(isset($data['error'])){
 			throw new ProviderException('error retrieving access token: '.$data['message']);
 		}
 		elseif(!isset($data['session']['key'])){
@@ -194,12 +200,19 @@ class LastFM extends OAuthProvider{
 		string $path,
 		array $params = null,
 		string $method = null,
-		$body = null,
+		StreamInterface|array|string $body = null,
 		array $headers = null
 	):ResponseInterface{
-		$method ??= 'GET';
 
-		$params = array_merge(($params ?? []), ($body ?? []), [
+		if($body !== null && !is_array($body)){
+			throw new ProviderException('$body must be an array');
+		}
+
+		$method ??= 'GET';
+		$params ??= [];
+		$body   ??= [];
+
+		$params = array_merge($params, $body, [
 			'method'  => $path,
 			'format'  => 'json',
 			'api_key' => $this->options->key,

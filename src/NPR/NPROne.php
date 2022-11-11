@@ -13,11 +13,11 @@
 
 namespace chillerlan\OAuth\Providers\NPR;
 
+use chillerlan\HTTP\Utils\QueryUtil;
 use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, ProviderException, TokenRefresh};
 use Psr\Http\Message\{RequestInterface, ResponseInterface};
 
-use function chillerlan\HTTP\Utils\parseUrl;
-use function strpos;
+use function str_contains;
 
 /**
  * @method \Psr\Http\Message\ResponseInterface identityFollowing(array $body = ['Affiliation'])
@@ -60,7 +60,7 @@ class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	 * @inheritDoc
 	 */
 	protected function getRequestTarget(string $uri):string{
-		$parsedURL = parseUrl($uri);
+		$parsedURL = QueryUtil::parseUrl($uri);
 
 		if(!isset($parsedURL['path'])){
 			throw new ProviderException('invalid path'); // @codeCoverageIgnore
@@ -70,7 +70,7 @@ class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh{
 		if(isset($parsedURL['host'])){
 
 			// back out if it doesn't match
-			if(strpos($parsedURL['host'], '.api.npr.org') === false){
+			if(!str_contains($parsedURL['host'], '.api.npr.org')){
 				throw new ProviderException('given host does not match provider host'); // @codeCoverageIgnore
 			}
 
@@ -88,7 +88,7 @@ class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	public function sendRequest(RequestInterface $request):ResponseInterface{
 
 		// get authorization only if we request the provider API
-		if(strpos((string)$request->getUri(), '.api.npr.org') !== false){
+		if(str_contains((string)$request->getUri(), '.api.npr.org')){
 			$token = $this->storage->getAccessToken($this->serviceName);
 
 			// attempt to refresh an expired token

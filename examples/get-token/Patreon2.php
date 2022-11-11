@@ -8,8 +8,8 @@
  * @license      MIT
  */
 
+use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Providers\Patreon\Patreon2;
-use function chillerlan\HTTP\Utils\get_json;
 
 $ENVVAR = 'PATREON2';
 
@@ -41,7 +41,7 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(get_json($patreon2->identity(['fields[user]' => 'about,created,email,first_name,full_name,image_url,last_name,social_connections,thumb_url,url,vanity'])), true).'</pre>';
+	echo '<pre>'.print_r(MessageUtil::decodeJSON($patreon2->identity(['fields[user]' => 'about,created,email,first_name,full_name,image_url,last_name,social_connections,thumb_url,url,vanity'])), true).'</pre>';
 	echo '<textarea cols="120" rows="3" onclick="this.select();">'.$storage->getAccessToken($servicename)->toJSON().'</textarea>';
 }
 // step 1 (optional): display a login link

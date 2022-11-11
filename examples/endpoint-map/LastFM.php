@@ -65,7 +65,7 @@ foreach($urls as $a){
 		}
 	}
 
-	$method = strpos($page->select(['.theme-default-content #auth'])[0]->next('p')->value(), 'HTTP POST') !== false
+	$method = str_contains($page->select(['.theme-default-content #auth'])[0]->next('p')->value(), 'HTTP POST')
 		? 'POST' : 'GET';
 
 	$param_names = array_column($params, 'name');

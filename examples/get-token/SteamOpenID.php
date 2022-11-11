@@ -8,8 +8,8 @@
  * @license      MIT
  */
 
+use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Providers\Steam\SteamOpenID;
-use function chillerlan\HTTP\Utils\get_json;
 
 $ENVVAR = 'STEAMOPENID';
 
@@ -46,7 +46,7 @@ elseif(isset($_GET['openid_error'])){ // openid.error -> https://stackoverflow.c
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
 	$token = $storage->getAccessToken($servicename); // the user's steamid is stored as access token
 
-	echo '<pre>'.print_r(get_json($steam->steamUserGetPlayerSummaries(['steamids' => $token->accessToken])), true).'</pre>';
+	echo '<pre>'.print_r(MessageUtil::decodeJSON($steam->steamUserGetPlayerSummaries(['steamids' => $token->accessToken])), true).'</pre>';
 	echo '<textarea cols="120" rows="3" onclick="this.select();">'.$token->toJSON().'</textarea>';
 }
 // step 1 (optional): display a login link

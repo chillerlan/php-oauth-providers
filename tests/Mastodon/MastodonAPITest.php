@@ -30,7 +30,7 @@ class MastodonAPITest extends OAuth2APITestAbstract{
 	protected function setUp():void{
 		parent::setUp();
 
-		$this->testInstance = $this->dotEnv->get($this->ENV.'_TESTINSTANCE');
+		$this->testInstance = $this->dotEnv->get($this->ENV.'_INSTANCE');
 
 		$this->provider->setInstance($this->testInstance);
 	}

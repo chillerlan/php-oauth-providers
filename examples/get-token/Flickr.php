@@ -8,8 +8,8 @@
  * @license      MIT
  */
 
+use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Providers\Flickr\Flickr;
-use function chillerlan\HTTP\Utils\get_json;
 
 $ENVVAR = 'FLICKR';
 
@@ -45,7 +45,7 @@ elseif(isset($_GET['oauth_token']) && isset($_GET['oauth_verifier'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(get_json($flickr->testLogin()), true).'</pre>';
+	echo '<pre>'.print_r(MessageUtil::decodeJSON($flickr->testLogin()), true).'</pre>';
 	echo '<textarea cols="120" rows="3" onclick="this.select();">'.$storage->getAccessToken($servicename)->toJSON().'</textarea>';
 }
 // step 1 (optional): display a login link

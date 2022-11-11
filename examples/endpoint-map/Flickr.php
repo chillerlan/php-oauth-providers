@@ -6,9 +6,9 @@
  * @license      MIT
  */
 
+use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Providers\Flickr\Flickr;
 
-use function chillerlan\HTTP\Utils\get_json;
 
 $ENVVAR = 'FLICKR';
 
@@ -23,13 +23,13 @@ require_once __DIR__.'/create-endpointmap-common.php';
 
 $flickr  = new Flickr($http, $storage, $options, $logger);
 $list    = $flickr->request('flickr.reflection.getMethods', [], 'GET');
-$methods = array_column(get_json($list)->methods->method, '_content');
+$methods = array_column(MessageUtil::decodeJSON($list)->methods->method, '_content');
 $content = [];
 
 // now walk through the array and get the method info
 foreach($methods as $methodname){
 	$methodInfo = $flickr->request('flickr.reflection.getMethodInfo', ['method_name' => $methodname], 'GET');
-	$endpoint   = get_json($methodInfo);
+	$endpoint   = MessageUtil::decodeJSON($methodInfo);
 
 	if(!$endpoint || !isset($endpoint->method)){
 		$logger->debug($methodname);

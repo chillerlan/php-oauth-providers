@@ -8,8 +8,8 @@
  * @license      MIT
  */
 
+use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Providers\Wordpress\Wordpress;
-use function chillerlan\HTTP\Utils\get_json;
 
 $ENVVAR = 'WORDPRESS';
 
@@ -41,7 +41,7 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(get_json($wordpress->me()), true).'</pre>';
+	echo '<pre>'.print_r(MessageUtil::decodeJSON($wordpress->me()), true).'</pre>';
 	echo '<textarea cols="120" rows="3" onclick="this.select();">'.$storage->getAccessToken($servicename)->toJSON().'</textarea>';
 }
 // step 1 (optional): display a login link

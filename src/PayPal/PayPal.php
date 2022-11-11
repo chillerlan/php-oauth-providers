@@ -13,10 +13,10 @@
 namespace chillerlan\OAuth\Providers\PayPal;
 
 use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, ProviderException, TokenRefresh};
+use chillerlan\HTTP\Utils\MessageUtil;
 use Psr\Http\Message\ResponseInterface;
 
 use function array_column, base64_encode, implode, is_array, json_decode, sprintf;
-use function chillerlan\HTTP\Utils\decompress_content;
 
 use const PHP_QUERY_RFC1738;
 
@@ -50,7 +50,7 @@ class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	 * @throws \chillerlan\OAuth\Core\ProviderException
 	 */
 	protected function parseTokenResponse(ResponseInterface $response):AccessToken{
-		$data = json_decode(decompress_content($response), true);
+		$data = json_decode(MessageUtil::decompress($response), true);
 
 		if(!is_array($data)){
 			throw new ProviderException('unable to parse token response');

@@ -53,7 +53,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/manage-account-settings/api-reference/get-account-settings
 	 */
 	protected array $accountSettings = [
-		'path'          => '/account/settings.json',
+		'path'          => '/1.1/account/settings.json',
 		'method'        => 'GET',
 		'query'         => null,
 		'path_elements' => null,
@@ -65,7 +65,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/manage-account-settings/api-reference/get-account-verify_credentials
 	 */
 	protected array $verifyCredentials = [
-		'path'          => '/account/verify_credentials.json',
+		'path'          => '/1.1/account/verify_credentials.json',
 		'method'        => 'GET',
 		'query'         => ['include_entities', 'skip_status'],
 		'path_elements' => null,
@@ -77,7 +77,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/manage-account-settings/api-reference/get-users-profile_banner
 	 */
 	protected array $usersProfileBanner = [
-		'path'          => '/users/profile_banner.json',
+		'path'          => '/1.1/users/profile_banner.json',
 		'method'        => 'GET',
 		'query'         => ['user_id', 'screen_name'],
 		'path_elements' => null,
@@ -89,7 +89,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/manage-account-settings/api-reference/post-account-remove_profile_banner
 	 */
 	protected array $accountRemoveProfileBanner = [
-		'path'          => '/account/remove_profile_banner.json',
+		'path'          => '/1.1/account/remove_profile_banner.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -101,7 +101,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/manage-account-settings/api-reference/post-account-settings
 	 */
 	protected array $accountUpdateSettings = [
-		'path'          => '/account/settings.json',
+		'path'          => '/1.1/account/settings.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -115,7 +115,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/manage-account-settings/api-reference/post-account-update_profile
 	 */
 	protected array $accountUpdateProfile = [
-		'path'          => '/account/update_profile.json',
+		'path'          => '/1.1/account/update_profile.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -145,7 +145,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/manage-account-settings/api-reference/get-saved_searches-list
 	 */
 	protected array $savedSearchesList = [
-		'path'          => '/saved_searches/list.json',
+		'path'          => '/1.1/saved_searches/list.json',
 		'method'        => 'GET',
 		'query'         => null,
 		'path_elements' => null,
@@ -157,7 +157,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/manage-account-settings/api-reference/get-saved_searches-show-id
 	 */
 	protected array $savedSearchesShow = [
-		'path'          => '/saved_searches/show/%1$s.json',
+		'path'          => '/1.1/saved_searches/show/%1$s.json',
 		'method'        => 'GET',
 		'query'         => null,
 		'path_elements' => ['id'],
@@ -169,7 +169,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/manage-account-settings/api-reference/post-saved_searches-create
 	 */
 	protected array $savedSearchesCreate = [
-		'path'          => '/saved_searches/create.json',
+		'path'          => '/1.1/saved_searches/create.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -181,7 +181,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/manage-account-settings/api-reference/post-saved_searches-destroy-id
 	 */
 	protected array $savedSearchesDestroy = [
-		'path'          => '/saved_searches/destroy/%1$s.json',
+		'path'          => '/1.1/saved_searches/destroy/%1$s.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => ['id'],
@@ -199,7 +199,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/get-blocks-ids
 	 */
 	protected array $blocksIds = [
-		'path'          => '/blocks/ids.json',
+		'path'          => '/1.1/blocks/ids.json',
 		'method'        => 'GET',
 		'query'         => ['cursor', 'stringify_ids'],
 		'path_elements' => null,
@@ -211,7 +211,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/get-blocks-list
 	 */
 	protected array $blocksList = [
-		'path'          => '/blocks/list.json',
+		'path'          => '/1.1/blocks/list.json',
 		'method'        => 'GET',
 		'query'         => ['cursor', 'include_entities', 'skip_status'],
 		'path_elements' => null,
@@ -223,7 +223,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/get-mutes-users-ids
 	 */
 	protected array $mutesUsersIds = [
-		'path'          => '/mutes/users/ids.json',
+		'path'          => '/1.1/mutes/users/ids.json',
 		'method'        => 'GET',
 		'query'         => ['cursor', 'stringify_ids'],
 		'path_elements' => null,
@@ -235,7 +235,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/get-mutes-users-list
 	 */
 	protected array $mutesUsersList = [
-		'path'          => '/mutes/users/list.json',
+		'path'          => '/1.1/mutes/users/list.json',
 		'method'        => 'GET',
 		'query'         => ['cursor', 'include_entities', 'skip_status'],
 		'path_elements' => null,
@@ -247,7 +247,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/post-blocks-create
 	 */
 	protected array $block = [
-		'path'          => '/blocks/create.json',
+		'path'          => '/1.1/blocks/create.json',
 		'method'        => 'POST',
 		'query'         => ['user_id', 'screen_name', 'include_entities', 'skip_status'],
 		'path_elements' => null,
@@ -259,7 +259,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/post-blocks-destroy
 	 */
 	protected array $unblock = [
-		'path'          => '/blocks/destroy.json',
+		'path'          => '/1.1/blocks/destroy.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -271,7 +271,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/post-mutes-users-create
 	 */
 	protected array $mute = [
-		'path'          => '/mutes/users/create.json',
+		'path'          => '/1.1/mutes/users/create.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -283,7 +283,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/post-mutes-users-destroy
 	 */
 	protected array $unmute = [
-		'path'          => '/mutes/users/destroy.json',
+		'path'          => '/1.1/mutes/users/destroy.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -295,7 +295,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/post-users-report_spam
 	 */
 	protected array $reportSpam = [
-		'path'          => '/users/report_spam.json',
+		'path'          => '/1.1/users/report_spam.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -313,7 +313,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-incoming
 	 */
 	protected array $friendshipsIncoming = [
-		'path'          => '/friendships/incoming.json',
+		'path'          => '/1.1/friendships/incoming.json',
 		'method'        => 'GET',
 		'query'         => ['cursor', 'stringify_ids'],
 		'path_elements' => null,
@@ -325,7 +325,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-lookup
 	 */
 	protected array $friendshipsLookup = [
-		'path'          => '/friendships/lookup.json',
+		'path'          => '/1.1/friendships/lookup.json',
 		'method'        => 'GET',
 		'query'         => ['user_id', 'screen_name'],
 		'path_elements' => null,
@@ -337,7 +337,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-no_retweets-ids
 	 */
 	protected array $friendshipsNoRetweetsIds = [
-		'path'          => '/friendships/no_retweets/ids.json',
+		'path'          => '/1.1/friendships/no_retweets/ids.json',
 		'method'        => 'GET',
 		'query'         => ['stringify_ids'],
 		'path_elements' => null,
@@ -349,7 +349,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-outgoing
 	 */
 	protected array $friendshipsOutgoing = [
-		'path'          => '/friendships/outgoing.json',
+		'path'          => '/1.1/friendships/outgoing.json',
 		'method'        => 'GET',
 		'query'         => ['cursor', 'stringify_ids'],
 		'path_elements' => null,
@@ -361,7 +361,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-create
 	 */
 	protected array $follow = [
-		'path'          => '/friendships/create.json',
+		'path'          => '/1.1/friendships/create.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -373,7 +373,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-destroy
 	 */
 	protected array $unfollow = [
-		'path'          => '/friendships/destroy.json',
+		'path'          => '/1.1/friendships/destroy.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -385,7 +385,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-update
 	 */
 	protected array $friendshipsUpdate = [
-		'path'          => '/friendships/update.json',
+		'path'          => '/1.1/friendships/update.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -403,7 +403,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-create
 	 */
 	protected array $listsCreate = [
-		'path'          => '/lists/create.json',
+		'path'          => '/1.1/lists/create.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -415,7 +415,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-destroy
 	 */
 	protected array $listsDestroy = [
-		'path'          => '/lists/destroy.json',
+		'path'          => '/1.1/lists/destroy.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -427,7 +427,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create
 	 */
 	protected array $listsMembersCreate = [
-		'path'          => '/lists/members/create.json',
+		'path'          => '/1.1/lists/members/create.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -439,7 +439,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create_all
 	 */
 	protected array $listsMembersCreateAll = [
-		'path'          => '/lists/members/create_all.json',
+		'path'          => '/1.1/lists/members/create_all.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -451,7 +451,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy
 	 */
 	protected array $listsMembersDestroy = [
-		'path'          => '/lists/members/destroy.json',
+		'path'          => '/1.1/lists/members/destroy.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -463,7 +463,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy_all
 	 */
 	protected array $listsMembersDestroyAll = [
-		'path'          => '/lists/members/destroy_all.json',
+		'path'          => '/1.1/lists/members/destroy_all.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -475,7 +475,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-subscribers-create
 	 */
 	protected array $listsSubscribersCreate = [
-		'path'          => '/lists/subscribers/create.json',
+		'path'          => '/1.1/lists/subscribers/create.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -487,7 +487,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-subscribers-destroy
 	 */
 	protected array $listsSubscribersDestroy = [
-		'path'          => '/lists/subscribers/destroy.json',
+		'path'          => '/1.1/lists/subscribers/destroy.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -499,7 +499,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-update
 	 */
 	protected array $listsUpdate = [
-		'path'          => '/lists/update.json',
+		'path'          => '/1.1/lists/update.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -528,7 +528,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-destroy-id
 	 */
 	protected array $statusesDestroyId = [
-		'path'          => '/statuses/destroy/%1$s.json',
+		'path'          => '/1.1/statuses/destroy/%1$s.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => ['id'],
@@ -545,7 +545,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-retweet-id
 	 */
 	protected array $retweet = [
-		'path'          => '/statuses/retweet/%1$s.json',
+		'path'          => '/1.1/statuses/retweet/%1$s.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => ['id'],
@@ -557,7 +557,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-unretweet-id
 	 */
 	protected array $unretweet = [
-		'path'          => '/statuses/unretweet/%1$s.json',
+		'path'          => '/1.1/statuses/unretweet/%1$s.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => ['id'],
@@ -569,7 +569,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-retweets_of_me
 	 */
 	protected array $statusesRetweetsOfMe = [
-		'path'          => '/statuses/retweets_of_me.json',
+		'path'          => '/1.1/statuses/retweets_of_me.json',
 		'method'        => 'GET',
 		'query'         => [
 			'count', 'since_id', 'max_id', 'trim_user', 'skip_status', 'include_entities', 'include_user_entities',
@@ -583,7 +583,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-favorites-create
 	 */
 	protected array $favorite = [
-		'path'          => '/favorites/create.json',
+		'path'          => '/1.1/favorites/create.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -595,7 +595,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-favorites-destroy
 	 */
 	protected array $unfavorite = [
-		'path'          => '/favorites/destroy.json',
+		'path'          => '/1.1/favorites/destroy.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -613,7 +613,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/tweets/curate-a-collection/api-reference/get-collections-entries
 	 */
 	protected array $collectionsEntries = [
-		'path'          => '/collections/entries.json',
+		'path'          => '/1.1/collections/entries.json',
 		'method'        => 'GET',
 		'query'         => ['id', 'count', 'max_position', 'min_position'],
 		'path_elements' => null,
@@ -625,7 +625,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/tweets/curate-a-collection/api-reference/get-collections-list
 	 */
 	protected array $collectionsList = [
-		'path'          => '/collections/list.json',
+		'path'          => '/1.1/collections/list.json',
 		'method'        => 'GET',
 		'query'         => ['user_id', 'screen_name', 'tweet_id', 'cursor', 'count'],
 		'path_elements' => null,
@@ -637,7 +637,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/tweets/curate-a-collection/api-reference/get-collections-show
 	 */
 	protected array $collectionsShow = [
-		'path'          => '/collections/show.json',
+		'path'          => '/1.1/collections/show.json',
 		'method'        => 'GET',
 		'query'         => ['id'],
 		'path_elements' => null,
@@ -649,7 +649,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/tweets/curate-a-collection/api-reference/post-collections-create
 	 */
 	protected array $collectionsCreate = [
-		'path'          => '/collections/create.json',
+		'path'          => '/1.1/collections/create.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -661,7 +661,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/tweets/curate-a-collection/api-reference/post-collections-destroy
 	 */
 	protected array $collectionsDestroy = [
-		'path'          => '/collections/destroy.json',
+		'path'          => '/1.1/collections/destroy.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -673,7 +673,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/tweets/curate-a-collection/api-reference/post-collections-entries-add
 	 */
 	protected array $collectionsEntriesAdd = [
-		'path'          => '/collections/entries/add.json',
+		'path'          => '/1.1/collections/entries/add.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -685,7 +685,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/tweets/curate-a-collection/api-reference/post-collections-entries-curate
 	 */
 	protected array $collectionsEntriesCurate = [
-		'path'          => '/collections/entries/curate.json',
+		'path'          => '/1.1/collections/entries/curate.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -697,7 +697,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/tweets/curate-a-collection/api-reference/post-collections-entries-move
 	 */
 	protected array $collectionsEntriesMove = [
-		'path'          => '/collections/entries/move.json',
+		'path'          => '/1.1/collections/entries/move.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -709,7 +709,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/tweets/curate-a-collection/api-reference/post-collections-entries-remove
 	 */
 	protected array $collectionsEntriesRemove = [
-		'path'          => '/collections/entries/remove.json',
+		'path'          => '/1.1/collections/entries/remove.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -721,7 +721,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/tweets/curate-a-collection/api-reference/post-collections-update
 	 */
 	protected array $collectionsUpdate = [
-		'path'          => '/collections/update.json',
+		'path'          => '/1.1/collections/update.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -744,7 +744,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @deprecated
 	 */
 	protected array $directMessagesDestroy = [
-		'path'          => '/direct_messages/destroy.json',
+		'path'          => '/1.1/direct_messages/destroy.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -756,7 +756,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/get-event
 	 */
 	protected array $directMessagesEventsShow = [
-		'path'          => '/direct_messages/events/show.json',
+		'path'          => '/1.1/direct_messages/events/show.json',
 		'method'        => 'GET',
 		'query'         => ['id'],
 		'path_elements' => null,
@@ -768,7 +768,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/list-events
 	 */
 	protected array $directMessagesEventsList = [
-		'path'          => '/direct_messages/events/list.json',
+		'path'          => '/1.1/direct_messages/events/list.json',
 		'method'        => 'GET',
 		'query'         => ['cursor'],
 		'path_elements' => null,
@@ -786,7 +786,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @deprecated June 19, 2018
 	 */
 	protected array $directMessagesShow = [
-		'path'          => '/direct_messages/show.json',
+		'path'          => '/1.1/direct_messages/show.json',
 		'method'        => 'GET',
 		'query'         => ['id', 'trim_user', 'include_entities'],
 		'path_elements' => null,
@@ -799,7 +799,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @deprecated June 19, 2018
 	 */
 	protected array $directMessages = [
-		'path'          => '/direct_messages.json',
+		'path'          => '/1.1/direct_messages.json',
 		'method'        => 'GET',
 		'query'         => ['since_id', 'max_id', 'count', 'trim_user', 'include_entities', 'skip_status'],
 		'path_elements' => null,
@@ -812,7 +812,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @deprecated June 19, 2018
 	 */
 	protected array $directMessagesSent = [
-		'path'          => '/direct_messages/sent.json',
+		'path'          => '/1.1/direct_messages/sent.json',
 		'method'        => 'GET',
 		'query'         => ['since_id', 'max_id', 'count', 'page', 'trim_user', 'include_entities'],
 		'path_elements' => null,
@@ -830,7 +830,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/delete-message-event
 	 */
 	protected array $directMessagesEventsDestroy = [
-		'path'          => '/direct_messages/events/destroy.json',
+		'path'          => '/1.1/direct_messages/events/destroy.json',
 		'method'        => 'DELETE',
 		'query'         => ['id'],
 		'path_elements' => null,
@@ -846,7 +846,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/direct-messages/welcome-messages/api-reference/delete-welcome-message
 	 */
 	protected array $directMessagesWelcomeMessagesDestroy = [
-		'path'          => '/direct_messages/welcome_messages/destroy.json',
+		'path'          => '/1.1/direct_messages/welcome_messages/destroy.json',
 		'method'        => 'DELETE',
 		'query'         => ['id'],
 		'path_elements' => null,
@@ -858,7 +858,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/direct-messages/welcome-messages/api-reference/delete-welcome-message-rule
 	 */
 	protected array $directMessagesWelcomeMessagesRulesDestroy = [
-		'path'          => '/direct_messages/welcome_messages/rules/destroy.json',
+		'path'          => '/1.1/direct_messages/welcome_messages/rules/destroy.json',
 		'method'        => 'DELETE',
 		'query'         => ['id'],
 		'path_elements' => null,
@@ -870,7 +870,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/direct-messages/welcome-messages/api-reference/get-welcome-message
 	 */
 	protected array $directMessagesWelcomeMessagesShow = [
-		'path'          => '/direct_messages/welcome_messages/show.json',
+		'path'          => '/1.1/direct_messages/welcome_messages/show.json',
 		'method'        => 'GET',
 		'query'         => ['id'],
 		'path_elements' => null,
@@ -882,7 +882,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/direct-messages/welcome-messages/api-reference/get-welcome-message-rule
 	 */
 	protected array $directMessagesWelcomeMessagesRulesShow = [
-		'path'          => '/direct_messages/welcome_messages/rules/show.json',
+		'path'          => '/1.1/direct_messages/welcome_messages/rules/show.json',
 		'method'        => 'GET',
 		'query'         => ['id'],
 		'path_elements' => null,
@@ -894,7 +894,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/direct-messages/welcome-messages/api-reference/list-welcome-message-rules
 	 */
 	protected array $directMessagesWelcomeMessagesRulesList = [
-		'path'          => '/direct_messages/welcome_messages/rules/list.json',
+		'path'          => '/1.1/direct_messages/welcome_messages/rules/list.json',
 		'method'        => 'GET',
 		'query'         => ['cursor'],
 		'path_elements' => null,
@@ -906,7 +906,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/direct-messages/welcome-messages/api-reference/list-welcome-messages
 	 */
 	protected array $directMessagesWelcomeMessagesList = [
-		'path'          => '/direct_messages/welcome_messages/list.json',
+		'path'          => '/1.1/direct_messages/welcome_messages/list.json',
 		'method'        => 'GET',
 		'query'         => ['cursor'],
 		'path_elements' => null,
@@ -918,7 +918,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/direct-messages/welcome-messages/api-reference/new-welcome-message
 	 */
 	protected array $directMessagesWelcomeMessagesNew = [
-		'path'          => '/direct_messages/welcome_messages/new.json',
+		'path'          => '/1.1/direct_messages/welcome_messages/new.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -930,7 +930,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/direct-messages/welcome-messages/api-reference/new-welcome-message-rule
 	 */
 	protected array $directMessagesWelcomeMessagesRulesNew = [
-		'path'          => '/direct_messages/welcome_messages/rules/new.json',
+		'path'          => '/1.1/direct_messages/welcome_messages/rules/new.json',
 		'method'        => 'POST',
 		'query'         => null,
 		'path_elements' => null,
@@ -942,7 +942,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/direct-messages/welcome-messages/api-reference/update-welcome-message
 	 */
 	protected array $directMessagesWelcomeMessagesUpdate = [
-		'path'          => '/direct_messages/welcome_messages/update.json',
+		'path'          => '/1.1/direct_messages/welcome_messages/update.json',
 		'method'        => 'PUT ',
 		'query'         => ['id'],
 		'path_elements' => null,
@@ -960,7 +960,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/direct-messages/typing-indicator-and-read-receipts/api-reference/new-read-receipt
 	 */
 	protected array $directMessagesMarkRead = [
-		'path'          => '/direct_messages/mark_read.json',
+		'path'          => '/1.1/direct_messages/mark_read.json',
 		'method'        => 'POST',
 		'query'         => ['last_read_event_id', 'recipient_id'],
 		'path_elements' => null,
@@ -972,7 +972,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/direct-messages/typing-indicator-and-read-receipts/api-reference/new-typing-indicator
 	 */
 	protected array $directMessagesIndicateTyping = [
-		'path'          => '/direct_messages/indicate_typing.json',
+		'path'          => '/1.1/direct_messages/indicate_typing.json',
 		'method'        => 'POST',
 		'query'         => ['recipient_id'],
 		'path_elements' => null,
@@ -999,7 +999,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/geo/place-information/api-reference/get-geo-id-place_id
 	 */
 	protected array $geoPlace = [
-		'path'          => '/geo/id/%1$s.json',
+		'path'          => '/1.1/geo/id/%1$s.json',
 		'method'        => 'GET',
 		'query'         => null,
 		'path_elements' => ['place_id'],
@@ -1017,7 +1017,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/geo/places-near-location/api-reference/get-geo-reverse_geocode
 	 */
 	protected array $geoReverseGeocode = [
-		'path'          => '/geo/reverse_geocode.json',
+		'path'          => '/1.1/geo/reverse_geocode.json',
 		'method'        => 'GET',
 		'query'         => ['lat', 'long', 'accuracy', 'granularity', 'max_results'],
 		'path_elements' => null,
@@ -1029,7 +1029,7 @@ class TwitterEndpoints extends TwitterCCEndpoints{
 	 * @link https://developer.twitter.com/en/docs/geo/places-near-location/api-reference/get-geo-search
 	 */
 	protected array $geoSearch = [
-		'path'          => '/geo/search.json',
+		'path'          => '/1.1/geo/search.json',
 		'method'        => 'GET',
 		'query'         => ['query', 'lat', 'long', 'ip', 'accuracy', 'granularity', 'max_results', 'contained_within'],
 		'path_elements' => null,

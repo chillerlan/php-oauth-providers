@@ -16,10 +16,10 @@
 namespace chillerlan\OAuth\Providers\Deezer;
 
 use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2Provider, ProviderException};
+use chillerlan\HTTP\Utils\MessageUtil;
 use Psr\Http\Message\{ResponseInterface, UriInterface};
 
 use function array_merge, implode;
-use function chillerlan\HTTP\Utils\decompress_content;
 
 use const PHP_QUERY_RFC1738;
 
@@ -57,7 +57,7 @@ class Deezer extends OAuth2Provider implements CSRFToken{
 	 * @inheritDoc
 	 */
 	public function getAuthURL(array $params = null, array $scopes = null):UriInterface{
-		$params = $params ?? [];
+		$params ??= [];
 
 		if(isset($params['client_secret'])){
 			unset($params['client_secret']);
@@ -105,7 +105,7 @@ class Deezer extends OAuth2Provider implements CSRFToken{
 	 * @inheritDoc
 	 */
 	protected function parseTokenResponse(ResponseInterface $response):AccessToken{
-		$data = $this->parseQuery(decompress_content($response));
+		$data = $this->parseQuery(MessageUtil::decompress($response));
 
 		if(isset($data['error_reason'])){
 			throw new ProviderException('error retrieving access token: "'.$data['error_reason'].'"');

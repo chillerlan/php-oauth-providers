@@ -10,12 +10,12 @@
 
 namespace chillerlan\OAuthTest\Providers;
 
+use chillerlan\HTTP\Utils\MessageUtil;
 use Psr\Http\Client\{ClientExceptionInterface, ClientInterface};
 use Psr\Http\Message\{RequestInterface, ResponseInterface};
 use Psr\Log\{LoggerAwareInterface, LoggerAwareTrait, LoggerInterface, NullLogger};
 use Exception, Throwable;
 
-use function chillerlan\HTTP\Utils\message_to_string;
 use function constant, defined, get_class, usleep;
 
 final class OAuthTestHttpClient implements ClientInterface, LoggerAwareInterface{
@@ -42,14 +42,14 @@ final class OAuthTestHttpClient implements ClientInterface, LoggerAwareInterface
 	 * @inheritDoc
 	 */
 	public function sendRequest(RequestInterface $request):ResponseInterface{
-		$this->logger->debug("\n----HTTP-REQUEST----\n".message_to_string($request));
+		$this->logger->debug("\n----HTTP-REQUEST----\n".MessageUtil::toString($request));
 		usleep(250000);
 
 		try{
 			$response = $this->http->sendRequest($request);
 		}
 		catch(Throwable $e){
-			$this->logger->debug("\n----HTTP-ERROR------\n".message_to_string($request));
+			$this->logger->debug("\n----HTTP-ERROR------\n");
 			$this->logger->error($e->getMessage());
 			$this->logger->error($e->getTraceAsString());
 
@@ -60,7 +60,7 @@ final class OAuthTestHttpClient implements ClientInterface, LoggerAwareInterface
 			throw $e;
 		}
 
-		$this->logger->debug("\n----HTTP-RESPONSE---\n".message_to_string($response));
+		$this->logger->debug("\n----HTTP-RESPONSE---\n".MessageUtil::toString($response));
 
 		return $response;
 	}

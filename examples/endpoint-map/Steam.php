@@ -6,9 +6,8 @@
  * @license      MIT
  */
 
+use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Providers\Steam\SteamOpenID;
-
-use function chillerlan\HTTP\Utils\get_json;
 
 $ENVVAR = 'STEAMOPENID';
 
@@ -24,7 +23,7 @@ require_once __DIR__.'/create-endpointmap-common.php';
 $steam         = new SteamOpenID($http, $storage, $options, $logger);
 // fetch a list of available methods
 $r             = $steam->request('/ISteamWebAPIUtil/GetSupportedAPIList/v0001');
-$interfaces    = get_json($r)->apilist->interfaces;
+$interfaces    = MessageUtil::decodeJSON($r)->apilist->interfaces;
 $content       = [];
 $allInterfaces = [];
 /*

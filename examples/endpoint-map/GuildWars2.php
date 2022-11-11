@@ -118,7 +118,7 @@ foreach($api as $endpoint){
 			$query = array_merge($query, explode('&', $x[1]));
 		}
 
-		if(strpos($el, ':') === 0){
+		if(str_starts_with($el, ':')){
 			$pe              = substr($el, 1);
 			$path_elements[] = substr($el, 1);
 			$path[$k]        = '%'.$i.'$s';

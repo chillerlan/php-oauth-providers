@@ -16,10 +16,10 @@
 namespace chillerlan\OAuth\Providers\GuildWars2;
 
 use chillerlan\OAuth\Core\{AccessToken, OAuth2Provider, ProviderException};
+use chillerlan\HTTP\Utils\MessageUtil;
 use Psr\Http\Message\UriInterface;
 
-use function implode, preg_match, substr, strpos;
-use function chillerlan\HTTP\Utils\get_json;
+use function implode, preg_match, substr, str_starts_with;
 
 /**
  * @method \Psr\Http\Message\ResponseInterface account(array $params = ['access_token'])
@@ -275,9 +275,9 @@ class GuildWars2 extends OAuth2Provider{
 			->createRequest('GET', $this->mergeQuery($this->apiURL.'/tokeninfo', ['access_token' => $access_token]))
 		;
 
-		$tokeninfo = get_json($this->http->sendRequest($request));
+		$tokeninfo = MessageUtil::decodeJSON($this->http->sendRequest($request));
 
-		if(isset($tokeninfo->id) && strpos($access_token, $tokeninfo->id) === 0){
+		if(isset($tokeninfo->id) && str_starts_with($access_token, $tokeninfo->id)){
 
 			$token = new AccessToken;
 

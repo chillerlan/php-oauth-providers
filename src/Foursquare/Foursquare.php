@@ -13,11 +13,11 @@
 
 namespace chillerlan\OAuth\Providers\Foursquare;
 
+use chillerlan\HTTP\Utils\QueryUtil;
 use chillerlan\OAuth\Core\OAuth2Provider;
-use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\{ResponseInterface, StreamInterface};
 
 use function array_merge, explode;
-use function chillerlan\HTTP\Utils\parseUrl;
 
 /**
  * @method \Psr\Http\Message\ResponseInterface me()
@@ -43,11 +43,10 @@ class Foursquare extends OAuth2Provider{
 		string $path,
 		array $params = null,
 		string $method = null,
-		$body = null,
+		StreamInterface|array|string $body = null,
 		array $headers = null
 	):ResponseInterface{
-
-		$queryparams = $this->parseQuery(parseUrl($this->apiURL.$path)['query'] ?? '');
+		$queryparams = $this->parseQuery(QueryUtil::parseUrl($this->apiURL.$path)['query'] ?? '');
 
 		$queryparams['v'] = $this::API_VERSIONDATE;
 		$queryparams['m'] = 'foursquare';
