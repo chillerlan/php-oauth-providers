@@ -20,8 +20,8 @@
 [scrutinizer]: https://scrutinizer-ci.com/g/chillerlan/php-oauth-providers
 [downloads-badge]: https://img.shields.io/packagist/dt/chillerlan/php-oauth-providers.svg?logo=packagist
 [downloads]: https://packagist.org/packages/chillerlan/php-oauth-providers/stats
-[gh-action-badge]: https://img.shields.io/github/workflow/status/chillerlan/php-oauth-providers/Continuous%20Integration?logo=github
-[gh-action]: https://github.com/chillerlan/php-oauth-providers/actions
+[gh-action-badge]: https://img.shields.io/github/actions/workflow/status/chillerlan/php-oauth-providers/ci.yml?branch=main&logo=github
+[gh-action]: https://github.com/chillerlan/php-oauth-providers/actions/workflows/ci.yml?query=branch%3Amain
 
 # Documentation
 See [the wiki](https://github.com/chillerlan/php-oauth-providers/wiki) for advanced documentation.
@@ -67,7 +67,6 @@ A list of already implemented Providers.
 | [GitLab](https://docs.gitlab.com/ee/api/README.html) | [link](https://gitlab.com/profile/applications) |  | 2 | ✓ |
 | [Gitter](https://developer.gitter.im) | [link](https://developer.gitter.im/apps) |  | 2 |  |
 | [Google](https://developers.google.com/oauthplayground/) | [link](https://console.developers.google.com/apis/credentials) | [link](https://myaccount.google.com/permissions) | 2 |  |
-| [Youtube](https://developers.google.com/oauthplayground/) | [link](https://console.developers.google.com/apis/credentials) | [link](https://myaccount.google.com/permissions) | 2 |  |
 | [GuildWars2](https://wiki.guildwars2.com/wiki/API:Main) | [link](https://account.arena.net/applications) | [link](https://account.arena.net/applications) | 2 |  |
 | [Imgur](https://apidocs.imgur.com) | [link](https://api.imgur.com/oauth2/addclient) | [link](https://imgur.com/account/settings/apps) | 2 |  |
 | [Instagram](https://www.instagram.com/developer/) | [link](https://www.instagram.com/developer/clients/manage/) | [link](https://www.instagram.com/accounts/manage_access/) | 2 |  |
@@ -80,8 +79,7 @@ A list of already implemented Providers.
 | [NPROne](https://dev.npr.org/api/) | [link](https://dev.npr.org/console) |  | 2 |  |
 | [OpenCaching](https://www.opencaching.de/okapi/) | [link](https://www.opencaching.de/okapi/signup.html) | [link](https://www.opencaching.de/okapi/apps/) | 1 |  |
 | [OpenStreetmap](https://wiki.openstreetmap.org/wiki/API) | [link](https://www.openstreetmap.org/user/{USERNAME}/oauth_clients) |  | 1 |  |
-| [Patreon1](https://docs.patreon.com/) | [link](https://www.patreon.com/portal/registration/register-clients) |  | 2 |  |
-| [Patreon2](https://docs.patreon.com/) | [link](https://www.patreon.com/portal/registration/register-clients) |  | 2 |  |
+| [Patreon](https://docs.patreon.com/) | [link](https://www.patreon.com/portal/registration/register-clients) |  | 2 |  |
 | [PayPal](https://developer.paypal.com/docs/connect-with-paypal/reference/) | [link](https://developer.paypal.com/developer/applications/) |  | 2 | ✓ |
 | [PayPalSandbox](https://developer.paypal.com/docs/connect-with-paypal/reference/) | [link](https://developer.paypal.com/developer/applications/) |  | 2 | ✓ |
 | [Slack](https://api.slack.com) | [link](https://api.slack.com/apps) | [link](https://slack.com/apps/manage) | 2 |  |
@@ -93,9 +91,9 @@ A list of already implemented Providers.
 | [Twitch](https://dev.twitch.tv/docs/api/reference/) | [link](https://dev.twitch.tv/console/apps/create) | [link](https://www.twitch.tv/settings/connections) | 2 | ✓ |
 | [Twitter](https://developer.twitter.com/docs) | [link](https://developer.twitter.com/apps) | [link](https://twitter.com/settings/applications) | 1 |  |
 | [TwitterCC](https://developer.twitter.com/en/docs/basics/authentication/overview/application-only) | [link](https://developer.twitter.com/apps) | [link](https://twitter.com/settings/applications) | 2 | ✓ |
-| [TwitterV2](https://developer.twitter.com/docs) | [link](https://developer.twitter.com/apps) | [link](https://twitter.com/settings/applications) | 1 |  |
 | [Vimeo](https://developer.vimeo.com) | [link](https://developer.vimeo.com/apps) | [link](https://vimeo.com/settings/apps) | 2 | ✓ |
-| [Wordpress](https://developer.wordpress.com/docs/api/) | [link](https://developer.wordpress.com/apps/) | [link](https://wordpress.com/me/security/connected-applications) | 2 |  |
+| [WordPress](https://developer.wordpress.com/docs/api/) | [link](https://developer.wordpress.com/apps/) | [link](https://wordpress.com/me/security/connected-applications) | 2 |  |
+| [YouTube](https://developers.google.com/oauthplayground/) | [link](https://console.developers.google.com/apis/credentials) | [link](https://myaccount.google.com/permissions) | 2 |  |
 <!--O-->
 
 # Disclaimer
