@@ -30,25 +30,21 @@
 		"ext-curl": "*",
 		"ext-json":"*",
 		"ext-simplexml":"*",
-		"chillerlan/php-oauth-core": "dev-main#98407b118a7d0d1ef8d80cdfff6d11612c767f89",
+		"chillerlan/php-oauth-core": "dev-main#01f43c51f54458cd78fd779e385567338796112e",
 		"psr/http-client":"^1.0",
 		"psr/http-message": "^1.0"
 	},
 	"require-dev": {
 		"chillerlan/php-dotenv": "^2.1.2",
-		"chillerlan/php-prototype-dom": "^3.0.1",
 		"guzzlehttp/guzzle": "^7.5",
-		"monolog/monolog": "^3.2",
-		"phpunit/phpunit": "^9.5",
+		"monolog/monolog": "^3.3",
+		"phpunit/phpunit": "^10.0",
 		"phan/phan": "^5.4"
 	},
 	"autoload": {
 		"psr-4": {
 			"chillerlan\\OAuth\\Providers\\": "src/"
-		},
-		"files": [
-			"src/functions.php"
-		]
+		}
 	},
 	"autoload-dev": {
 		"psr-4": {

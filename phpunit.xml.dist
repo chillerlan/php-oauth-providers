@@ -1,11 +1,24 @@
 <?xml version="1.0"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd"
+		 xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.0/phpunit.xsd"
 		 bootstrap="vendor/autoload.php"
 		 cacheResultFile=".build/phpunit.result.cache"
 		 colors="true"
-		 verbose="true"
 >
+	<testsuites>
+		<testsuite name="php-oauth-core test suite">
+			<directory suffix=".php">./tests</directory>
+			<exclude>tests/Live</exclude>
+			<!-- exclude abstract/helper classes -->
+			<exclude>tests/OAuth1APITestAbstract.php</exclude>
+			<exclude>tests/OAuth2APITestAbstract.php</exclude>
+			<exclude>tests/OAuthAPITestAbstract.php</exclude>
+			<exclude>tests/OAuthTestHttpClient.php</exclude>
+			<exclude>tests/OAuthTestHttpClientFactoryInterface.php</exclude>
+			<exclude>tests/ChillerlanHttpClientFactory.php</exclude>
+			<exclude>tests/GuzzleHttpClientFactory.php</exclude>
+		</testsuite>
+	</testsuites>
 	<coverage>
 		<include>
 			<directory suffix=".php">./src</directory>
@@ -15,11 +28,6 @@
 			<xml outputDirectory=".build/coverage/coverage-xml"/>
 		</report>
 	</coverage>
-	<testsuites>
-		<testsuite name="php-oauth-core test suite">
-			<directory suffix=".php">./tests</directory>
-		</testsuite>
-	</testsuites>
 	<logging>
 		<junit outputFile=".build/logs/junit.xml"/>
 	</logging>
@@ -32,6 +40,7 @@
 		<const name="TEST_ENVFILE" value=".env_example"/>
 		<!-- the http client factory for live api tests -->
 		<const name="TEST_CLIENT_FACTORY" value="chillerlan\OAuthTest\Providers\ChillerlanHttpClientFactory"/>
+		<!-- <const name="TEST_CLIENT_FACTORY" value="chillerlan\OAuthTest\Providers\GuzzleHttpClientFactory"/> -->
 		<!-- PSR-17 factories to use in tests -->
 		<const name="REQUEST_FACTORY" value="chillerlan\HTTP\Psr17\RequestFactory"/>
 		<const name="RESPONSE_FACTORY" value="chillerlan\HTTP\Psr17\ResponseFactory"/>
