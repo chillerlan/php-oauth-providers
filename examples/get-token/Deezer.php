@@ -9,7 +9,7 @@
  */
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Providers\Deezer\Deezer;
+use chillerlan\OAuth\Providers\Deezer;
 
 $ENVVAR = 'DEEZER';
 
@@ -23,7 +23,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$deezer      = new Deezer($http, $storage, $options, $logger);
+$deezer      = new Deezer($http, $options, $logger);
 $servicename = $deezer->serviceName;
 
 // step 2: redirect to the provider's login screen

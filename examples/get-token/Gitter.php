@@ -9,7 +9,7 @@
  */
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Providers\Gitter\Gitter;
+use chillerlan\OAuth\Providers\Gitter;
 
 $ENVVAR = 'GITTER';
 
@@ -23,7 +23,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$gitter      = new Gitter($http, $storage, $options, $logger);
+$gitter      = new Gitter($http, $options, $logger);
 $servicename = $gitter->serviceName;
 
 // step 2: redirect to the provider's login screen

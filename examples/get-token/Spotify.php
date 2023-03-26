@@ -9,7 +9,7 @@
  */
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Providers\Spotify\Spotify;
+use chillerlan\OAuth\Providers\Spotify;
 
 $ENVVAR = 'SPOTIFY';
 
@@ -23,7 +23,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$spotify     = new Spotify($http, $storage, $options, $logger);
+$spotify     = new Spotify($http, $options, $logger);
 $servicename = $spotify->serviceName;
 
 // step 2: redirect to the provider's login screen

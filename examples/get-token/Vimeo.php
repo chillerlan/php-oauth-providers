@@ -9,7 +9,7 @@
  */
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Providers\Vimeo\Vimeo;
+use chillerlan\OAuth\Providers\Vimeo;
 
 $ENVVAR = 'VIMEO';
 
@@ -23,7 +23,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$vimeo       = new Vimeo($http, $storage, $options, $logger);
+$vimeo       = new Vimeo($http, $options, $logger);
 $servicename = $vimeo->serviceName;
 
 // step 2: redirect to the provider's login screen
@@ -43,7 +43,7 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(MessageUtil::decodeJSON($vimeo->verifyToken()),true).'</pre>';
+	echo '<pre>'.print_r(MessageUtil::decodeJSON($vimeo->me()),true).'</pre>';
 	echo '<textarea cols="120" rows="3" onclick="this.select();">'.$storage->getAccessToken($servicename)->toJSON().'</textarea>';
 }
 // step 1 (optional): display a login link

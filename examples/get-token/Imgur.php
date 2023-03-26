@@ -9,7 +9,7 @@
  */
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Providers\Imgur\Imgur;
+use chillerlan\OAuth\Providers\Imgur;
 
 $ENVVAR = 'IMGUR';
 
@@ -22,7 +22,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$imgur       = new Imgur($http, $storage, $options, $logger);
+$imgur       = new Imgur($http, $options, $logger);
 $servicename = $imgur->serviceName;
 
 // step 2: redirect to the provider's login screen

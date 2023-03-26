@@ -9,7 +9,7 @@
  */
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Providers\Wordpress\Wordpress;
+use chillerlan\OAuth\Providers\WordPress;
 
 $ENVVAR = 'WORDPRESS';
 
@@ -23,7 +23,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$wordpress   = new Wordpress($http, $storage, $options, $logger);
+$wordpress   = new WordPress($http, $options, $logger);
 $servicename = $wordpress->serviceName;
 
 // step 2: redirect to the provider's login screen

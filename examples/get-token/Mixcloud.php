@@ -9,7 +9,7 @@
  */
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Providers\Mixcloud\Mixcloud;
+use chillerlan\OAuth\Providers\Mixcloud;
 
 $ENVVAR = 'MIXCLOUD';
 
@@ -22,7 +22,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$mixcloud    = new Mixcloud($http, $storage, $options, $logger);
+$mixcloud    = new Mixcloud($http, $options, $logger);
 $servicename = $mixcloud->serviceName;
 
 // step 2: redirect to the provider's login screen

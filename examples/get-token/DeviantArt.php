@@ -9,7 +9,7 @@
  */
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Providers\DeviantArt\DeviantArt;
+use chillerlan\OAuth\Providers\DeviantArt;
 
 $ENVVAR = 'DEVIANTART';
 
@@ -23,7 +23,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$deviantart  = new DeviantArt($http, $storage, $options, $logger);
+$deviantart  = new DeviantArt($http, $options, $logger);
 $servicename = $deviantart->serviceName;
 
 // step 2: redirect to the provider's login screen
@@ -41,7 +41,7 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(MessageUtil::decodeJSON($deviantart->whoami()), true).'</pre>';
+	echo '<pre>'.print_r(MessageUtil::decodeJSON($deviantart->me()), true).'</pre>';
 	echo '<textarea cols="120" rows="3" onclick="this.select();">'.$storage->getAccessToken($servicename)->toJSON().'</textarea>';
 }
 // step 1 (optional): display a login link

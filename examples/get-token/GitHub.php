@@ -9,7 +9,7 @@
  */
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Providers\GitHub\GitHub;
+use chillerlan\OAuth\Providers\GitHub;
 
 $ENVVAR = 'GITHUB';
 
@@ -23,7 +23,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$github      = new GitHub($http, $storage, $options, $logger);
+$github      = new GitHub($http, $options, $logger);
 $servicename = $github->serviceName;
 
 // step 2: redirect to the provider's login screen

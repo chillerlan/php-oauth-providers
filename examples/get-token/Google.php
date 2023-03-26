@@ -9,7 +9,7 @@
  */
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Providers\Google\Google;
+use chillerlan\OAuth\Providers\Google;
 
 $ENVVAR = 'GOOGLE';
 
@@ -23,7 +23,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$google      = new Google($http, $storage, $options, $logger);
+$google      = new Google($http, $options, $logger);
 $servicename = $google->serviceName;
 
 // step 2: redirect to the provider's login screen

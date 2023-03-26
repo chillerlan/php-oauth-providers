@@ -9,7 +9,7 @@
  */
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Providers\SoundCloud\SoundCloud;
+use chillerlan\OAuth\Providers\SoundCloud;
 
 $ENVVAR = 'SOUNDCLOUD';
 
@@ -23,7 +23,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$soundcloud  = new SoundCloud($http, $storage, $options, $logger);
+$soundcloud  = new SoundCloud($http, $options, $logger);
 $servicename = $soundcloud->serviceName;
 
 // step 2: redirect to the provider's login screen

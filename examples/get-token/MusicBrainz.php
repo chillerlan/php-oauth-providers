@@ -9,7 +9,7 @@
  */
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Providers\MusicBrainz\MusicBrainz;
+use chillerlan\OAuth\Providers\MusicBrainz;
 
 $ENVVAR = 'MUSICBRAINZ';
 
@@ -22,7 +22,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$musicbrainz = new MusicBrainz($http, $storage, $options, $logger);
+$musicbrainz = new MusicBrainz($http, $options, $logger);
 $servicename = $musicbrainz->serviceName;
 
 // step 2: redirect to the provider's login screen

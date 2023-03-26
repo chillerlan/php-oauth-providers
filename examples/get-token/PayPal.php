@@ -9,7 +9,7 @@
  */
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Providers\PayPal\PayPal;
+use chillerlan\OAuth\Providers\PayPal;
 
 $ENVVAR = 'PAYPAL'; // PAYPAL_SANDBOX
 
@@ -23,7 +23,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$paypal      = new PayPal($http, $storage, $options, $logger);
+$paypal      = new PayPal($http, $options, $logger);
 #$paypal      = new PayPalSandbox($http, $storage, $options, $logger);
 $servicename = $paypal->serviceName;
 
@@ -42,7 +42,7 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(MessageUtil::decodeJSON($paypal->me(['schema' => 'paypalv1.1'])), true).'</pre>';
+	echo '<pre>'.print_r(MessageUtil::decodeJSON($paypal->me()), true).'</pre>';
 	echo '<textarea cols="120" rows="3" onclick="this.select();">'.$storage->getAccessToken($servicename)->toJSON().'</textarea>';
 }
 // step 1 (optional): display a login link

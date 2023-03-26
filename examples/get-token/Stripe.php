@@ -9,7 +9,7 @@
  */
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Providers\Stripe\Stripe;
+use chillerlan\OAuth\Providers\Stripe;
 
 $ENVVAR = 'STRIPE';
 
@@ -23,7 +23,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$stripe      = new Stripe($http, $storage, $options, $logger);
+$stripe      = new Stripe($http, $options, $logger);
 $servicename = $stripe->serviceName;
 
 // step 2: redirect to the provider's login screen

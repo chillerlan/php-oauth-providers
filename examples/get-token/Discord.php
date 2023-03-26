@@ -9,7 +9,7 @@
  */
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Providers\Discord\Discord;
+use chillerlan\OAuth\Providers\Discord;
 
 $ENVVAR = 'DISCORD';
 
@@ -23,7 +23,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$discord     = new Discord($http, $storage, $options, $logger);
+$discord     = new Discord($http, $options, $logger);
 $servicename = $discord->serviceName;
 
 // step 2: redirect to the provider's login screen

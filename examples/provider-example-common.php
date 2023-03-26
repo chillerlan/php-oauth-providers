@@ -58,7 +58,7 @@ $options_arr = [
 	// HTTPOptions
 	'ca_info'          => $CFGDIR.'/cacert.pem',
 	'userAgent'        => 'chillerlanPhpOAuth/4.0.0 +https://github.com/codemasher/php-oauth-core',
-	'sleep'            => 0.25, // request delay used in the test http client
+	'sleep'            => 1, // request delay used in the test http client
 ];
 
 /**

@@ -9,7 +9,7 @@
  */
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Providers\Twitch\Twitch;
+use chillerlan\OAuth\Providers\Twitch;
 
 $ENVVAR = 'TWITCH';
 
@@ -23,7 +23,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$twitch      = new Twitch($http, $storage, $options, $logger);
+$twitch      = new Twitch($http, $options, $logger);
 $servicename = $twitch->serviceName;
 
 // step 2: redirect to the provider's login screen

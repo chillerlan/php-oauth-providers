@@ -9,7 +9,7 @@
  */
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Providers\Tumblr\Tumblr;
+use chillerlan\OAuth\Providers\Tumblr;
 
 $ENVVAR = 'TUMBLR';
 
@@ -22,7 +22,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$tumblr      = new Tumblr($http, $storage, $options, $logger);
+$tumblr      = new Tumblr($http, $options, $logger);
 $servicename = $tumblr->serviceName;
 
 // step 2: redirect to the provider's login screen

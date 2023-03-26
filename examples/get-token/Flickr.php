@@ -9,7 +9,7 @@
  */
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Providers\Flickr\Flickr;
+use chillerlan\OAuth\Providers\Flickr;
 
 $ENVVAR = 'FLICKR';
 
@@ -22,7 +22,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$flickr      = new Flickr($http, $storage, $options, $logger);
+$flickr      = new Flickr($http, $options, $logger);
 $servicename = $flickr->serviceName;
 
 // step 2: redirect to the provider's login screen
@@ -45,7 +45,7 @@ elseif(isset($_GET['oauth_token']) && isset($_GET['oauth_verifier'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(MessageUtil::decodeJSON($flickr->testLogin()), true).'</pre>';
+	echo '<pre>'.print_r(MessageUtil::decodeJSON($flickr->me()), true).'</pre>';
 	echo '<textarea cols="120" rows="3" onclick="this.select();">'.$storage->getAccessToken($servicename)->toJSON().'</textarea>';
 }
 // step 1 (optional): display a login link

@@ -9,7 +9,7 @@
  */
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Providers\LastFM\LastFM;
+use chillerlan\OAuth\Providers\LastFM;
 
 $ENVVAR = 'LASTFM';
 
@@ -22,7 +22,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$lastfm      = new LastFM($http, $storage, $options, $logger);
+$lastfm      = new LastFM($http, $options, $logger);
 $servicename = $lastfm->serviceName;
 
 // step 2: redirect to the provider's login screen
@@ -40,7 +40,7 @@ elseif(isset($_GET['token'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(MessageUtil::decodeJSON($lastfm->userGetInfo()), true).'</pre>';
+	echo '<pre>'.print_r(MessageUtil::decodeJSON($lastfm->me()), true).'</pre>';
 	echo '<textarea cols="120" rows="3" onclick="this.select();">'.$storage->getAccessToken($servicename)->toJSON().'</textarea>';
 }
 // step 1 (optional): display a login link

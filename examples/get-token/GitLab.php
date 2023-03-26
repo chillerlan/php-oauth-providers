@@ -9,7 +9,7 @@
  */
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Providers\GitLab\GitLab;
+use chillerlan\OAuth\Providers\GitLab;
 
 $ENVVAR = 'GITLAB';
 
@@ -22,7 +22,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$gitlab      = new GitLab($http, $storage, $options, $logger);
+$gitlab      = new GitLab($http, $options, $logger);
 $servicename = $gitlab->serviceName;
 
 // step 2: redirect to the provider's login screen

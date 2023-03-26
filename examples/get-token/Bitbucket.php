@@ -9,7 +9,7 @@
  */
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Providers\Bitbucket\Bitbucket;
+use chillerlan\OAuth\Providers\Bitbucket;
 
 $ENVVAR = 'BITBUCKET';
 
@@ -22,7 +22,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$bitbucket   = new Bitbucket($http, $storage, $options, $logger);
+$bitbucket   = new Bitbucket($http, $options, $logger);
 $servicename = $bitbucket->serviceName;
 
 // step 2: redirect to the provider's login screen

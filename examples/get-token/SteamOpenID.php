@@ -9,7 +9,7 @@
  */
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Providers\Steam\SteamOpenID;
+use chillerlan\OAuth\Providers\SteamOpenID;
 
 $ENVVAR = 'STEAMOPENID';
 
@@ -22,7 +22,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$steam       = new SteamOpenID($http, $storage, $options, $logger);
+$steam       = new SteamOpenID($http, $options, $logger);
 $servicename = $steam->serviceName;
 
 // step 2: redirect to the provider's login screen
