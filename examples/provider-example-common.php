@@ -14,7 +14,6 @@ use chillerlan\DotEnv\DotEnv;
 use chillerlan\HTTP\HTTPOptionsTrait;
 use chillerlan\HTTP\Psr18\CurlClient;
 use chillerlan\OAuth\OAuthOptions;
-use chillerlan\OAuth\Storage\SessionStorage;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\{NullHandler, StreamHandler};
 use Monolog\Logger;
@@ -80,7 +79,7 @@ if($LOGLEVEL){
 }
 
 $http    = new CurlClient($options);
-$storage = new SessionStorage($options);
+$storage = new OAuthExampleSessionStorage($options, $CFGDIR);
 
 #$http->setLogger($logger);
 #$storage->setLogger($logger);

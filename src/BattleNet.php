@@ -13,7 +13,6 @@ namespace chillerlan\OAuth\Providers;
 use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Core\{ClientCredentials, CSRFToken, OAuth2Provider, ProviderException};
 use chillerlan\OAuth\OAuthOptions;
-use chillerlan\OAuth\Storage\OAuthStorageInterface;
 use chillerlan\Settings\SettingsContainerInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\ResponseInterface;

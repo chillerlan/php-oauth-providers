@@ -46,7 +46,7 @@ elseif(isset($_GET['openid_error'])){ // openid.error -> https://stackoverflow.c
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
 	$token = $storage->getAccessToken($servicename); // the user's steamid is stored as access token
 
-	echo '<pre>'.print_r(MessageUtil::decodeJSON($steam->steamUserGetPlayerSummaries(['steamids' => $token->accessToken])), true).'</pre>';
+	echo '<pre>'.print_r(MessageUtil::decodeJSON($steam->request('/ISteamUser/GetPlayerSummaries/v2', ['steamids' => $token->accessToken])), true).'</pre>';
 	echo '<textarea cols="120" rows="3" onclick="this.select();">'.$token->toJSON().'</textarea>';
 }
 // step 1 (optional): display a login link

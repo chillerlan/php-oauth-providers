@@ -35,8 +35,10 @@ class OAuthExampleSessionStorage extends SessionStorage{
 	/**
 	 * @inheritDoc
 	 */
-	public function storeAccessToken(string $service, AccessToken $token):OAuthStorageInterface{
-		parent::storeAccessToken($service, $token);
+	public function storeAccessToken(AccessToken $token, string $service = null):OAuthStorageInterface{
+		$service ??= $this->serviceName;
+
+		parent::storeAccessToken($token, $service);
 
 		if(file_put_contents($this->storagepath.'/'.$service.'.token.json', $token->toJSON()) === false){
 			throw new OAuthStorageException('unable to access file storage');
@@ -49,7 +51,8 @@ class OAuthExampleSessionStorage extends SessionStorage{
 	 * @inheritDoc
 	 * @phan-suppress PhanTypeMismatchReturnSuperType
 	 */
-	public function getAccessToken(string $service):AccessToken{
+	public function getAccessToken(string $service = null):AccessToken{
+		$service ??= $this->serviceName;
 
 		if($this->hasAccessToken($service)){
 			/** @noinspection PhpIncompatibleReturnTypeInspection */

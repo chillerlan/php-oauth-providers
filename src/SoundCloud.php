@@ -11,13 +11,9 @@
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, OAuth2Provider, ProviderException, TokenRefresh};
-use chillerlan\HTTP\Utils\QueryUtil;
+use chillerlan\OAuth\Core\{ClientCredentials, OAuth2Provider, ProviderException, TokenRefresh};
 use Psr\Http\Message\ResponseInterface;
-use function base64_encode;
-use function implode;
 use function sprintf;
-use const PHP_QUERY_RFC1738;
 
 /**
  * @see https://developers.soundcloud.com/
