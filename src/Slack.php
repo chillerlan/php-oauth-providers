@@ -92,4 +92,23 @@ class Slack extends OAuth2Provider implements CSRFToken{
 		self::SCOPE_IDENTITY_TEAM,
 	];
 
+	/**
+	 * @inheritDoc
+	 */
+	public function me():ResponseInterface{
+		$response = $this->request('/users.identity');
+		$status   = $response->getStatusCode();
+		$json     = MessageUtil::decodeJSON($response);
+
+		if($status === 200 && isset($json->ok) && $json->ok === true){
+			return $response;
+		}
+
+		if(isset($json->error)){
+			throw new ProviderException($json->error);
+		}
+
+		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
 }

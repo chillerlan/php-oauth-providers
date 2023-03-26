@@ -31,4 +31,24 @@ class Mixcloud extends OAuth2Provider{
 	protected ?string $applicationURL = 'https://www.mixcloud.com/developers/create/';
 	protected int     $authMethod     = self::AUTH_METHOD_QUERY;
 
+	/**
+	 * @inheritDoc
+	 */
+	public function me():ResponseInterface{
+		$response = $this->request('/me/');
+		$status   = $response->getStatusCode();
+
+		if($status === 200){
+			return $response;
+		}
+
+		$json = MessageUtil::decodeJSON($response);
+
+		if(isset($json->error, $json->error->message)){
+			throw new ProviderException($json->error->message);
+		}
+
+		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
 }

@@ -80,4 +80,25 @@ class MailChimp extends OAuth2Provider implements CSRFToken{
 		return parent::request($path, $params, $method, $body, $headers);
 	}
 
+	/**
+	 * @see https://mailchimp.com/developer/marketing/api/root/list-api-root-resources/
+	 * @inheritDoc
+	 */
+	public function me():ResponseInterface{
+		$response = $this->request('/3.0/'); // trailing slash!
+		$status   = $response->getStatusCode();
+
+		if($status === 200){
+			return $response;
+		}
+
+		$json = MessageUtil::decodeJSON($response);
+
+		if(isset($json->detail)){
+			throw new ProviderException($json->detail);
+		}
+
+		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
 }

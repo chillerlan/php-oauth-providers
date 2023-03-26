@@ -29,4 +29,25 @@ class Tumblr extends OAuth1Provider{
 	protected ?string $apiDocs         = 'https://www.tumblr.com/docs/en/api/v2';
 	protected ?string $applicationURL  = 'https://www.tumblr.com/oauth/apps';
 
+
+	/**
+	 * @inheritDoc
+	 */
+	public function me():ResponseInterface{
+		$response = $this->request('/user/info');
+		$status   = $response->getStatusCode();
+
+		if($status === 200){
+			return $response;
+		}
+
+		$json = MessageUtil::decodeJSON($response);
+
+		if(isset($json->meta, $json->meta->msg)){
+			throw new ProviderException($json->meta->msg);
+		}
+
+		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
 }

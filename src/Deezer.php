@@ -127,4 +127,25 @@ class Deezer extends OAuth2Provider implements CSRFToken{
 		return $token;
 	}
 
+	/**
+	 * deezer keeps testing my sanity - HTTP/200 on invalid token... sure
+	 *
+	 * @inheritDoc
+	 */
+	public function me():ResponseInterface{
+		$response = $this->request('/user/me');
+		$status   = $response->getStatusCode();
+		$json     = MessageUtil::decodeJSON($response);
+
+		if($status === 200 && !isset($json->error)){
+			return $response;
+		}
+
+		if(isset($json->error)){
+			throw new ProviderException($json->error->message);
+		}
+
+		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
 }

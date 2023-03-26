@@ -53,4 +53,24 @@ class Foursquare extends OAuth2Provider{
 		return parent::request(explode('?', $path)[0], array_merge($params ?? [], $queryparams), $method, $body, $headers);
 	}
 
+	/**
+	 * @inheritDoc
+	 */
+	public function me():ResponseInterface{
+		$response = $this->request('/v2/users/self');
+		$status   = $response->getStatusCode();
+
+		if($status === 200){
+			return $response;
+		}
+
+		$json = MessageUtil::decodeJSON($response);
+
+		if(isset($json->meta, $json->meta->errorDetail)){
+			throw new ProviderException($json->meta->errorDetail);
+		}
+
+		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
 }

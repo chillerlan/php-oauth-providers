@@ -63,4 +63,24 @@ class GitHub extends OAuth2Provider implements CSRFToken, TokenRefresh{
 		self::SCOPE_GIST,
 	];
 
+	/**
+	 * @inheritDoc
+	 */
+	public function me():ResponseInterface{
+		$response = $this->request('/user');
+		$status   = $response->getStatusCode();
+
+		if($status === 200){
+			return $response;
+		}
+
+		$json = MessageUtil::decodeJSON($response);
+
+		if(isset($json->message)){
+			throw new ProviderException($json->message);
+		}
+
+		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
 }

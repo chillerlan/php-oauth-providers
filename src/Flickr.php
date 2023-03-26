@@ -63,4 +63,23 @@ class Flickr extends OAuth1Provider{
 		return $this->http->sendRequest($request);
 	}
 
+	/**
+	 * @inheritDoc
+	 */
+	public function me():ResponseInterface{
+		$response = $this->request('flickr.test.login');
+		$status   = $response->getStatusCode();
+		$json     = MessageUtil::decodeJSON($response);
+
+		if($status === 200 && isset($json->user)){
+			return $response;
+		}
+
+		if(isset($json->message)){
+			throw new ProviderException($json->message);
+		}
+
+		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
 }

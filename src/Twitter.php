@@ -35,4 +35,24 @@ class Twitter extends OAuth1Provider{
 	protected ?string $apiDocs         = 'https://developer.twitter.com/docs';
 	protected ?string $applicationURL  = 'https://developer.twitter.com/apps';
 
+	/**
+	 * @inheritDoc
+	 */
+	public function me():ResponseInterface{
+		$response = $this->request('/1.1/account/verify_credentials.json');
+		$status   = $response->getStatusCode();
+
+		if($status === 200){
+			return $response;
+		}
+
+		$json = MessageUtil::decodeJSON($response);
+
+		if(isset($json->errors, $json->errors[0]->message)){
+			throw new ProviderException($json->errors[0]->message);
+		}
+
+		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
 }

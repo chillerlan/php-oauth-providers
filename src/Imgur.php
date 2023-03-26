@@ -32,4 +32,24 @@ class Imgur extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	protected ?string $apiDocs        = 'https://apidocs.imgur.com';
 	protected ?string $applicationURL = 'https://api.imgur.com/oauth2/addclient';
 
+	/**
+	 * @inheritDoc
+	 */
+	public function me():ResponseInterface{
+		$response = $this->request('/3/account/me');
+		$status   = $response->getStatusCode();
+
+		if($status === 200){
+			return $response;
+		}
+
+		$json = MessageUtil::decodeJSON($response);
+
+		if(isset($json->data, $json->data->error)){
+			throw new ProviderException($json->data->error);
+		}
+
+		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
 }

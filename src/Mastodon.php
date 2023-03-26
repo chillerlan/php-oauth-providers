@@ -92,4 +92,24 @@ class Mastodon extends OAuth2Provider implements CSRFToken, TokenRefresh{
 		return $token;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
+	public function me():ResponseInterface{
+		$response = $this->request('/v1/accounts/verify_credentials');
+		$status   = $response->getStatusCode();
+
+		if($status === 200){
+			return $response;
+		}
+
+		$json = MessageUtil::decodeJSON($response);
+
+		if(isset($json->error)){
+			throw new ProviderException($json->error);
+		}
+
+		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
 }

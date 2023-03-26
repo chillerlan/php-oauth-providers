@@ -32,4 +32,24 @@ class Discogs extends OAuth1Provider{
 	protected ?string $applicationURL  = 'https://www.discogs.com/settings/developers';
 	protected array   $apiHeaders      = ['Accept' => 'application/vnd.discogs.v2.discogs+json'];
 
+	/**
+	 * @inheritDoc
+	 */
+	public function me():ResponseInterface{
+		$response = $this->request('/oauth/identity');
+		$status   = $response->getStatusCode();
+
+		if($status === 200){
+			return $response;
+		}
+
+		$json = MessageUtil::decodeJSON($response);
+
+		if(isset($json->message)){
+			throw new ProviderException($json->message);
+		}
+
+		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
 }

@@ -26,4 +26,24 @@ class Bitbucket extends OAuth2Provider implements ClientCredentials, CSRFToken, 
 	protected ?string $apiDocs        = 'https://developer.atlassian.com/bitbucket/api/2/reference/';
 	protected ?string $applicationURL = 'https://developer.atlassian.com/apps/';
 
+	/**
+	 * @inheritDoc
+	 */
+	public function me():ResponseInterface{
+		$response = $this->request('/user');
+		$status   = $response->getStatusCode();
+
+		if($status === 200){
+			return $response;
+		}
+
+		$json = MessageUtil::decodeJSON($response);
+
+		if(isset($json->error, $json->error->message)){
+			throw new ProviderException($json->error->message);
+		}
+
+		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
 }

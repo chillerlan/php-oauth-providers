@@ -32,4 +32,24 @@ class BigCartel extends OAuth2Provider implements CSRFToken{
 	protected ?string $applicationURL = 'https://bigcartel.wufoo.com/forms/big-cartel-api-application/';
 	protected array   $apiHeaders     = ['Accept' => 'application/vnd.api+json'];
 
+	/**
+	 * @inheritDoc
+	 */
+	public function me():ResponseInterface{
+		$response = $this->request('/accounts');
+		$status   = $response->getStatusCode();
+
+		if($status === 200){
+			return $response;
+		}
+
+		$json = MessageUtil::decodeJSON($response);
+
+		if(isset($json->error)){
+			throw new ProviderException($json->error);
+		}
+
+		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
 }

@@ -75,4 +75,24 @@ class Spotify extends OAuth2Provider implements ClientCredentials, CSRFToken, To
 		self::SCOPE_USER_READ_RECENTLY_PLAYED,
 	];
 
+	/**
+	 * @inheritDoc
+	 */
+	public function me():ResponseInterface{
+		$response = $this->request('/v1/me');
+		$status   = $response->getStatusCode();
+
+		if($status === 200){
+			return $response;
+		}
+
+		$json = MessageUtil::decodeJSON($response);
+
+		if(isset($json->error, $json->error->message)){
+			throw new ProviderException($json->error->message);
+		}
+
+		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
 }

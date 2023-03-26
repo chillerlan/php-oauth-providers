@@ -30,4 +30,24 @@ class OpenStreetmap extends OAuth1Provider{
 	protected ?string $apiDocs         = 'https://wiki.openstreetmap.org/wiki/API';
 	protected ?string $applicationURL  = 'https://www.openstreetmap.org/user/{USERNAME}/oauth_clients';
 
+	/**
+	 * @inheritDoc
+	 */
+	public function me(bool $json = true):ResponseInterface{
+		$response = $this->request('/api/0.6/user/details'.($json ? '.json' : ''));
+		$status   = $response->getStatusCode();
+
+		if($status === 200){
+			return $response;
+		}
+
+		$body = MessageUtil::getContents($response);
+
+		if(!empty($body)){
+			throw new ProviderException(strip_tags($body));
+		}
+
+		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
 }

@@ -104,4 +104,24 @@ class GuildWars2 extends OAuth2Provider{
 		throw new ProviderException($this::AUTH_ERRMSG);
 	}
 
+	/**
+	 * @inheritDoc
+	 */
+	public function me():ResponseInterface{
+		$response = $this->request('/v2/tokeninfo');
+		$status   = $response->getStatusCode();
+
+		if($status === 200){
+			return $response;
+		}
+
+		$json = MessageUtil::decodeJSON($response);
+
+		if(isset($json->text)){
+			throw new ProviderException($json->text);
+		}
+
+		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
 }

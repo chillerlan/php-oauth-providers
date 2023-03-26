@@ -11,7 +11,10 @@
 namespace chillerlan\OAuthTest\Providers;
 
 use chillerlan\DotEnv\DotEnv;
+use chillerlan\OAuth\Core\AccessToken;
+use chillerlan\OAuth\Core\ProviderException;
 use chillerlan\OAuth\OAuthOptions;
+use chillerlan\OAuth\Storage\MemoryStorage;
 use chillerlan\OAuth\Storage\OAuthStorageInterface;
 use chillerlan\OAuthTest\OAuthTestMemoryStorage;
 use chillerlan\Settings\SettingsContainerInterface;
@@ -73,6 +76,28 @@ abstract class OAuthAPITestAbstract extends ProviderTestAbstract{
 
 	protected function initHttp(SettingsContainerInterface $options, LoggerInterface $logger, array $responses):ClientInterface{
 		return new OAuthTestHttpClient($this->CFG, $logger);
+	}
+
+	public function testMe():void{
+		$this::markTestSkipped('not implemented');
+	}
+
+	public function testMeErrorException():void{
+		$this::expectException(ProviderException::class);
+		$token                    = $this->storage->getAccessToken($this->provider->serviceName);
+		// avoid refresh
+		$token->expires           = AccessToken::EOL_NEVER_EXPIRES;
+		// invalidate token
+		$token->accessToken       = 'nope';
+		$token->accessTokenSecret = 'what';
+
+		// using a temp storage here so that the local tokens won't be overwritten
+		$tempStorage = (new MemoryStorage)->storeAccessToken($token, $this->provider->serviceName);
+
+		$this->provider
+			->setStorage($tempStorage)
+			->me()
+		;
 	}
 
 }

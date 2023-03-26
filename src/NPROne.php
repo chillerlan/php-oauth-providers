@@ -89,4 +89,24 @@ class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh{
 		return $this->http->sendRequest($request);
 	}
 
+	/**
+	 * @inheritDoc
+	 */
+	public function me():ResponseInterface{
+		$response = $this->request('https://identity.api.npr.org/v2/user');
+		$status   = $response->getStatusCode();
+
+		if($status === 200){
+			return $response;
+		}
+
+		$json = MessageUtil::decodeJSON($response);
+
+		if(isset($json->errors)){
+			throw new ProviderException($json->errors[0]->text);
+		}
+
+		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
 }

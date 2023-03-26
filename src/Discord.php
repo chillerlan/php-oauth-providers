@@ -50,4 +50,24 @@ class Discord extends OAuth2Provider implements ClientCredentials, CSRFToken, To
 		self::SCOPE_MESSAGES_READ,
 	];
 
+	/**
+	 * @inheritDoc
+	 */
+	public function me():ResponseInterface{
+		$response = $this->request('/users/@me');
+		$status   = $response->getStatusCode();
+
+		if($status === 200){
+			return $response;
+		}
+
+		$json = MessageUtil::decodeJSON($response);
+
+		if(isset($json->message)){
+			throw new ProviderException($json->message);
+		}
+
+		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
 }

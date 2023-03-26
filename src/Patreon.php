@@ -52,4 +52,39 @@ class Patreon extends OAuth2Provider implements CSRFToken, TokenRefresh{
 		self::SCOPE_V2_CAMPAIGNS_MEMBERS,
 	];
 
+	/**
+	 * @inheritDoc
+	 */
+	public function me():ResponseInterface{
+		$token  = $this->storage->getAccessToken($this->serviceName);
+		$scopes = explode(' ', $token->extraParams['scope']);
+
+		if(in_array(self::SCOPE_V2_IDENTITY, $scopes)){
+			$endpoint = '/v2/identity';
+			$params   = ['fields[user]' => 'about,created,email,first_name,full_name,image_url,last_name,social_connections,thumb_url,url,vanity'];
+		}
+		elseif(in_array(self::SCOPE_V1_USERS, $scopes)){
+			$endpoint = '/api/current_user';
+			$params   = [];
+		}
+		else{
+			throw new ProviderException('invalid scopes for the identity endpoint');
+		}
+
+		$response = $this->request($endpoint, $params);
+		$status   = $response->getStatusCode();
+
+		if($status === 200){
+			return $response;
+		}
+
+		$json = MessageUtil::decodeJSON($response);
+
+		if(isset($json->errors[0]->code_name)){
+			throw new ProviderException($json->errors[0]->code_name);
+		}
+
+		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
 }

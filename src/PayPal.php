@@ -114,4 +114,24 @@ class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 		return $token;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
+	public function me():ResponseInterface{
+		$response = $this->request('/v1/identity/oauth2/userinfo', ['schema' => 'paypalv1.1']);
+		$status   = $response->getStatusCode();
+
+		if($status === 200){
+			return $response;
+		}
+
+		$json = MessageUtil::decodeJSON($response);
+
+		if(isset($json->error, $json->error_description)){
+			throw new ProviderException($json->error_description);
+		}
+
+		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
 }

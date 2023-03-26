@@ -26,4 +26,24 @@ class GitLab extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	protected ?string $apiDocs        = 'https://docs.gitlab.com/ee/api/README.html';
 	protected ?string $applicationURL = 'https://gitlab.com/profile/applications';
 
+	/**
+	 * @inheritDoc
+	 */
+	public function me():ResponseInterface{
+		$response = $this->request('/v4/user');
+		$status   = $response->getStatusCode();
+
+		if($status === 200){
+			return $response;
+		}
+
+		$json = MessageUtil::decodeJSON($response);
+
+		if(isset($json->error, $json->error_description)){
+			throw new ProviderException($json->error_description);
+		}
+
+		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
 }
