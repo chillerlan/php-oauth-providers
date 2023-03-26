@@ -23,7 +23,7 @@ final class GuzzleHttpClientFactory implements OAuthTestHttpClientFactoryInterfa
 		return new Client([
 			'verify'  => $cfgdir.'/cacert.pem',
 			'headers' => [
-				'User-Agent' => 'chillerlanPhpOAuth/4.0.0 +https://github.com/chillerlan/php-oauth-core',
+				'User-Agent' => 'chillerlanPhpOAuth/5.0.0 +https://github.com/chillerlan/php-oauth-core',
 			],
 		]);
 	}

@@ -22,7 +22,7 @@ final class ChillerlanHttpClientFactory implements OAuthTestHttpClientFactoryInt
 	public static function getClient(string $cfgdir):ClientInterface{
 		$options             = new HTTPOptions;
 		$options->ca_info    = $cfgdir.'/cacert.pem';
-		$options->user_agent = 'chillerlanPhpOAuth/4.0.0 +https://github.com/chillerlan/php-oauth-core';
+		$options->user_agent = 'chillerlanPhpOAuth/5.0.0 +https://github.com/chillerlan/php-oauth-core';
 
 		return new CurlClient($options);
 	}
