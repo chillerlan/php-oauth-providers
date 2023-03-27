@@ -10,11 +10,11 @@
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\HTTP\Utils\QueryUtil;
-use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, ProviderException, TokenRefresh};
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
+use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
+use chillerlan\OAuth\Core\{
+	AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, ProviderException, TokenInvalidate, TokenRefresh
+};
+use Psr\Http\Message\{RequestInterface, ResponseInterface};
 use function implode;
 use function sprintf;
 use const PHP_QUERY_RFC1738;
@@ -23,7 +23,7 @@ use const PHP_QUERY_RFC1738;
  * @see https://dev.twitch.tv/docs/api/reference/
  * @see https://dev.twitch.tv/docs/authentication/
  */
-class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh{
+class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenInvalidate, TokenRefresh{
 
 	public const SCOPE_ANALYTICS_READ_EXTENSIONS  = 'analytics:read:extensions';
 	public const SCOPE_ANALYTICS_READ_GAMES       = 'analytics:read:games';
@@ -120,6 +120,35 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 		}
 
 		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function invalidateAccessToken(AccessToken $token = null):bool{
+
+		if($token === null && !$this->storage->hasAccessToken()){
+			throw new ProviderException('no token given');
+		}
+
+		$token ??= $this->storage->getAccessToken();
+
+		$response = $this->request(
+			$this->revokeURL,
+			null,
+			'POST',
+			[
+				'client_id' => $this->options->key,
+				'token'     => $token->accessToken,
+			],
+			['Content-Type' => 'application/x-www-form-urlencoded']
+		);
+
+		if($response->getStatusCode() === 200){
+			return true;
+		}
+
+		return false;
 	}
 
 }
