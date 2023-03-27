@@ -22,7 +22,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$bitbucket   = new Bitbucket($http, $options, $logger);
+$bitbucket   = (new Bitbucket($http, $options, $logger))->setStorage($storage);
 $servicename = $bitbucket->serviceName;
 
 // step 2: redirect to the provider's login screen

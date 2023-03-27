@@ -12,8 +12,6 @@
 use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Providers\Twitter;
 
-// TwitterCC
-
 $ENVVAR = 'TWITTER';
 
 require_once __DIR__.'/../provider-example-common.php';
@@ -25,8 +23,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$twitter     = new Twitter($http, $options, $logger);
-#$twitter2    = new TwitterCC($http, $storage, $options, $logger); // application-only
+$twitter     = (new Twitter($http, $options, $logger))->setStorage($storage);
 $servicename = $twitter->serviceName;
 
 // step 2: redirect to the provider's login screen

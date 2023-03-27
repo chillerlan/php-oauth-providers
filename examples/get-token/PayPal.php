@@ -23,7 +23,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$paypal      = new PayPal($http, $options, $logger);
+$paypal      = (new PayPal($http, $options, $logger))->setStorage($storage);
 #$paypal      = new PayPalSandbox($http, $storage, $options, $logger);
 $servicename = $paypal->serviceName;
 

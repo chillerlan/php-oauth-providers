@@ -22,7 +22,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$foursquare  = new Foursquare($http, $options, $logger);
+$foursquare  = (new Foursquare($http, $options, $logger))->setStorage($storage);
 $servicename = $foursquare->serviceName;
 
 // step 2: redirect to the provider's login screen

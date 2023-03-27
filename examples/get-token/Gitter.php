@@ -23,7 +23,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$gitter      = new Gitter($http, $options, $logger);
+$gitter      = (new Gitter($http, $options, $logger))->setStorage($storage);
 $servicename = $gitter->serviceName;
 
 // step 2: redirect to the provider's login screen

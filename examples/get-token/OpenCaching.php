@@ -22,7 +22,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$okapi       = new OpenCaching($http, $options, $logger);
+$okapi       = (new OpenCaching($http, $options, $logger))->setStorage($storage);
 $servicename = $okapi->serviceName;
 
 // step 2: redirect to the provider's login screen

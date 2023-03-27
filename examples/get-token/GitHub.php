@@ -23,7 +23,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$github      = new GitHub($http, $options, $logger);
+$github      = (new GitHub($http, $options, $logger))->setStorage($storage);
 $servicename = $github->serviceName;
 
 // step 2: redirect to the provider's login screen

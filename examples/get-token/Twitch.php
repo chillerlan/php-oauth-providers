@@ -23,7 +23,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$twitch      = new Twitch($http, $options, $logger);
+$twitch      = (new Twitch($http, $options, $logger))->setStorage($storage);
 $servicename = $twitch->serviceName;
 
 // step 2: redirect to the provider's login screen

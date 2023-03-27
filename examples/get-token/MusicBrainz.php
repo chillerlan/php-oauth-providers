@@ -22,7 +22,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$musicbrainz = new MusicBrainz($http, $options, $logger);
+$musicbrainz = (new MusicBrainz($http, $options, $logger))->setStorage($storage);
 $servicename = $musicbrainz->serviceName;
 
 // step 2: redirect to the provider's login screen

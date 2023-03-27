@@ -23,7 +23,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$instagram   = new Instagram($http, $options, $logger);
+$instagram   = (new Instagram($http, $options, $logger))->setStorage($storage);
 $servicename = $instagram->serviceName;
 
 // step 2: redirect to the provider's login screen

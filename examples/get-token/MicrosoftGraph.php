@@ -23,7 +23,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$msgraph     = new MicrosoftGraph($http, $options, $logger);
+$msgraph     = (new MicrosoftGraph($http, $options, $logger))->setStorage($storage);
 $servicename = $msgraph->serviceName;
 
 // step 2: redirect to the provider's login screen

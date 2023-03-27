@@ -23,7 +23,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$patreon2    = new Patreon($http, $options, $logger);
+$patreon2    = (new Patreon($http, $options, $logger))->setStorage($storage);
 $servicename = $patreon2->serviceName;
 
 // step 2: redirect to the provider's login screen

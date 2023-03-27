@@ -23,7 +23,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$npr         = new NPROne($http, $options, $logger);
+$npr         = (new NPROne($http, $options, $logger))->setStorage($storage);
 $servicename = $npr->serviceName;
 
 // step 2: redirect to the provider's login screen

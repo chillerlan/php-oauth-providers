@@ -22,7 +22,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$flickr      = new Flickr($http, $options, $logger);
+$flickr      = (new Flickr($http, $options, $logger))->setStorage($storage);
 $servicename = $flickr->serviceName;
 
 // step 2: redirect to the provider's login screen
