@@ -26,7 +26,6 @@ class Discogs extends OAuth1Provider{
 	protected string  $authURL         = 'https://www.discogs.com/oauth/authorize';
 	protected string  $accessTokenURL  = 'https://api.discogs.com/oauth/access_token';
 	protected string  $apiURL          = 'https://api.discogs.com';
-	protected ?string $revokeURL       = 'https://www.discogs.com/oauth/revoke'; // ?access_key=<TOKEN>
 	protected ?string $userRevokeURL   = 'https://www.discogs.com/settings/applications';
 	protected ?string $apiDocs         = 'https://www.discogs.com/developers/';
 	protected ?string $applicationURL  = 'https://www.discogs.com/settings/developers';
