@@ -22,7 +22,9 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$gitlab      = (new GitLab($http, $options, $logger))->setStorage($storage);
+$gitlab = new GitLab($http, $options, $logger);
+$gitlab->setStorage($storage);
+
 $servicename = $gitlab->serviceName;
 
 // step 2: redirect to the provider's login screen

@@ -23,7 +23,9 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$amazon      = (new Amazon($http, $options, $logger))->setStorage($storage);
+$amazon = new Amazon($http, $options, $logger);
+$amazon->setStorage($storage);
+
 $servicename = $amazon->serviceName;
 
 // step 2: redirect to the provider's login screen

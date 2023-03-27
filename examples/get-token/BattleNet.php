@@ -23,7 +23,9 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$battlenet   = (new BattleNet($http, $options, $logger))->setStorage($storage);
+$battlenet = new BattleNet($http, $options, $logger);
+$battlenet->setStorage($storage);
+
 $servicename = $battlenet->serviceName;
 
 // step 2: redirect to the provider's login screen

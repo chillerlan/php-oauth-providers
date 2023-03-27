@@ -22,7 +22,9 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$osm         = (new OpenStreetmap($http, $options, $logger))->setStorage($storage);
+$osm = new OpenStreetmap($http, $options, $logger);
+$osm->setStorage($storage);
+
 $servicename = $osm->serviceName;
 
 // step 2: redirect to the provider's login screen

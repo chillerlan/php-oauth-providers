@@ -22,7 +22,9 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$lastfm      = (new LastFM($http, $options, $logger))->setStorage($storage);
+$lastfm = new LastFM($http, $options, $logger);
+$lastfm->setStorage($storage);
+
 $servicename = $lastfm->serviceName;
 
 // step 2: redirect to the provider's login screen

@@ -23,7 +23,9 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$google      = (new Google($http, $options, $logger))->setStorage($storage);
+$google = new Google($http, $options, $logger);
+$google->setStorage($storage);
+
 $servicename = $google->serviceName;
 
 // step 2: redirect to the provider's login screen

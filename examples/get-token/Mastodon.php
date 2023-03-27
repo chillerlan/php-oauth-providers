@@ -25,10 +25,12 @@ require_once __DIR__.'/../provider-example-common.php';
  */
 
 // set the mastodon instance we're about to request data from
-$mastodon    = (new Mastodon($http, $options, $logger))
+$mastodon = new Mastodon($http, $options, $logger);
+$mastodon
 	->setInstance($env->get($ENVVAR.'_INSTANCE'))
 	->setStorage($storage)
 ;
+
 $servicename = $mastodon->serviceName;
 
 // step 2: redirect to the provider's login screen

@@ -23,7 +23,9 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$spotify     = (new Spotify($http, $options, $logger))->setStorage($storage);
+$spotify = new Spotify($http, $options, $logger);
+$spotify->setStorage($storage);
+
 $servicename = $spotify->serviceName;
 
 // step 2: redirect to the provider's login screen

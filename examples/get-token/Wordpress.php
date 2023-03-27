@@ -23,7 +23,9 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$wordpress   = (new WordPress($http, $options, $logger))->setStorage($storage);
+$wordpress = new WordPress($http, $options, $logger);
+$wordpress->setStorage($storage);
+
 $servicename = $wordpress->serviceName;
 
 // step 2: redirect to the provider's login screen

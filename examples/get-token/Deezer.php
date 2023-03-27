@@ -23,7 +23,9 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$deezer      = (new Deezer($http, $options, $logger))->setStorage($storage);
+$deezer = new Deezer($http, $options, $logger);
+$deezer->setStorage($storage);
+
 $servicename = $deezer->serviceName;
 
 // step 2: redirect to the provider's login screen

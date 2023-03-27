@@ -22,7 +22,9 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var \Psr\Log\LoggerInterface $logger
  */
 
-$discogs     = (new Discogs($http, $options, $logger))->setStorage($storage);
+$discogs = new Discogs($http, $options, $logger);
+$discogs->setStorage($storage);
+
 $servicename = $discogs->serviceName;
 
 // step 2: redirect to the provider's login screen

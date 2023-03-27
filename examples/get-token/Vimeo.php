@@ -23,7 +23,9 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$vimeo       = (new Vimeo($http, $options, $logger))->setStorage($storage);
+$vimeo = new Vimeo($http, $options, $logger);
+$vimeo->setStorage($storage);
+
 $servicename = $vimeo->serviceName;
 
 // step 2: redirect to the provider's login screen

@@ -23,7 +23,9 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array $SCOPES
  */
 
-$discord     = (new Discord($http, $options, $logger))->setStorage($storage);
+$discord = new Discord($http, $options, $logger);
+$discord->setStorage($storage);
+
 $servicename = $discord->serviceName;
 
 // step 2: redirect to the provider's login screen
