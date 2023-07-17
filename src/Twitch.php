@@ -134,6 +134,7 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 		$token ??= $this->storage->getAccessToken();
 
 		$response = $this->request(
+			/** @phan-suppress-next-line PhanTypeMismatchArgumentNullable */
 			$this->revokeURL,
 			null,
 			'POST',
