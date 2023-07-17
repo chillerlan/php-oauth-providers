@@ -62,7 +62,7 @@ class BattleNet extends OAuth2Provider implements ClientCredentials, CSRFToken{
 	 *
 	 * @throws \chillerlan\OAuth\Core\ProviderException
 	 */
-	public function setRegion(string $region):BattleNet{
+	public function setRegion(string $region):static{
 		$region = strtolower($region);
 
 		if(!in_array($region, ['apac', 'cn', 'eu', 'us'], true)){

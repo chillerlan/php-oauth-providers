@@ -45,7 +45,7 @@ class Mastodon extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	 *
 	 * @throws \chillerlan\OAuth\OAuthException
 	 */
-	public function setInstance(string $instance):Mastodon{
+	public function setInstance(string $instance):static{
 		$instance = QueryUtil::parseUrl($instance);
 
 		if(!isset($instance['host'])){
