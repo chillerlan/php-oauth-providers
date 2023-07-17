@@ -11,10 +11,10 @@
 namespace chillerlan\OAuthExamples;
 
 use chillerlan\OAuth\Core\AccessToken;
-use chillerlan\OAuth\Storage\{OAuthStorageException, OAuthStorageInterface, SessionStorage};
+use chillerlan\OAuth\Storage\{OAuthStorageException, SessionStorage};
 use chillerlan\Settings\SettingsContainerInterface;
 
-use function file_exists, file_get_contents, file_put_contents;
+use function file_exists, file_get_contents, file_put_contents, sprintf;
 
 class OAuthExampleSessionStorage extends SessionStorage{
 
@@ -35,12 +35,12 @@ class OAuthExampleSessionStorage extends SessionStorage{
 	/**
 	 * @inheritDoc
 	 */
-	public function storeAccessToken(AccessToken $token, string $service = null):OAuthStorageInterface{
-		$service ??= $this->serviceName;
-
+	public function storeAccessToken(AccessToken $token, string $service = null):static{
 		parent::storeAccessToken($token, $service);
 
-		if(file_put_contents($this->storagepath.'/'.$service.'.token.json', $token->toJSON()) === false){
+		$tokenfile = sprintf('%s/%s.token.json', $this->storagepath, $this->getServiceName($service));
+
+		if(file_put_contents($tokenfile, $token->toJSON()) === false){
 			throw new OAuthStorageException('unable to access file storage');
 		}
 
@@ -52,14 +52,14 @@ class OAuthExampleSessionStorage extends SessionStorage{
 	 * @phan-suppress PhanTypeMismatchReturnSuperType
 	 */
 	public function getAccessToken(string $service = null):AccessToken{
-		$service ??= $this->serviceName;
+		$service = $this->getServiceName($service);
 
 		if($this->hasAccessToken($service)){
 			/** @noinspection PhpIncompatibleReturnTypeInspection */
 			return (new AccessToken)->fromJSON($_SESSION[$this->tokenVar][$service]);
 		}
 
-		$tokenfile = $this->storagepath.'/'.$service.'.token.json';
+		$tokenfile = sprintf('%s/%s.token.json', $this->storagepath, $service);
 
 		if(file_exists($tokenfile)){
 			/** @noinspection PhpIncompatibleReturnTypeInspection */

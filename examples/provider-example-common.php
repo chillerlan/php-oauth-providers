@@ -48,7 +48,7 @@ $env = (new DotEnv($CFGDIR, $ENVFILE, false))->load();
 
 $options_arr = [
 	// OAuthOptions
-	'key'              => $env->get($ENVVAR.'_KEY') ?? '', // @todo: $env->get(..., default)
+	'key'              => $env->get($ENVVAR.'_KEY') ?? '',
 	'secret'           => $env->get($ENVVAR.'_SECRET') ?? '',
 	'callbackURL'      => $env->get($ENVVAR.'_CALLBACK_URL') ?? '',
 	'tokenAutoRefresh' => true,
@@ -56,8 +56,7 @@ $options_arr = [
 
 	// HTTPOptions
 	'ca_info'          => $CFGDIR.'/cacert.pem',
-	'userAgent'        => 'chillerlanPhpOAuth/4.0.0 +https://github.com/codemasher/php-oauth-core',
-	'sleep'            => 1, // request delay used in the test http client
+	'userAgent'        => 'chillerlanPhpOAuth/5.0.0 +https://github.com/codemasher/php-oauth-providers',
 ];
 
 /**
@@ -67,7 +66,7 @@ $options_arr = [
  * @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage
  */
 $options = $options ?? new class($options_arr) extends OAuthOptions{ use HTTPOptionsTrait; };
-$logger  = new Logger('oauthProviderExample', [new NullHandler]);
+$logger  = new Logger('log', [new NullHandler]);
 
 if($LOGLEVEL){
 	$formatter = new LineFormatter(null, 'Y-m-d H:i:s', true, true);
