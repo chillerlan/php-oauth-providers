@@ -10,10 +10,9 @@
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AccessToken, OAuthProvider, ProviderException};
 use chillerlan\HTTP\Utils\QueryUtil;
+use chillerlan\OAuth\Core\{AccessToken, OAuthProvider, ProviderException};
 use Psr\Http\Message\{RequestInterface, ResponseInterface, UriInterface};
-
 use function explode, intval, preg_replace;
 
 /**

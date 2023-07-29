@@ -15,8 +15,7 @@ use chillerlan\OAuth\Core\{
 	AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, ProviderException, TokenInvalidate, TokenRefresh
 };
 use Psr\Http\Message\{RequestInterface, ResponseInterface};
-use function implode;
-use function sprintf;
+use function implode, sprintf;
 use const PHP_QUERY_RFC1738;
 
 /**
@@ -50,9 +49,9 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 
 	protected string  $authURL                    = 'https://id.twitch.tv/oauth2/authorize';
 	protected string  $accessTokenURL             = 'https://id.twitch.tv/oauth2/token';
+	protected string  $revokeURL                  = 'https://id.twitch.tv/oauth2/revoke';
 	protected string  $apiURL                     = 'https://api.twitch.tv';
 	protected ?string $userRevokeURL              = 'https://www.twitch.tv/settings/connections';
-	protected ?string $revokeURL                  = 'https://id.twitch.tv/oauth2/revoke';
 	protected ?string $apiDocs                    = 'https://dev.twitch.tv/docs/api/reference/';
 	protected ?string $applicationURL             = 'https://dev.twitch.tv/console/apps/create';
 	protected array   $authHeaders                = ['Accept' => 'application/vnd.twitchtv.v5+json'];
@@ -134,18 +133,18 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 		$token ??= $this->storage->getAccessToken();
 
 		$response = $this->request(
-			/** @phan-suppress-next-line PhanTypeMismatchArgumentNullable */
-			$this->revokeURL,
-			null,
-			'POST',
-			[
+			path   : $this->revokeURL,
+			method : 'POST',
+			body   : [
 				'client_id' => $this->options->key,
 				'token'     => $token->accessToken,
 			],
-			['Content-Type' => 'application/x-www-form-urlencoded']
+			headers: ['Content-Type' => 'application/x-www-form-urlencoded']
 		);
 
 		if($response->getStatusCode() === 200){
+			$this->storage->clearAccessToken();
+
 			return true;
 		}
 

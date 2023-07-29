@@ -11,11 +11,9 @@
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\OAuth1Provider;
-use chillerlan\OAuth\Core\ProviderException;
+use chillerlan\OAuth\Core\{OAuth1Provider, ProviderException};
 use Psr\Http\Message\ResponseInterface;
-use function sprintf;
-use function strip_tags;
+use function sprintf, strip_tags;
 
 /**
  * @see https://wiki.openstreetmap.org/wiki/API

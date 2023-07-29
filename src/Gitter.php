@@ -16,8 +16,11 @@ use Psr\Http\Message\ResponseInterface;
 use function sprintf;
 
 /**
- * @see https://developer.gitter.im/
- * @see https://developer.gitter.im/docs/authentication
+ * @todo: gitter has changed its API entirely
+ * @see https://gitter.im/docs/
+ * @see https://spec.matrix.org/latest/client-server-api/
+ *
+ * currently, the client does not work properly
  */
 class Gitter extends OAuth2Provider implements CSRFToken{
 

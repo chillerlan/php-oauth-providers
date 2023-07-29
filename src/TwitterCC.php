@@ -14,6 +14,8 @@ use chillerlan\OAuth\Core\{ClientCredentials, OAuth2Provider, ProviderException,
 use Psr\Http\Message\UriInterface;
 
 /**
+ * @todo: twitter is dead. fuck elon musk.
+ *
  * @see https://dev.twitter.com/overview/api
  * @see https://developer.twitter.com/en/docs/basics/authentication/overview/application-only
  *

@@ -10,16 +10,10 @@
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\HTTP\Utils\QueryUtil;
+use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
 use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, ProviderException, TokenRefresh};
 use Psr\Http\Message\ResponseInterface;
-use function array_column;
-use function base64_encode;
-use function implode;
-use function is_array;
-use function json_decode;
-use function sprintf;
+use function array_column, base64_encode, implode, is_array, json_decode, sprintf;
 use const PHP_QUERY_RFC1738;
 
 /**

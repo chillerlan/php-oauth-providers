@@ -13,9 +13,7 @@ namespace chillerlan\OAuth\Providers;
 use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, ProviderException, TokenRefresh};
 use Psr\Http\Message\ResponseInterface;
-use function explode;
-use function in_array;
-use function sprintf;
+use function explode, in_array, sprintf;
 
 /**
  * @see https://docs.patreon.com/

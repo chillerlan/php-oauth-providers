@@ -10,18 +10,16 @@
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\HTTP\Utils\QueryUtil;
-use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, ProviderException, TokenRefresh};
+use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
+use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2Provider, ProviderException, TokenInvalidate, TokenRefresh};
 use Psr\Http\Message\{RequestInterface, ResponseInterface};
-use function sprintf;
-use function str_contains;
+use function sprintf, str_contains;
 
 /**
  * @see https://dev.npr.org
  * @see https://github.com/npr/npr-one-backend-proxy-php
  */
-class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh{
+class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInvalidate{
 
 	public const SCOPE_IDENTITY_READONLY  = 'identity.readonly';
 	public const SCOPE_IDENTITY_WRITE     = 'identity.write';
@@ -31,7 +29,7 @@ class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh{
 
 	protected string  $authURL            = 'https://authorization.api.npr.org/v2/authorize';
 	protected string  $accessTokenURL     = 'https://authorization.api.npr.org/v2/token';
-	protected ?string $revokeURL          = 'https://authorization.api.npr.org/v2/token/revoke';
+	protected string  $revokeURL          = 'https://authorization.api.npr.org/v2/token/revoke';
 	protected ?string $apiDocs            = 'https://dev.npr.org/api/';
 	protected ?string $applicationURL     = 'https://dev.npr.org/console';
 
@@ -76,10 +74,7 @@ class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh{
 			$token = $this->storage->getAccessToken($this->serviceName);
 
 			// attempt to refresh an expired token
-			if(
-				$this->options->tokenAutoRefresh
-				&& ($token->isExpired() || $token->expires === $token::EOL_UNKNOWN)
-			){
+			if($this->options->tokenAutoRefresh && ($token->isExpired() || $token->expires === $token::EOL_UNKNOWN)){
 				$token = $this->refreshAccessToken($token); // @codeCoverageIgnore
 			}
 
@@ -107,6 +102,36 @@ class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh{
 		}
 
 		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function invalidateAccessToken(AccessToken $token = null):bool{
+
+		if($token === null && !$this->storage->hasAccessToken()){
+			throw new ProviderException('no token given');
+		}
+
+		$token ??= $this->storage->getAccessToken();
+
+		$response = $this->request(
+			path: $this->revokeURL,
+			method: 'POST',
+			body: [
+				'token'           => $token->accessToken,
+				'token_type_hint' => 'access_token',
+			],
+			headers: ['Content-Type' => 'application/x-www-form-urlencoded']
+		);
+
+		if($response->getStatusCode() === 200){
+			$this->storage->clearAccessToken();
+
+			return true;
+		}
+
+		return false;
 	}
 
 }

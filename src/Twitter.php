@@ -12,12 +12,13 @@
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\OAuth1Provider;
-use chillerlan\OAuth\Core\ProviderException;
+use chillerlan\OAuth\Core\{OAuth1Provider, ProviderException};
 use Psr\Http\Message\ResponseInterface;
 use function sprintf;
 
 /**
+ * @todo: twitter is dead. fuck elon musk.
+ *
  * @see https://developer.twitter.com/en/docs/basics/authentication/overview/oauth
  */
 class Twitter extends OAuth1Provider{

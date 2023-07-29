@@ -10,18 +10,11 @@
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\HTTP\Utils\QueryUtil;
+use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
 use chillerlan\OAuth\Core\{AccessToken, OAuthProvider, ProviderException};
 use Psr\Http\Message\{RequestInterface, ResponseInterface, StreamInterface, UriInterface};
 use Throwable;
-use function array_merge;
-use function in_array;
-use function is_array;
-use function ksort;
-use function md5;
-use function sprintf;
-use function trigger_error;
+use function array_merge, in_array, is_array, ksort, md5, sprintf, trigger_error;
 use const PHP_QUERY_RFC1738;
 
 /**
@@ -71,9 +64,12 @@ class LastFM extends OAuthProvider{
 		$signature = '';
 
 		foreach($params as $k => $v){
-			if(!in_array($k, ['format', 'callback'])){
-				$signature .= $k.$v;
+
+			if(in_array($k, ['format', 'callback'])){
+				continue;
 			}
+
+			$signature .= $k.$v;
 		}
 
 		return md5($signature.$this->options->secret);
@@ -93,7 +89,6 @@ class LastFM extends OAuthProvider{
 
 		$params['api_sig'] = $this->getSignature($params);
 
-		/** @phan-suppress-next-line PhanTypeMismatchArgumentNullable */
 		$request = $this->requestFactory->createRequest('GET', QueryUtil::merge($this->apiURL, $params));
 
 		return $this->parseTokenResponse($this->http->sendRequest($request));
@@ -141,11 +136,12 @@ class LastFM extends OAuthProvider{
 	 * @inheritDoc
 	 */
 	public function request(
-		string $path,
-		array $params = null,
-		string $method = null,
+		string                       $path,
+		array                        $params = null,
+		string                       $method = null,
 		StreamInterface|array|string $body = null,
-		array $headers = null
+		array                        $headers = null,
+		string                       $protocolVersion = null
 	):ResponseInterface{
 
 		if($body !== null && !is_array($body)){

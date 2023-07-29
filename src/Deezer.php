@@ -10,13 +10,10 @@
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\HTTP\Utils\QueryUtil;
+use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
 use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2Provider, ProviderException};
 use Psr\Http\Message\{ResponseInterface, UriInterface};
-use function array_merge;
-use function implode;
-use function sprintf;
+use function array_merge, implode, sprintf;
 use const PHP_QUERY_RFC1738;
 
 /**

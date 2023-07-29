@@ -10,14 +10,10 @@
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\HTTP\Utils\QueryUtil;
-use chillerlan\OAuth\Core\OAuth1Provider;
-use chillerlan\OAuth\Core\ProviderException;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\StreamInterface;
-use function array_merge;
-use function sprintf;
+use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
+use chillerlan\OAuth\Core\{OAuth1Provider, ProviderException};
+use Psr\Http\Message\{ResponseInterface, StreamInterface};
+use function array_merge, sprintf;
 
 /**
  * @see https://www.flickr.com/services/api/auth.oauth.html
@@ -41,11 +37,12 @@ class Flickr extends OAuth1Provider{
 	 * @inheritDoc
 	 */
 	public function request(
-		string $path,
-		array $params = null,
-		string $method = null,
+		string                       $path,
+		array                        $params = null,
+		string                       $method = null,
 		StreamInterface|array|string $body = null,
-		array $headers = null
+		array                        $headers = null,
+		string                       $protocolVersion = null
 	):ResponseInterface{
 
 		$params = array_merge($params ?? [], [

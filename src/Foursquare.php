@@ -10,14 +10,10 @@
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\HTTP\Utils\QueryUtil;
-use chillerlan\OAuth\Core\OAuth2Provider;
-use chillerlan\OAuth\Core\ProviderException;
+use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
+use chillerlan\OAuth\Core\{OAuth2Provider, ProviderException};
 use Psr\Http\Message\{ResponseInterface, StreamInterface};
-use function array_merge;
-use function explode;
-use function sprintf;
+use function array_merge, explode, sprintf;
 
 /**
  * @see https://developer.foursquare.com/docs/
@@ -40,11 +36,12 @@ class Foursquare extends OAuth2Provider{
 	 * @inheritDoc
 	 */
 	public function request(
-		string $path,
-		array $params = null,
-		string $method = null,
+		string                       $path,
+		array                        $params = null,
+		string                       $method = null,
 		StreamInterface|array|string $body = null,
-		array $headers = null
+		array                        $headers = null,
+		string                       $protocolVersion = null
 	):ResponseInterface{
 		$queryparams      = QueryUtil::parse(QueryUtil::parseUrl($this->apiURL.$path)['query'] ?? '');
 		$queryparams['v'] = $this::API_VERSIONDATE;

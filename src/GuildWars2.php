@@ -10,16 +10,10 @@
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\MessageUtil;
+use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
 use chillerlan\OAuth\Core\{AccessToken, OAuth2Provider, ProviderException};
-use chillerlan\HTTP\Utils\QueryUtil;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\UriInterface;
-use function implode;
-use function preg_match;
-use function sprintf;
-use function str_starts_with;
-use function substr;
+use Psr\Http\Message\{ResponseInterface, UriInterface};
+use function implode, preg_match, sprintf, str_starts_with, substr;
 
 /**
  * GW2 does not support authentication (anymore) but the API still works like a regular OAUth API, so...

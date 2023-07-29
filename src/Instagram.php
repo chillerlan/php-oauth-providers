@@ -16,6 +16,8 @@ use Psr\Http\Message\ResponseInterface;
 use function sprintf;
 
 /**
+ * @todo: instagram API has changed entirely and i won't bother fixing it because reasons
+ *
  * @see https://developers.facebook.com/docs/instagram
  * @see https://developers.facebook.com/docs/instagram-basic-display-api/reference/oauth-authorize
  */
@@ -60,4 +62,5 @@ class Instagram extends OAuth2Provider implements CSRFToken{
 
 		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
 	}
+
 }

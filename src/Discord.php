@@ -11,14 +11,16 @@
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\{ClientCredentials, CSRFToken, OAuth2Provider, ProviderException, TokenRefresh};
+use chillerlan\OAuth\Core\{
+	AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, ProviderException, TokenInvalidate, TokenRefresh
+};
 use Psr\Http\Message\ResponseInterface;
 use function sprintf;
 
 /**
  * @see https://discordapp.com/developers/docs/topics/oauth2
  */
-class Discord extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh{
+class Discord extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh, TokenInvalidate{
 
 	public const SCOPE_BOT                    = 'bot';
 	public const SCOPE_CONNECTIONS            = 'connections';
@@ -36,7 +38,7 @@ class Discord extends OAuth2Provider implements ClientCredentials, CSRFToken, To
 	protected string  $authURL                = 'https://discordapp.com/api/oauth2/authorize';
 	protected string  $accessTokenURL         = 'https://discordapp.com/api/oauth2/token';
 	protected string  $apiURL                 = 'https://discordapp.com/api/v9';
-	protected ?string $revokeURL              = 'https://discordapp.com/api/oauth2/token/revoke';
+	protected string  $revokeURL              = 'https://discordapp.com/api/oauth2/token/revoke';
 	protected ?string $apiDocs                = 'https://discordapp.com/developers/';
 	protected ?string $applicationURL         = 'https://discordapp.com/developers/applications/';
 
@@ -68,6 +70,37 @@ class Discord extends OAuth2Provider implements ClientCredentials, CSRFToken, To
 		}
 
 		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function invalidateAccessToken(AccessToken $token = null):bool{
+
+		if($token === null && !$this->storage->hasAccessToken()){
+			throw new ProviderException('no token given');
+		}
+
+		$token ??= $this->storage->getAccessToken();
+
+		$response = $this->request(
+			path   : $this->revokeURL,
+			method : 'POST',
+			body   : [
+				'client_id'     => $this->options->key,
+				'client_secret' => $this->options->secret,
+				'token'         => $token->accessToken,
+			],
+			headers: ['Content-Type' => 'application/x-www-form-urlencoded']
+		);
+
+		if($response->getStatusCode() === 200){
+			$this->storage->clearAccessToken();
+
+			return true;
+		}
+
+		return false;
 	}
 
 }

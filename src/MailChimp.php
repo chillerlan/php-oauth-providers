@@ -14,8 +14,7 @@ use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2Provider, ProviderException};
 use chillerlan\OAuth\OAuthException;
 use Psr\Http\Message\{ResponseInterface, StreamInterface};
-use function array_merge;
-use function sprintf;
+use function array_merge, sprintf;
 
 /**
  * @see http://developer.mailchimp.com/
@@ -67,11 +66,12 @@ class MailChimp extends OAuth2Provider implements CSRFToken{
 	 * @inheritdoc
 	 */
 	public function request(
-		string $path,
-		array $params = null,
-		string $method = null,
+		string                       $path,
+		array                        $params = null,
+		string                       $method = null,
 		StreamInterface|array|string $body = null,
-		array $headers = null
+		array                        $headers = null,
+		string                       $protocolVersion = null
 	):ResponseInterface{
 		$token = $this->storage->getAccessToken($this->serviceName);
 
