@@ -31,5 +31,4 @@ class SteamOpenIDAPITest extends OAuthAPITestAbstract{
 		$this->id = $token->extraParams['id_int']; // SteamID64
 	}
 
-
 }

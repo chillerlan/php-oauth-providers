@@ -11,6 +11,7 @@
 namespace chillerlan\OAuthTest\Providers\Unit;
 
 use chillerlan\OAuth\Core\ProviderException;
+use chillerlan\OAuth\Providers\TwitterCC;
 use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
 
 /**
@@ -18,7 +19,7 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
  */
 class TwitterCCTest extends OAuth2ProviderTestAbstract{
 
-	protected string $FQN = \chillerlan\OAuth\Providers\TwitterCC::class;
+	protected string $FQN = TwitterCC::class;
 
 	public function testGetAuthURL():void{
 		$this->markTestSkipped('N/A');

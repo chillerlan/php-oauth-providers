@@ -26,7 +26,7 @@ class AmazonAPITest extends OAuth2APITestAbstract{
 	protected string $ENV = 'AMAZON';
 
 	public function testMe():void{
-		$this::assertMatchesRegularExpression('/[a-z\d\.]/i', MessageUtil::decodeJSON($this->provider->me())->user_id);
+		$this::assertMatchesRegularExpression('/[a-z\d.]+/i', MessageUtil::decodeJSON($this->provider->me())->user_id);
 	}
 
 }

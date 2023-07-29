@@ -38,7 +38,7 @@ class DeezerTest extends OAuth2ProviderTestAbstract{
 	}
 
 	public function testParseTokenResponse():void{
-		$token = $this
+		$token = $this->reflection
 			->getMethod('parseTokenResponse')
 			->invokeArgs($this->provider, [
 				$this->responseFactory->createResponse()->withBody($this->streamFactory->createStream('access_token=whatever'))
@@ -52,7 +52,7 @@ class DeezerTest extends OAuth2ProviderTestAbstract{
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('error retrieving access token:');
 
-		$this
+		$this->reflection
 			->getMethod('parseTokenResponse')
 			->invokeArgs($this->provider, [
 				$this->responseFactory->createResponse()->withBody($this->streamFactory->createStream('error_reason=whatever'))

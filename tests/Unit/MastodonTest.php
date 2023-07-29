@@ -11,6 +11,7 @@
 namespace chillerlan\OAuthTest\Providers\Unit;
 
 use chillerlan\OAuth\OAuthException;
+use chillerlan\OAuth\Providers\Mastodon;
 use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
 
 /**
@@ -18,7 +19,7 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
  */
 class MastodonTest extends OAuth2ProviderTestAbstract{
 
-	protected string $FQN = \chillerlan\OAuth\Providers\Mastodon::class;
+	protected string $FQN = Mastodon::class;
 
 	public function testGetAuthURL():void{
 		$this->provider->setInstance('https://localhost');

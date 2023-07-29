@@ -10,6 +10,7 @@
 
 namespace chillerlan\OAuthTest\Providers\Live;
 
+use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Providers\MusicBrainz;
 use chillerlan\OAuthTest\Providers\OAuth2APITestAbstract;
 
@@ -20,7 +21,7 @@ class MusicBrainzAPITest extends OAuth2APITestAbstract{
 
 	public function testArtistId():void{
 		$r = $this->provider->request('/artist/573510d6-bb5d-4d07-b0aa-ea6afe39e28d', ['inc' => 'url-rels work-rels']);
-		$j = $this->responseJson($r);
+		$j = MessageUtil::decodeJSON($r);
 
 		$this::assertSame('Helium', $j->name);
 		$this::assertSame('573510d6-bb5d-4d07-b0aa-ea6afe39e28d', $j->id);
@@ -28,7 +29,7 @@ class MusicBrainzAPITest extends OAuth2APITestAbstract{
 
 	public function testArtistIdXML():void{
 		$r = $this->provider->request('/artist/573510d6-bb5d-4d07-b0aa-ea6afe39e28d', ['inc' => 'url-rels work-rels', 'fmt' => 'xml']);
-		$x = $this->responseXML($r);
+		$x = MessageUtil::decodeXML($r);
 
 		$this::assertSame('Helium', (string)$x->artist[0]->name);
 		$this::assertSame('573510d6-bb5d-4d07-b0aa-ea6afe39e28d', (string)$x->artist[0]->attributes()['id']);

@@ -50,7 +50,8 @@ class MailChimpTest extends OAuth2ProviderTestAbstract{
 		$this->expectException(OAuthException::class);
 		$this->expectExceptionMessage('invalid auth type');
 
-		$this->setProperty($this->provider, 'authMethod', -1);
+		$this->reflection->getProperty('authMethod')->setValue($this->provider, -1);
+
 		$this->storage->storeAccessToken($this->token, $this->provider->serviceName);
 
 		$this->provider->request('');

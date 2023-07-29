@@ -10,6 +10,7 @@
 
 namespace chillerlan\OAuthTest\Providers\Unit;
 
+use chillerlan\OAuth\Providers\Twitch;
 use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
 
 /**
@@ -17,7 +18,7 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
  */
 class TwitchTest extends OAuth2ProviderTestAbstract{
 
-	protected string $FQN = \chillerlan\OAuth\Providers\Twitch::class;
+	protected string $FQN = Twitch::class;
 
 	public function testRequestInvalidAuthTypeException():void{
 		$this::markTestSkipped('N/A');

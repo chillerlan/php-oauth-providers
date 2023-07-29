@@ -11,23 +11,20 @@
 namespace chillerlan\OAuthTest\Providers;
 
 use chillerlan\DotEnv\DotEnv;
-use chillerlan\OAuth\Core\AccessToken;
-use chillerlan\OAuth\Core\ProviderException;
+use chillerlan\OAuth\Core\{AccessToken, ProviderException};
 use chillerlan\OAuth\OAuthOptions;
-use chillerlan\OAuth\Storage\MemoryStorage;
-use chillerlan\OAuth\Storage\OAuthStorageInterface;
+use chillerlan\OAuth\Storage\{MemoryStorage, OAuthStorageInterface};
 use chillerlan\OAuthTest\OAuthTestMemoryStorage;
 use chillerlan\Settings\SettingsContainerInterface;
 use Exception;
 use Psr\Http\Client\ClientInterface;
 use Psr\Log\LoggerInterface;
-
 use function constant, defined, realpath;
 
 /**
  * @property \chillerlan\OAuth\Core\OAuthInterface $provider
  */
-abstract class OAuthAPITestAbstract extends ProviderTestAbstract{
+abstract class OAuthAPITestAbstract extends OAuthProviderTestAbstract{
 
 	protected DotEnv $dotEnv;
 	protected string $ENV;
@@ -76,6 +73,10 @@ abstract class OAuthAPITestAbstract extends ProviderTestAbstract{
 
 	protected function initHttp(SettingsContainerInterface $options, LoggerInterface $logger, array $responses):ClientInterface{
 		return new OAuthTestHttpClient($this->CFG, $logger);
+	}
+
+	public function testTokenInvalidate():void{
+		$this::markTestSkipped('TokenInvalidate N/A on Live Test');
 	}
 
 	public function testMe():void{

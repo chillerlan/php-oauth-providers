@@ -10,8 +10,8 @@
 
 namespace chillerlan\OAuthTest\Providers\Unit;
 
-use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Core\ProviderException;
+use chillerlan\OAuth\Providers\GuildWars2;
 use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
 
 /**
@@ -19,7 +19,7 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
  */
 class GuildWars2Test extends OAuth2ProviderTestAbstract{
 
-	protected string $FQN = \chillerlan\OAuth\Providers\GuildWars2::class;
+	protected string $FQN = GuildWars2::class;
 
 	protected array $testResponses = [
 		'/gw2/auth/v2/tokeninfo' => '{"id":"00000000-1111-2222-3333-444444444444","name":"GW2Token","permissions":["foo","bar"]}',
@@ -27,7 +27,7 @@ class GuildWars2Test extends OAuth2ProviderTestAbstract{
 	];
 
 	public function testStoreGW2Token():void{
-		$this->setProperty($this->provider, 'apiURL', 'https://localhost/gw2/auth');
+		$this->reflection->getProperty('apiURL')->setValue($this->provider, 'https://localhost/gw2/auth');
 
 		$id     = '00000000-1111-2222-3333-444444444444';
 		$secret = '55555555-6666-7777-8888-999999999999';

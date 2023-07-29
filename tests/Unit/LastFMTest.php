@@ -10,7 +10,9 @@
 
 namespace chillerlan\OAuthTest\Providers\Unit;
 
-use chillerlan\OAuth\Core\ProviderException;
+use chillerlan\HTTP\Utils\MessageUtil;
+use chillerlan\OAuth\Core\{AccessToken, ProviderException};
+use chillerlan\OAuth\Providers\LastFM;
 use chillerlan\OAuthTest\Providers\OAuthProviderTestAbstract;
 
 /**
@@ -18,7 +20,7 @@ use chillerlan\OAuthTest\Providers\OAuthProviderTestAbstract;
  */
 class LastFMTest extends OAuthProviderTestAbstract{
 
-	protected string $FQN = \chillerlan\OAuth\Providers\LastFM::class;
+	protected string $FQN = LastFM::class;
 
 	protected array $testResponses = [
 		'/lastfm/auth'        => '{"session":{"key":"session_key"}}',
@@ -28,7 +30,8 @@ class LastFMTest extends OAuthProviderTestAbstract{
 	public function setUp():void{
 		parent::setUp();
 
-		$this->setProperty($this->provider, 'apiURL', '/lastfm/api/request');
+		$this->provider->storeAccessToken(new AccessToken(['accessToken' => 'foo']));
+		$this->reflection->getProperty('apiURL')->setValue($this->provider, '/lastfm/api/request');
 	}
 
 	public function testGetAuthURL():void{
@@ -38,7 +41,7 @@ class LastFMTest extends OAuthProviderTestAbstract{
 	}
 
 	public function testGetSignature():void{
-		$signature = $this
+		$signature = $this->reflection
 			->getMethod('getSignature')
 			->invokeArgs($this->provider, [['foo' => 'bar', 'format' => 'whatever', 'callback' => 'nope']]);
 
@@ -51,7 +54,7 @@ class LastFMTest extends OAuthProviderTestAbstract{
 			->withBody($this->streamFactory->createStream('{"session":{"key":"whatever"}}'))
 		;
 
-		$token = $this
+		$token = $this->reflection
 			->getMethod('parseTokenResponse')
 			->invokeArgs($this->provider, [$r]);
 
@@ -62,7 +65,7 @@ class LastFMTest extends OAuthProviderTestAbstract{
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('unable to parse token response');
 
-		$this
+		$this->reflection
 			->getMethod('parseTokenResponse')
 			->invokeArgs($this->provider, [$this->responseFactory->createResponse()]);
 	}
@@ -76,7 +79,7 @@ class LastFMTest extends OAuthProviderTestAbstract{
 			->withBody($this->streamFactory->createStream('{"error":42,"message":"whatever"}'))
 		;
 
-		$this
+		$this->reflection
 			->getMethod('parseTokenResponse')
 			->invokeArgs($this->provider, [$r]);
 	}
@@ -87,13 +90,13 @@ class LastFMTest extends OAuthProviderTestAbstract{
 
 		$r = $this->responseFactory->createResponse()->withBody($this->streamFactory->createStream('{"session":[]}'));
 
-		$this
+		$this->reflection
 			->getMethod('parseTokenResponse')
 			->invokeArgs($this->provider, [$r]);
 	}
 
 	public function testGetAccessToken():void{
-		$this->setProperty($this->provider, 'apiURL', '/lastfm/auth');
+		$this->reflection->getProperty('apiURL')->setValue($this->provider, '/lastfm/auth');
 
 		$token = $this->provider->getAccessToken('session_token');
 
@@ -104,14 +107,14 @@ class LastFMTest extends OAuthProviderTestAbstract{
 	public function testRequest():void{
 		$r = $this->provider->request('');
 
-		$this::assertSame('such data! much wow!', $this->responseJson($r)->data);
+		$this::assertSame('such data! much wow!', MessageUtil::decodeJSON($r)->data);
 	}
 
 	// coverage
 	public function testRequestPost():void{
 		$r = $this->provider->request('', [], 'POST', ['foo' => 'bar'], ['Content-Type' => 'whatever']);
 
-		$this::assertSame('such data! much wow!', $this->responseJson($r)->data);
+		$this::assertSame('such data! much wow!', MessageUtil::decodeJSON($r)->data);
 	}
 
 }

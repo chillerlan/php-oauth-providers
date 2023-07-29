@@ -11,6 +11,7 @@
 namespace chillerlan\OAuthTest\Providers\Unit;
 
 use chillerlan\OAuth\Core\ProviderException;
+use chillerlan\OAuth\Providers\BattleNet;
 use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
 
 /**
@@ -18,7 +19,7 @@ use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
  */
 class BattleNetTest extends OAuth2ProviderTestAbstract{
 
-	protected string $FQN = \chillerlan\OAuth\Providers\BattleNet::class;
+	protected string $FQN = BattleNet::class;
 
 	public function testSetRegion():void{
 		$this->provider->setRegion('cn');

@@ -24,10 +24,7 @@ class DiscordAPITest extends OAuth2APITestAbstract{
 	protected string $ENV = 'DISCORD';
 
 	public function testRequestCredentialsToken():void{
-
-		$token = $this->provider->
-			getClientCredentialsToken([Discord::SCOPE_CONNECTIONS, Discord::SCOPE_IDENTIFY])
-		;
+		$token = $this->provider->getClientCredentialsToken([Discord::SCOPE_CONNECTIONS, Discord::SCOPE_IDENTIFY]);
 
 		$this::assertInstanceOf(AccessToken::class, $token);
 		$this::assertIsString($token->accessToken);

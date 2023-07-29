@@ -10,6 +10,7 @@
 
 namespace chillerlan\OAuthTest\Providers\Unit;
 
+use chillerlan\OAuth\Providers\OpenCaching;
 use chillerlan\OAuthTest\Providers\OAuth1ProviderTestAbstract;
 
 /**
@@ -17,6 +18,6 @@ use chillerlan\OAuthTest\Providers\OAuth1ProviderTestAbstract;
  */
 class OpenCachingTest extends OAuth1ProviderTestAbstract{
 
-	protected string $FQN = \chillerlan\OAuth\Providers\OpenCaching::class;
+	protected string $FQN = OpenCaching::class;
 
 }
