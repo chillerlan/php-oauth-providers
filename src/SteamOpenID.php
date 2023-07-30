@@ -47,7 +47,7 @@ class SteamOpenID extends OAuthProvider{
 	}
 
 	/**
-	 * @inheritDoc
+	 *
 	 */
 	public function getAccessToken(array $received):AccessToken{
 

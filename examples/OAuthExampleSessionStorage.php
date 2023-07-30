@@ -29,7 +29,7 @@ class OAuthExampleSessionStorage extends SessionStorage{
 	public function __construct(SettingsContainerInterface $options = null, string $storagepath = null){
 		parent::__construct($options);
 
-		$this->storagepath = $storagepath ?? __DIR__;
+		$this->storagepath = ($storagepath ?? __DIR__);
 	}
 
 	/**

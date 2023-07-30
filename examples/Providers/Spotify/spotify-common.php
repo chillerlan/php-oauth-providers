@@ -30,7 +30,6 @@ $spotify = new Spotify($http, $options, $logger);
 $spotify->setStorage($storage);
 
 if(!$storage->hasAccessToken()){
-	/** @var \chillerlan\OAuth\Core\AccessToken $token */
 	$token = (new AccessToken)->fromJSON(file_get_contents(($CFGDIR ?? '').'/Spotify.token.json'));
 	$storage->storeAccessToken($token);
 }

@@ -16,7 +16,7 @@ use Psr\Http\Message\ResponseInterface;
 use function sprintf;
 
 /**
- * note: a missing slash at the end of the path will end up in a HTTP/301
+ * note: a missing slash at the end of the path will end up in an HTTP/301
  *
  * @see https://www.mixcloud.com/developers/
  */

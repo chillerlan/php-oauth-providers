@@ -15,7 +15,7 @@ use chillerlan\OAuth\Providers\Twitter;
 use chillerlan\OAuthTest\Providers\OAuth1APITestAbstract;
 
 /**
- * twitter API tests & examples
+ * Twitter API tests & examples
  *
  * @link https://developer.twitter.com/en/docs/api-reference-index
  *

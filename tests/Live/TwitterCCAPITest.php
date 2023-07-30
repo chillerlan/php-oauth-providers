@@ -10,7 +10,6 @@
 
 namespace chillerlan\OAuthTest\Providers\Live;
 
-
 use chillerlan\OAuth\Providers\TwitterCC;
 use chillerlan\OAuthTest\Providers\OAuth2APITestAbstract;
 
