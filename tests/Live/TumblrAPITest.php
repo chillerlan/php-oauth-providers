@@ -13,6 +13,7 @@ namespace chillerlan\OAuthTest\Providers\Live;
 use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Providers\Tumblr;
 use chillerlan\OAuthTest\Providers\OAuth1APITestAbstract;
+use function var_dump;
 
 /**
  * @property  \chillerlan\OAuth\Providers\Tumblr $provider
@@ -24,6 +25,13 @@ class TumblrAPITest extends OAuth1APITestAbstract{
 
 	public function testMe():void{
 		$this::assertSame($this->testuser, MessageUtil::decodeJSON($this->provider->me())->response->user->name);
+	}
+
+	public function testTokenExchange():void{
+		// only outcomment if wou want to deliberately invaildate your current token
+		$this::markTestSkipped('N/A - will invalidate the current token');
+
+		$this::assertSame('bearer', $this->provider->exchangeForOAuth2Token()->extraParams['token_type']);
 	}
 
 }
