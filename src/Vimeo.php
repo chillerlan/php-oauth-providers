@@ -11,7 +11,7 @@
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\{ClientCredentials, CSRFToken, OAuth2Provider, ProviderException};
+use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, ProviderException, TokenInvalidate};
 use Psr\Http\Message\ResponseInterface;
 use function sprintf;
 
@@ -19,26 +19,36 @@ use function sprintf;
  * @see https://developer.vimeo.com/
  * @see https://developer.vimeo.com/api/authentication
  */
-class Vimeo extends OAuth2Provider implements ClientCredentials, CSRFToken{
+class Vimeo extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenInvalidate{
 
 	/**
 	 * @see https://developer.vimeo.com/api/authentication#understanding-the-auth-process
 	 */
-	public const SCOPE_PUBLIC                    = 'public';
-	public const SCOPE_PRIVATE                   = 'private';
-	public const SCOPE_PURCHASED                 = 'purchased';
-	public const SCOPE_CREATE                    = 'create';
-	public const SCOPE_EDIT                      = 'edit';
-	public const SCOPE_DELETE                    = 'delete';
-	public const SCOPE_INTERACT                  = 'interact';
-	public const SCOPE_UPLOAD                    = 'upload';
-	public const SCOPE_PROMO_CODES               = 'promo_codes';
-	public const SCOPE_VIDEO_FILES               = 'video_files';
+	public const SCOPE_PUBLIC      = 'public';
+	public const SCOPE_PRIVATE     = 'private';
+	public const SCOPE_PURCHASED   = 'purchased';
+	public const SCOPE_CREATE      = 'create';
+	public const SCOPE_EDIT        = 'edit';
+	public const SCOPE_DELETE      = 'delete';
+	public const SCOPE_INTERACT    = 'interact';
+	public const SCOPE_STATS       = 'stats';
+	public const SCOPE_UPLOAD      = 'upload';
+	public const SCOPE_PROMO_CODES = 'promo_codes';
+	public const SCOPE_VIDEO_FILES = 'video_files';
 
-	protected const API_VERSION                  = '3.4';
+	// @see https://developer.vimeo.com/api/changelog
+	protected const API_VERSION    = '3.4';
+
+	protected array $defaultScopes               =  [
+		self::SCOPE_PUBLIC,
+		self::SCOPE_PRIVATE,
+		self::SCOPE_INTERACT,
+		self::SCOPE_STATS,
+	];
 
 	protected string  $authURL                   = 'https://api.vimeo.com/oauth/authorize';
 	protected string  $accessTokenURL            = 'https://api.vimeo.com/oauth/access_token';
+	protected string  $revokeURL                 = 'https://api.vimeo.com/tokens';
 	protected string  $apiURL                    = 'https://api.vimeo.com';
 	protected ?string $userRevokeURL             = 'https://vimeo.com/settings/apps';
 	protected ?string $clientCredentialsTokenURL = 'https://api.vimeo.com/oauth/authorize/client';
@@ -46,12 +56,6 @@ class Vimeo extends OAuth2Provider implements ClientCredentials, CSRFToken{
 	protected ?string $applicationURL            = 'https://developer.vimeo.com/apps';
 	protected array   $authHeaders               = ['Accept' => 'application/vnd.vimeo.*+json;version='.self::API_VERSION];
 	protected array   $apiHeaders                = ['Accept' => 'application/vnd.vimeo.*+json;version='.self::API_VERSION];
-
-	protected array $defaultScopes               =  [
-		self::SCOPE_PUBLIC,
-		self::SCOPE_PRIVATE,
-		self::SCOPE_INTERACT,
-	];
 
 	/**
 	 * @inheritDoc
@@ -71,6 +75,31 @@ class Vimeo extends OAuth2Provider implements ClientCredentials, CSRFToken{
 		}
 
 		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function invalidateAccessToken(AccessToken $token = null):bool{
+
+		if($token !== null){
+			// to revoke a token different from the one of the currently authenticated user,
+			// we're going to clone the provider and feed the other token for the invalidate request
+			$provider = clone $this;
+			$provider->storeAccessToken($token);
+			$response = $provider->request(path: $this->revokeURL, method: 'DELETE');
+		}
+		else{
+			$response = $this->request(path: $this->revokeURL, method: 'DELETE');
+		}
+
+		if($response->getStatusCode() === 204){
+			$this->storage->clearAccessToken();
+
+			return true;
+		}
+
+		return false;
 	}
 
 }
