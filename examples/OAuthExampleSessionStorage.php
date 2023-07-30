@@ -55,14 +55,12 @@ class OAuthExampleSessionStorage extends SessionStorage{
 		$service = $this->getServiceName($service);
 
 		if($this->hasAccessToken($service)){
-			/** @noinspection PhpIncompatibleReturnTypeInspection */
 			return (new AccessToken)->fromJSON($_SESSION[$this->tokenVar][$service]);
 		}
 
 		$tokenfile = sprintf('%s/%s.token.json', $this->storagepath, $service);
 
 		if(file_exists($tokenfile)){
-			/** @noinspection PhpIncompatibleReturnTypeInspection */
 			return (new AccessToken)->fromJSON(file_get_contents($tokenfile));
 		}
 
