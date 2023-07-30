@@ -6,4 +6,7 @@ config/**/*.token*
 config/cacert.pem
 composer.lock
 .phpunit.result.cache
+phpcs.xml
+phpdoc.xml
+phpmd.xml
 phpunit.xml
