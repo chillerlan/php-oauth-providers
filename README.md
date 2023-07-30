@@ -5,7 +5,7 @@
 [![License][license-badge]][license]
 [![Continuous Integration][gh-action-badge]][gh-action]
 [![CodeCov][coverage-badge]][coverage]
-[![Scrunitizer CI][scrutinizer-badge]][scrutinizer]
+[![Codacy][codacy-badge]][codacy]
 [![Packagist downloads][downloads-badge]][downloads]
 
 [php-badge]: https://img.shields.io/packagist/php-v/chillerlan/php-oauth-providers?logo=php&color=8892BF
@@ -16,8 +16,8 @@
 [license]: https://github.com/chillerlan/php-oauth-providers/blob/main/LICENSE
 [coverage-badge]: https://img.shields.io/codecov/c/github/chillerlan/php-oauth-providers.svg?logo=codecov
 [coverage]: https://codecov.io/github/chillerlan/php-oauth-providers
-[scrutinizer-badge]: https://img.shields.io/scrutinizer/g/chillerlan/php-oauth-providers.svg?logo=scrutinizer
-[scrutinizer]: https://scrutinizer-ci.com/g/chillerlan/php-oauth-providers
+[codacy-badge]: https://img.shields.io/codacy/grade/a8f867d3d53840adaabc2d6aab304cf0?logo=codacy
+[codacy]: https://app.codacy.com/gh/chillerlan/php-oauth-providers/dashboard
 [downloads-badge]: https://img.shields.io/packagist/dt/chillerlan/php-oauth-providers.svg?logo=packagist
 [downloads]: https://packagist.org/packages/chillerlan/php-oauth-providers/stats
 [gh-action-badge]: https://img.shields.io/github/actions/workflow/status/chillerlan/php-oauth-providers/ci.yml?branch=main&logo=github
