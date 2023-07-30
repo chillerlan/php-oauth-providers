@@ -23,7 +23,7 @@ class GuildWars2Test extends OAuth2ProviderTestAbstract{
 
 	protected array $testResponses = [
 		'/gw2/auth/v2/tokeninfo' => '{"id":"00000000-1111-2222-3333-444444444444","name":"GW2Token","permissions":["foo","bar"]}',
-		'/oauth2/api/request' => '{"data":"such data! much wow!"}',
+		'/oauth2/api/request'    => '{"data":"such data! much wow!"}',
 	];
 
 	public function testStoreGW2Token():void{

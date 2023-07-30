@@ -43,11 +43,11 @@ class Foursquare extends OAuth2Provider{
 		array                        $headers = null,
 		string                       $protocolVersion = null
 	):ResponseInterface{
-		$queryparams      = QueryUtil::parse(QueryUtil::parseUrl($this->apiURL.$path)['query'] ?? '');
+		$queryparams      = QueryUtil::parse((QueryUtil::parseUrl($this->apiURL.$path)['query'] ?? ''));
 		$queryparams['v'] = $this::API_VERSIONDATE;
 		$queryparams['m'] = 'foursquare';
 
-		return parent::request(explode('?', $path)[0], array_merge($params ?? [], $queryparams), $method, $body, $headers);
+		return parent::request(explode('?', $path)[0], array_merge(($params ?? []), $queryparams), $method, $body, $headers);
 	}
 
 	/**

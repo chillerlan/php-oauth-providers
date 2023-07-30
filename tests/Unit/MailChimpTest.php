@@ -26,7 +26,7 @@ class MailChimpTest extends OAuth2ProviderTestAbstract{
 	protected array $testResponses = [
 		'/oauth2/access_token' => '{"access_token":"test_access_token","expires_in":3600,"state":"test_state"}',
 		'/oauth2/metadata'     => '{"metadata":"whatever"}',
-		'/3.0/'                 => '{"data":"such data! much wow! (/3.0/)"}',
+		'/3.0/'                => '{"data":"such data! much wow! (/3.0/)"}',
 	];
 
 	protected AccessToken $token;

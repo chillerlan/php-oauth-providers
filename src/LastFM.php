@@ -48,7 +48,7 @@ class LastFM extends OAuthProvider{
 	 */
 	public function getAuthURL(array $params = null):UriInterface{
 
-		$params = array_merge($params ?? [], [
+		$params = array_merge(($params ?? []), [
 			'api_key' => $this->options->key,
 		]);
 
@@ -169,7 +169,7 @@ class LastFM extends OAuthProvider{
 		/** @phan-suppress-next-line PhanTypeMismatchArgumentNullable */
 		$request = $this->requestFactory->createRequest($method, QueryUtil::merge($this->apiURL, $params));
 
-		foreach(array_merge($this->apiHeaders, $headers ?? []) as $header => $value){
+		foreach(array_merge($this->apiHeaders, ($headers ?? [])) as $header => $value){
 			$request = $request->withAddedHeader($header, $value);
 		}
 

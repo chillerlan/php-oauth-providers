@@ -47,19 +47,19 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	public const SCOPE_USER_READ_EMAIL            = 'user:read:email';
 	public const SCOPE_USER_READ_SUBSCRIPTIONS    = 'user:read:subscriptions';
 
-	protected string  $authURL                    = 'https://id.twitch.tv/oauth2/authorize';
-	protected string  $accessTokenURL             = 'https://id.twitch.tv/oauth2/token';
-	protected string  $revokeURL                  = 'https://id.twitch.tv/oauth2/revoke';
-	protected string  $apiURL                     = 'https://api.twitch.tv';
-	protected ?string $userRevokeURL              = 'https://www.twitch.tv/settings/connections';
-	protected ?string $apiDocs                    = 'https://dev.twitch.tv/docs/api/reference/';
-	protected ?string $applicationURL             = 'https://dev.twitch.tv/console/apps/create';
-	protected array   $authHeaders                = ['Accept' => 'application/vnd.twitchtv.v5+json'];
-	protected array   $apiHeaders                 = ['Accept' => 'application/vnd.twitchtv.v5+json'];
-
-	protected array   $defaultScopes              =  [
+	protected array   $defaultScopes  =  [
 		self::SCOPE_USER_READ_EMAIL,
 	];
+
+	protected string  $authURL        = 'https://id.twitch.tv/oauth2/authorize';
+	protected string  $accessTokenURL = 'https://id.twitch.tv/oauth2/token';
+	protected string  $revokeURL      = 'https://id.twitch.tv/oauth2/revoke';
+	protected string  $apiURL         = 'https://api.twitch.tv';
+	protected ?string $userRevokeURL  = 'https://www.twitch.tv/settings/connections';
+	protected ?string $apiDocs        = 'https://dev.twitch.tv/docs/api/reference/';
+	protected ?string $applicationURL = 'https://dev.twitch.tv/console/apps/create';
+	protected array   $authHeaders    = ['Accept' => 'application/vnd.twitchtv.v5+json'];
+	protected array   $apiHeaders     = ['Accept' => 'application/vnd.twitchtv.v5+json'];
 
 	/**
 	 * @see https://dev.twitch.tv/docs/authentication#oauth-client-credentials-flow-app-access-tokens
@@ -76,7 +76,7 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 		}
 
 		$request = $this->requestFactory
-			->createRequest('POST', $this->clientCredentialsTokenURL ?? $this->accessTokenURL)
+			->createRequest('POST', ($this->clientCredentialsTokenURL ?? $this->accessTokenURL))
 			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
 			->withBody($this->streamFactory->createStream(QueryUtil::build($params, PHP_QUERY_RFC1738)))
 		;

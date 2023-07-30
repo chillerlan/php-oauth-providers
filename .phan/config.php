@@ -14,8 +14,8 @@ return [
 	// Note that the **only** effect of choosing `'5.6'` is to infer
 	// that functions removed in php 7.0 exist.
 	// (See `backward_compatibility_checks` for additional options)
-	'target_php_version' => null,
-	'minimum_target_php_version' => '8.1',
+	'target_php_version'              => null,
+	'minimum_target_php_version'      => '8.1',
 
 	// A list of directories that should be parsed for class and
 	// method information. After excluding the directories
@@ -24,7 +24,7 @@ return [
 	//
 	// Thus, both first-party and third-party code being used by
 	// your application should be included in this list.
-	'directory_list' => [
+	'directory_list'                  => [
 		'examples',
 		'src',
 		'tests',
@@ -53,7 +53,7 @@ return [
 		'vendor',
 	],
 
-	'suppress_issue_types' => [
+	'suppress_issue_types'            => [
 		'PhanUndeclaredGlobalVariable',
 		'PhanUnextractableAnnotationPart',
 	],

@@ -43,8 +43,8 @@ require_once __DIR__.'/spotify-common.php';
 $me            = MessageUtil::decodeJSON($spotify->request('/v1/me'));
 $market        = $me->country; // market???
 $now           = time();
-$since         = $now - 7 * 86400; // last week
-$until         = $now - 0 * 86400; // adjust to your likes
+$since         = ($now - 7 * 86400); // last week
+$until         = ($now - 0 * 86400); // adjust to your likes
 
 #$prev_yr       = 2010;
 #$since         = mktime(0, 0, 0, 1, 1, $prev_yr);
@@ -185,8 +185,8 @@ foreach($uris as $i => $chunk){
 		['Content-Type' => 'application/json'],
 	);
 
-	$playlistAddTracks->getStatusCode() === 201
-		? $logger->info('added tracks '.++$i.'/'.count($uris).' ['.MessageUtil::decodeJSON($playlistAddTracks)->snapshot_id.']')
+	($playlistAddTracks->getStatusCode() === 201)
+		? $logger->info('added tracks '.(++$i).'/'.count($uris).' ['.MessageUtil::decodeJSON($playlistAddTracks)->snapshot_id.']')
 		: $logger->error($playlistAddTracks->getStatusCode()); // idc
 }
 
@@ -203,7 +203,7 @@ foreach($releaseinfo as $date => $releases){
 	$id = 0;
 
 	foreach($releases as $release){
-		$logger->info('['.++$id.'] '.implode(', ', array_column($release->artists, 'name')).' - '.$release->name);
+		$logger->info('['.(++$id).'] '.implode(', ', array_column($release->artists, 'name')).' - '.$release->name);
 	}
 
 }

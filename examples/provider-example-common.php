@@ -48,9 +48,9 @@ $env = (new DotEnv($CFGDIR, $ENVFILE, false))->load();
 
 $options_arr = [
 	// OAuthOptions
-	'key'              => $env->get($ENVVAR.'_KEY') ?? '',
-	'secret'           => $env->get($ENVVAR.'_SECRET') ?? '',
-	'callbackURL'      => $env->get($ENVVAR.'_CALLBACK_URL') ?? '',
+	'key'              => ($env->get($ENVVAR.'_KEY') ?? ''),
+	'secret'           => ($env->get($ENVVAR.'_SECRET') ?? ''),
+	'callbackURL'      => ($env->get($ENVVAR.'_CALLBACK_URL') ?? ''),
 	'tokenAutoRefresh' => true,
 	'sessionStart'     => true,
 
@@ -65,7 +65,7 @@ $options_arr = [
  * @var \Psr\Http\Client\ClientInterface $http
  * @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage
  */
-$options = $options ?? new class($options_arr) extends OAuthOptions{ use HTTPOptionsTrait; };
+$options = ($options ?? new class ($options_arr) extends OAuthOptions{ use HTTPOptionsTrait; });
 $logger  = new Logger('log', [new NullHandler]);
 
 if($LOGLEVEL){

@@ -75,7 +75,7 @@ class Stripe extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInv
 			method : 'POST',
 			body   : [
 				'client_id'      => $this->options->key,
-				'stripe_user_id' => $token->extraParams['stripe_user_id'] ?? '',
+				'stripe_user_id' => ($token->extraParams['stripe_user_id'] ?? ''),
 			],
 			headers: ['Content-Type' => 'application/x-www-form-urlencoded']
 		);

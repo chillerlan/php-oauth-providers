@@ -22,13 +22,13 @@ use const PHP_QUERY_RFC1738;
  */
 class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenRefresh{
 
-	const SCOPE_PROFILE               = 'profile';
-	const SCOPE_EMAIL                 = 'email';
-	const SCOPE_TAG                   = 'tag';
-	const SCOPE_RATING                = 'rating';
-	const SCOPE_COLLECTION            = 'collection';
-	const SCOPE_SUBMIT_ISRC           = 'submit_isrc';
-	const SCOPE_SUBMIT_BARCODE        = 'submit_barcode';
+	public const SCOPE_PROFILE        = 'profile';
+	public const SCOPE_EMAIL          = 'email';
+	public const SCOPE_TAG            = 'tag';
+	public const SCOPE_RATING         = 'rating';
+	public const SCOPE_COLLECTION     = 'collection';
+	public const SCOPE_SUBMIT_ISRC    = 'submit_isrc';
+	public const SCOPE_SUBMIT_BARCODE = 'submit_barcode';
 
 	protected string  $authURL        = 'https://musicbrainz.org/oauth2/authorize';
 	protected string  $accessTokenURL = 'https://musicbrainz.org/oauth2/token';
@@ -71,7 +71,7 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenRefresh{
 		];
 
 		$request = $this->requestFactory
-			->createRequest('POST', $this->refreshTokenURL ?? $this->accessTokenURL) // refreshTokenURL is used in tests
+			->createRequest('POST', ($this->refreshTokenURL ?? $this->accessTokenURL)) // refreshTokenURL is used in tests
 			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
 			->withHeader('Accept-Encoding', 'identity')
 			->withBody($this->streamFactory->createStream(QueryUtil::build($body, PHP_QUERY_RFC1738)))
@@ -99,8 +99,8 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenRefresh{
 		array                        $headers = null,
 		string                       $protocolVersion = null
 	):ResponseInterface{
-		$params = $params ?? [];
-		$method = strtoupper($method ?? 'GET');
+		$params = ($params ?? []);
+		$method = strtoupper(($method ?? 'GET'));
 		$token  = $this->storage->getAccessToken($this->serviceName);
 
 		if($token->isExpired()){

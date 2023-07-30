@@ -39,19 +39,19 @@ foreach(getProviders(__DIR__.'/../src') as $p){
 
 	$table[] = '| ['.$p['name'].']('.$provider->apiDocs.')'.
 		' | [link]('.$provider->applicationURL.')'.
-		' | '.(!$provider->userRevokeURL ? '' : '[link]('.$provider->userRevokeURL.')').
+		' | '.((!$provider->userRevokeURL) ? '' : '[link]('.$provider->userRevokeURL.')').
 		' | '.$oauth.
-		' | '.($provider instanceof ClientCredentials ? '✓' : '').
+		' | '.(($provider instanceof ClientCredentials) ? '✓' : '').
 	    ' |' ;
 
 }
 
 $file   = __DIR__.'/../README.md';
 $readme = file_get_contents($file);
-$start  = strpos($readme, '<!--A-->') + 8;
+$start  = (strpos($readme, '<!--A-->') + 8);
 $end    = strpos($readme, '<!--O-->');
 
-file_put_contents($file, str_replace(substr($readme, $start, $end - $start), "\n".implode("\n", $table)."\n", $readme));
+file_put_contents($file, str_replace(substr($readme, $start, ($end - $start)), "\n".implode("\n", $table)."\n", $readme));
 
 exit;
 

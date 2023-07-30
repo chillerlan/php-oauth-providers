@@ -45,7 +45,7 @@ class Flickr extends OAuth1Provider{
 		string                       $protocolVersion = null
 	):ResponseInterface{
 
-		$params = array_merge($params ?? [], [
+		$params = array_merge(($params ?? []), [
 			'method'         => $path,
 			'format'         => 'json',
 			'nojsoncallback' => true,
@@ -53,7 +53,7 @@ class Flickr extends OAuth1Provider{
 
 		$request = $this->getRequestAuthorization(
 			/** @phan-suppress-next-line PhanTypeMismatchArgumentNullable */
-			$this->requestFactory->createRequest($method ?? 'POST', QueryUtil::merge($this->apiURL, $params)),
+			$this->requestFactory->createRequest(($method ?? 'POST'), QueryUtil::merge($this->apiURL, $params)),
 			$this->storage->getAccessToken($this->serviceName)
 		);
 

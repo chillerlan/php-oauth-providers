@@ -45,7 +45,7 @@ class OpenStreetmap extends OAuth1Provider{
 	 * @inheritDoc
 	 */
 	public function me(bool $json = true):ResponseInterface{
-		$response = $this->request('/api/0.6/user/details'.($json ? '.json' : ''));
+		$response = $this->request('/api/0.6/user/details'.(($json) ? '.json' : ''));
 		$status   = $response->getStatusCode();
 
 		if($status === 200){

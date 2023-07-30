@@ -38,9 +38,9 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 	$username = $token->extraParams['account_username'];
 	$id       = $token->extraParams['account_id'];
 
-	$token->expires = time() + 2592000; // 30 days
+	$token->expires = (time() + 2592000); // 30 days
 	// save the token [...]
-	$storage->storeAccessToken($servicename, $token);
+	$storage->storeAccessToken($token);
 
 	// access granted, redirect
 	header('Location: ?granted='.$servicename);

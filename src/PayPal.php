@@ -72,8 +72,8 @@ class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 
 		$token->provider     = $this->serviceName;
 		$token->accessToken  = $data['access_token'];
-		$token->expires      = $data['expires_in'] ?? AccessToken::EOL_NEVER_EXPIRES;
-		$token->refreshToken = $data['refresh_token'] ?? null;
+		$token->expires      = ($data['expires_in'] ?? AccessToken::EOL_NEVER_EXPIRES);
+		$token->refreshToken = ($data['refresh_token'] ?? null);
 
 		unset($data['expires_in'], $data['refresh_token'], $data['access_token']);
 
@@ -89,9 +89,9 @@ class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 		$this->checkState($state); // we're an instance of CSRFToken
 
 		$body = [
-			'code'          => $code,
-			'grant_type'    => 'authorization_code',
-			'redirect_uri'  => $this->options->callbackURL,
+			'code'         => $code,
+			'grant_type'   => 'authorization_code',
+			'redirect_uri' => $this->options->callbackURL,
 		];
 
 		$request = $this->requestFactory

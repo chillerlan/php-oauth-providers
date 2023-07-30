@@ -35,7 +35,7 @@ final class OAuthTestHttpClient implements ClientInterface, LoggerAwareInterface
 		$clientFactory = constant('TEST_CLIENT_FACTORY');
 
 		$this->http   = $clientFactory::getClient($cfgdir);
-		$this->logger = $logger ?? new NullLogger;
+		$this->logger = ($logger ?? new NullLogger);
 	}
 
 	/**
