@@ -18,31 +18,38 @@ use Psr\Http\Message\ResponseInterface;
 use function sprintf;
 
 /**
- * @see https://discordapp.com/developers/docs/topics/oauth2
+ * @see https://discord.com/developers/docs/topics/oauth2
  */
 class Discord extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh, TokenInvalidate{
 
-	public const SCOPE_BOT                    = 'bot';
-	public const SCOPE_CONNECTIONS            = 'connections';
-	public const SCOPE_EMAIL                  = 'email';
-	public const SCOPE_IDENTIFY               = 'identify';
-	public const SCOPE_GUILDS                 = 'guilds';
-	public const SCOPE_GUILDS_JOIN            = 'guilds.join';
-	public const SCOPE_GDM_JOIN               = 'gdm.join';
-	public const SCOPE_MESSAGES_READ          = 'messages.read';
-	public const SCOPE_RPC                    = 'rpc';
-	public const SCOPE_RPC_API                = 'rpc.api';
-	public const SCOPE_RPC_NOTIFICATIONS_READ = 'rpc.notifications.read';
-	public const SCOPE_WEBHOOK_INCOMING       = 'webhook.incoming';
+	public const SCOPE_APPLICATIONS_COMMANDS                    = 'applications.commands';
+	public const SCOPE_APPLICATIONS_COMMANDS_UPDATE             = 'applications.commands.update';
+	public const SCOPE_APPLICATIONS_COMMANDS_PERMISSIONS_UPDATE = 'applications.commands.permissions.update';
+	public const SCOPE_APPLICATIONS_ENTITLEMENTS                = 'applications.entitlements';
+	public const SCOPE_BOT                                      = 'bot';
+	public const SCOPE_CONNECTIONS                              = 'connections';
+	public const SCOPE_EMAIL                                    = 'email';
+	public const SCOPE_GDM_JOIN                                 = 'gdm.join';
+	public const SCOPE_GUILDS                                   = 'guilds';
+	public const SCOPE_GUILDS_JOIN                              = 'guilds.join';
+	public const SCOPE_GUILDS_MEMBERS_READ                      = 'guilds.members.read';
+	public const SCOPE_IDENTIFY                                 = 'identify';
+	public const SCOPE_MESSAGES_READ                            = 'messages.read';
+	public const SCOPE_RELATIONSHIPS_READ                       = 'relationships.read';
+	public const SCOPE_ROLE_CONNECTIONS_WRITE                   = 'role_connections.write';
+	public const SCOPE_RPC                                      = 'rpc';
+	public const SCOPE_RPC_ACTIVITIES_WRITE                     = 'rpc.activities.write';
+	public const SCOPE_RPC_NOTIFICATIONS_READ                   = 'rpc.notifications.read';
+	public const SCOPE_WEBHOOK_INCOMING                         = 'webhook.incoming';
 
-	protected string  $authURL                = 'https://discordapp.com/api/oauth2/authorize';
-	protected string  $accessTokenURL         = 'https://discordapp.com/api/oauth2/token';
-	protected string  $apiURL                 = 'https://discordapp.com/api/v9';
-	protected string  $revokeURL              = 'https://discordapp.com/api/oauth2/token/revoke';
-	protected ?string $apiDocs                = 'https://discordapp.com/developers/';
-	protected ?string $applicationURL         = 'https://discordapp.com/developers/applications/';
+	protected string  $authURL        = 'https://discordapp.com/api/oauth2/authorize';
+	protected string  $accessTokenURL = 'https://discordapp.com/api/oauth2/token';
+	protected string  $revokeURL      = 'https://discordapp.com/api/oauth2/token/revoke';
+	protected string  $apiURL         = 'https://discordapp.com/api';
+	protected ?string $apiDocs        = 'https://discordapp.com/developers/';
+	protected ?string $applicationURL = 'https://discordapp.com/developers/applications/';
 
-	protected array   $defaultScopes          = [
+	protected array   $defaultScopes  = [
 		self::SCOPE_CONNECTIONS,
 		self::SCOPE_EMAIL,
 		self::SCOPE_IDENTIFY,
