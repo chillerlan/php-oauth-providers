@@ -20,4 +20,11 @@ class DeviantArtTest extends OAuth2ProviderTestAbstract{
 
 	protected string $FQN = DeviantArt::class;
 
+	protected function setUp():void{
+		// modify test response data before loading into the test http client
+		$this->testResponses['/oauth2/revoke_token'] = '{"success": true}';
+
+		parent::setUp();
+	}
+
 }

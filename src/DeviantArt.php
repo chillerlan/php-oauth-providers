@@ -11,14 +11,17 @@
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\{ClientCredentials, CSRFToken, OAuth2Provider, ProviderException, TokenRefresh};
+use chillerlan\OAuth\Core\{
+	AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, ProviderException, TokenInvalidate, TokenRefresh
+};
 use Psr\Http\Message\ResponseInterface;
+use Throwable;
 use function sprintf;
 
 /**
  * @see https://www.deviantart.com/developers/
  */
-class DeviantArt extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh{
+class DeviantArt extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenInvalidate, TokenRefresh{
 
 	public const SCOPE_BASIC          = 'basic';
 	public const SCOPE_BROWSE         = 'browse';
@@ -32,17 +35,19 @@ class DeviantArt extends OAuth2Provider implements ClientCredentials, CSRFToken,
 	public const SCOPE_USER           = 'user';
 	public const SCOPE_USER_MANAGE    = 'user.manage';
 
-	protected string  $authURL        = 'https://www.deviantart.com/oauth2/authorize';
-	protected string  $accessTokenURL = 'https://www.deviantart.com/oauth2/token';
-	protected string  $apiURL         = 'https://www.deviantart.com/api/v1/oauth2';
-	protected ?string $userRevokeURL  = 'https://www.deviantart.com/settings/applications';
-	protected ?string $apiDocs        = 'https://www.deviantart.com/developers/';
-	protected ?string $applicationURL = 'https://www.deviantart.com/developers/apps';
-
 	protected array $defaultScopes    = [
 		self::SCOPE_BASIC,
 		self::SCOPE_BROWSE,
 	];
+
+	protected string  $authURL        = 'https://www.deviantart.com/oauth2/authorize';
+	protected string  $accessTokenURL = 'https://www.deviantart.com/oauth2/token';
+	protected string  $revokeURL      = 'https://www.deviantart.com/oauth2/revoke';
+	protected string  $apiURL         = 'https://www.deviantart.com/api/v1/oauth2';
+	protected ?string $userRevokeURL  = 'https://www.deviantart.com/settings/applications';
+	protected ?string $apiDocs        = 'https://www.deviantart.com/developers/';
+	protected ?string $applicationURL = 'https://www.deviantart.com/developers/apps';
+	protected array   $apiHeaders     = ['dA-minor-version' => '20210526'];
 
 	/**
 	 * @inheritDoc
@@ -62,6 +67,38 @@ class DeviantArt extends OAuth2Provider implements ClientCredentials, CSRFToken,
 		}
 
 		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function invalidateAccessToken(AccessToken $token = null):bool{
+
+		if($token !== null){
+			// to revoke a token different from the one of the currently authenticated user,
+			// we're going to clone the provider and feed the other token for the invalidate request
+			$provider = clone $this;
+			$provider->storeAccessToken($token);
+			$response = $provider->request(path: $this->revokeURL, method: 'POST');
+		}
+		else{
+			$response = $this->request(path: $this->revokeURL, method: 'POST');
+		}
+
+		try{
+			$json = MessageUtil::decodeJSON($response);
+		}
+		catch(Throwable $e){
+			return false;
+		}
+
+		if($response->getStatusCode() === 200 && isset($json->success) && $json->success === true){
+			$this->storage->clearAccessToken();
+
+			return true;
+		}
+
+		return false;
 	}
 
 }
