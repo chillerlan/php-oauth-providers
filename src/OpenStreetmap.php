@@ -21,6 +21,19 @@ use function sprintf, strip_tags;
  */
 class OpenStreetmap extends OAuth1Provider{
 
+	public const SCOPE_READ_PREFS  = 'read_prefs';
+	public const SCOPE_WRITE_PREFS = 'write_prefs';
+	public const SCOPE_WRITE_DIARY = 'write_diary';
+	public const SCOPE_WRITE_API   = 'write_api';
+	public const SCOPE_READ_GPX    = 'read_gpx';
+	public const SCOPE_WRITE_GPX   = 'write_gpx';
+	public const SCOPE_WRITE_NOTES = 'write_notes';
+
+	protected array   $defaultScopes  = [
+		self::SCOPE_READ_PREFS,
+		self::SCOPE_READ_GPX,
+	];
+
 	protected string  $requestTokenURL = 'https://www.openstreetmap.org/oauth/request_token';
 	protected string  $authURL         = 'https://www.openstreetmap.org/oauth/authorize';
 	protected string  $accessTokenURL  = 'https://www.openstreetmap.org/oauth/access_token';
