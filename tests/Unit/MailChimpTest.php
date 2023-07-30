@@ -37,7 +37,7 @@ class MailChimpTest extends OAuth2ProviderTestAbstract{
 		$this->token = new AccessToken([
 			'accessToken' => 'test_access_token_secret',
 			'expires'     => 1,
-			'extraParams' => ['dc' => 'bar']
+			'extraParams' => ['dc' => 'bar'],
 		]);
 	}
 

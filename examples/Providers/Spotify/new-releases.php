@@ -79,7 +79,7 @@ while($after !== ''){
 			$artists[] = $artist->id;
 		}
 
-		$after = $data->artists->cursors->after ?? '';
+		$after = ($data->artists->cursors->after ?? '');
 	}
 	elseif(isset($data->error)){
 		$logger->error($data->error->message.' ('.$data->error->status.')');
@@ -96,7 +96,7 @@ foreach($artists as $id){
 	$artistAlbums = $spotify->request(sprintf('/v1/artists/%s/albums', $id), ['market' => $market]);
 	$data         = MessageUtil::decodeJSON($artistAlbums);
 
-	foreach($data->items ?? [] as $album){
+	foreach(($data->items ?? []) as $album){
 		$rdate = strtotime($album->release_date);
 
 		if($album->release_date_precision === 'day' && $rdate >= $since && $rdate <= $until){
@@ -130,7 +130,7 @@ foreach(array_chunk(array_values($newalbums), 20, true) as $chunk){ // API max =
 	$albums = $spotify->request('/v1/albums', ['ids' => implode(',', $chunk), 'market' => $market]);
 	$data   = MessageUtil::decodeJSON($albums);
 
-	foreach($data?->albums ?? [] as $album){
+	foreach(($data?->albums ?? []) as $album){
 		$tracks = array_column($album->tracks->items, 'id');
 		$id     = array_shift($tracks);
 

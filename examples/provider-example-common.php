@@ -25,7 +25,7 @@ use function ini_set;
  *
  * @var string $AUTOLOADER - path to an alternate autoloader
  */
-require_once $AUTOLOADER ?? __DIR__.'/../vendor/autoload.php';
+require_once ($AUTOLOADER ?? __DIR__.'/../vendor/autoload.php');
 
 ini_set('date.timezone', 'Europe/Amsterdam');
 
@@ -65,6 +65,7 @@ $options_arr = [
  * @var \Psr\Http\Client\ClientInterface $http
  * @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage
  */
+//phpcs:ignore
 $options = ($options ?? new class ($options_arr) extends OAuthOptions{ use HTTPOptionsTrait; });
 $logger  = new Logger('log', [new NullHandler]);
 
