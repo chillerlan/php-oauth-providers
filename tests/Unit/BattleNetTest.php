@@ -23,10 +23,10 @@ class BattleNetTest extends OAuth2ProviderTestAbstract{
 
 	public function testSetRegion():void{
 		$this->provider->setRegion('cn');
-		$this::assertSame('https://www.battlenet.com.cn', $this->provider->apiURL);
+		$this::assertSame('https://gateway.battlenet.com.cn', $this->provider->apiURL);
 
 		$this->provider->setRegion('us');
-		$this::assertSame('https://us.battle.net', $this->provider->apiURL);
+		$this::assertSame('https://us.api.blizzard.com', $this->provider->apiURL);
 	}
 
 	public function testSetRegionException():void{

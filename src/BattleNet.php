@@ -17,9 +17,8 @@ use chillerlan\Settings\SettingsContainerInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
-use function in_array;
-use function sprintf;
-use function strtolower;
+use Throwable;
+use function in_array, sprintf, strtolower;
 
 /**
  * Battle.net OAuth
@@ -33,16 +32,21 @@ class BattleNet extends OAuth2Provider implements ClientCredentials, CSRFToken{
 	public const SCOPE_PROFILE_SC2    = 'sc2.profile';
 	public const SCOPE_PROFILE_WOW    = 'wow.profile';
 
-	protected ?string $apiDocs        = 'https://develop.battle.net/documentation';
-	protected ?string $applicationURL = 'https://develop.battle.net/access/clients';
-	protected ?string $userRevokeURL  = 'https://account.blizzard.com/connections';
-
 	protected array $defaultScopes    = [
 		self::SCOPE_OPENID,
 		self::SCOPE_PROFILE_D3,
 		self::SCOPE_PROFILE_SC2,
 		self::SCOPE_PROFILE_WOW,
 	];
+
+	protected ?string $apiDocs        = 'https://develop.battle.net/documentation';
+	protected ?string $applicationURL = 'https://develop.battle.net/access/clients';
+	protected ?string $userRevokeURL  = 'https://account.blizzard.com/connections';
+
+	// the URL for the "OAuth" endpoints
+	// @see https://develop.battle.net/documentation/battle-net/oauth-apis
+	protected string  $battleNetOauth;
+	protected string  $region;
 
 	/**
 	 * @inheritDoc
@@ -65,15 +69,21 @@ class BattleNet extends OAuth2Provider implements ClientCredentials, CSRFToken{
 	public function setRegion(string $region):static{
 		$region = strtolower($region);
 
-		if(!in_array($region, ['apac', 'cn', 'eu', 'us'], true)){
+		if(!in_array($region, ['cn', 'eu', 'kr', 'tw', 'us'], true)){
 			throw new ProviderException('invalid region: '.$region);
 		}
 
-		$url = 'https://'.($region === 'cn' ? 'www.battlenet.com.cn' : $region.'.battle.net');
+		$this->region         = $region;
+		$this->apiURL         = sprintf('https://%s.api.blizzard.com', $this->region);
+		$this->battleNetOauth = 'https://oauth.battle.net';
 
-		$this->apiURL         = $url;
-		$this->authURL        = $url.'/oauth/authorize';
-		$this->accessTokenURL = $url.'/oauth/token';
+		if($region === 'cn'){
+			$this->apiURL         = 'https://gateway.battlenet.com.cn';
+			$this->battleNetOauth = 'https://oauth.battlenet.com.cn';
+		}
+
+		$this->authURL        = $this->battleNetOauth.'/authorize';
+		$this->accessTokenURL = $this->battleNetOauth.'/token';
 
 		return $this;
 	}
@@ -82,14 +92,18 @@ class BattleNet extends OAuth2Provider implements ClientCredentials, CSRFToken{
 	 * @inheritDoc
 	 */
 	public function me():ResponseInterface{
-		$response = $this->request('/oauth/userinfo');
+		$request  = $this->requestFactory->createRequest('GET', $this->battleNetOauth.'/oauth/userinfo');
+		$response = $this->sendRequest($this->getRequestAuthorization($request, $this->storage->getAccessToken()));
 		$status   = $response->getStatusCode();
 
 		if($status === 200){
 			return $response;
 		}
 
-		$json = MessageUtil::decodeJSON($response);
+		try{
+			$json = MessageUtil::decodeJSON($response);
+		}
+		catch(Throwable $e){}
 
 		if(isset($json->error, $json->error_description)){
 			throw new ProviderException($json->error_description);
