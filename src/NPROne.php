@@ -71,7 +71,7 @@ class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInv
 			}
 
 			// we explicitly ignore any existing parameters here
-			return $parsedURL->withQuery('')->withFragment('');
+			return (string)$parsedURL->withQuery('')->withFragment('');
 		}
 
 		$parsedPath = $parsedURL->getPath();
