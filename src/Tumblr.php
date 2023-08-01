@@ -63,7 +63,7 @@ class Tumblr extends OAuth1Provider{
 		$json     = MessageUtil::decodeJSON($response);
 
 		if($status === 200){
-			$token = new AccessToken;
+			$token = $this->createAccessToken();
 
 			$token->accessToken  = $json->access_token;
 			$token->refreshToken = $json->refresh_token;

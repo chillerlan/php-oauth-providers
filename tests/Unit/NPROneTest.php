@@ -14,6 +14,7 @@ use chillerlan\OAuth\Core\AccessToken;
 use chillerlan\OAuth\OAuthException;
 use chillerlan\OAuth\Providers\NPROne;
 use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @property \chillerlan\OAuth\Providers\NPROne $provider
@@ -43,6 +44,21 @@ class NPROneTest extends OAuth2ProviderTestAbstract{
 		$this->storage->storeAccessToken($token, $this->provider->serviceName);
 
 		$this->provider->request('https://foo.api.npr.org/');
+	}
+
+	#[DataProvider('requestTargetProvider')]
+	public function testGetRequestTarget(string $path, string $expected):void{
+		$this::markTestSkipped('N/A');
+	}
+
+	public function testSetAPI():void{
+		$this->provider = $this->initProvider();
+
+		$this::assertSame('https://listening.api.npr.org', $this->reflection->getProperty('apiURL')->getValue($this->provider));
+
+		$this->provider->setAPI('station');
+
+		$this::assertSame('https://station.api.npr.org', $this->reflection->getProperty('apiURL')->getValue($this->provider));
 	}
 
 }

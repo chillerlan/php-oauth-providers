@@ -10,10 +10,10 @@
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
+use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2Provider, ProviderException, TokenInvalidate, TokenRefresh};
 use Psr\Http\Message\{RequestInterface, ResponseInterface};
-use function sprintf, str_contains;
+use function in_array, ltrim, rtrim, sprintf, strtolower, str_contains;
 
 /**
  * @see https://dev.npr.org
@@ -27,41 +27,61 @@ class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInv
 	public const SCOPE_LISTENING_WRITE    = 'listening.write';
 	public const SCOPE_LOCALACTIVATION    = 'localactivation';
 
-	protected string  $authURL            = 'https://authorization.api.npr.org/v2/authorize';
-	protected string  $accessTokenURL     = 'https://authorization.api.npr.org/v2/token';
-	protected string  $revokeURL          = 'https://authorization.api.npr.org/v2/token/revoke';
-	protected ?string $apiDocs            = 'https://dev.npr.org/api/';
-	protected ?string $applicationURL     = 'https://dev.npr.org/console';
-
-	protected array   $defaultScopes      = [
+	protected array   $defaultScopes  = [
 		self::SCOPE_IDENTITY_READONLY,
 		self::SCOPE_LISTENING_READONLY,
 	];
+
+	protected string  $apiURL         = 'https://listening.api.npr.org';
+	protected string  $authURL        = 'https://authorization.api.npr.org/v2/authorize';
+	protected string  $accessTokenURL = 'https://authorization.api.npr.org/v2/token';
+	protected string  $revokeURL      = 'https://authorization.api.npr.org/v2/token/revoke';
+	protected ?string $apiDocs        = 'https://dev.npr.org/api/';
+	protected ?string $applicationURL = 'https://dev.npr.org/console';
+
+	/**
+	 * Sets the API to work with ("listening" is set as default)
+	 *
+	 * @throws \chillerlan\OAuth\Core\ProviderException
+	 */
+	public function setAPI(string $api):static{
+		$api = strtolower($api);
+
+		if(!in_array($api, ['identity', 'listening', 'station'])){
+			throw new ProviderException(sprintf('invalid API: "%s"', $api));
+		}
+
+		$this->apiURL = sprintf('https://%s.api.npr.org', $api);
+
+		return $this;
+	}
 
 	/**
 	 * @inheritDoc
 	 */
 	protected function getRequestTarget(string $uri):string{
-		$parsedURL = QueryUtil::parseUrl($uri);
-
-		if(!isset($parsedURL['path'])){
-			throw new ProviderException('invalid path'); // @codeCoverageIgnore
-		}
+		$parsedURL = $this->uriFactory->createUri($uri);
 
 		// for some reason we were given a host name
-		if(isset($parsedURL['host'])){
+		if($parsedURL->getHost() !== ''){
 
 			// back out if it doesn't match
-			if(!str_contains($parsedURL['host'], '.api.npr.org')){
+			if(!str_contains($parsedURL->getHost(), '.api.npr.org')){
 				throw new ProviderException('given host does not match provider host'); // @codeCoverageIgnore
 			}
 
 			// we explicitly ignore any existing parameters here
-			return 'https://'.$parsedURL['host'].$parsedURL['path'];
+			return $parsedURL->withQuery('')->withFragment('');
 		}
 
-		// $apiURL may already include a part of the path
-		return $this->apiURL.$parsedURL['path'];
+		$parsedPath = $parsedURL->getPath();
+		$apiURL     = rtrim($this->apiURL, '/');
+
+		if($parsedPath === ''){
+			return $apiURL;
+		}
+
+		return sprintf('%s/%s', $apiURL, ltrim($parsedPath, '/'));
 	}
 
 	/**

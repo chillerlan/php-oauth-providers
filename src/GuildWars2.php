@@ -62,8 +62,8 @@ class GuildWars2 extends OAuth2Provider{
 		$tokeninfo = MessageUtil::decodeJSON($this->http->sendRequest($request));
 
 		if(isset($tokeninfo->id) && str_starts_with($access_token, $tokeninfo->id)){
-			$token                    = new AccessToken;
-			$token->provider          = $this->serviceName;
+			$token = $this->createAccessToken();
+
 			$token->accessToken       = $access_token;
 			$token->accessTokenSecret = substr($access_token, 36, 36); // the actual token
 			$token->expires           = AccessToken::EOL_NEVER_EXPIRES;

@@ -13,7 +13,7 @@ namespace chillerlan\OAuth\Providers;
 use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
 use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, ProviderException, TokenRefresh};
 use Psr\Http\Message\ResponseInterface;
-use function array_column, base64_encode, implode, is_array, json_decode, sprintf;
+use function array_column, base64_encode, explode, implode, is_array, json_decode, sprintf;
 use const PHP_QUERY_RFC1738;
 
 /**
@@ -68,14 +68,14 @@ class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 			throw new ProviderException('token missing');
 		}
 
-		$token = new AccessToken;
+		$token = $this->createAccessToken();
 
-		$token->provider     = $this->serviceName;
 		$token->accessToken  = $data['access_token'];
 		$token->expires      = ($data['expires_in'] ?? AccessToken::EOL_NEVER_EXPIRES);
 		$token->refreshToken = ($data['refresh_token'] ?? null);
+		$token->scopes       = explode($this->scopesDelimiter, ($data['scope'] ?? ''));
 
-		unset($data['expires_in'], $data['refresh_token'], $data['access_token']);
+		unset($data['expires_in'], $data['refresh_token'], $data['access_token'], $data['scope']);
 
 		$token->extraParams = $data;
 

@@ -43,20 +43,19 @@ class Mastodon extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	 * @throws \chillerlan\OAuth\OAuthException
 	 */
 	public function setInstance(string $instance):static{
-		$instance = QueryUtil::parseUrl($instance);
+		$instance = $this->uriFactory->createUri($instance)->withPath('')->withQuery('')->withFragment('');
 
-		if(!isset($instance['host'])){
+		if($instance->getHost() === ''){
 			throw new OAuthException('invalid instance URL');
 		}
 
 		// @todo: check if host exists/responds
-		$this->instance       = 'https://'.$instance['host'];
-
-		$this->apiURL         = $this->instance.'/api';
-		$this->authURL        = $this->instance.'/oauth/authorize';
-		$this->accessTokenURL = $this->instance.'/oauth/token';
-		$this->userRevokeURL  = $this->instance.'/oauth/authorized_applications';
-		$this->applicationURL = $this->instance.'/settings/applications';
+		$this->instance       = (string)$instance;
+		$this->apiURL         = (string)$instance->withPath('/api');
+		$this->authURL        = (string)$instance->withPath('/oauth/authorize');
+		$this->accessTokenURL = (string)$instance->withPath('/oauth/token');
+		$this->userRevokeURL  = (string)$instance->withPath('/oauth/authorized_applications');
+		$this->applicationURL = (string)$instance->withPath('/settings/applications');
 
 		return $this;
 	}

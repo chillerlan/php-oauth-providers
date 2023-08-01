@@ -36,7 +36,7 @@ class SteamOpenIDTest extends OAuthProviderTestAbstract{
 
 		$this->provider->storeAccessToken(new AccessToken(['accessToken' => 'foo']));
 		$this->reflection->getProperty('accessTokenURL')->setValue($this->provider, 'https://localhost/steam/id');
-		$this->reflection->getProperty('apiURL')->setValue($this->provider, '/steam/api/request');
+		$this->reflection->getProperty('apiURL')->setValue($this->provider, 'https://localhost/steam/api/request');
 	}
 
 	public function testGetAuthURL():void{

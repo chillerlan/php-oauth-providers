@@ -13,6 +13,7 @@ namespace chillerlan\OAuthTest\Providers\Unit;
 use chillerlan\OAuth\Core\{AccessToken, ProviderException};
 use chillerlan\OAuth\Providers\Deezer;
 use chillerlan\OAuthTest\Providers\OAuth2ProviderTestAbstract;
+use function time;
 
 /**
  * @property \chillerlan\OAuth\Providers\Deezer $provider
@@ -22,7 +23,7 @@ class DeezerTest extends OAuth2ProviderTestAbstract{
 	protected string $FQN = Deezer::class;
 
 	protected array $testResponses = [
-		'/oauth2/access_token' => 'access_token=test_access_token&expires_in=3600&state=test_state',
+		'/oauth2/access_token' => 'access_token=test_access_token&expires_in=3600&state=test_state&scope=some_scope%20other_scope',
 		'/oauth2/api/request'  => '{"data":"such data! much wow!"}',
 	];
 
@@ -61,6 +62,13 @@ class DeezerTest extends OAuth2ProviderTestAbstract{
 
 	public function testParseTokenResponseNoDataException():void{
 		$this::markTestSkipped('N/A');
+	}
+
+	public function testGetAccessToken():void{
+		$token = $this->provider->getAccessToken('foo', 'test_state');
+
+		$this::assertSame('test_access_token', $token->accessToken);
+		$this::assertGreaterThan(time(), $token->expires);
 	}
 
 }

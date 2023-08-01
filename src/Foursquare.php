@@ -43,7 +43,7 @@ class Foursquare extends OAuth2Provider{
 		array                        $headers = null,
 		string                       $protocolVersion = null
 	):ResponseInterface{
-		$queryparams      = QueryUtil::parse((QueryUtil::parseUrl($this->apiURL.$path)['query'] ?? ''));
+		$queryparams      = QueryUtil::parse($this->uriFactory->createUri($this->apiURL.$path)->getPath());
 		$queryparams['v'] = $this::API_VERSIONDATE;
 		$queryparams['m'] = 'foursquare';
 
