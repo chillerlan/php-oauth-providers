@@ -115,7 +115,7 @@ abstract class SpotifyClient{
 	/**
 	 * fetch the artists the user is following
 	 */
-	protected function getFollowedArtists():void{
+	public function getFollowedArtists():array{
 		$this->artists = [];
 
 		$params = [
@@ -155,12 +155,14 @@ abstract class SpotifyClient{
 		while($params['after'] !== '');
 
 		$this->logger->info(sprintf('fetched %s artists', count($this->artists)));
+
+		return $this->artists;
 	}
 
 	/**
 	 * fetch the releases for the followed artists
 	 */
-	protected function getArtistReleases():void{
+	public function getArtistReleases():array{
 		$this->albums = [];
 
 		foreach($this->artists as $artistID => $artist){
@@ -191,12 +193,66 @@ abstract class SpotifyClient{
 			usleep(self::sleepTimer);
 		}
 
+		return $this->albums;
+	}
+
+	/**
+	 * get the tracks from the given playlist
+	 */
+	public function getPlaylist(string $playlistID):array{
+
+		$params = [
+			'fields' => 'total,limit,offset,items(track(id,name,album(id,name),artists(id,name)))',
+			'market' => $this->market,
+			'offset' => 0,
+			'limit'  => 100,
+		];
+
+		$playlist = [];
+		$retry  = 0;
+
+		do{
+			$response = $this->spotify->request(sprintf('/v1/playlists/%s/tracks', $playlistID), $params);
+
+			if($retry > 3){
+				throw new RuntimeException('error while retrieving playlist');
+			}
+
+			if($response->getStatusCode() !== 200){
+				$this->logger->warning(sprintf('playlist endpoint http/%s', $response->getStatusCode()));
+
+				$retry++;
+
+				continue;
+			}
+
+			$json = MessageUtil::decodeJSON($response);
+
+			if(!isset($json->items)){
+				$this->logger->warning('empty playlist response');
+
+				$retry++;
+
+				continue;
+			}
+
+			foreach($json->items as $item){
+				$playlist[$item->track->id] = $item->track;
+			}
+
+			$params['offset'] += 100;
+			$retry             = 0;
+
+		}
+		while($params['offset'] <= $json->total);
+
+		return $playlist;
 	}
 
 	/**
 	 * create a new playlist
 	 */
-	protected function createPlaylist(string $name, string $description):string{
+	public function createPlaylist(string $name, string $description):string{
 
 		$createPlaylist = $this->spotify->request(
 			path   : sprintf('/v1/users/%s/playlists', $this->id),
@@ -231,7 +287,7 @@ abstract class SpotifyClient{
 	/**
 	 * add the tracks to the given playlist
 	 */
-	protected function addTracks(string $playlistID, array $trackIDs):void{
+	public function addTracks(string $playlistID, array $trackIDs):static{
 
 		$uris = array_chunk(
 			array_map(fn(string $t):string => 'spotify:track:'.$t , array_values($trackIDs)), // why not just ids???
@@ -260,6 +316,7 @@ abstract class SpotifyClient{
 			$this->logger->warning(sprintf('error adding tracks: http/%s', $playlistAddTracks->getStatusCode())); // idc
 		}
 
+		return $this;
 	}
 
 }
