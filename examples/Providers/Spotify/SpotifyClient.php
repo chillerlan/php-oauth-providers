@@ -247,6 +247,8 @@ abstract class SpotifyClient{
 				headers: ['Content-Type' => 'application/json'],
 			);
 
+			usleep(self::sleepTimer);
+
 			if($playlistAddTracks->getStatusCode() === 201){
 				$json = MessageUtil::decodeJSON($playlistAddTracks);
 
