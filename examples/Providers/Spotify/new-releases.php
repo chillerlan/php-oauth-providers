@@ -12,7 +12,7 @@
  * @license      MIT
  */
 
-namespace chillerlan\OAuthAppExamples\Spotify;
+namespace chillerlan\OAuthExamples\Providers\Spotify;
 
 use chillerlan\HTTP\Utils\MessageUtil;
 use Exception;

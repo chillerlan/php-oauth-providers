@@ -8,7 +8,7 @@
  * @license      MIT
  */
 
-namespace chillerlan\OAuthExamples\Spotify;
+namespace chillerlan\OAuthExamples\Providers\Spotify;
 
 use chillerlan\OAuth\Core\AccessToken;
 use chillerlan\OAuth\Providers\Spotify;

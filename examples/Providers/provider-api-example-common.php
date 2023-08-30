@@ -8,7 +8,7 @@
  * @license      MIT
  */
 
-namespace chillerlan\OAuthAppExamples;
+namespace chillerlan\OAuthExamples\Providers;
 
 use chillerlan\HTTP\Psr17\RequestFactory;
 
