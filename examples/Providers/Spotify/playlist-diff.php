@@ -19,6 +19,8 @@ use function sprintf;
  * @var \Psr\Http\Message\RequestFactoryInterface $requestFactory
  * @var \Psr\Log\LoggerInterface $logger
  * @var string $CFGDIR
+ *
+ * @phan-suppress PhanInvalidCommentForDeclarationType
  */
 require_once __DIR__.'/spotify-common.php';
 

@@ -90,7 +90,7 @@ do{
 
 		$name = $pageDOM->getElementById('firstHeading')->nodeValue;
 
-		$logger->info($name);
+		$logger->info(($name ?? ''));
 
 		// get the tracklist
 		foreach($pageDOM->getElementsByTagName('ol') as $li){
