@@ -31,5 +31,5 @@ $spotify->setStorage($storage);
 
 if(!$storage->hasAccessToken()){
 	$token = (new AccessToken)->fromJSON(file_get_contents(($CFGDIR ?? '').'/Spotify.token.json'));
-	$storage->storeAccessToken($token);
+	$spotify->storeAccessToken($token);
 }
