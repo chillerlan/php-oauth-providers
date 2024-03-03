@@ -102,8 +102,11 @@ class MixesDBTrackSearch extends SpotifyClient{
 
 		}
 
-		$playlistID = $this->createPlaylist('mixesdb search result', '');
-		$this->addTracks($playlistID, $tracks);
+		if(!$playlistPerSet){
+			$playlistID = $this->createPlaylist('mixesdb search result', implode(', ', $find));
+			$this->addTracks($playlistID, $tracks);
+		}
+
 	}
 
 	/**

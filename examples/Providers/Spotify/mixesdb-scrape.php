@@ -24,6 +24,7 @@ use function file_put_contents;
 use function json_encode;
 use function libxml_use_internal_errors;
 use function preg_match;
+use function sprintf;
 use function trim;
 use function usleep;
 use const JSON_PRETTY_PRINT;
@@ -90,13 +91,19 @@ do{
 
 		$name = $pageDOM->getElementById('firstHeading')->nodeValue;
 
-		$logger->info(($name ?? ''));
+		if(!empty($name)){
+			$logger->info($name);
 
-		// get the tracklist
-		foreach($pageDOM->getElementsByTagName('ol') as $li){
-			foreach($li->childNodes as $e){
-				$tracklist[$match[0]][$name][] = trim($e->nodeValue);
+			// get the tracklist
+			foreach($pageDOM->getElementsByTagName('ol') as $li){
+				foreach($li->childNodes as $e){
+					$tracklist[$match[0]][$name][] = trim($e->nodeValue);
+				}
 			}
+
+		}
+		else{
+			$logger->warning(sprintf('name empty for page: "%s"', $page));
 		}
 
 		// try not to hammer
