@@ -39,23 +39,23 @@ class Vimeo extends OAuth2Provider implements ClientCredentials, CSRFToken, Toke
 	// @see https://developer.vimeo.com/api/changelog
 	protected const API_VERSION    = '3.4';
 
-	protected array $defaultScopes               =  [
+	protected array $defaultScopes = [
 		self::SCOPE_PUBLIC,
 		self::SCOPE_PRIVATE,
 		self::SCOPE_INTERACT,
 		self::SCOPE_STATS,
 	];
 
-	protected string  $authURL                   = 'https://api.vimeo.com/oauth/authorize';
-	protected string  $accessTokenURL            = 'https://api.vimeo.com/oauth/access_token';
-	protected string  $revokeURL                 = 'https://api.vimeo.com/tokens';
-	protected string  $apiURL                    = 'https://api.vimeo.com';
-	protected ?string $userRevokeURL             = 'https://vimeo.com/settings/apps';
-	protected ?string $clientCredentialsTokenURL = 'https://api.vimeo.com/oauth/authorize/client';
-	protected ?string $apiDocs                   = 'https://developer.vimeo.com';
-	protected ?string $applicationURL            = 'https://developer.vimeo.com/apps';
-	protected array   $authHeaders               = ['Accept' => 'application/vnd.vimeo.*+json;version='.self::API_VERSION];
-	protected array   $apiHeaders                = ['Accept' => 'application/vnd.vimeo.*+json;version='.self::API_VERSION];
+	protected string      $authURL                   = 'https://api.vimeo.com/oauth/authorize';
+	protected string      $accessTokenURL            = 'https://api.vimeo.com/oauth/access_token';
+	protected string      $revokeURL                 = 'https://api.vimeo.com/tokens';
+	protected string      $apiURL                    = 'https://api.vimeo.com';
+	protected string|null $userRevokeURL             = 'https://vimeo.com/settings/apps';
+	protected string|null $clientCredentialsTokenURL = 'https://api.vimeo.com/oauth/authorize/client';
+	protected string|null $apiDocs                   = 'https://developer.vimeo.com';
+	protected string|null $applicationURL            = 'https://developer.vimeo.com/apps';
+	protected array       $authHeaders               = ['Accept' => 'application/vnd.vimeo.*+json;version='.self::API_VERSION];
+	protected array       $apiHeaders                = ['Accept' => 'application/vnd.vimeo.*+json;version='.self::API_VERSION];
 
 	/**
 	 * @inheritDoc
@@ -80,7 +80,7 @@ class Vimeo extends OAuth2Provider implements ClientCredentials, CSRFToken, Toke
 	/**
 	 * @inheritDoc
 	 */
-	public function invalidateAccessToken(AccessToken $token = null):bool{
+	public function invalidateAccessToken(AccessToken|null $token = null):bool{
 
 		if($token !== null){
 			// to revoke a token different from the one of the currently authenticated user,

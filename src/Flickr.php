@@ -21,28 +21,28 @@ use function array_merge, sprintf;
  */
 class Flickr extends OAuth1Provider{
 
-	public const PERM_READ             = 'read';
-	public const PERM_WRITE            = 'write';
-	public const PERM_DELETE           = 'delete';
+	public const PERM_READ   = 'read';
+	public const PERM_WRITE  = 'write';
+	public const PERM_DELETE = 'delete';
 
-	protected string  $requestTokenURL = 'https://www.flickr.com/services/oauth/request_token';
-	protected string  $authURL         = 'https://www.flickr.com/services/oauth/authorize';
-	protected string  $accessTokenURL  = 'https://www.flickr.com/services/oauth/access_token';
-	protected string  $apiURL          = 'https://api.flickr.com/services/rest';
-	protected ?string $userRevokeURL   = 'https://www.flickr.com/services/auth/list.gne';
-	protected ?string $apiDocs         = 'https://www.flickr.com/services/api/';
-	protected ?string $applicationURL  = 'https://www.flickr.com/services/apps/create/';
+	protected string      $requestTokenURL = 'https://www.flickr.com/services/oauth/request_token';
+	protected string      $authURL         = 'https://www.flickr.com/services/oauth/authorize';
+	protected string      $accessTokenURL  = 'https://www.flickr.com/services/oauth/access_token';
+	protected string      $apiURL          = 'https://api.flickr.com/services/rest';
+	protected string|null $userRevokeURL   = 'https://www.flickr.com/services/auth/list.gne';
+	protected string|null $apiDocs         = 'https://www.flickr.com/services/api/';
+	protected string|null $applicationURL  = 'https://www.flickr.com/services/apps/create/';
 
 	/**
 	 * @inheritDoc
 	 */
 	public function request(
-		string                       $path,
-		array                        $params = null,
-		string                       $method = null,
-		StreamInterface|array|string $body = null,
-		array                        $headers = null,
-		string                       $protocolVersion = null
+		string                            $path,
+		array|null                        $params = null,
+		string|null                       $method = null,
+		StreamInterface|array|string|null $body = null,
+		array|null                        $headers = null,
+		string|null                       $protocolVersion = null
 	):ResponseInterface{
 
 		$params = array_merge(($params ?? []), [

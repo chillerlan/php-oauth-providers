@@ -36,11 +36,11 @@ class GuildWars2 extends OAuth2Provider{
 
 	protected const AUTH_ERRMSG       = 'GuildWars2 does not support authentication anymore.';
 
-	protected string  $authURL        = 'https://account.arena.net/applications/create';
-	protected string  $apiURL         = 'https://api.guildwars2.com';
-	protected ?string $userRevokeURL  = 'https://account.arena.net/applications';
-	protected ?string $apiDocs        = 'https://wiki.guildwars2.com/wiki/API:Main';
-	protected ?string $applicationURL = 'https://account.arena.net/applications';
+	protected string      $authURL        = 'https://account.arena.net/applications/create';
+	protected string      $apiURL         = 'https://api.guildwars2.com';
+	protected string|null $userRevokeURL  = 'https://account.arena.net/applications';
+	protected string|null $apiDocs        = 'https://wiki.guildwars2.com/wiki/API:Main';
+	protected string|null $applicationURL = 'https://account.arena.net/applications';
 
 	/**
 	 * @param string $access_token
@@ -86,7 +86,7 @@ class GuildWars2 extends OAuth2Provider{
 	 * @inheritdoc
 	 * @throws \chillerlan\OAuth\Core\ProviderException
 	 */
-	public function getAuthURL(array $params = null, array $scopes = null):UriInterface{
+	public function getAuthURL(array|null $params = null, array|null $scopes = null):UriInterface{
 		throw new ProviderException($this::AUTH_ERRMSG);
 	}
 
@@ -94,7 +94,7 @@ class GuildWars2 extends OAuth2Provider{
 	 * @inheritdoc
 	 * @throws \chillerlan\OAuth\Core\ProviderException
 	 */
-	public function getAccessToken(string $code, string $state = null):AccessToken{
+	public function getAccessToken(string $code, string|null $state = null):AccessToken{
 		throw new ProviderException($this::AUTH_ERRMSG);
 	}
 

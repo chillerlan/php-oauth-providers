@@ -22,16 +22,16 @@ use function explode, intval, preg_replace;
  */
 class SteamOpenID extends OAuthProvider{
 
-	protected string  $authURL        = 'https://steamcommunity.com/openid/login';
-	protected string  $accessTokenURL = 'https://steamcommunity.com/openid/login';
-	protected string  $apiURL         = 'https://api.steampowered.com';
-	protected ?string $applicationURL = 'https://steamcommunity.com/dev/apikey';
-	protected ?string $apiDocs        = 'https://developer.valvesoftware.com/wiki/Steam_Web_API';
+	protected string      $authURL        = 'https://steamcommunity.com/openid/login';
+	protected string      $accessTokenURL = 'https://steamcommunity.com/openid/login';
+	protected string      $apiURL         = 'https://api.steampowered.com';
+	protected string|null $applicationURL = 'https://steamcommunity.com/dev/apikey';
+	protected string|null $apiDocs        = 'https://developer.valvesoftware.com/wiki/Steam_Web_API';
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getAuthURL(array $params = null):UriInterface{
+	public function getAuthURL(array|null $params = null):UriInterface{
 
 		// we ignore user supplied params here
 		$params = [

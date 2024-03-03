@@ -12,11 +12,7 @@ namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Core\{ClientCredentials, CSRFToken, OAuth2Provider, ProviderException};
-use chillerlan\OAuth\OAuthOptions;
-use chillerlan\Settings\SettingsContainerInterface;
-use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\ResponseInterface;
-use Psr\Log\LoggerInterface;
 use Throwable;
 use function in_array, sprintf, strtolower;
 
@@ -32,34 +28,25 @@ class BattleNet extends OAuth2Provider implements ClientCredentials, CSRFToken{
 	public const SCOPE_PROFILE_SC2    = 'sc2.profile';
 	public const SCOPE_PROFILE_WOW    = 'wow.profile';
 
-	protected array $defaultScopes    = [
+	protected array $defaultScopes = [
 		self::SCOPE_OPENID,
 		self::SCOPE_PROFILE_D3,
 		self::SCOPE_PROFILE_SC2,
 		self::SCOPE_PROFILE_WOW,
 	];
 
-	protected ?string $apiDocs        = 'https://develop.battle.net/documentation';
-	protected ?string $applicationURL = 'https://develop.battle.net/access/clients';
-	protected ?string $userRevokeURL  = 'https://account.blizzard.com/connections';
+	protected string|null $apiDocs        = 'https://develop.battle.net/documentation';
+	protected string|null $applicationURL = 'https://develop.battle.net/access/clients';
+	protected string|null $userRevokeURL  = 'https://account.blizzard.com/connections';
 
 	// the URL for the "OAuth" endpoints
 	// @see https://develop.battle.net/documentation/battle-net/oauth-apis
-	protected string  $battleNetOauth;
-	protected string  $region;
-
-	/**
-	 * @inheritDoc
-	 */
-	public function __construct(
-		ClientInterface $http,
-		OAuthOptions|SettingsContainerInterface $options,
-		LoggerInterface $logger = null
-	){
-		parent::__construct($http, $options, $logger);
-
-		$this->setRegion('eu');
-	}
+	protected string $battleNetOauth      = 'https://oauth.battle.net';
+	protected string $region              = 'eu';
+	// these URLs will be set dynamically, depending on the chose datacenter
+	protected string $apiURL              = 'https://eu.api.blizzard.com';
+	protected string $authURL             = 'https://oauth.battle.net/authorize';
+	protected string $accessTokenURL      = 'https://oauth.battle.net/token';
 
 	/**
 	 * Set the datacenter URLs for the given region

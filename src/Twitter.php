@@ -29,12 +29,12 @@ class Twitter extends OAuth1Provider{
 	/** @see https://developer.twitter.com/en/docs/basics/authentication/api-reference/authenticate */
 #	protected string $authURL          = 'https://api.twitter.com/oauth/authenticate';
 
-	protected string  $requestTokenURL = 'https://api.twitter.com/oauth/request_token';
-	protected string  $accessTokenURL  = 'https://api.twitter.com/oauth/access_token';
-	protected string  $apiURL          = 'https://api.twitter.com';
-	protected ?string $userRevokeURL   = 'https://twitter.com/settings/applications';
-	protected ?string $apiDocs         = 'https://developer.twitter.com/docs';
-	protected ?string $applicationURL  = 'https://developer.twitter.com/apps';
+	protected string      $requestTokenURL = 'https://api.twitter.com/oauth/request_token';
+	protected string      $accessTokenURL  = 'https://api.twitter.com/oauth/access_token';
+	protected string      $apiURL          = 'https://api.twitter.com';
+	protected string|null $userRevokeURL   = 'https://twitter.com/settings/applications';
+	protected string|null $apiDocs         = 'https://developer.twitter.com/docs';
+	protected string|null $applicationURL  = 'https://developer.twitter.com/apps';
 
 	/**
 	 * @inheritDoc

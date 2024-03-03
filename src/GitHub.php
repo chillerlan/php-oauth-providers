@@ -47,21 +47,21 @@ class GitHub extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	public const SCOPE_GPG_KEY_WRITE    = 'write:gpg_key';
 	public const SCOPE_GPG_KEY_ADMIN    = 'admin:gpg_key';
 
-	protected string  $authURL          = 'https://github.com/login/oauth/authorize';
-	protected string  $accessTokenURL   = 'https://github.com/login/oauth/access_token';
-	protected string  $apiURL           = 'https://api.github.com';
-	protected ?string $userRevokeURL    = 'https://github.com/settings/applications';
-	protected ?string $apiDocs          = 'https://developer.github.com/';
-	protected ?string $applicationURL   = 'https://github.com/settings/developers';
-	protected array   $authHeaders      = ['Accept' => 'application/json'];
-	protected array   $apiHeaders       = ['Accept' => 'application/vnd.github.beta+json'];
-
-	protected array $defaultScopes      = [
+	protected array $defaultScopes = [
 		self::SCOPE_USER,
 		self::SCOPE_USER_EMAIL,
 		self::SCOPE_PUBLIC_REPO,
 		self::SCOPE_GIST,
 	];
+
+	protected string      $authURL        = 'https://github.com/login/oauth/authorize';
+	protected string      $accessTokenURL = 'https://github.com/login/oauth/access_token';
+	protected string      $apiURL         = 'https://api.github.com';
+	protected string|null $userRevokeURL  = 'https://github.com/settings/applications';
+	protected string|null $apiDocs        = 'https://developer.github.com/';
+	protected string|null $applicationURL = 'https://github.com/settings/developers';
+	protected array       $authHeaders    = ['Accept' => 'application/json'];
+	protected array       $apiHeaders     = ['Accept' => 'application/vnd.github.beta+json'];
 
 	/**
 	 * @inheritDoc

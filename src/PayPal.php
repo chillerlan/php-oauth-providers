@@ -27,16 +27,16 @@ class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	public const SCOPE_ADDRESS        = 'address';
 	public const SCOPE_ACCOUNT        = 'https://uri.paypal.com/services/paypalattributes';
 
-	protected string  $accessTokenURL = 'https://api.paypal.com/v1/oauth2/token';
-	protected string  $authURL        = 'https://www.paypal.com/connect';
-	protected string  $apiURL         = 'https://api.paypal.com';
-	protected ?string $applicationURL = 'https://developer.paypal.com/developer/applications/';
-	protected ?string $apiDocs        = 'https://developer.paypal.com/docs/connect-with-paypal/reference/';
-
-	protected array $defaultScopes    = [
+	protected array $defaultScopes = [
 		self::SCOPE_BASIC_AUTH,
 		self::SCOPE_EMAIL,
 	];
+
+	protected string      $accessTokenURL = 'https://api.paypal.com/v1/oauth2/token';
+	protected string      $authURL        = 'https://www.paypal.com/connect';
+	protected string      $apiURL         = 'https://api.paypal.com';
+	protected string|null $applicationURL = 'https://developer.paypal.com/developer/applications/';
+	protected string|null $apiDocs        = 'https://developer.paypal.com/docs/connect-with-paypal/reference/';
 
 	/**
 	 * @inheritDoc
@@ -85,7 +85,7 @@ class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	/**
 	 * @inheritDoc
 	 */
-	public function getAccessToken(string $code, string $state = null):AccessToken{
+	public function getAccessToken(string $code, string|null $state = null):AccessToken{
 		$this->checkState($state); // we're an instance of CSRFToken
 
 		$body = [

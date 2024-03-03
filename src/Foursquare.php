@@ -23,25 +23,25 @@ class Foursquare extends OAuth2Provider{
 
 	protected const API_VERSIONDATE = '20190225';
 
-	protected string  $authURL         = 'https://foursquare.com/oauth2/authenticate';
-	protected string  $accessTokenURL  = 'https://foursquare.com/oauth2/access_token';
-	protected string  $apiURL          = 'https://api.foursquare.com';
-	protected ?string $userRevokeURL   = 'https://foursquare.com/settings/connections';
-	protected ?string $apiDocs         = 'https://developer.foursquare.com/docs';
-	protected ?string $applicationURL  = 'https://foursquare.com/developers/apps';
-	protected string  $authMethodQuery = 'oauth_token';
-	protected int     $authMethod      = self::AUTH_METHOD_QUERY;
+	protected string      $authURL         = 'https://foursquare.com/oauth2/authenticate';
+	protected string      $accessTokenURL  = 'https://foursquare.com/oauth2/access_token';
+	protected string      $apiURL          = 'https://api.foursquare.com';
+	protected string|null $userRevokeURL   = 'https://foursquare.com/settings/connections';
+	protected string|null $apiDocs         = 'https://developer.foursquare.com/docs';
+	protected string|null $applicationURL  = 'https://foursquare.com/developers/apps';
+	protected string      $authMethodQuery = 'oauth_token';
+	protected int         $authMethod      = self::AUTH_METHOD_QUERY;
 
 	/**
 	 * @inheritDoc
 	 */
 	public function request(
-		string                       $path,
-		array                        $params = null,
-		string                       $method = null,
-		StreamInterface|array|string $body = null,
-		array                        $headers = null,
-		string                       $protocolVersion = null
+		string                            $path,
+		array|null                        $params = null,
+		string|null                       $method = null,
+		StreamInterface|array|string|null $body = null,
+		array|null                        $headers = null,
+		string|null                       $protocolVersion = null
 	):ResponseInterface{
 		$queryparams      = QueryUtil::parse($this->uriFactory->createUri($this->apiURL.$path)->getPath());
 		$queryparams['v'] = $this::API_VERSIONDATE;

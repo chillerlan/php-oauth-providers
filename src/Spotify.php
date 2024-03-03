@@ -59,7 +59,7 @@ class Spotify extends OAuth2Provider implements ClientCredentials, CSRFToken, To
 	public const SCOPE_USER_MANAGE_PARTNER         = 'user-manage-partner';
 	public const SCOPE_USER_CREATE_PARTNER         = 'user-create-partner';
 
-	protected array   $defaultScopes  = [
+	protected array $defaultScopes = [
 		self::SCOPE_PLAYLIST_READ_COLLABORATIVE,
 		self::SCOPE_PLAYLIST_MODIFY_PUBLIC,
 		self::SCOPE_USER_FOLLOW_MODIFY,
@@ -75,12 +75,12 @@ class Spotify extends OAuth2Provider implements ClientCredentials, CSRFToken, To
 		self::SCOPE_USER_READ_RECENTLY_PLAYED,
 	];
 
-	protected string  $authURL        = 'https://accounts.spotify.com/authorize';
-	protected string  $accessTokenURL = 'https://accounts.spotify.com/api/token';
-	protected string  $apiURL         = 'https://api.spotify.com';
-	protected ?string $userRevokeURL  = 'https://www.spotify.com/account/apps/';
-	protected ?string $apiDocs        = 'https://developer.spotify.com/documentation/web-api/';
-	protected ?string $applicationURL = 'https://developer.spotify.com/dashboard';
+	protected string      $authURL        = 'https://accounts.spotify.com/authorize';
+	protected string      $accessTokenURL = 'https://accounts.spotify.com/api/token';
+	protected string      $apiURL         = 'https://api.spotify.com';
+	protected string|null $userRevokeURL  = 'https://www.spotify.com/account/apps/';
+	protected string|null $apiDocs        = 'https://developer.spotify.com/documentation/web-api/';
+	protected string|null $applicationURL = 'https://developer.spotify.com/dashboard';
 
 	/**
 	 * @inheritDoc

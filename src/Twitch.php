@@ -47,24 +47,25 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	public const SCOPE_USER_READ_EMAIL            = 'user:read:email';
 	public const SCOPE_USER_READ_SUBSCRIPTIONS    = 'user:read:subscriptions';
 
-	protected array   $defaultScopes  =  [
+	protected array $defaultScopes = [
 		self::SCOPE_USER_READ_EMAIL,
 	];
 
-	protected string  $authURL        = 'https://id.twitch.tv/oauth2/authorize';
-	protected string  $accessTokenURL = 'https://id.twitch.tv/oauth2/token';
-	protected string  $revokeURL      = 'https://id.twitch.tv/oauth2/revoke';
-	protected string  $apiURL         = 'https://api.twitch.tv';
-	protected ?string $userRevokeURL  = 'https://www.twitch.tv/settings/connections';
-	protected ?string $apiDocs        = 'https://dev.twitch.tv/docs/api/reference/';
-	protected ?string $applicationURL = 'https://dev.twitch.tv/console/apps/create';
-	protected array   $authHeaders    = ['Accept' => 'application/vnd.twitchtv.v5+json'];
-	protected array   $apiHeaders     = ['Accept' => 'application/vnd.twitchtv.v5+json'];
+	protected string      $authURL        = 'https://id.twitch.tv/oauth2/authorize';
+	protected string      $accessTokenURL = 'https://id.twitch.tv/oauth2/token';
+	protected string      $revokeURL      = 'https://id.twitch.tv/oauth2/revoke';
+	protected string      $apiURL         = 'https://api.twitch.tv';
+	protected string|null $userRevokeURL  = 'https://www.twitch.tv/settings/connections';
+	protected string|null $apiDocs        = 'https://dev.twitch.tv/docs/api/reference/';
+	protected string|null $applicationURL = 'https://dev.twitch.tv/console/apps/create';
+	protected array       $authHeaders    = ['Accept' => 'application/vnd.twitchtv.v5+json'];
+	protected array       $apiHeaders     = ['Accept' => 'application/vnd.twitchtv.v5+json'];
 
 	/**
 	 * @see https://dev.twitch.tv/docs/authentication#oauth-client-credentials-flow-app-access-tokens
 	 */
-	public function getClientCredentialsToken(array $scopes = null):AccessToken{
+	public function getClientCredentialsToken(array|null $scopes = null):AccessToken{
+
 		$params = [
 			'client_id'     => $this->options->key,
 			'client_secret' => $this->options->secret,
@@ -124,7 +125,7 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	/**
 	 * @inheritDoc
 	 */
-	public function invalidateAccessToken(AccessToken $token = null):bool{
+	public function invalidateAccessToken(AccessToken|null $token = null):bool{
 
 		if($token === null && !$this->storage->hasAccessToken()){
 			throw new ProviderException('no token given');

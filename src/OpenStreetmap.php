@@ -18,6 +18,8 @@ use function sprintf, strip_tags;
 /**
  * @see https://wiki.openstreetmap.org/wiki/API
  * @see https://wiki.openstreetmap.org/wiki/OAuth
+ *
+ * @see https://github.com/chillerlan/php-oauth-providers/issues/2
  */
 class OpenStreetmap extends OAuth1Provider{
 
@@ -34,17 +36,17 @@ class OpenStreetmap extends OAuth1Provider{
 		self::SCOPE_READ_GPX,
 	];
 
-	protected string  $requestTokenURL = 'https://www.openstreetmap.org/oauth/request_token';
-	protected string  $authURL         = 'https://www.openstreetmap.org/oauth/authorize';
-	protected string  $accessTokenURL  = 'https://www.openstreetmap.org/oauth/access_token';
-	protected string  $apiURL          = 'https://api.openstreetmap.org';
-	protected ?string $apiDocs         = 'https://wiki.openstreetmap.org/wiki/API';
-	protected ?string $applicationURL  = 'https://www.openstreetmap.org/user/{USERNAME}/oauth_clients';
+	protected string      $requestTokenURL = 'https://www.openstreetmap.org/oauth/request_token';
+	protected string      $authURL         = 'https://www.openstreetmap.org/oauth/authorize';
+	protected string      $accessTokenURL  = 'https://www.openstreetmap.org/oauth/access_token';
+	protected string      $apiURL          = 'https://api.openstreetmap.org';
+	protected string|null $apiDocs         = 'https://wiki.openstreetmap.org/wiki/API';
+	protected string|null $applicationURL  = 'https://www.openstreetmap.org/user/{USERNAME}/oauth_clients';
 
 	/**
 	 * @inheritDoc
 	 */
-	public function me(bool $json = null):ResponseInterface{
+	public function me(bool|null $json = null):ResponseInterface{
 		$response = $this->request('/api/0.6/user/details'.(($json ?? true) ? '.json' : ''));
 		$status   = $response->getStatusCode();
 

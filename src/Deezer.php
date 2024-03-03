@@ -24,23 +24,15 @@ use const PHP_QUERY_RFC1738;
  */
 class Deezer extends OAuth2Provider implements CSRFToken{
 
-	public const SCOPE_BASIC             = 'basic_access';
-	public const SCOPE_EMAIL             = 'email';
-	public const SCOPE_OFFLINE_ACCESS    = 'offline_access';
-	public const SCOPE_MANAGE_LIBRARY    = 'manage_library';
-	public const SCOPE_MANAGE_COMMUNITY  = 'manage_community';
-	public const SCOPE_DELETE_LIBRARY    = 'delete_library';
-	public const SCOPE_LISTENING_HISTORY = 'listening_history';
+	public const SCOPE_BASIC              = 'basic_access';
+	public const SCOPE_EMAIL              = 'email';
+	public const SCOPE_OFFLINE_ACCESS     = 'offline_access';
+	public const SCOPE_MANAGE_LIBRARY     = 'manage_library';
+	public const SCOPE_MANAGE_COMMUNITY   = 'manage_community';
+	public const SCOPE_DELETE_LIBRARY     = 'delete_library';
+	public const SCOPE_LISTENING_HISTORY  = 'listening_history';
 
-	protected string  $authURL           = 'https://connect.deezer.com/oauth/auth.php';
-	protected string  $accessTokenURL    = 'https://connect.deezer.com/oauth/access_token.php';
-	protected string  $apiURL            = 'https://api.deezer.com';
-	protected ?string $userRevokeURL     = 'https://www.deezer.com/account/apps';
-	protected ?string $apiDocs           = 'https://developers.deezer.com/api';
-	protected ?string $applicationURL    = 'http://developers.deezer.com/myapps';
-	protected int     $authMethod        = self::AUTH_METHOD_QUERY;
-
-	protected array   $defaultScopes     = [
+	protected array $defaultScopes = [
 		self::SCOPE_BASIC,
 		self::SCOPE_EMAIL,
 		self::SCOPE_OFFLINE_ACCESS,
@@ -48,10 +40,18 @@ class Deezer extends OAuth2Provider implements CSRFToken{
 		self::SCOPE_LISTENING_HISTORY,
 	];
 
+	protected string      $authURL        = 'https://connect.deezer.com/oauth/auth.php';
+	protected string      $accessTokenURL = 'https://connect.deezer.com/oauth/access_token.php';
+	protected string      $apiURL         = 'https://api.deezer.com';
+	protected string|null $userRevokeURL  = 'https://www.deezer.com/account/apps';
+	protected string|null $apiDocs        = 'https://developers.deezer.com/api';
+	protected string|null $applicationURL = 'http://developers.deezer.com/myapps';
+	protected int         $authMethod     = self::AUTH_METHOD_QUERY;
+
 	/**
 	 * @inheritDoc
 	 */
-	public function getAuthURL(array $params = null, array $scopes = null):UriInterface{
+	public function getAuthURL(array|null $params = null, array|null $scopes = null):UriInterface{
 		$params ??= [];
 
 		if(isset($params['client_secret'])){
@@ -72,7 +72,7 @@ class Deezer extends OAuth2Provider implements CSRFToken{
 	/**
 	 * @inheritDoc
 	 */
-	public function getAccessToken(string $code, string $state = null):AccessToken{
+	public function getAccessToken(string $code, string|null $state = null):AccessToken{
 		$this->checkState($state);
 
 		$body = [
@@ -112,7 +112,7 @@ class Deezer extends OAuth2Provider implements CSRFToken{
 		$token = $this->createAccessToken();
 
 		$token->accessToken  = $data['access_token'];
-		$token->expires      = ($data['expires'] ?? $data['expires_in'] ?? AccessToken::EOL_NEVER_EXPIRES);
+		$token->expires      = (int)($data['expires'] ?? $data['expires_in'] ?? AccessToken::EOL_NEVER_EXPIRES);
 		$token->refreshToken = ($data['refresh_token'] ?? null);
 
 		unset($data['expires'], $data['expires_in'], $data['refresh_token'], $data['access_token']);

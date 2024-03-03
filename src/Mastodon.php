@@ -23,19 +23,19 @@ use const PHP_QUERY_RFC1738;
  */
 class Mastodon extends OAuth2Provider implements CSRFToken, TokenRefresh{
 
-	public const SCOPE_READ        = 'read';
-	public const SCOPE_WRITE       = 'write';
-	public const SCOPE_FOLLOW      = 'follow';
-	public const SCOPE_PUSH        = 'push';
+	public const SCOPE_READ   = 'read';
+	public const SCOPE_WRITE  = 'write';
+	public const SCOPE_FOLLOW = 'follow';
+	public const SCOPE_PUSH   = 'push';
 
-	protected ?string $apiDocs     = 'https://docs.joinmastodon.org/api/';
+	protected string|null $apiDocs = 'https://docs.joinmastodon.org/api/';
 
 	protected array $defaultScopes = [
 		self::SCOPE_READ,
 		self::SCOPE_FOLLOW,
 	];
 
-	protected string $instance     = '';
+	protected string $instance = '';
 
 	/**
 	 * set the internal URLs for the given Mastodon instance
@@ -63,7 +63,7 @@ class Mastodon extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	/**
 	 * @inheritDoc
 	 */
-	public function getAccessToken(string $code, string $state = null):AccessToken{
+	public function getAccessToken(string $code, string|null $state = null):AccessToken{
 
 		$body = [
 			'client_id'     => $this->options->key,

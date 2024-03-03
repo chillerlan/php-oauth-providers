@@ -20,19 +20,19 @@ use function sprintf;
  */
 class WordPress extends OAuth2Provider implements CSRFToken{
 
-	public const SCOPE_AUTH           = 'auth';
-	public const SCOPE_GLOBAL         = 'global';
+	public const SCOPE_AUTH   = 'auth';
+	public const SCOPE_GLOBAL = 'global';
 
-	protected string  $authURL        = 'https://public-api.wordpress.com/oauth2/authorize';
-	protected string  $accessTokenURL = 'https://public-api.wordpress.com/oauth2/token';
-	protected string  $apiURL         = 'https://public-api.wordpress.com/rest';
-	protected ?string $userRevokeURL  = 'https://wordpress.com/me/security/connected-applications';
-	protected ?string $apiDocs        = 'https://developer.wordpress.com/docs/api/';
-	protected ?string $applicationURL = 'https://developer.wordpress.com/apps/';
-
-	protected array $defaultScopes    = [
+	protected array $defaultScopes = [
 		self::SCOPE_GLOBAL,
 	];
+
+	protected string      $authURL        = 'https://public-api.wordpress.com/oauth2/authorize';
+	protected string      $accessTokenURL = 'https://public-api.wordpress.com/oauth2/token';
+	protected string      $apiURL         = 'https://public-api.wordpress.com/rest';
+	protected string|null $userRevokeURL  = 'https://wordpress.com/me/security/connected-applications';
+	protected string|null $apiDocs        = 'https://developer.wordpress.com/docs/api/';
+	protected string|null $applicationURL = 'https://developer.wordpress.com/apps/';
 
 	/**
 	 * @inheritDoc

@@ -25,17 +25,17 @@ class SoundCloud extends OAuth2Provider implements ClientCredentials, TokenRefre
 	public const SCOPE_NONEXPIRING      = 'non-expiring';
 #	public const SCOPE_EMAIL            = 'email'; // ???
 
-	protected string  $authURL          = 'https://api.soundcloud.com/connect';
-	protected string  $accessTokenURL   = 'https://api.soundcloud.com/oauth2/token';
-	protected string  $apiURL           = 'https://api.soundcloud.com';
-	protected ?string $userRevokeURL    = 'https://soundcloud.com/settings/connections';
-	protected ?string $apiDocs          = 'https://developers.soundcloud.com/';
-	protected ?string $applicationURL   = 'https://soundcloud.com/you/apps';
-	protected string  $authMethodHeader = 'OAuth';
-
 	protected array   $defaultScopes    = [
 		self::SCOPE_NONEXPIRING,
 	];
+
+	protected string      $authURL          = 'https://api.soundcloud.com/connect';
+	protected string      $accessTokenURL   = 'https://api.soundcloud.com/oauth2/token';
+	protected string      $apiURL           = 'https://api.soundcloud.com';
+	protected string|null $userRevokeURL    = 'https://soundcloud.com/settings/connections';
+	protected string|null $apiDocs          = 'https://developers.soundcloud.com/';
+	protected string|null $applicationURL   = 'https://soundcloud.com/you/apps';
+	protected string      $authMethodHeader = 'OAuth';
 
 	/**
 	 * @inheritDoc

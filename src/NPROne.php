@@ -27,17 +27,17 @@ class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInv
 	public const SCOPE_LISTENING_WRITE    = 'listening.write';
 	public const SCOPE_LOCALACTIVATION    = 'localactivation';
 
-	protected array   $defaultScopes  = [
+	protected array $defaultScopes = [
 		self::SCOPE_IDENTITY_READONLY,
 		self::SCOPE_LISTENING_READONLY,
 	];
 
-	protected string  $apiURL         = 'https://listening.api.npr.org';
-	protected string  $authURL        = 'https://authorization.api.npr.org/v2/authorize';
-	protected string  $accessTokenURL = 'https://authorization.api.npr.org/v2/token';
-	protected string  $revokeURL      = 'https://authorization.api.npr.org/v2/token/revoke';
-	protected ?string $apiDocs        = 'https://dev.npr.org/api/';
-	protected ?string $applicationURL = 'https://dev.npr.org/console';
+	protected string      $apiURL         = 'https://listening.api.npr.org';
+	protected string      $authURL        = 'https://authorization.api.npr.org/v2/authorize';
+	protected string      $accessTokenURL = 'https://authorization.api.npr.org/v2/token';
+	protected string      $revokeURL      = 'https://authorization.api.npr.org/v2/token/revoke';
+	protected string|null $apiDocs        = 'https://dev.npr.org/api/';
+	protected string|null $applicationURL = 'https://dev.npr.org/console';
 
 	/**
 	 * Sets the API to work with ("listening" is set as default)
@@ -127,7 +127,7 @@ class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInv
 	/**
 	 * @inheritDoc
 	 */
-	public function invalidateAccessToken(AccessToken $token = null):bool{
+	public function invalidateAccessToken(AccessToken|null $token = null):bool{
 
 		if($token === null && !$this->storage->hasAccessToken()){
 			throw new ProviderException('no token given');

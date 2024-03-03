@@ -24,14 +24,14 @@ use const SODIUM_BASE64_VARIANT_ORIGINAL;
  */
 class BigCartel extends OAuth2Provider implements CSRFToken, TokenInvalidate{
 
-	protected string  $authURL        = 'https://my.bigcartel.com/oauth/authorize';
-	protected string  $accessTokenURL = 'https://api.bigcartel.com/oauth/token';
-	protected string  $revokeURL      = 'https://api.bigcartel.com/oauth/deauthorize/%s'; // sprintf() user id!
-	protected string  $apiURL         = 'https://api.bigcartel.com/v1';
-	protected ?string $userRevokeURL  = 'https://my.bigcartel.com/account';
-	protected ?string $apiDocs        = 'https://developers.bigcartel.com/api/v1';
-	protected ?string $applicationURL = 'https://bigcartel.wufoo.com/forms/big-cartel-api-application/';
-	protected array   $apiHeaders     = ['Accept' => 'application/vnd.api+json'];
+	protected string      $authURL        = 'https://my.bigcartel.com/oauth/authorize';
+	protected string      $accessTokenURL = 'https://api.bigcartel.com/oauth/token';
+	protected string      $revokeURL      = 'https://api.bigcartel.com/oauth/deauthorize/%s'; // sprintf() user id!
+	protected string      $apiURL         = 'https://api.bigcartel.com/v1';
+	protected string|null $userRevokeURL  = 'https://my.bigcartel.com/account';
+	protected string|null $apiDocs        = 'https://developers.bigcartel.com/api/v1';
+	protected string|null $applicationURL = 'https://bigcartel.wufoo.com/forms/big-cartel-api-application/';
+	protected array       $apiHeaders     = ['Accept' => 'application/vnd.api+json'];
 
 	/**
 	 * @inheritDoc
@@ -56,7 +56,7 @@ class BigCartel extends OAuth2Provider implements CSRFToken, TokenInvalidate{
 	/**
 	 * @inheritDoc
 	 */
-	public function invalidateAccessToken(AccessToken $token = null):bool{
+	public function invalidateAccessToken(AccessToken|null $token = null):bool{
 
 		if($token === null && !$this->storage->hasAccessToken()){
 			throw new ProviderException('no token given');

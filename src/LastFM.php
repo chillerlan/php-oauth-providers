@@ -37,16 +37,16 @@ class LastFM extends OAuthProvider{
 		self::PERIOD_12MONTH,
 	];
 
-	protected string  $authURL        = 'https://www.last.fm/api/auth';
-	protected string  $apiURL         = 'https://ws.audioscrobbler.com/2.0';
-	protected ?string $userRevokeURL  = 'https://www.last.fm/settings/applications';
-	protected ?string $apiDocs        = 'https://www.last.fm/api/';
-	protected ?string $applicationURL = 'https://www.last.fm/api/account/create';
+	protected string      $authURL        = 'https://www.last.fm/api/auth';
+	protected string      $apiURL         = 'https://ws.audioscrobbler.com/2.0';
+	protected string|null $userRevokeURL  = 'https://www.last.fm/settings/applications';
+	protected string|null $apiDocs        = 'https://www.last.fm/api/';
+	protected string|null $applicationURL = 'https://www.last.fm/api/account/create';
 
 	/**
 	 * @inheritdoc
 	 */
-	public function getAuthURL(array $params = null):UriInterface{
+	public function getAuthURL(array|null $params = null):UriInterface{
 
 		$params = array_merge(($params ?? []), [
 			'api_key' => $this->options->key,
@@ -135,12 +135,12 @@ class LastFM extends OAuthProvider{
 	 * @inheritDoc
 	 */
 	public function request(
-		string                       $path,
-		array                        $params = null,
-		string                       $method = null,
-		StreamInterface|array|string $body = null,
-		array                        $headers = null,
-		string                       $protocolVersion = null
+		string                            $path,
+		array|null                        $params = null,
+		string|null                       $method = null,
+		StreamInterface|array|string|null $body = null,
+		array|null                        $headers = null,
+		string|null                       $protocolVersion = null
 	):ResponseInterface{
 
 		if($body !== null && !is_array($body)){

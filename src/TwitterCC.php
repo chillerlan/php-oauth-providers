@@ -23,19 +23,19 @@ use Psr\Http\Message\UriInterface;
  */
 class TwitterCC extends OAuth2Provider implements ClientCredentials{
 
-	protected const AUTH_ERRMSG                  = 'TwitterCC only supports Client Credentials Grant, use the Twitter OAuth1 class for authentication instead.';
+	protected const AUTH_ERRMSG                      = 'TwitterCC only supports Client Credentials Grant, use the Twitter OAuth1 class for authentication instead.';
 
-	protected string $apiURL                     = 'https://api.twitter.com';
-	protected ?string $clientCredentialsTokenURL = 'https://api.twitter.com/oauth2/token';
-	protected ?string $userRevokeURL             = 'https://twitter.com/settings/applications';
-	protected ?string $apiDocs                   = 'https://developer.twitter.com/en/docs/basics/authentication/overview/application-only';
-	protected ?string $applicationURL            = 'https://developer.twitter.com/apps';
+	protected string      $apiURL                    = 'https://api.twitter.com';
+	protected string|null $clientCredentialsTokenURL = 'https://api.twitter.com/oauth2/token';
+	protected string|null $userRevokeURL             = 'https://twitter.com/settings/applications';
+	protected string|null $apiDocs                   = 'https://developer.twitter.com/en/docs/basics/authentication/overview/application-only';
+	protected string|null $applicationURL            = 'https://developer.twitter.com/apps';
 
 	/**
 	 * @inheritdoc
 	 * @throws \chillerlan\OAuth\Core\ProviderException
 	 */
-	public function getAuthURL(array $params = null, array $scopes = null):UriInterface{
+	public function getAuthURL(array|null $params = null, array|null $scopes = null):UriInterface{
 		throw new ProviderException($this::AUTH_ERRMSG);
 	}
 
@@ -43,7 +43,7 @@ class TwitterCC extends OAuth2Provider implements ClientCredentials{
 	 * @inheritdoc
 	 * @throws \chillerlan\OAuth\Core\ProviderException
 	 */
-	public function getAccessToken(string $code, string $state = null):AccessToken{
+	public function getAccessToken(string $code, string|null $state = null):AccessToken{
 		throw new ProviderException($this::AUTH_ERRMSG);
 	}
 

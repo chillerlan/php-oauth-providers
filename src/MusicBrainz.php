@@ -30,14 +30,7 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	public const SCOPE_SUBMIT_ISRC    = 'submit_isrc';
 	public const SCOPE_SUBMIT_BARCODE = 'submit_barcode';
 
-	protected string  $authURL        = 'https://musicbrainz.org/oauth2/authorize';
-	protected string  $accessTokenURL = 'https://musicbrainz.org/oauth2/token';
-	protected string  $apiURL         = 'https://musicbrainz.org/ws/2';
-	protected ?string $userRevokeURL  = 'https://musicbrainz.org/account/applications';
-	protected ?string $apiDocs        = 'https://musicbrainz.org/doc/Development';
-	protected ?string $applicationURL = 'https://musicbrainz.org/account/applications';
-
-	protected array   $defaultScopes  = [
+	protected array $defaultScopes = [
 		self::SCOPE_PROFILE,
 		self::SCOPE_EMAIL,
 		self::SCOPE_TAG,
@@ -45,11 +38,18 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenRefresh{
 		self::SCOPE_COLLECTION,
 	];
 
+	protected string      $authURL        = 'https://musicbrainz.org/oauth2/authorize';
+	protected string      $accessTokenURL = 'https://musicbrainz.org/oauth2/token';
+	protected string      $apiURL         = 'https://musicbrainz.org/ws/2';
+	protected string|null $userRevokeURL  = 'https://musicbrainz.org/account/applications';
+	protected string|null $apiDocs        = 'https://musicbrainz.org/doc/Development';
+	protected string|null $applicationURL = 'https://musicbrainz.org/account/applications';
+
 	/**
 	 * @inheritdoc
 	 * @throws \chillerlan\OAuth\Core\ProviderException
 	 */
-	public function refreshAccessToken(AccessToken $token = null):AccessToken{
+	public function refreshAccessToken(AccessToken|null $token = null):AccessToken{
 
 		if($token === null){
 			$token = $this->storage->getAccessToken($this->serviceName);
@@ -92,12 +92,12 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	 * @inheritDoc
 	 */
 	public function request(
-		string                       $path,
-		array                        $params = null,
-		string                       $method = null,
-		StreamInterface|array|string $body = null,
-		array                        $headers = null,
-		string                       $protocolVersion = null
+		string                            $path,
+		array|null                        $params = null,
+		string|null                       $method = null,
+		StreamInterface|array|string|null $body = null,
+		array|null                        $headers = null,
+		string|null                       $protocolVersion = null,
 	):ResponseInterface{
 		$params = ($params ?? []);
 		$method = strtoupper(($method ?? 'GET'));

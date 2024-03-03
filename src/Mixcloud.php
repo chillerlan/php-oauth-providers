@@ -22,13 +22,13 @@ use function sprintf;
  */
 class Mixcloud extends OAuth2Provider{
 
-	protected string  $authURL        = 'https://www.mixcloud.com/oauth/authorize';
-	protected string  $accessTokenURL = 'https://www.mixcloud.com/oauth/access_token';
-	protected string  $apiURL         = 'https://api.mixcloud.com';
-	protected ?string $userRevokeURL  = 'https://www.mixcloud.com/settings/applications/';
-	protected ?string $apiDocs        = 'https://www.mixcloud.com/developers/';
-	protected ?string $applicationURL = 'https://www.mixcloud.com/developers/create/';
-	protected int     $authMethod     = self::AUTH_METHOD_QUERY;
+	protected string      $authURL        = 'https://www.mixcloud.com/oauth/authorize';
+	protected string      $accessTokenURL = 'https://www.mixcloud.com/oauth/access_token';
+	protected string      $apiURL         = 'https://api.mixcloud.com';
+	protected string|null $userRevokeURL  = 'https://www.mixcloud.com/settings/applications/';
+	protected string|null $apiDocs        = 'https://www.mixcloud.com/developers/';
+	protected string|null $applicationURL = 'https://www.mixcloud.com/developers/create/';
+	protected int         $authMethod     = self::AUTH_METHOD_QUERY;
 
 	/**
 	 * @inheritDoc

@@ -27,17 +27,17 @@ class Stripe extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInv
 	public const SCOPE_READ_WRITE     = 'read_write';
 	public const SCOPE_READ_ONLY      = 'read_only';
 
-	protected string  $authURL        = 'https://connect.stripe.com/oauth/authorize';
-	protected string  $accessTokenURL = 'https://connect.stripe.com/oauth/token';
-	protected string  $revokeURL      = 'https://connect.stripe.com/oauth/deauthorize';
-	protected string  $apiURL         = 'https://api.stripe.com/v1';
-	protected ?string $userRevokeURL  = 'https://dashboard.stripe.com/account/applications';
-	protected ?string $apiDocs        = 'https://stripe.com/docs/api';
-	protected ?string $applicationURL = 'https://dashboard.stripe.com/apikeys';
-
-	protected array $defaultScopes    = [
+	protected array $defaultScopes = [
 		self::SCOPE_READ_ONLY,
 	];
+
+	protected string      $authURL        = 'https://connect.stripe.com/oauth/authorize';
+	protected string      $accessTokenURL = 'https://connect.stripe.com/oauth/token';
+	protected string      $revokeURL      = 'https://connect.stripe.com/oauth/deauthorize';
+	protected string      $apiURL         = 'https://api.stripe.com/v1';
+	protected string|null $userRevokeURL  = 'https://dashboard.stripe.com/account/applications';
+	protected string|null $apiDocs        = 'https://stripe.com/docs/api';
+	protected string|null $applicationURL = 'https://dashboard.stripe.com/apikeys';
 
 	/**
 	 * @inheritDoc
@@ -62,7 +62,7 @@ class Stripe extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInv
 	/**
 	 * @inheritDoc
 	 */
-	public function invalidateAccessToken(AccessToken $token = null):bool{
+	public function invalidateAccessToken(AccessToken|null $token = null):bool{
 
 		if($token === null && !$this->storage->hasAccessToken()){
 			throw new ProviderException('no token given');

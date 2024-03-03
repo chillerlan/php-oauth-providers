@@ -23,31 +23,31 @@ use function sprintf;
  */
 class DeviantArt extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenInvalidate, TokenRefresh{
 
-	public const SCOPE_BASIC          = 'basic';
-	public const SCOPE_BROWSE         = 'browse';
-	public const SCOPE_COLLECTION     = 'collection';
-	public const SCOPE_COMMENT_POST   = 'comment.post';
-	public const SCOPE_FEED           = 'feed';
-	public const SCOPE_GALLERY        = 'gallery';
-	public const SCOPE_MESSAGE        = 'message';
-	public const SCOPE_NOTE           = 'note';
-	public const SCOPE_STASH          = 'stash';
-	public const SCOPE_USER           = 'user';
-	public const SCOPE_USER_MANAGE    = 'user.manage';
+	public const SCOPE_BASIC              = 'basic';
+	public const SCOPE_BROWSE             = 'browse';
+	public const SCOPE_COLLECTION         = 'collection';
+	public const SCOPE_COMMENT_POST       = 'comment.post';
+	public const SCOPE_FEED               = 'feed';
+	public const SCOPE_GALLERY            = 'gallery';
+	public const SCOPE_MESSAGE            = 'message';
+	public const SCOPE_NOTE               = 'note';
+	public const SCOPE_STASH              = 'stash';
+	public const SCOPE_USER               = 'user';
+	public const SCOPE_USER_MANAGE        = 'user.manage';
 
-	protected array $defaultScopes    = [
+	protected array $defaultScopes = [
 		self::SCOPE_BASIC,
 		self::SCOPE_BROWSE,
 	];
 
-	protected string  $authURL        = 'https://www.deviantart.com/oauth2/authorize';
-	protected string  $accessTokenURL = 'https://www.deviantart.com/oauth2/token';
-	protected string  $revokeURL      = 'https://www.deviantart.com/oauth2/revoke';
-	protected string  $apiURL         = 'https://www.deviantart.com/api/v1/oauth2';
-	protected ?string $userRevokeURL  = 'https://www.deviantart.com/settings/applications';
-	protected ?string $apiDocs        = 'https://www.deviantart.com/developers/';
-	protected ?string $applicationURL = 'https://www.deviantart.com/developers/apps';
-	protected array   $apiHeaders     = ['dA-minor-version' => '20210526'];
+	protected string      $authURL        = 'https://www.deviantart.com/oauth2/authorize';
+	protected string      $accessTokenURL = 'https://www.deviantart.com/oauth2/token';
+	protected string      $revokeURL      = 'https://www.deviantart.com/oauth2/revoke';
+	protected string      $apiURL         = 'https://www.deviantart.com/api/v1/oauth2';
+	protected string|null $userRevokeURL  = 'https://www.deviantart.com/settings/applications';
+	protected string|null $apiDocs        = 'https://www.deviantart.com/developers/';
+	protected string|null $applicationURL = 'https://www.deviantart.com/developers/apps';
+	protected array       $apiHeaders     = ['dA-minor-version' => '20210526'];
 
 	/**
 	 * @inheritDoc
@@ -72,7 +72,7 @@ class DeviantArt extends OAuth2Provider implements ClientCredentials, CSRFToken,
 	/**
 	 * @inheritDoc
 	 */
-	public function invalidateAccessToken(AccessToken $token = null):bool{
+	public function invalidateAccessToken(AccessToken|null $token = null):bool{
 
 		if($token !== null){
 			// to revoke a token different from the one of the currently authenticated user,

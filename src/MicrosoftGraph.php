@@ -23,10 +23,7 @@ class MicrosoftGraph extends AzureActiveDirectory{
 	public const SCOPE_USER_READ          = 'User.Read';
 	public const SCOPE_USER_READBASIC_ALL = 'User.ReadBasic.All';
 
-	protected string  $apiURL             = 'https://graph.microsoft.com';
-	protected ?string $apiDocs            = 'https://docs.microsoft.com/graph/overview';
-
-	protected array   $defaultScopes      = [
+	protected array $defaultScopes = [
 		self::SCOPE_OPENID,
 		self::SCOPE_OPENID_EMAIL,
 		self::SCOPE_OPENID_PROFILE,
@@ -34,6 +31,9 @@ class MicrosoftGraph extends AzureActiveDirectory{
 		self::SCOPE_USER_READ,
 		self::SCOPE_USER_READBASIC_ALL,
 	];
+
+	protected string      $apiURL  = 'https://graph.microsoft.com';
+	protected string|null $apiDocs = 'https://docs.microsoft.com/graph/overview';
 
 	/**
 	 * @inheritDoc

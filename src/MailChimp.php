@@ -25,16 +25,16 @@ class MailChimp extends OAuth2Provider implements CSRFToken{
 	protected const API_BASE            = 'https://%s.api.mailchimp.com';
 	protected const METADATA_ENDPOINT   = 'https://login.mailchimp.com/oauth2/metadata';
 
-	protected string  $authURL          = 'https://login.mailchimp.com/oauth2/authorize';
-	protected string  $accessTokenURL   = 'https://login.mailchimp.com/oauth2/token';
-	protected ?string $apiDocs          = 'https://developer.mailchimp.com/';
-	protected ?string $applicationURL   = 'https://admin.mailchimp.com/account/oauth2/';
-	protected string  $authMethodHeader = 'OAuth';
+	protected string      $authURL          = 'https://login.mailchimp.com/oauth2/authorize';
+	protected string      $accessTokenURL   = 'https://login.mailchimp.com/oauth2/token';
+	protected string|null $apiDocs          = 'https://developer.mailchimp.com/';
+	protected string|null $applicationURL   = 'https://admin.mailchimp.com/account/oauth2/';
+	protected string      $authMethodHeader = 'OAuth';
 
 	/**
 	 * @throws \chillerlan\OAuth\OAuthException
 	 */
-	public function getTokenMetadata(AccessToken $token = null):AccessToken{
+	public function getTokenMetadata(AccessToken|null $token = null):AccessToken{
 
 		$token ??= $this->storage->getAccessToken($this->serviceName);
 
@@ -66,18 +66,18 @@ class MailChimp extends OAuth2Provider implements CSRFToken{
 	 * @inheritdoc
 	 */
 	public function request(
-		string                       $path,
-		array                        $params = null,
-		string                       $method = null,
-		StreamInterface|array|string $body = null,
-		array                        $headers = null,
-		string                       $protocolVersion = null
+		string                            $path,
+		array|null                        $params = null,
+		string|null                       $method = null,
+		StreamInterface|array|string|null $body = null,
+		array|null                        $headers = null,
+		string|null                       $protocolVersion = null,
 	):ResponseInterface{
 		$token = $this->storage->getAccessToken($this->serviceName);
 
 		$this->apiURL = sprintf($this::API_BASE, $token->extraParams['dc']);
 
-		return parent::request($path, $params, $method, $body, $headers);
+		return parent::request($path, $params, $method, $body, $headers, $protocolVersion);
 	}
 
 	/**
