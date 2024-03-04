@@ -65,7 +65,6 @@ A list of already implemented Providers.
 | [Foursquare](https://developer.foursquare.com/docs) | [link](https://foursquare.com/developers/apps) | [link](https://foursquare.com/settings/connections) | 2 |  |
 | [GitHub](https://developer.github.com/) | [link](https://github.com/settings/developers) | [link](https://github.com/settings/applications) | 2 |  |
 | [GitLab](https://docs.gitlab.com/ee/api/README.html) | [link](https://gitlab.com/profile/applications) |  | 2 | ✓ |
-| [Gitter](https://developer.gitter.im) | [link](https://developer.gitter.im/apps) |  | 2 |  |
 | [Google](https://developers.google.com/oauthplayground/) | [link](https://console.developers.google.com/apis/credentials) | [link](https://myaccount.google.com/permissions) | 2 |  |
 | [GuildWars2](https://wiki.guildwars2.com/wiki/API:Main) | [link](https://account.arena.net/applications) | [link](https://account.arena.net/applications) | 2 |  |
 | [Imgur](https://apidocs.imgur.com) | [link](https://api.imgur.com/oauth2/addclient) | [link](https://imgur.com/account/settings/apps) | 2 |  |
