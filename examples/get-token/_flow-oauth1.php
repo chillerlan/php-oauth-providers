@@ -1,35 +1,29 @@
 <?php
 /**
- * @link https://www.last.fm/api/authentication
+ * _flow-oauth1.php
  *
- * @created      10.04.2018
- * @author       Smiley <smiley@chillerlan.net>
- * @copyright    2018 Smiley
+ * @created      04.03.2024
+ * @author       smiley <smiley@chillerlan.net>
+ * @copyright    2024 smiley
  * @license      MIT
  */
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Providers\LastFM;
-
-$ENVVAR ??= 'LASTFM';
-
-require_once __DIR__.'/../provider-example-common.php';
 
 /**
- * @var \OAuthProviderFactory $factory
+ * @var \chillerlan\OAuth\Core\OAuth1Interface $provider
  * @var array|null $PARAMS
  */
 
-$provider = $factory->getProvider(LastFM::class, $ENVVAR);
-$name     = $provider->serviceName;
+$name = $provider->serviceName;
 
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $name){
 	header('Location: '.$provider->getAuthURL($PARAMS));
 }
 // step 3: receive the access token
-elseif(isset($_GET['token'])){
-	$token = $provider->getAccessToken($_GET['token']);
+elseif(isset($_GET['oauth_token']) && isset($_GET['oauth_verifier'])){
+	$token = $provider->getAccessToken($_GET['oauth_token'], $_GET['oauth_verifier']);
 
 	// save the token [...]
 
@@ -47,5 +41,3 @@ elseif(isset($_GET['granted']) && $_GET['granted'] === $name){
 else{
 	echo '<a href="?login='.$name.'">connect with '.$name.'!</a>';
 }
-
-exit;

@@ -8,46 +8,15 @@
  * @license      MIT
  */
 
-use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Providers\Foursquare;
 
-$ENVVAR = 'FOURSQUARE';
+$ENVVAR ??= 'FOURSQUARE';
 
 require_once __DIR__.'/../provider-example-common.php';
 
-/**
- * @var \Psr\Http\Client\ClientInterface $http
- * @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage
- * @var \chillerlan\Settings\SettingsContainerInterface $options
- * @var \Psr\Log\LoggerInterface $logger
- */
+/** @var \OAuthProviderFactory $factory */
+$provider = $factory->getProvider(Foursquare::class, $ENVVAR);
 
-$foursquare = new Foursquare($http, $options, $logger);
-$foursquare->setStorage($storage);
-
-$servicename = $foursquare->serviceName;
-
-// step 2: redirect to the provider's login screen
-if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$foursquare->getAuthURL());
-}
-// step 3: receive the access token
-elseif(isset($_GET['code'])){
-	$token = $foursquare->getAccessToken($_GET['code']);
-
-	// save the token [...]
-
-	// access granted, redirect
-	header('Location: ?granted='.$servicename);
-}
-// step 4: verify the token and use the API
-elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(MessageUtil::decodeJSON($foursquare->me()), true).'</pre>';
-	echo '<textarea cols="120" rows="3" onclick="this.select();">'.$storage->getAccessToken($servicename)->toJSON().'</textarea>';
-}
-// step 1 (optional): display a login link
-else{
-	echo '<a href="?login='.$servicename.'">connect with '.$servicename.'!</a>';
-}
+require_once __DIR__.'/_flow-oauth2-no-state.php';
 
 exit;

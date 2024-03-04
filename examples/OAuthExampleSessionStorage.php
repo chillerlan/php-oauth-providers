@@ -8,28 +8,40 @@
  * @license      MIT
  */
 
-namespace chillerlan\OAuthExamples;
-
 use chillerlan\OAuth\Core\AccessToken;
+use chillerlan\OAuth\OAuthOptions;
 use chillerlan\OAuth\Storage\{OAuthStorageException, SessionStorage};
 use chillerlan\Settings\SettingsContainerInterface;
-
-use function file_exists, file_get_contents, file_put_contents, sprintf;
+use Psr\Log\LoggerInterface;
+use Psr\Log\NullLogger;
 
 class OAuthExampleSessionStorage extends SessionStorage{
 
-	protected string $storagepath;
+	protected string|null $storagepath;
 
 	/**
 	 * OAuthExampleSessionStorage constructor.
 	 *
-	 * @param \chillerlan\Settings\SettingsContainerInterface|null $options
-	 * @param string|null                                          $storagepath
+	 * @throws \chillerlan\OAuth\Storage\OAuthStorageException
 	 */
-	public function __construct(SettingsContainerInterface $options = null, string $storagepath = null){
-		parent::__construct($options);
+	public function __construct(
+		OAuthOptions|SettingsContainerInterface $options = new OAuthOptions,
+		LoggerInterface                         $logger = new NullLogger,
+		string|null                             $storagepath = null,
+	){
+		parent::__construct($options, $logger);
 
-		$this->storagepath = ($storagepath ?? __DIR__);
+		if($storagepath !== null){
+			$storagepath = trim($storagepath);
+
+			if(!is_dir($storagepath) || !is_writable($storagepath)){
+				throw new OAuthStorageException('invalid storage path');
+			}
+
+			$storagepath = realpath($storagepath);
+		}
+
+		$this->storagepath = $storagepath;
 	}
 
 	/**
@@ -38,10 +50,12 @@ class OAuthExampleSessionStorage extends SessionStorage{
 	public function storeAccessToken(AccessToken $token, string $service = null):static{
 		parent::storeAccessToken($token, $service);
 
-		$tokenfile = sprintf('%s/%s.token.json', $this->storagepath, $this->getServiceName($service));
+		if($this->storagepath !== null){
+			$tokenfile = sprintf('%s/%s.token.json', $this->storagepath, $this->getServiceName($service));
 
-		if(file_put_contents($tokenfile, $token->toJSON()) === false){
-			throw new OAuthStorageException('unable to access file storage');
+			if(file_put_contents($tokenfile, $token->toJSON()) === false){
+				throw new OAuthStorageException('unable to access file storage');
+			}
 		}
 
 		return $this;
@@ -49,7 +63,6 @@ class OAuthExampleSessionStorage extends SessionStorage{
 
 	/**
 	 * @inheritDoc
-	 * @phan-suppress PhanTypeMismatchReturnSuperType
 	 */
 	public function getAccessToken(string $service = null):AccessToken{
 		$service = $this->getServiceName($service);
@@ -58,10 +71,12 @@ class OAuthExampleSessionStorage extends SessionStorage{
 			return (new AccessToken)->fromJSON($_SESSION[$this->tokenVar][$service]);
 		}
 
-		$tokenfile = sprintf('%s/%s.token.json', $this->storagepath, $service);
+		if($this->storagepath !== null){
+			$tokenfile = sprintf('%s/%s.token.json', $this->storagepath, $service);
 
-		if(file_exists($tokenfile)){
-			return (new AccessToken)->fromJSON(file_get_contents($tokenfile));
+			if(file_exists($tokenfile)){
+				return (new AccessToken)->fromJSON(file_get_contents($tokenfile));
+			}
 		}
 
 		throw new OAuthStorageException('token not found');

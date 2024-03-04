@@ -52,8 +52,7 @@
 	"autoload-dev": {
 		"psr-4": {
 			"chillerlan\\OAuthTest\\": "vendor/chillerlan/php-oauth-core/tests",
-			"chillerlan\\OAuthTest\\Providers\\": "tests/",
-			"chillerlan\\OAuthExamples\\": "examples/"
+			"chillerlan\\OAuthTest\\Providers\\": "tests/"
 		}
 	},
 	"scripts": {

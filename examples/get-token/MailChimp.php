@@ -11,48 +11,47 @@
 use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Providers\MailChimp;
 
-$ENVVAR = 'MAILCHIMP';
+$ENVVAR ??= 'MAILCHIMP';
 
 require_once __DIR__.'/../provider-example-common.php';
 
 /**
- * @var \Psr\Http\Client\ClientInterface $http
- * @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage
- * @var \chillerlan\Settings\SettingsContainerInterface $options
- * @var \Psr\Log\LoggerInterface $logger
+ * @var \OAuthProviderFactory $factory
+ * @var array|null $PARAMS
+ * @var array|null $SCOPES
  */
 
-$mailchimp = new MailChimp($http, $options, $logger);
-$mailchimp->setStorage($storage);
-
-$servicename = $mailchimp->serviceName;
+$provider = $factory->getProvider(MailChimp::class, $ENVVAR);
+$name     = $provider->serviceName;
 
 // step 2: redirect to the provider's login screen
-if(isset($_GET['login']) && $_GET['login'] === $servicename){
-	header('Location: '.$mailchimp->getAuthURL());
+if(isset($_GET['login']) && $_GET['login'] === $name){
+	header('Location: '.$provider->getAuthURL($PARAMS, $SCOPES));
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){
-	$token = $mailchimp->getAccessToken($_GET['code'], $_GET['state']);
+	$token = $provider->getAccessToken($_GET['code'], $_GET['state']);
 
 	// MailChimp needs another call to the auth metadata endpoint
 	// to receive the datacenter prefix/API URL, which will then
 	// be stored in AccessToken::$extraParams
-	$token = $mailchimp->getTokenMetadata($token);
+	$token = $provider->getTokenMetadata($token);
 
 	// save the token [...]
 
 	// access granted, redirect
-	header('Location: ?granted='.$servicename);
+	header('Location: ?granted='.$name);
 }
 // step 4: verify the token and use the API
-elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r(MessageUtil::decodeJSON($mailchimp->me()), true).'</pre>';
-	echo '<textarea cols="120" rows="3" onclick="this.select();">'.$storage->getAccessToken($servicename)->toJSON().'</textarea>';
+elseif(isset($_GET['granted']) && $_GET['granted'] === $name){
+	echo '<pre>'.print_r(MessageUtil::decodeJSON($provider->me()), true).'</pre>'.
+	     '<textarea cols="120" rows="3" onclick="this.select();">'.
+	     $provider->getStorage()->getAccessToken($name)->toJSON().
+	     '</textarea>';
 }
 // step 1 (optional): display a login link
 else{
-	echo '<a href="?login='.$servicename.'">connect with '.$servicename.'!</a>';
+	echo '<a href="?login='.$name.'">connect with '.$name.'!</a>';
 }
 
 exit;

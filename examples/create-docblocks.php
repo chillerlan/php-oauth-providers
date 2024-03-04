@@ -7,12 +7,7 @@
  * @license      MIT
  */
 
-namespace chillerlan\OAuthExamples;
-
 use chillerlan\OAuth\Core\{ClientCredentials, OAuth1Interface, OAuth2Interface, OAuthInterface};
-use DirectoryIterator, IteratorIterator, ReflectionClass, Throwable;
-
-use function file_get_contents, file_put_contents, hash, implode, realpath, str_replace, strpos, substr;
 
 /**
  * @var \Psr\Http\Client\ClientInterface                $http
@@ -28,8 +23,8 @@ $table = [
 ];
 
 foreach(getProviders(__DIR__.'/../src') as $p){
-	/** @var \chillerlan\OAuth\Core\OAuthInterface $provider */
-	$provider = new $p['fqcn']($http, $options, $logger);
+	/** @var \OAuthProviderFactory $factory */
+	$provider = $factory->getProvider($p['fqcn'], '', false);
 
 	$oauth = match(true){
 		$provider instanceof OAuth2Interface => '2',
@@ -44,6 +39,7 @@ foreach(getProviders(__DIR__.'/../src') as $p){
 		' | '.(($provider instanceof ClientCredentials) ? '✓' : '').
 	    ' |' ;
 
+	printf("%s\n", $p['fqcn']);
 }
 
 $file   = __DIR__.'/../README.md';
