@@ -18,6 +18,8 @@ use function sprintf, strip_tags;
 /**
  * @see https://wiki.openstreetmap.org/wiki/API
  * @see https://wiki.openstreetmap.org/wiki/OAuth
+ *
+ * @deprecated https://github.com/openstreetmap/operations/issues/867
  */
 class OpenStreetmap extends OAuth1Provider{
 
