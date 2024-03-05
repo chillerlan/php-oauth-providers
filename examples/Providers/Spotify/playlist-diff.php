@@ -8,11 +8,6 @@
  * @license      MIT
  */
 
-/**
- * @var \OAuthProviderFactory $factory
- * @var \chillerlan\OAuth\Providers\Spotify $spotify
- * @var string $ENVVAR
- */
 require_once __DIR__.'/spotify-common.php';
 
 class PlaylistDiff extends SpotifyClient{
@@ -34,6 +29,12 @@ class PlaylistDiff extends SpotifyClient{
 	}
 
 };
+
+/**
+ * @var \OAuthProviderFactory $factory
+ * @var \chillerlan\OAuth\Providers\Spotify $spotify
+ * @var string $ENVVAR
+ */
 
 $spotify = $factory->getProvider(PlaylistDiff::class, $ENVVAR);
 $spotify->diff('37i9dQZF1DX4UtSsGT1Sbe', '37i9dQZF1DXb57FjYWz00c', true);

@@ -27,7 +27,7 @@ use chillerlan\HTTP\Utils\MessageUtil;
 require_once __DIR__.'/spotify-common.php';
 
 $logger         = $factory->getLogger();
-$requestFactory ??= $factory->getRequestFactory();
+$requestFactory = $factory->getRequestFactory();
 
 $file    ??= __DIR__.'/mixesdb-data.json';
 $baseURL   = 'https://www.mixesdb.com';
