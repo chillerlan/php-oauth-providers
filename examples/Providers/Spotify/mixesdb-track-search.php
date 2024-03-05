@@ -11,18 +11,13 @@
  * @license      MIT
  */
 
-namespace chillerlan\OAuthExamples\Providers\Spotify;
-
-use function file_exists;
-use function strtotime;
-
 /**
+ * @var \OAuthProviderFactory $factory
  * @var \chillerlan\OAuth\Providers\Spotify $spotify
- * @var \Psr\Http\Message\RequestFactoryInterface $requestFactory
- * @var \Psr\Log\LoggerInterface $logger
- * @var string $CFGDIR
+ * @var string $ENVVAR
  */
 require_once __DIR__.'/spotify-common.php';
+require_once __DIR__.'/MixesDBTrackSearch.php';
 
 $file           = __DIR__.'/clubnights.json';
 $since          = strtotime('1990-05-05'); // first clubnight: 1990-05-05
@@ -35,8 +30,7 @@ if(!file_exists($file)){
 	include __DIR__.'/mixesdb-scrape.php';
 }
 
-$client = new MixesDBTrackSearch($spotify, $logger);
-
-$client->getTracks($file, $since, $until, $find, $limit, $playlistPerSet);
+$spotify = $factory->getProvider(MixesDBTrackSearch::class, $ENVVAR);
+$spotify->getTracks($file, $since, $until, $find, $limit, $playlistPerSet);
 
 exit;

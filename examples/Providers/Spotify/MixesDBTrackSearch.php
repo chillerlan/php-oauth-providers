@@ -8,22 +8,7 @@
  * @license      MIT
  */
 
-namespace chillerlan\OAuthExamples\Providers\Spotify;
-
 use chillerlan\HTTP\Utils\MessageUtil;
-use function array_column;
-use function array_map;
-use function array_merge;
-use function explode;
-use function file_get_contents;
-use function implode;
-use function json_decode;
-use function preg_replace;
-use function sprintf;
-use function str_replace;
-use function strtotime;
-use function trim;
-use function usleep;
 
 /**
  *
@@ -35,11 +20,11 @@ class MixesDBTrackSearch extends SpotifyClient{
 	 */
 	public function getTracks(
 		string $clubnightsJSON,
-		int $since,
-		int $until,
-		array $find = [],
-		int $limit = 5,
-		bool $playlistPerSet = false,
+		int    $since,
+		int    $until,
+		array  $find = [],
+		int    $limit = 5,
+		bool   $playlistPerSet = false,
 	):void{
 		$clubnights = json_decode(file_get_contents($clubnightsJSON), true);
 		$tracks     = [];
@@ -69,7 +54,7 @@ class MixesDBTrackSearch extends SpotifyClient{
 
 					$this->logger->info(sprintf('search: %s', $track));
 
-					$response = $this->spotify->request('/v1/search', [
+					$response = $this->request('/v1/search', [
 						'q'      => $this->getSearchTerm($track),
 						'type'   => 'track',
 						'limit'  => $limit,

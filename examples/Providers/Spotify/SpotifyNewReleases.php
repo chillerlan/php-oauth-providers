@@ -8,22 +8,7 @@
  * @license      MIT
  */
 
-namespace chillerlan\OAuthExamples\Providers\Spotify;
-
 use chillerlan\HTTP\Utils\MessageUtil;
-use function array_chunk;
-use function array_column;
-use function array_shift;
-use function array_values;
-use function date;
-use function explode;
-use function implode;
-use function krsort;
-use function mktime;
-use function sprintf;
-use function strtolower;
-use function strtotime;
-use function usleep;
 
 /**
  *
@@ -36,12 +21,12 @@ class SpotifyNewReleases extends SpotifyClient{
 	 * the script runner
 	 */
 	public function getNewReleases(
-		int $since,
-		int $until,
-		int $minTracks,
-		bool $skipVariousArtist,
-		bool $skipAppearsOn,
-		bool $fromCache,
+		int    $since,
+		int    $until,
+		int    $minTracks,
+		bool   $skipVariousArtist,
+		bool   $skipAppearsOn,
+		bool   $fromCache,
 		string $cacheDir = __DIR__,
 	):void{
 		$loaded = $fromCache && $this->loadFromFile(['artists', 'albums'], $cacheDir);
@@ -133,7 +118,7 @@ class SpotifyNewReleases extends SpotifyClient{
 
 		// fetch the album tracks (why aren't the tracks in the albums response???)
 		foreach(array_chunk(array_values($this->newAlbums), 20, true) as $chunk){ // API max = 20 albums
-			$albums = $this->spotify->request('/v1/albums', ['ids' => implode(',', $chunk), 'market' => $this->market]);
+			$albums = $this->request('/v1/albums', ['ids' => implode(',', $chunk), 'market' => $this->market]);
 			$data   = MessageUtil::decodeJSON($albums);
 
 			if(!isset($data->albums)){

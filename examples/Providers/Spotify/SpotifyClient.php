@@ -8,32 +8,23 @@
  * @license      MIT
  */
 
-namespace chillerlan\OAuthExamples\Providers\Spotify;
-
 use chillerlan\HTTP\Utils\MessageUtil;
+use chillerlan\OAuth\OAuthOptions;
 use chillerlan\OAuth\Providers\Spotify;
+use chillerlan\OAuth\Storage\MemoryStorage;
+use chillerlan\OAuth\Storage\OAuthStorageInterface;
+use chillerlan\Settings\SettingsContainerInterface;
+use Psr\Http\Client\ClientInterface;
+use Psr\Http\Message\RequestFactoryInterface;
+use Psr\Http\Message\StreamFactoryInterface;
+use Psr\Http\Message\UriFactoryInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
-use RuntimeException;
-use function array_chunk;
-use function array_map;
-use function array_values;
-use function file_exists;
-use function file_get_contents;
-use function file_put_contents;
-use function json_decode;
-use function json_encode;
-use function rtrim;
-use function sprintf;
-use function usleep;
-use const JSON_PRETTY_PRINT;
-use const JSON_UNESCAPED_SLASHES;
-use const JSON_UNESCAPED_UNICODE;
 
 /**
  *
  */
-abstract class SpotifyClient{
+class SpotifyClient extends Spotify{
 
 	protected const sleepTimer = 250000; // sleep between requests (µs)
 
@@ -43,13 +34,19 @@ abstract class SpotifyClient{
 	protected array  $artists = [];
 	protected array  $albums = [];
 
-	/**
-	 *
-	 */
 	public function __construct(
-		protected Spotify $spotify,
-		protected LoggerInterface $logger = new NullLogger(),
+		OAuthOptions|SettingsContainerInterface $options,
+		ClientInterface                         $http,
+		RequestFactoryInterface                 $requestFactory,
+		StreamFactoryInterface                  $streamFactory,
+		UriFactoryInterface                     $uriFactory,
+		OAuthStorageInterface                   $storage = new MemoryStorage,
+		LoggerInterface                         $logger = new NullLogger
 	){
+		parent::__construct($options, $http, $requestFactory, $streamFactory, $uriFactory, $storage, $logger);
+
+		// set the servicename to the original provider's name so that we use the same tokens
+		$this->serviceName = 'Spotify';
 		$this->getMe();
 	}
 
@@ -95,7 +92,7 @@ abstract class SpotifyClient{
 	 * fetch the currently authenticated user
 	 */
 	protected function getMe():void{
-		$me = $this->spotify->request('/v1/me');
+		$me = $this->me();
 
 		if($me->getStatusCode() !== 200){
 			throw new RuntimeException('could not fetch data from /me endpoint');
@@ -125,7 +122,7 @@ abstract class SpotifyClient{
 		];
 
 		do{
-			$meFollowing = $this->spotify->request('/v1/me/following', $params);
+			$meFollowing = $this->request('/v1/me/following', $params);
 			$data        = MessageUtil::decodeJSON($meFollowing);
 
 			if($meFollowing->getStatusCode() === 200){
@@ -167,7 +164,7 @@ abstract class SpotifyClient{
 
 		foreach($this->artists as $artistID => $artist){
 			// WTB bulk endpoint /artists/albums?ids=artist_id1,artist_id2,...
-			$artistAlbums = $this->spotify->request(sprintf('/v1/artists/%s/albums', $artistID), ['market' => $this->market]);
+			$artistAlbums = $this->request(sprintf('/v1/artists/%s/albums', $artistID), ['market' => $this->market]);
 
 			if($artistAlbums->getStatusCode() !== 200){
 				$this->logger->warning(sprintf('could not fetch albums for artist "%s"', $artist->name));
@@ -212,7 +209,7 @@ abstract class SpotifyClient{
 		$retry  = 0;
 
 		do{
-			$response = $this->spotify->request(sprintf('/v1/playlists/%s/tracks', $playlistID), $params);
+			$response = $this->request(sprintf('/v1/playlists/%s/tracks', $playlistID), $params);
 
 			if($retry > 3){
 				throw new RuntimeException('error while retrieving playlist');
@@ -254,7 +251,7 @@ abstract class SpotifyClient{
 	 */
 	public function createPlaylist(string $name, string $description):string{
 
-		$createPlaylist = $this->spotify->request(
+		$createPlaylist = $this->request(
 			path   : sprintf('/v1/users/%s/playlists', $this->id),
 			method : 'POST',
 			body   : [
@@ -296,7 +293,7 @@ abstract class SpotifyClient{
 
 		foreach($uris as $i => $chunk){
 
-			$playlistAddTracks = $this->spotify->request(
+			$playlistAddTracks = $this->request(
 				path   : sprintf('/v1/playlists/%s/tracks', $playlistID),
 				method : 'POST',
 				body   : ['uris' => $chunk],

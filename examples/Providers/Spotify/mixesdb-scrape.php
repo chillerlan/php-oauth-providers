@@ -16,29 +16,18 @@
  * @noinspection PhpComposerExtensionStubsInspection
  */
 
-namespace chillerlan\OAuthExamples\Providers\Spotify;
-
 use chillerlan\HTTP\Utils\MessageUtil;
-use DOMDocument;
-use function file_put_contents;
-use function json_encode;
-use function libxml_use_internal_errors;
-use function preg_match;
-use function sprintf;
-use function trim;
-use function usleep;
-use const JSON_PRETTY_PRINT;
-use const JSON_UNESCAPED_SLASHES;
-use const JSON_UNESCAPED_UNICODE;
-use const XML_ELEMENT_NODE;
 
 /**
- * @var \Psr\Http\Client\ClientInterface $http
- * @var \Psr\Http\Message\RequestFactoryInterface $requestFactory
+ * @var \OAuthProviderFactory $factory
+ * @var \chillerlan\OAuth\Providers\Spotify $spotify
  * @var \Psr\Log\LoggerInterface $logger
  * @var string $file
  */
 require_once __DIR__.'/spotify-common.php';
+
+$logger         = $factory->getLogger();
+$requestFactory ??= $factory->getRequestFactory();
 
 $file    ??= __DIR__.'/mixesdb-data.json';
 $baseURL   = 'https://www.mixesdb.com';
@@ -53,7 +42,7 @@ do{
 
 	// fetch the category page
 	$catRequest  = $requestFactory->createRequest('GET', $baseURL.$catPath);
-	$catResponse = $http->sendRequest($catRequest);
+	$catResponse = $spotify->sendRequest($catRequest);
 
 	if($catResponse->getStatusCode() !== 200){
 		break;
@@ -80,7 +69,7 @@ do{
 
 		// fetch the page
 		$pageRequest  = $requestFactory->createRequest('GET', $baseURL.$page);
-		$pageResponse = $http->sendRequest($pageRequest);
+		$pageResponse = $spotify->sendRequest($pageRequest);
 
 		if($pageResponse->getStatusCode() !== 200){
 			continue;

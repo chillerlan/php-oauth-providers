@@ -10,26 +10,12 @@
 
 namespace chillerlan\OAuthExamples\Providers\Spotify;
 
-use chillerlan\OAuth\Core\AccessToken;
 use chillerlan\OAuth\Providers\Spotify;
-use function file_get_contents;
 
 $ENVVAR = 'SPOTIFY';
 
-/**
- * @var \Psr\Http\Client\ClientInterface $http
- * @var \chillerlan\Settings\SettingsContainerInterface $options
- * @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage
- * @var \Psr\Log\LoggerInterface $logger
- * @var string $CFGDIR
- */
+require_once __DIR__.'/../../provider-example-common.php';
+require_once __DIR__.'/SpotifyClient.php';
 
-require_once __DIR__.'/../provider-api-example-common.php';
-
-$spotify = new Spotify($http, $options, $logger);
-$spotify->setStorage($storage);
-
-if(!$storage->hasAccessToken()){
-	$token = (new AccessToken)->fromJSON(file_get_contents(($CFGDIR ?? '').'/Spotify.token.json'));
-	$spotify->storeAccessToken($token);
-}
+/** @var \OAuthProviderFactory $factory */
+$spotify = $factory->getProvider(Spotify::class, $ENVVAR);

@@ -13,55 +13,16 @@
  * @noinspection PhpComposerExtensionStubsInspection
  */
 
-namespace chillerlan\OAuthExamples\Providers\LastFM;
-
 use chillerlan\HTTP\Utils\MessageUtil;
-use Exception;
-use function array_column;
-use function array_shift;
-use function count;
-use function dirname;
-use function file_exists;
-use function file_get_contents;
-use function file_put_contents;
-use function header;
-use function imagecolorallocate;
-use function imagecopyresampled;
-use function imagecreatefromgif;
-use function imagecreatefromjpeg;
-use function imagecreatefrompng;
-use function imagecreatetruecolor;
-use function imagedestroy;
-use function imagefill;
-use function imagejpeg;
-use function imagesx;
-use function imagesy;
-use function intval;
-use function json_decode;
-use function json_encode;
-use function max;
-use function min;
-use function mkdir;
-use function parse_url;
-use function sha1;
-use function strlen;
-use function substr;
-use function trim;
-use const JSON_PRETTY_PRINT;
-use const PHP_URL_PATH;
-
-$ENVVAR = 'LASTFM';
 
 /**
- * @var \Psr\Log\LoggerInterface $logger
  * @var \chillerlan\OAuth\Providers\LastFM $lfm
  */
 
 require_once __DIR__.'/lastfm-common.php';
 
-$urlcache  = './urlcache';
-$imgcache  = './cache'; // public access
-
+$urlcache  = './urlcache'; // downloaded album covers
+$imgcache  = './cache';    // generated patchworks
 
 try{
 	$request = json_decode(file_get_contents('php://input'));
@@ -115,13 +76,19 @@ try{
 			continue;
 		}
 
-		$path  = getImage($img[(count($img) - 1)]->{'#text'}, $urlcache);
-		$ext   = substr($path, (strlen($path) - 3));
-		$res[] = match($ext){
-			'jpg' => imagecreatefromjpeg($path),
-			'png' => imagecreatefrompng($path),
-			'gif' => imagecreatefromgif($path),
-		};
+		try{
+			$path = getImage($img[(count($img) - 1)]->{'#text'}, $urlcache);
+			$ext  = pathinfo($path, PATHINFO_EXTENSION);
+
+			$res[] = match($ext){
+				'jpg' => imagecreatefromjpeg($path),
+				'png' => imagecreatefrompng($path),
+				'gif' => imagecreatefromgif($path),
+			};
+		}
+		catch(Throwable){
+			continue;
+		}
 	}
 
 	$patchwork = imagecreatetruecolor(($cols * $imageSize), ($rows * $imageSize));
@@ -160,7 +127,6 @@ catch(Exception $e){
 exit;
 
 function getImage(string $url, string $urlcache):string{
-
 	$path = parse_url($url, PHP_URL_PATH);
 
 	if(file_exists($urlcache.$path)){

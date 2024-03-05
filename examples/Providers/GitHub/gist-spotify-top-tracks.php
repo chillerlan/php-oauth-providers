@@ -8,11 +8,7 @@
  * @license      MIT
  */
 
-namespace chillerlan\OAuthAppExamples\GitHub;
-
 use chillerlan\HTTP\Utils\MessageUtil;
-use RuntimeException;
-use function sprintf;
 
 /**
  * invoke the spotify client first
@@ -22,11 +18,13 @@ use function sprintf;
 require_once __DIR__.'/../Spotify/spotify-common.php';
 
 /**
- * @var \chillerlan\OAuth\Providers\GitHub $github
- * @var \Psr\Log\LoggerInterface           $logger
+ * @var \OAuthProviderFactory               $factory
+ * @var \chillerlan\OAuth\Providers\GitHub  $github
  */
 
 require_once __DIR__.'/github-common.php';
+
+$logger      = $factory->getLogger();
 
 $gistID      = null; // set to null to create a new gist
 $gistname    = '🎵 My Spotify Top Tracks';

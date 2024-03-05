@@ -12,17 +12,14 @@
  * @license      MIT
  */
 
-namespace chillerlan\OAuthExamples\Providers\Spotify;
-
-use function strtotime;
-use function time;
-
 /**
+ * @var \OAuthProviderFactory $factory
  * @var \chillerlan\OAuth\Providers\Spotify $spotify
- * @var \Psr\Log\LoggerInterface $logger
+ * @var string $ENVVAR
  */
 
 require_once __DIR__.'/spotify-common.php';
+require_once __DIR__.'/SpotifyNewReleases.php';
 
 $since             = strtotime('last Saturday'); // (time() - 7 * 86400); // last week
 $until             = time();                     // adjust to your likes
@@ -31,9 +28,8 @@ $skipAppearsOn     = true;
 $skipVariousArtist = true;
 $fromCache         = false;
 
-$client = new SpotifyNewReleases($spotify, $logger);
-
-$client->getNewReleases($since, $until, $minTracks, $skipVariousArtist, $skipAppearsOn, $fromCache);
+$spotify = $factory->getProvider(SpotifyNewReleases::class, $ENVVAR);
+$spotify->getNewReleases($since, $until, $minTracks, $skipVariousArtist, $skipAppearsOn, $fromCache);
 
 /*
 // crawl for yearly album releases in the given range

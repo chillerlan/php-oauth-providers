@@ -79,7 +79,7 @@ class OAuthExampleSessionStorage extends SessionStorage{
 			}
 		}
 
-		throw new OAuthStorageException('token not found');
+		throw new OAuthStorageException(sprintf('token for service "%s" not found', $service));
 	}
 
 }

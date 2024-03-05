@@ -8,28 +8,18 @@
  * @license      MIT
  */
 
-namespace chillerlan\OAuthExamples\Providers\Spotify;
-
-use function array_diff;
-use function array_keys;
-use function sprintf;
-
 /**
+ * @var \OAuthProviderFactory $factory
  * @var \chillerlan\OAuth\Providers\Spotify $spotify
- * @var \Psr\Http\Message\RequestFactoryInterface $requestFactory
- * @var \Psr\Log\LoggerInterface $logger
- * @var string $CFGDIR
- *
- * @phan-suppress PhanInvalidCommentForDeclarationType
+ * @var string $ENVVAR
  */
 require_once __DIR__.'/spotify-common.php';
 
-$client = new class ($spotify, $logger) extends SpotifyClient{
+class PlaylistDiff extends SpotifyClient{
 
-	public function playlistDiff(string $playlistID1, string $playlistID2, bool $createAsPlaylist = false):array{
-		$p1 = array_keys($this->getPlaylist($playlistID1));
-		$p2 = array_keys($this->getPlaylist($playlistID2));
-
+	public function diff(string $playlistID1, string $playlistID2, bool $createAsPlaylist = false):array{
+		$p1   = array_keys($this->getPlaylist($playlistID1));
+		$p2   = array_keys($this->getPlaylist($playlistID2));
 		$diff = array_diff($p1, $p2);
 
 		if($createAsPlaylist){
@@ -45,4 +35,5 @@ $client = new class ($spotify, $logger) extends SpotifyClient{
 
 };
 
-$client->playlistDiff('37i9dQZF1DX4UtSsGT1Sbe', '37i9dQZF1DXb57FjYWz00c', true);
+$spotify = $factory->getProvider(PlaylistDiff::class, $ENVVAR);
+$spotify->diff('37i9dQZF1DX4UtSsGT1Sbe', '37i9dQZF1DXb57FjYWz00c', true);
