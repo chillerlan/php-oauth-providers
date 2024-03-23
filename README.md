@@ -1,5 +1,7 @@
 # chillerlan/php-oauth-providers
 
+**ATTENTION: This library has been abandoned and archive in favor of [chillerlan/php-oauth](https://github.com/chillerlan/php-oauth)**
+
 [![PHP Version Support][php-badge]][php]
 [![Packagist version][packagist-badge]][packagist]
 [![License][license-badge]][license]
